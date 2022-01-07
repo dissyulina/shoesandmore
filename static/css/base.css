@@ -1,15 +1,55 @@
+body {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.text-headings {
+    font-family: 'DM Serif Display', serif;
+}
+
+.text-hero {
+    font-size: 5rem;
+}
+
+.nav-link {
+    color: #000;
+}
+
+.text-white {
+    color: #fff !important;
+}
+
 header {
     background-color: #E8DCD5;
+}
+
+.search-query {
+    max-width: 400px;
 }
 
 #delivery-banner {
     background-color: #B2675E;
 }
 
-body {
+.hero {
 	background: url('/media/hero.jpg') no-repeat center center fixed;
 	background-size: cover;
     height: calc(100vh - 164px);
-    color: #555;
-    font-family: "Lato";
+    margin-top: 167px;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 40%);
+    height: 100%;
+}
+
+.logo {
+    background: url('/media/logo1.jpg') no-repeat center center;
+    background-size: contain;
+    height: 80px;
+    width: 100px;
+}
+
+.btn-beige {
+    background-color: #E8DCD5;
+    padding: 0.75rem 1.5rem; 
 }
