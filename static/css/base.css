@@ -1,0 +1,15 @@
+header {
+    background-color: #E8DCD5;
+}
+
+#delivery-banner {
+    background-color: #B2675E;
+}
+
+body {
+	background: url('/media/hero.jpg') no-repeat center center fixed;
+	background-size: cover;
+    height: calc(100vh - 164px);
+    color: #555;
+    font-family: "Lato";
+}
