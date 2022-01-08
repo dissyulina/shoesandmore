@@ -45,8 +45,8 @@
         <title>Shoes & More {% block extra_title %}{% endblock %}</title>
     </head>
     <body>
-        <header class="container-fluid fixed-top pt-md-1">
-            <div class="row">
+        <nav class="container-fluid fixed-top pt-md-1">
+            <div class="row d-none d-lg-flex">
                 <div class="col-12 col-md-4 col-lg-5 my-auto py-1 py-lg-0">
                     <form method="GET" action="">
                         <div class="input-group search-query">
@@ -63,7 +63,7 @@
                 <div class="col-12 col-md-4 col-lg-5 my-auto py-1 py-lg-0">
                     <ul class="list-inline list-unstyled text-center text-lg-end my-0">
                         <li class="list-inline-item dropdown">
-                            <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div class="text-center d-flex align-items-center">
                                     <span class="material-icons">person</span>
                                     <p class="my-0 d-none d-lg-inline"> Sign In</p>
@@ -105,46 +105,23 @@
                     </ul>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-none col-md-12">
-                    <ul class="list-inline list-unstyled text-center my-0">
-                        <li class="list-inline-item nav-item dropdown px-lg-3 ">
-                            <a class="nav-link" href="#" id="womenDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Women
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="womenDropdown">
-                                <li><a class="dropdown-item fw-bold" href="#">All Women's Shoes</a></li>
-                                <li><a class="dropdown-item ps-4" href="#">Boots</a></li>
-                                <li><a class="dropdown-item ps-4" href="#">Flats</a></li>
-                                <li><a class="dropdown-item ps-4" href="#">Sneakers</a></li>
-                                <li><a class="dropdown-item ps-4" href="#">Outdoor</a></li>
-                                <li><a class="dropdown-item ps-4" href="#">Sandals</a></li>
-                                <li><a class="dropdown-item ps-4" href="#">Oxfords</a></li>
-                                <li><a class="dropdown-item fw-bold" href="#">Accessories</a></li>
-                                <li><a class="dropdown-item fw-bold" href="#">SALE</a></li>
-                              </ul>
-                        </li>
-                        <li class="list-inline-item px-lg-3">
-                            <a class="nav-link" href="">Men</a>
-                        </li>
-                        <li class="list-inline-item px-lg-3">
-                            <a class="nav-link" href="">Kids</a>
-                        </li>
-                        <li class="list-inline-item px-lg-3">
-                            <a class="nav-link" href="">Accessories</a>
-                        </li>
-                        <li class="list-inline-item px-lg-3">
-                            <a class="nav-link" href="">SALE</a>
-                        </li>
-                    </ul>
+
+            <!-- Navigation Menu -->
+            <div class="navbar navbar-light navbar-expand-lg">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    {% include 'includes/main-nav.html' %}
                 </div>
             </div>
+
             <div id="delivery-banner" class="row text-center">
                 <div class="col text-white">
                     <h6 class="logo-font my-1">Free delivery on orders over ${{ free_delivery_threshold }}!</h6>                
                 </div>            
             </div>
-        </header>
+        </nav>
 
         {% if messages %}
             <div class="message-container"></div>

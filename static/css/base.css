@@ -18,7 +18,7 @@ body {
     color: #fff !important;
 }
 
-header {
+nav {
     background-color: #E8DCD5;
 }
 
@@ -49,7 +49,16 @@ header {
     width: 100px;
 }
 
+/* Buttons */
 .btn-beige {
     background-color: #E8DCD5;
     padding: 0.75rem 1.5rem; 
 }
+
+/* --------- MEDIA QUERIES --------- */
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+    .container {
+      max-width: 80%;
+    }
+  }
