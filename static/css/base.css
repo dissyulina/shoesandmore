@@ -6,28 +6,45 @@ body {
     font-family: 'DM Serif Display', serif;
 }
 
-.text-hero {
-    font-size: 5rem;
-}
-
-.nav-link {
-    color: #000;
-}
-
 .text-white {
     color: #fff !important;
 }
 
+/* Buttons */
+.btn-beige {
+    background-color: #E8DCD5;
+    padding: 0.75rem 1.5rem; 
+}
+
+/* Navbar */
+
 nav {
     background-color: #E8DCD5;
+}
+
+.nav-link {
+    color: #000;
+    padding: 0.5rem;
 }
 
 .search-query {
     max-width: 400px;
 }
 
+.navbar-toggler {
+    padding: 0.25rem 0.5rem;
+    font-size: 1rem;
+    line-height: 0.75;
+}
+
 #delivery-banner {
     background-color: #B2675E;
+}
+
+/* Hero */
+
+.text-hero {
+    font-size: 5rem;
 }
 
 .hero {
@@ -49,16 +66,29 @@ nav {
     width: 100px;
 }
 
-/* Buttons */
-.btn-beige {
-    background-color: #E8DCD5;
-    padding: 0.75rem 1.5rem; 
-}
 
 /* --------- MEDIA QUERIES --------- */
 /* Slightly larger container on xl screens */
-@media (min-width: 1200px) {
+@media screen and (min-width: 1200px) {
     .container {
       max-width: 80%;
     }
-  }
+}
+
+/* Mobile and tablet */
+@media screen and (max-width: 991px) {
+    .logo {
+        height: 50px;
+        width: 65px;
+    }
+
+    .hero {
+        background: url('/media/hero.jpg') no-repeat center center fixed;
+        background-size: cover;
+        height: calc(100vh - 109px);
+        margin-top: 109px;
+    }
+    .text-hero {
+        font-size: 3rem;
+    }
+    
