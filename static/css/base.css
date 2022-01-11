@@ -41,6 +41,10 @@ nav {
     background-color: #B2675E;
 }
 
+.navbar-offset {
+    padding-top: 183px;
+}
+
 /* Hero */
 
 .text-hero {
@@ -91,4 +95,14 @@ nav {
     .text-hero {
         font-size: 3rem;
     }
-    
+    .navbar-offset {
+        padding-top: 113px;
+    }
+}
+
+/* Very small mobile */
+@media screen and (max-width: 355px) {
+    .navbar-offset {
+        padding-top: 155px;
+    }
+}

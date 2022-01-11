@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="navbar-offset">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+    <section>
+        <!-- side nav -->
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    {{ products }}
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
