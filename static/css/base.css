@@ -70,6 +70,12 @@ nav {
     width: 100px;
 }
 
+/* Products Page */
+.card {
+    width: 15rem;
+    font-size: 0.8rem;
+    margin-bottom: 2rem;
+}
 
 /* --------- MEDIA QUERIES --------- */
 /* Slightly larger container on xl screens */
