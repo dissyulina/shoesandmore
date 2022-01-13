@@ -13,7 +13,29 @@
                     <!-- side nav -->
                 </div>
                 <div class="col-12 col-lg-10">
-                    <div class="row mt-5">
+                    <div class="">
+                        <div class="input-group mb-3">
+                            <!-- Sorting -->
+                            <div>
+                                <a class="nav-link" href="#" id="sortDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Sort by 
+                                    <span class="material-icons">expand_more</span>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="sortDropdown">
+                                    <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&subcategory={{ var_subcategory }}&sort=price&direction=asc">By Price (Lowest to Highest)</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&subcategory={{ var_subcategory }}&sort=price&direction=desc">By Price (Highest to Lowest)</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&subcategory={{ var_subcategory }}&sort=subcategory&direction=asc">By Category</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&subcategory={{ var_subcategory }}&sort=rating&direction=desc">By Rating</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Filtering -->
+                        <div>
+                            
+                        </div>
+                    </div>
+                    <div class="row mt-5 product-wrapper">
                         {% for product in products %}
                         <div class="col-6 col-md-4 col-lg-3">
                             <div class="card">
