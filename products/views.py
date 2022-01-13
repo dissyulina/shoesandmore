@@ -59,19 +59,20 @@ def all_products(request):
             queries = Q(name__icontains=query)
             products = products.filter(queries)
 
-    # current_sorting = f'{sort}_{direction}'
+    current_sorting = f'{sort}_{direction}'
   
     context = {
         'products': products,
         'search_term': query,
         'current_categories': categories,
         'current_subcategories': subcategories,
+        'current_sorting': sort,
         'var_category': var_category,
         'var_subcategory': var_subcategory,
     }
-
+    print(var_category)
+    print(var_subcategory)
     return render(request, 'products/products.html', context)
-
 
 
 def product_detail(request, product_id):

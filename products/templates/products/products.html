@@ -10,28 +10,97 @@
         <div class="container-xxl">
             <div class="row">
                 <div class="col-lg-2 d-none d-lg-block">
-                    <!-- side nav -->
+                    {% if var_category == "women" %}
+                        <ul class="list-unstyled" aria-labelledby="womenDropdown">
+                            <li class="nav-item">
+                                <a class="nav-link {% if var_subcategory == 'sandals' %}fw-bold{% endif %}" 
+                                href="{% url 'products' %}?category=women&subcategory=sandals">Sandals</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {% if var_subcategory == 'slippers' %}fw-bold{% endif %}" 
+                                href="{% url 'products' %}?category=women&subcategory=slippers">Slippers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {% if var_subcategory == 'mules' %}fw-bold{% endif %}" 
+                                href="{% url 'products' %}?category=women&subcategory=mules">Mules</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {% if var_subcategory == 'loafers' %}fw-bold{% endif %}" 
+                                href="{% url 'products' %}?category=women&subcategory=loafers">Loafers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {% if var_subcategory == 'oxfords' %}fw-bold{% endif %}" 
+                                href="{% url 'products' %}?category=women&subcategory=oxfords">Oxfords</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {% if var_subcategory == 'flats' %}fw-bold{% endif %}" 
+                                href="{% url 'products' %}?category=women&subcategory=flats">Flats</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {% if var_subcategory == 'heels' %}fw-bold{% endif %}" 
+                                href="{% url 'products' %}?category=women&subcategory=heels">High Heels</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {% if var_subcategory == 'sneakers' %}fw-bold{% endif %}" 
+                                href="{% url 'products' %}?category=women&subcategory=sneakers">Sneakers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {% if var_subcategory == 'boots' %}fw-bold{% endif %}" 
+                                href="{% url 'products' %}?category=women&subcategory=boots">Boots</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {% if var_subcategory == 'outdoors' %}fw-bold{% endif %}" 
+                                href="{% url 'products' %}?category=women&subcategory=outdoors">Outdoors</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {% if var_subcategory == 'accessories' %}fw-bold{% endif %}" 
+                                href="{% url 'products' %}?category=women&subcategory=accessories">Accessories</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {% if var_subcategory == 'sale' %}fw-bold{% endif %}" 
+                                href="{% url 'products' %}?category=women&subcategory=sale">SALE</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {% if var_subcategory == 'new_arrivals' %}fw-bold{% endif %}" 
+                                href="{% url 'products' %}?category=women&subcategory=new_arrivals">New Arrivals</a>
+                            </li>
+                        </ul>
+                    {% endif %}
                 </div>
                 <div class="col-12 col-lg-10">
+                    <h2 class="logo-font text-center">Products</h2>
                     <div class="">
-                        <div class="input-group mb-3">
+                        <div class="mb-3 d-flex flex-row">
+                            <div class="flex-grow-1">
+                                <p class="text-muted mt-3 text-center text-md-start">
+                                    {% if search_term or current_categories or current_sorting != 'None_None' %}
+                                        <span class="small"><a href="{% url 'products' %}">Products Home</a> | </span>
+                                    {% endif %}
+                                    {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+                                </p>
+                            </div>
                             <!-- Sorting -->
-                            <div>
+                            <div class="">
                                 <a class="nav-link" href="#" id="sortDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Sort by 
-                                    <span class="material-icons">expand_more</span>
+                                    <span class="material-icons">arrow_drop_down</span>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="sortDropdown">
                                     <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&subcategory={{ var_subcategory }}&sort=price&direction=asc">By Price (Lowest to Highest)</a></li>
                                     <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&subcategory={{ var_subcategory }}&sort=price&direction=desc">By Price (Highest to Lowest)</a></li>
-                                    <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&subcategory={{ var_subcategory }}&sort=subcategory&direction=asc">By Category</a></li>
                                     <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&subcategory={{ var_subcategory }}&sort=rating&direction=desc">By Rating</a></li>
                                 </ul>
                             </div>
-                        </div>
 
-                        <!-- Filtering -->
-                        <div>
+                            
+                            <!-- Filtering -->
+                            {% if var_subcategory == None %}
+                                {% if var_category == None %}
+                                    <a class="category-badge text-decoration-none" href="{% url 'products' %}?category={{ sc.name }}">
+                                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">{{ sc.friendly_name }}</span>
+                                    </a>
+                                {% endif %}
+                            {% endif %}
                             
                         </div>
                     </div>
