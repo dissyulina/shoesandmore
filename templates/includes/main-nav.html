@@ -8,22 +8,53 @@
                 Women
             </a>
             <ul class="dropdown-menu" aria-labelledby="womenDropdown">
-                <li><a class="dropdown-item fw-bold" href="#">All Women's Shoes</a></li>
-                <li><a class="dropdown-item ps-4" href="#">Boots</a></li>
-                <li><a class="dropdown-item ps-4" href="#">Flats</a></li>
-                <li><a class="dropdown-item ps-4" href="#">Sneakers</a></li>
-                <li><a class="dropdown-item ps-4" href="#">Outdoor</a></li>
-                <li><a class="dropdown-item ps-4" href="#">Sandals</a></li>
-                <li><a class="dropdown-item ps-4" href="#">Oxfords</a></li>
-                <li><a class="dropdown-item fw-bold" href="#">Accessories</a></li>
-                <li><a class="dropdown-item fw-bold" href="#">SALE</a></li>
+                <li><a class="dropdown-item fw-bold" href="{% url 'products' %}?category=women">All Women's Shoes</a></li>
+                <li><a class="dropdown-item ps-4" href="{% url 'products' %}?category=women&subcategory=sandals">Sandals</a></li>
+                <li><a class="dropdown-item ps-4" href="{% url 'products' %}?category=women&subcategory=slippers">Slippers</a></li>
+                <li><a class="dropdown-item ps-4" href="{% url 'products' %}?category=women&subcategory=mules">Mules</a></li>
+                <li><a class="dropdown-item ps-4" href="{% url 'products' %}?category=women&subcategory=loafers">Loafers</a></li>
+                <li><a class="dropdown-item ps-4" href="{% url 'products' %}?category=women&subcategory=oxfords">Oxfords</a></li>
+                <li><a class="dropdown-item ps-4" href="{% url 'products' %}?category=women&subcategory=flats">Flats</a></li>
+                <li><a class="dropdown-item ps-4" href="{% url 'products' %}?category=women&subcategory=heels">High Heels</a></li>
+                <li><a class="dropdown-item ps-4" href="{% url 'products' %}?category=women&subcategory=sneakers">Sneakers</a></li>
+                <li><a class="dropdown-item ps-4" href="{% url 'products' %}?category=women&subcategory=boots">Boots</a></li>
+                <li><a class="dropdown-item ps-4" href="{% url 'products' %}?category=women&subcategory=outdoors">Outdoors</a></li>
+                <li><a class="dropdown-item fw-bold" href="{% url 'products' %}?category=women&subcategory=accessories">Accessories</a></li>
+                <li><a class="dropdown-item fw-bold" href="{% url 'products' %}?category=women&subcategory=sale">SALE</a></li>
+                <li><a class="dropdown-item fw-bold" href="{% url 'products' %}?category=women&subcategory=new_arrivals">New Arrivals</a></li>
             </ul>
         </li>
-        <li class="nav-item px-lg-3">
-            <a class="nav-link" href="">Men</a>
+        <li class="nav-item dropdown px-lg-3">
+            <a class="nav-link" href="#" id="menDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Men
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="menDropdown">
+                <li><a class="dropdown-item fw-bold" href="{% url 'products' %}?category=men">All Men's Shoes</a></li>
+                <li><a class="dropdown-item ps-4" href="{% url 'products' %}?category=men&subcategory=sandals">Sandals</a></li>
+                <li><a class="dropdown-item ps-4" href="{% url 'products' %}?category=men&subcategory=slippers">Slippers</a></li>
+                <li><a class="dropdown-item ps-4" href="{% url 'products' %}?category=men&subcategory=loafers">Loafers</a></li>
+                <li><a class="dropdown-item ps-4" href="{% url 'products' %}?category=men&subcategory=oxfords">Oxfords</a></li>
+                <li><a class="dropdown-item ps-4" href="{% url 'products' %}?category=men&subcategory=sneakers">Sneakers</a></li>
+                <li><a class="dropdown-item ps-4" href="{% url 'products' %}?category=men&subcategory=boots">Boots</a></li>
+                <li><a class="dropdown-item ps-4" href="{% url 'products' %}?category=men&subcategory=outdoors">Outdoors</a></li>
+                <li><a class="dropdown-item fw-bold" href="{% url 'products' %}?category=men&subcategory=accessories">Accessories</a></li>
+                <li><a class="dropdown-item fw-bold" href="{% url 'products' %}?category=men&subcategory=sale">SALE</a></li>
+                <li><a class="dropdown-item fw-bold" href="{% url 'products' %}?category=men&subcategory=new_arrivals">New Arrivals</a></li>
+            </ul>
         </li>
-        <li class="nav-item px-lg-3">
-            <a class="nav-link" href="">Kids</a>
+        <li class="nav-item dropdown px-lg-3">
+            <a class="nav-link" href="#" id="kidsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Kids
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="kidsDropdown">
+                <li><a class="dropdown-item fw-bold" href="{% url 'products' %}?category=kids">All Kids' Shoes</a></li>
+                <li><a class="dropdown-item ps-4" href="{% url 'products' %}?category=kids&subcategory=boots">Boots</a></li>
+                <li><a class="dropdown-item ps-4" href="{% url 'products' %}?category=kids&subcategory=sandals">Sandals</a></li>
+                <li><a class="dropdown-item ps-4" href="{% url 'products' %}?category=kids&subcategory=slippers">Slippers</a></li>
+                <li><a class="dropdown-item ps-4" href="{% url 'products' %}?category=kids&subcategory=sneakers">Sneakers</a></li>
+                <li><a class="dropdown-item fw-bold" href="{% url 'products' %}?category=kids&subcategory=sale">SALE</a></li>
+                <li><a class="dropdown-item fw-bold" href="{% url 'products' %}?category=kids&subcategory=new_arrivals">New Arrivals</a></li>
+            </ul>
         </li>
         <li class="nav-item px-lg-3">
             <a class="nav-link" href="">Accessories</a>

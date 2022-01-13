@@ -4,7 +4,7 @@
         "model": "products.category",
         "fields": {
             "name": "women",
-            "friendly_name": "Womens"
+            "friendly_name": "Women"
         }
     },
     {
@@ -21,14 +21,6 @@
         "fields": {
             "name": "kids",
             "friendly_name": "Kids"
-        }
-    },
-    {
-        "pk": 4,
-        "model": "products.category",
-        "fields": {
-            "name": "accessories",
-            "friendly_name": "Accessories"
         }
     }
 ]

@@ -19,7 +19,7 @@
         "pk": 3,
         "model": "products.subcategory",
         "fields": {
-            "name": "oxford",
+            "name": "oxfords",
             "friendly_name": "Oxfords and Loafers"
         }
     },
@@ -59,7 +59,7 @@
         "pk": 8,
         "model": "products.subcategory",
         "fields": {
-            "name": "outdoor",
+            "name": "outdoors",
             "friendly_name": "Outdoor"
         }
     },
@@ -85,6 +85,22 @@
         "fields": {
             "name": "sale",
             "friendly_name": "Sale"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "products.subcategory",
+        "fields": {
+            "name": "accessories",
+            "friendly_name": "Accessories"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "products.subcategory",
+        "fields": {
+            "name": "new_arrivals",
+            "friendly_name": "New Arrivals"
         }
     }
 ]
