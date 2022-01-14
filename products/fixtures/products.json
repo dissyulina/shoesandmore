@@ -256,7 +256,7 @@
          "category":1,
          "subcategory":1,
          "rating":4.5,
-         "image":"19.jpg"
+         "image":"20.jpg"
       }
    },
    {
@@ -387,6 +387,149 @@
          "subcategory":2,
          "rating":4.3,
          "image":"30.jpg"
+      }
+   },
+   {
+      "pk":44,
+      "model":"products.product",
+      "fields":{
+         "sku":"bt-bl-0000044",
+         "name":"Black Burberry Boots",
+         "price":105.99,
+         "category":1,
+         "subcategory":11,
+         "rating":4.2,
+         "image":"44.jpg"
+      }
+   },
+   {
+      "pk":65,
+      "model":"products.product",
+      "fields":{
+         "sku":"bt-br-0000065",
+         "name":"Brown Suede Autumn Boots",
+         "price":25.99,
+         "category":1,
+         "subcategory":11,
+         "rating":3.5,
+         "image":"65.jpg"
+      }
+   },
+   {
+      "pk":94,
+      "model":"products.product",
+      "fields":{
+         "sku":"lo-br-0000094",
+         "name":"Brown Timberland Loafers",
+         "price":54.99,
+         "category":2,
+         "subcategory":11,
+         "rating":4.5,
+         "image":"94.jpg"
+      }
+   },
+   {
+      "pk":95,
+      "model":"products.product",
+      "fields":{
+         "sku":"ox-br-0000095",
+         "name":"Brown Timberland Oxfords",
+         "price":59.99,
+         "category":2,
+         "subcategory":13,
+         "rating":4.3,
+         "image":"95.jpg"
+      }
+   },
+   {
+      "pk":96,
+      "model":"products.product",
+      "fields":{
+         "sku":"ox-kh-0000096",
+         "name":"Khaki Timberland Oxfords",
+         "price":64.99,
+         "category":2,
+         "subcategory":13,
+         "rating":4.6,
+         "image":"96.jpg"
+      }
+   },
+   {
+      "pk":97,
+      "model":"products.product",
+      "fields":{
+         "sku":"bt-or-0000097",
+         "name":"Orange Warm Waterproof Boots",
+         "price":23.99,
+         "category":1,
+         "subcategory":11,
+         "rating":3.6,
+         "image":"97.jpg"
+      }
+   },
+   {
+      "pk":98,
+      "model":"products.product",
+      "fields":{
+         "sku":"ox-gr-0000098",
+         "name":"Grey High Heels Oxfords",
+         "price":39.99,
+         "category":1,
+         "subcategory":13,
+         "rating":4.3,
+         "image":"98.jpg"
+      }
+   },
+   {
+      "pk":99,
+      "model":"products.product",
+      "fields":{
+         "sku":"od-br-0000099",
+         "name":"Brown Outdoor Timberland Boots",
+         "price":44.99,
+         "category":2,
+         "subcategory":11,
+         "rating":4.3,
+         "image":"99.jpg"
+      }
+   },
+   {
+      "pk":100,
+      "model":"products.product",
+      "fields":{
+         "sku":"bt-bl-0000100",
+         "name":"Black Leather Boots",
+         "price":35.99,
+         "category":2,
+         "subcategory":11,
+         "rating":4.0,
+         "image":"100.jpg"
+      }
+   },
+   {
+      "pk":101,
+      "model":"products.product",
+      "fields":{
+         "sku":"ac-br-0000101",
+         "name":"Brown Leather Wallet",
+         "price":29.99,
+         "category":2,
+         "subcategory":12,
+         "rating":4.2,
+         "image":"101.jpg"
+      }
+   },
+   {
+      "pk":102,
+      "model":"products.product",
+      "fields":{
+         "sku":"ac-gr-0000102",
+         "name":"Green Small Bag",
+         "price":31.99,
+         "category":1,
+         "subcategory":12,
+         "rating":4.3,
+         "image":"102.jpg"
       }
    }
 ]
