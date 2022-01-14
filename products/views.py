@@ -3,9 +3,6 @@ from django.contrib import messages
 from django.db.models import Q
 from .models import Product, Category, Subcategory
 
-from django.template.loader import render_to_string
-from django.http import JsonResponse
-
 
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
@@ -48,6 +45,12 @@ def all_products(request):
                 products = products.filter(category__name__in=categories)
 
             categories = Category.objects.filter(name__in=categories)
+
+        if 'subcategory' in request.GET:
+            var_subcategory = request.GET['subcategory']
+            subcategories = request.GET['subcategory'].split(',')
+            products = products.filter(subcategory__name__in=subcategories)
+            subcategories = Subcategory.objects.filter(name__in=subcategories)
 
         if 'q' in request.GET:
             query = request.GET['q']
