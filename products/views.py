@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
+from django.db.models.functions import Lower
 from .models import Product, Category, Subcategory
 
 
@@ -79,7 +80,7 @@ def all_products(request):
     print("var_subcategory: ", var_subcategory)
     print("current_categories: ", categories)
     print("current_subcategories: ", subcategories)
-    print("sorting: ", sort)
+    print("current_sorting: ", sort)
 
     return render(request, 'products/products.html', context)
 

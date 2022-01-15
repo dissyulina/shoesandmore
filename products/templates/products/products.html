@@ -209,18 +209,22 @@
                                         <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&subcategory={{ var_subcategory }}&sort=price&direction=asc">By Price (Lowest to Highest)</a></li>
                                         <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&subcategory={{ var_subcategory }}&sort=price&direction=desc">By Price (Highest to Lowest)</a></li>
                                         <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&subcategory={{ var_subcategory }}&sort=rating&direction=desc">By Rating</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&subcategory={{ var_subcategory }}&sort=name&direction=asc">By Color</a></li>
                                     {% elif var_category and var_subcategory == None %}
                                         <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&sort=price&direction=asc">By Price (Lowest to Highest)</a></li>
                                         <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&sort=price&direction=desc">By Price (Highest to Lowest)</a></li>
                                         <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&sort=rating&direction=desc">By Rating</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&sort=name&direction=asc">By Color</a></li>
                                     {% elif var_category == None and var_subcategory %}
                                         <li><a class="dropdown-item" href="{% url 'products' %}?subcategory={{ var_subcategory }}&sort=price&direction=asc">By Price (Lowest to Highest)</a></li>
                                         <li><a class="dropdown-item" href="{% url 'products' %}?subcategory={{ var_subcategory }}&sort=price&direction=desc">By Price (Highest to Lowest)</a></li>
                                         <li><a class="dropdown-item" href="{% url 'products' %}?subcategory={{ var_subcategory }}&sort=rating&direction=desc">By Rating</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'products' %}?subcategory={{ var_subcategory }}&sort=name&direction=asc">By Color</a></li>
                                     {% else %}
                                         <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">By Price (Lowest to Highest)</a></li>
                                         <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=desc">By Price (Highest to Lowest)</a></li>
                                         <li><a class="dropdown-item" href="{% url 'products' %}?sort=rating&direction=desc">By Rating</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'products' %}?sort=name&direction=asc">By Color</a></li>
                                     {% endif %}
                                 </ul>
                             </div>
@@ -263,6 +267,21 @@
                 </div>
             </div>
         </div>
+        <!-- Back to top button -->
+        <div class="btt-button shadow-sm rounded-0">
+            <a class="btt-link d-flex h-100">
+                <span class="material-icons mx-auto my-auto">arrow_upward</span>
+            </a>	
+        </div>
     </section>
 
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+		$('.btt-link').click(function(e) {
+			window.scrollTo(0,0)
+		})
+	</script>
 {% endblock %}

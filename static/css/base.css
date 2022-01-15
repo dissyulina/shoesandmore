@@ -10,6 +10,11 @@ body {
     color: #fff !important;
 }
 
+a {
+    color: #000;
+    text-decoration: none;
+}
+
 /* Buttons */
 .btn-beige {
     background-color: #E8DCD5;
@@ -75,6 +80,19 @@ nav {
     width: 15rem;
     font-size: 0.8rem;
     margin-bottom: 2rem;
+}
+
+.btt-button {
+    background-color: #E8DCD5;
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link {
+    cursor: pointer;
 }
 
 /* --------- MEDIA QUERIES --------- */
