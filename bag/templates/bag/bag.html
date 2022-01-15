@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="navbar-offset"></div>
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="container">
+            <!-- Breadcrumb -->
+            <div class="mt-3" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                    {% if var_category %}
+                        <li class="breadcrumb-item active text-capitalize" aria-current="page">{{ var_category }}</li>
+                    {% else %}
+                        <li class="breadcrumb-item active" aria-current="page">All Products</li>
+                    {% endif %}
+                </ol>
+            </div>
+
+            <!-- Content -->
+            <div class="row">
+                <div class="col text-center">
+                    <h2 class="mb-4">Shopping Bag</h2>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col">
+                    {% if bag_items %}
+                        <div class="table-responsive rounded"></div>
+                    {% else %}
+                        <p class="lead text-center mb-5">Your bag is empty.</p>
+                        <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                            <span class="icon">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="text-uppercase">Keep Shopping</span>
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+            
+            
+                   
+               
+    </section>
+
+{% endblock %}

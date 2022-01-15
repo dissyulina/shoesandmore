@@ -52,7 +52,7 @@
         </a>
     </li>
     <li class="list-inline-item">
-        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none" href="">
+        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none" href="{% url 'view_bag' %}">
             <div class="text-center d-flex align-items-center">
                 <span class="material-icons">shopping_bag</span>
                 {% if grand_total %}
