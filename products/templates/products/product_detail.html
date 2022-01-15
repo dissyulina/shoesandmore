@@ -6,9 +6,17 @@
 {% endblock %}
 
 {% block content %}
-{ {product.category.friendly_name }} > {{ product.subcategory.friendly_name }}
+
     <section>
         <div class="container">
+            <!-- Breadcrumb -->
+            <div class="mt-3" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                    <li class="breadcrumb-item active text-capitalize" aria-current="page"><a href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'products' %}?category={{ product.category.name }}&subcategory={{ product.subcategory.name }}">{{ product.subcategory.friendly_name }}</a></li>
+                </ol>
+            </div>
             <div class="row mt-5">
                 <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
                     {% if product.image %}
@@ -26,9 +34,14 @@
                         <p class="card-text mb-0">{{ product.name }}</p>
                         <p class="mb-0 text-start fw-bold">${{ product.price }}</p>
                         {% if product.rating %}
-                            <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                            <small class="text-muted d-block"><span class="material-icons">star_rate</span></i>{{ product.rating }} / 5</small>
                         {% else %}
                             <small class="text-muted">No Rating</small>
+                        {% endif %}
+                        {% if product.category %}
+                            <small class="text-muted d-block"><span class="material-icons">sell</span>{{ product.category.friendly_name }}</small>
+                        {% else %}
+                            <small class="text-muted">No Category</small>
                         {% endif %}
                     </div>
                 </div>
