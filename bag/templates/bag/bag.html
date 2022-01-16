@@ -8,45 +8,100 @@
 {% block content %}
     <section>
         <div class="container">
-            <!-- Breadcrumb -->
-            <div class="mt-3" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-                    {% if var_category %}
-                        <li class="breadcrumb-item active text-capitalize" aria-current="page">{{ var_category }}</li>
-                    {% else %}
-                        <li class="breadcrumb-item active" aria-current="page">All Products</li>
-                    {% endif %}
-                </ol>
-            </div>
-
-            <!-- Content -->
             <div class="row">
                 <div class="col text-center">
-                    <h2 class="mb-4">Shopping Bag</h2>
+                    <h2 class="my-5 fw-bold">Shopping Bag</h2>
                 </div>
             </div>
-    
-            <div class="row">
-                <div class="col">
-                    {% if bag_items %}
+            {% if bag_items %}
+                <div class="row">
+                    <div class="col-12 col-lg-8">
                         <div class="table-responsive rounded"></div>
-                        {{ bag_items }}
-                    {% else %}
-                        <p class="lead text-center mb-5">Your bag is empty.</p>
-                        <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                            <span class="icon">
-                                <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="text-uppercase">Keep Shopping</span>
-                        </a>
-                    {% endif %}
+                        <table class="table table-sm table-borderless">
+                            <thead class="text-black">
+                                <tr>
+                                    <th scope="col">Product Info</th>
+                                    <th scope="col"></th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Qty</th>
+                                    <th scope="col">Subtotal</th>
+                                </tr>
+                            </thead>
+
+                            {% for item in bag_items %}
+                                <tr>
+                                    <td class="py-3 w-25">
+                                        <img class="img-fluid rounded" src="{{ item.product.image.url }}">
+                                    </td>
+                                    <td class="py-3">
+                                        <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                                        <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
+                                    </td>
+                                    <td class="py-3">
+                                        <p class="my-0">€{{ item.product.price }}</p>
+                                    </td>
+                                    <td class="py-3 w-25">
+                                        <p class="my-0">{{ item.quantity }}</p>
+                                    </td>
+                                    <td class="py-3">
+                                        <p class="my-0">€{{ item.product.price }}</p>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                    <div class="col-12 col-lg-4 mt-5 ps-5">
+                        <div class="border bg-beige p-4">
+                            <div class="d-flex justify-content-between">
+                                <h6>Bag Total: </h6>
+                                <h6>€{{ total|floatformat:2 }}</h6>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <h6>Delivery: </h6>
+                                <h6>€{{ delivery|floatformat:2 }}</h6>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between">
+                                <h6><strong>Grand Total: </strong></h6>
+                                <h6><strong>€{{ grand_total|floatformat:2 }}</strong></h6>
+                            </div>
+                            {% if free_delivery_delta > 0 %}
+                                <p class="mb-1 text-danger">
+                                    You could get free delivery by spending just <strong>€{{ free_delivery_delta }}</strong> more!
+                                </p>
+                            {% endif %}
+                            <div class="text-center mt-3">
+                                <a href="" class="btn btn-brown rounded-0 btn-lg">
+                                    <span class="text-uppercase">Secure Checkout</span>
+                                    <span class="icon">
+                                        <i class="fas fa-lock"></i>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="mt-5">
+                                <p>We accept</p>
+                            </div>
+                        </div>
+                        <div class="my-5 text-end">
+                            <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                                <span class="icon">
+                                    <i class="fas fa-chevron-left"></i>
+                                </span>
+                                <span class="text-uppercase">Keep Shopping</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            
-                   
-               
+            {% else %}
+                <p class="lead text-center mb-5">Your bag is empty.</p>
+                <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                    <span class="icon">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span class="text-uppercase">Keep Shopping</span>
+                </a>
+            {% endif %}
+        </div>
     </section>
 
 {% endblock %}

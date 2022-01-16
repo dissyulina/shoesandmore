@@ -15,17 +15,23 @@ a {
     text-decoration: none;
 }
 
+.bg-beige {
+    background-color: #E8DCD5;
+}
+
 /* Buttons */
 .btn-beige {
     background-color: #E8DCD5;
     padding: 0.75rem 1.5rem; 
 }
 
-/* Navbar */
-
-nav {
-    background-color: #E8DCD5;
+.btn-brown {
+    background-color: #644536;
+    padding: 0.75rem 1.5rem; 
+    color: #fff;
 }
+
+/* Navbar */
 
 .nav-link {
     color: #000;
