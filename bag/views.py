@@ -56,7 +56,6 @@ def adjust_bag(request, item_id):
 
     request.session['bag'] = bag
 
-    print ('range_quantity')
     return redirect(reverse('view_bag'))
 
 
@@ -80,4 +79,5 @@ def remove_from_bag(request, item_id):
         return HttpResponse(status=200)
 
     except Exception as e:
+        print("fail")
         return HttpResponse(status=500)

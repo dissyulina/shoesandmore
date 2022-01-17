@@ -133,18 +133,23 @@
 <script type="text/javascript">
     // Update quantity on change
     $('.quantity-update').on('change', function(e) {
-        console.log("hello");
+        
         $(this).closest('.update-form').submit();
         console.log($(this).closest('.update-form').attr('id'));
     })
 
     // Remove item and reload on click
     $('.remove-item').click(function(e) {
+        console.log("hello");
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
-        var size = $(this).data('products-size');
+        var size = $(this).data('product-size');
         var url = `/bag/remove/${itemId}/`;
-        var data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
+        var data = {'csrfmiddlewaretoken': csrfToken, 'product-size': size};
+
+        //console.log(csrfToken)
+        console.log(itemId)
+        console.log(size)
 
         $.post(url, data)
          .done(function() {
