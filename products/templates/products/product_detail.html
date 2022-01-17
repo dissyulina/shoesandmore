@@ -34,7 +34,7 @@
                         <p class="card-text mb-0">{{ product.name }}</p>
                         <p class="mb-0 text-start fw-bold">${{ product.price }}</p>
                         {% if product.rating %}
-                            <small class="text-muted d-block"><span class="material-icons">star_rate</span></i>{{ product.rating }} / 5</small>
+                            <small class="text-muted d-block"><span class="material-icons">star_rate</span>{{ product.rating }} / 5</small>
                         {% else %}
                             <small class="text-muted">No Rating</small>
                         {% endif %}
@@ -43,9 +43,30 @@
                         {% else %}
                             <small class="text-muted">No Category</small>
                         {% endif %}
-                        <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
+                        <form class="form pt-3" action="{% url 'add_to_bag' product.id %}" method="POST">
                             {% csrf_token %}
                             <div class="form-row">
+                                {% if product.has_sizes %}
+                                    <div class="col-12">
+                                        <p><strong>Size:</strong></p>
+                                        <select class="form-control rounded-0 w-50" name="product_size" id='id_product_size' required>
+                                            <option value="" disabled selected>Choose a size</option>
+                                            {% if product.category.name == 'women' %}
+                                                {% for size in sizes_women %}:
+                                                <option value="{{ size }}">{{ size }}</option>
+                                                {% endfor %}
+                                            {% elif product.category.name == 'men' %}
+                                                {% for size in sizes_men %}:
+                                                    <option value="{{ size }}">{{ size }}</option>
+                                                {% endfor %}
+                                            {% else %}
+                                                {% for size in sizes_kids %}:
+                                                    <option value="{{ size }}">{{ size }}</option>
+                                                {% endfor %}
+                                            {% endif %}
+                                        </select>
+                                    </div>
+                                {% endif %}
                                 <div class="col-12">
                                     <p class="mt-3"><strong>Quantity:</strong></p>
                                     <div class="form-group w-50">
