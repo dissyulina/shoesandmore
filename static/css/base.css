@@ -19,6 +19,11 @@ a {
     background-color: #E8DCD5;
 }
 
+.bg-salmon {
+    background-color: #B2675E;
+    color: #fff;
+}
+
 /* Buttons */
 .btn-beige {
     background-color: #E8DCD5;
@@ -115,6 +120,12 @@ a {
 
 .toast-capper {
     height: 2px;
+}
+
+.bag-notification-wrapper {
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 /* --------- MEDIA QUERIES --------- */
