@@ -1,5 +1,6 @@
 body {
     font-family: 'Noto Sans', sans-serif;
+    background-color: #fff;
 }
 
 .text-headings {
@@ -129,9 +130,9 @@ a {
 }
 
 /* --------- MEDIA QUERIES --------- */
-/* Slightly larger container on xl screens */
+/* Slightly larger container on xl screens  */
 @media screen and (min-width: 1200px) {
-    .container {
+    .container-xxl {
       max-width: 80%;
     }
 }
