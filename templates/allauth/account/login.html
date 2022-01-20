@@ -38,6 +38,7 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
   {{ form|crispy }}
   {% if redirect_field_value %}
     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    <input type="hidden" name="next" value="{{ request.GET.next }}" />
   {% endif %}
   <a class="btn btn-outline-black rounded-0" href="{% url 'home' %}">Home</a>
   <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>

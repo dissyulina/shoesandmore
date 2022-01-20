@@ -71,8 +71,21 @@
                             {% endfor %}
                         </table>
                     </div>
+
+                    <!-- Total Summary -->
                     <div class="col-12 col-lg-4 mt-5 ps-5">
                         <div class="border bg-beige p-4">
+                            {% if request.user.is_authenticated %}
+                            {% else %}
+                                <div class="mb-4">
+                                    <p><strong>I have an account</strong></p>
+                                    <p><small>Login to your account so you can save this transaction to your profile.</small></p>
+                                    <div class="text-center">
+                                        <a href="{% url 'account_login' %}?next={{request.path}}" role="button" class="btn btn-light btn-sm">Go to login page</a>
+                                    </div>
+                                </div>
+                                <hr>
+                            {% endif %}
                             <div class="d-flex justify-content-between">
                                 <h6>Bag Total: </h6>
                                 <h6>€{{ total|floatformat:2 }}</h6>
@@ -92,7 +105,7 @@
                                 </p>
                             {% endif %}
                             <div class="text-center mt-3">
-                                <a href="" class="btn btn-brown rounded-0 btn-lg">
+                                <a href="{% url 'checkout' %}" class="btn btn-brown rounded-0">
                                     <span class="text-uppercase">Secure Checkout</span>
                                     <span class="icon">
                                         <i class="fas fa-lock"></i>
