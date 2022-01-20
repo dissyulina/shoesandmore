@@ -1,1 +1,15 @@
 {% extends "base.html" %}
+
+{% block content %}
+    <div class="navbar-offset"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div class="allauth-form-inner-content">
+                    {% block inner_content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %} 
