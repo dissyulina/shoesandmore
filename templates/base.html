@@ -20,8 +20,8 @@
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
-            <!-- Material Icons -->
-            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <!-- Font Awesome -->
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
             <!-- Bootstrap CSS -->
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
             <link rel="stylesheet" href="{% static 'css/base.css' %}">
@@ -50,7 +50,7 @@
                     <form method="GET" action="{% url 'products' %}">
                         <div class="input-group search-query">
                             <input class="form-control" type="text" name="q" placeholder="Search item">
-                            <button class="button-icon" type="submit"><span class="material-icons">search</span></button>
+                            <button class="button-icon" type="submit"><i class="fas fa-search"></i></button>
                         </div>
                     </form>
                 </div>
@@ -64,7 +64,7 @@
                         <li class="list-inline-item dropdown">
                             <a class="nav-link" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div class="text-center d-flex align-items-center">
-                                    <span class="material-icons">person</span>
+                                    <i class="fas fa-user me-1"></i>
                                     <p class="my-0 d-none d-lg-inline"> Sign In</p>
                                 </div>
                             </a>
@@ -84,7 +84,7 @@
                         <li class="list-inline-item">
                             <a class="nav-link" href="">
                                 <div class="text-center d-flex align-items-center">
-                                    <span class="material-icons">favorite</span>
+                                    <i class="fas fa-heart me-1"></i>
                                     <p class="my-0 d-none d-lg-inline"> Favourites</p>
                                 </div>
                             </a>
@@ -92,7 +92,7 @@
                         <li class="list-inline-item">
                             <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}">
                                 <div class="text-center d-flex align-items-center">
-                                    <span class="material-icons">shopping_bag</span>
+                                    <i class="fas fa-shopping-bag me-1"></i>
                                     {% if grand_total %}
                                         <p class="my-0">${{ grand_total|floatformat:2 }}</p>
                                     {% else %}
