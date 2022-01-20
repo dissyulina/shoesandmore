@@ -89,10 +89,24 @@ a {
 
 /* Products Page */
 .card {
-    width: 15rem;
+    max-width: 15rem;
     font-size: 0.8rem;
     margin-bottom: 2rem;
+    border: none;
 }
+
+.position-abs {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.btn-fav .fas {
+    font-size: 1rem;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
 
 .btt-button {
     background-color: #E8DCD5;

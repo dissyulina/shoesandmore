@@ -202,7 +202,7 @@
                             <div class="">
                                 <a class="nav-link" href="#" id="sortDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Sort by 
-                                    <span class="material-icons">arrow_drop_down</span>
+                                    <i class="fas fa-chevron-down"></i>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="sortDropdown">
                                     {% if var_category and var_subcategory %}
@@ -234,34 +234,41 @@
                     </div>
                     <div class="row mt-5 product-wrapper">
                         {% for product in products %}
-                        <div class="col-6 col-md-4 col-lg-3">
-                            <div class="card">
-                                {% if product.image %}
-                                    <a href="{% url 'product_detail' product.id %}">
-                                        <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
-                                    </a>
-                                {% else %}
-                                    <a href="{% url 'product_detail' product.id %}">
-                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                                    </a>
-                                {% endif %}
-                                <div class="card-body pb-0">
-                                    <p class="card-text mb-0">{{ product.name }}</p>
-                                </div>
-                                <div class="card-footer bg-white pt-0 border-0 text-left">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p class="mb-0 text-start fw-bold">${{ product.price }}</p>
-                                            {% if product.rating %}
-                                                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
-                                            {% else %}
-                                                <small class="text-muted">No Rating</small>
-                                            {% endif %}
+                            <div class="col-6 col-md-4 col-lg-3">
+                                <div class="card mx-auto">
+                                    <div>
+                                        <!-- Product's image -->
+                                        {% if product.image %}
+                                            <a href="{% url 'product_detail' product.id %}">
+                                                <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                            </a>
+                                        {% else %}
+                                            <a href="{% url 'product_detail' product.id %}">
+                                                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                            </a>
+                                        {% endif %}
+                                        <!-- Add to favorite button -->
+                                        <a href="" role="button" class="btn-fav position-abs" aria-label="add to favorites">
+                                            <i class="fas fa-heart fa-inverse position-abs"></i>
+                                        </a>
+                                    </div>
+                                    <div class="card-body pt-1 ps-0 pb-0">
+                                        <p class="card-text mb-0">{{ product.name }}</p>
+                                    </div>
+                                    <div class="card-footer bg-white ps-0 pt-0 border-0 text-left">
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="mb-0 text-start fw-bold">${{ product.price }}</p>
+                                                {% if product.rating %}
+                                                    <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                                                {% else %}
+                                                    <small class="text-muted">No Rating</small>
+                                                {% endif %}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         {% endfor %}
                     </div>
                 </div>
@@ -269,8 +276,8 @@
         </div>
         <!-- Back to top button -->
         <div class="btt-button shadow-sm rounded-0">
-            <a class="btt-link d-flex h-100">
-                <span class="material-icons mx-auto my-auto">arrow_upward</span>
+            <a class="btt-link text-center h-100">
+                <i class="fas fa-arrow-up"></i>
             </a>	
         </div>
     </section>
@@ -282,6 +289,13 @@
     <script type="text/javascript">
 		$('.btt-link').click(function(e) {
 			window.scrollTo(0,0)
-		})
+		});
+
+        $(document).ready(function() {
+            $('.fa-inverse').hover(function(){
+                $(this).toggleClass("text-danger");
+            })
+        })
+
 	</script>
 {% endblock %}
