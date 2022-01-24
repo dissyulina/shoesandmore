@@ -143,6 +143,12 @@ a {
     overflow-y: auto;
 }
 
+/* Checkout Page */
+select:invalid,
+select option[value=""] {
+    color: #6c757d !important;
+}
+
 /* --------- MEDIA QUERIES --------- */
 /* Slightly larger container on xl screens  */
 @media screen and (min-width: 1200px) {
