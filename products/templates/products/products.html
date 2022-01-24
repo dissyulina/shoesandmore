@@ -248,9 +248,11 @@
                                             </a>
                                         {% endif %}
                                         <!-- Add to favorite button -->
-                                        <a href="" role="button" class="btn-fav position-abs" aria-label="add to favorites">
-                                            <i class="fas fa-heart fa-inverse position-abs"></i>
-                                        </a>
+                                        <form class="form" action="{% url 'add_to_favorites' product.id %}" method="POST">
+                                            <a href="" role="button" class="btn-fav position-abs" aria-label="add to favorites">
+                                                <i class="fas fa-heart fa-inverse position-abs"></i>
+                                            </a>
+                                        </form>
                                     </div>
                                     <div class="card-body pt-1 ps-0 pb-0">
                                         <p class="card-text mb-0">{{ product.name }}</p>
