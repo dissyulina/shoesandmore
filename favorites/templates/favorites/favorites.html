@@ -14,6 +14,54 @@
                     <h2 class="my-5 fw-bold">Favorites</h2>
                 </div>
             </div>
+            <div class="row">
+                {% if favorites %}
+                    {% for product in favorites.products.all %}
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card mx-auto">
+                            <div>
+                                <!-- Product's image -->
+                                {% if product.image %}
+                                    <a href="{% url 'product_detail' product.id %}">
+                                        <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                    </a>
+                                {% else %}
+                                    <a href="{% url 'product_detail' product.id %}">
+                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                    </a>
+                                {% endif %}
+                                <!-- Add to favorite button -->
+                                
+                                <a href="{% url 'add_to_favorites' product.id %}" role="button" class="btn-fav position-abs" aria-label="add to favorites">
+                                    <i class="fas fa-heart fa-inverse position-abs"></i>
+                                </a>
+                                
+                            </div>
+                            <div class="card-body pt-1 ps-0 pb-0">
+                                <p class="card-text mb-0">{{ product.name }}</p>
+                            </div>
+                            <div class="card-footer bg-white ps-0 pt-0 border-0 text-left">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="mb-0 text-start fw-bold">${{ product.price }}</p>
+                                        {% if product.rating %}
+                                            <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                                        {% else %}
+                                            <small class="text-muted">No Rating</small>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="col">
+                    <p class="mt-5">Your favorite list is empty. Do you want to save your favorite items? Click the heart symbol at the top right corner on the item's image</p>
+                    <button class="btn btn-beige btn-lg">Shop Now</button>
+                </div>
+            {% endif %}
+            </div>
         </div>
     </section>
 {% endblock %}
