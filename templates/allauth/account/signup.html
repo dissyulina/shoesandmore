@@ -10,7 +10,7 @@
 
 {% block inner_content %}
 
-  <h2 class="logo-font mb-4">{% trans "Sign Up" %}</h2>
+  <h2 class="mb-4">{% trans "Sign Up" %}</h2>
 
   <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
 
@@ -20,8 +20,10 @@
     {% if redirect_field_value %}
       <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
     {% endif %}
-    <a class="btn btn-outline-black rounded-0" href="{% url 'account_login' %}">Back to Login</a>
-    <button type="submit">{% trans "Sign Up" %}</button>
+    <div class="d-flex justify-content-center btn-allauth">
+      <a class="btn btn-brown-inverted me-4" href="{% url 'account_login' %}">Back to Login</a>
+      <button class="btn btn-brown" type="submit">{% trans "Sign Up" %}</button>
+    </div>
   </form>
   
 {% endblock %}

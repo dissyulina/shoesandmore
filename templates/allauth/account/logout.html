@@ -10,13 +10,16 @@
 
   <p>{% trans 'Are you sure you want to sign out?' %}</p>
 
-  <form method="post" action="{% url 'account_logout' %}">
+  <form method="post" action="{% url 'account_logout' %}" class="pt-3">
     {% csrf_token %}
     {% if redirect_field_value %}
       <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
     {% endif %}
-    <a class="btn" href="{% url 'home' %}">Cancel</a>
-    <button type="submit">{% trans 'Sign Out' %}</button>
+    <div class="d-flex justify-content-center btn-allauth">
+      <a class="btn btn-brown-inverted me-3" href="{% url 'home' %}">Cancel</a>
+      <button type="submit" class="btn btn-brown">{% trans 'Sign Out' %}</button>
+    </div>
+    
   </form>
 
 {% endblock %}
