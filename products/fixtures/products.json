@@ -9,7 +9,8 @@
          "category":1,
          "subcategory":3,
          "rating":4.6,
-         "image":"1.jpg"
+         "image":"1.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -22,7 +23,8 @@
          "category":1,
          "subcategory":5,
          "rating":3.9,
-         "image":"2.jpg"
+         "image":"2.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -35,7 +37,8 @@
          "category":1,
          "subcategory":4,
          "rating":4.2,
-         "image":"3.jpg"
+         "image":"3.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -48,7 +51,8 @@
          "category":1,
          "subcategory":5,
          "rating":3.5,
-         "image":"4.jpg"
+         "image":"4.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -61,7 +65,8 @@
          "category":2,
          "subcategory":2,
          "rating":4.4,
-         "image":"5.jpg"
+         "image":"5.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -74,7 +79,8 @@
          "category":1,
          "subcategory":4,
          "rating":4.3,
-         "image":"6.jpg"
+         "image":"6.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -87,7 +93,8 @@
          "category":3,
          "subcategory":2,
          "rating":4.7,
-         "image":"7.jpg"
+         "image":"7.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -100,7 +107,8 @@
          "category":3,
          "subcategory":2,
          "rating":4.8,
-         "image":"8.jpg"
+         "image":"8.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -113,7 +121,8 @@
          "category":2,
          "subcategory":2,
          "rating":4.3,
-         "image":"9.jpg"
+         "image":"9.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -126,7 +135,8 @@
          "category":1,
          "subcategory":4,
          "rating":4.6,
-         "image":"10.jpg"
+         "image":"10.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -139,7 +149,8 @@
          "category":1,
          "subcategory":2,
          "rating":4.4,
-         "image":"11.jpg"
+         "image":"11.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -152,7 +163,8 @@
          "category":2,
          "subcategory":2,
          "rating":4.3,
-         "image":"12.jpg"
+         "image":"12.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -165,7 +177,8 @@
          "category":2,
          "subcategory":3,
          "rating":4.1,
-         "image":"13.jpg"
+         "image":"13.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -178,7 +191,8 @@
          "category":2,
          "subcategory":2,
          "rating":4.2,
-         "image":"14.jpg"
+         "image":"14.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -191,7 +205,8 @@
          "category":1,
          "subcategory":3,
          "rating":4.8,
-         "image":"15.jpg"
+         "image":"15.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -204,7 +219,8 @@
          "category":1,
          "subcategory":1,
          "rating":3.8,
-         "image":"16.jpg"
+         "image":"16.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -217,7 +233,8 @@
          "category":1,
          "subcategory":2,
          "rating":3.6,
-         "image":"17.jpg"
+         "image":"17.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -230,7 +247,8 @@
          "category":1,
          "subcategory":3,
          "rating":4.0,
-         "image":"18.jpg"
+         "image":"18.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -243,7 +261,8 @@
          "category":1,
          "subcategory":6,
          "rating":4.0,
-         "image":"19.jpg"
+         "image":"19.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -256,7 +275,8 @@
          "category":1,
          "subcategory":1,
          "rating":4.5,
-         "image":"20.jpg"
+         "image":"20.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -269,7 +289,8 @@
          "category":1,
          "subcategory":4,
          "rating":3.7,
-         "image":"21.jpg"
+         "image":"21.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -282,7 +303,8 @@
          "category":1,
          "subcategory":4,
          "rating":3.6,
-         "image":"22.jpg"
+         "image":"22.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -295,7 +317,8 @@
          "category":2,
          "subcategory":2,
          "rating":4.0,
-         "image":"23.jpg"
+         "image":"23.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -308,7 +331,8 @@
          "category":3,
          "subcategory":2,
          "rating":4.5,
-         "image":"24.jpg"
+         "image":"24.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -321,7 +345,8 @@
          "category":2,
          "subcategory":2,
          "rating":4.5,
-         "image":"25.jpg"
+         "image":"25.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -334,7 +359,8 @@
          "category":1,
          "subcategory":4,
          "rating":3.5,
-         "image":"26.jpg"
+         "image":"26.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -347,7 +373,8 @@
          "category":1,
          "subcategory":5,
          "rating":3.9,
-         "image":"27.jpg"
+         "image":"27.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -360,7 +387,8 @@
          "category":1,
          "subcategory":5,
          "rating":4.2,
-         "image":"28.jpg"
+         "image":"28.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -373,7 +401,8 @@
          "category":1,
          "subcategory":5,
          "rating":3.8,
-         "image":"29.jpg"
+         "image":"29.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -386,7 +415,8 @@
          "category":1,
          "subcategory":2,
          "rating":4.3,
-         "image":"30.jpg"
+         "image":"30.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -399,7 +429,8 @@
          "category":1,
          "subcategory":11,
          "rating":4.2,
-         "image":"44.jpg"
+         "image":"44.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -412,7 +443,8 @@
          "category":1,
          "subcategory":11,
          "rating":3.5,
-         "image":"65.jpg"
+         "image":"65.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -425,7 +457,8 @@
          "category":2,
          "subcategory":11,
          "rating":4.5,
-         "image":"94.jpg"
+         "image":"94.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -438,7 +471,8 @@
          "category":2,
          "subcategory":13,
          "rating":4.3,
-         "image":"95.jpg"
+         "image":"95.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -451,7 +485,8 @@
          "category":2,
          "subcategory":13,
          "rating":4.6,
-         "image":"96.jpg"
+         "image":"96.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -464,7 +499,8 @@
          "category":1,
          "subcategory":11,
          "rating":3.6,
-         "image":"97.jpg"
+         "image":"97.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -477,7 +513,8 @@
          "category":1,
          "subcategory":13,
          "rating":4.3,
-         "image":"98.jpg"
+         "image":"98.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -490,7 +527,8 @@
          "category":2,
          "subcategory":11,
          "rating":4.3,
-         "image":"99.jpg"
+         "image":"99.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -503,7 +541,8 @@
          "category":2,
          "subcategory":11,
          "rating":4.0,
-         "image":"100.jpg"
+         "image":"100.jpg",
+         "has_sizes": true
       }
    },
    {
@@ -516,7 +555,8 @@
          "category":2,
          "subcategory":12,
          "rating":4.2,
-         "image":"101.jpg"
+         "image":"101.jpg",
+         "has_sizes": false
       }
    },
    {
@@ -529,7 +569,8 @@
          "category":1,
          "subcategory":12,
          "rating":4.3,
-         "image":"102.jpg"
+         "image":"102.jpg",
+         "has_sizes": false
       }
    }
 ]
