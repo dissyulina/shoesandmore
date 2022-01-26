@@ -164,6 +164,13 @@ a {
     font-size: 18px;
 }
 
+.card-footer {
+    background-color: #fff;
+    padding-left: 0px;
+    padding-right: 0px;
+    border: none;
+}
+
 /* Checkout Page */
 select:invalid,
 select option[value=""] {
