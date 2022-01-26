@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 
@@ -8,6 +9,7 @@ from favorites.models import Favorites, FavoritesItem
 
 # source: Python Django Ecommerce Customer Wishlist video https://www.youtube.com/watch?v=OgA0TTKAtqQ&t=138s 
 
+@login_required()
 def view_favorites(request):
     """ A view that renders the favorites contents page """
 
@@ -25,6 +27,7 @@ def view_favorites(request):
     return render(request, 'favorites/favorites.html', context=context)
 
 
+@login_required()
 def add_to_favorites(request, item_id):
     """ Add a specified product to the favorites """
 
