@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
+
 from .models import Product, Category, Subcategory
+from favorites.models import Favorites, FavoritesItem
 
 
 def all_products(request):
@@ -17,8 +19,11 @@ def all_products(request):
     var_category = None
     var_subcategory = None
 
-    if request.GET:
+    if request.user:
+        favorites = Favorites.objects.filter(user=request.user)
+        favorites_item = FavoritesItem.objects.filter(favorites__in=favorites)
 
+    if request.GET:
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             sort = sortkey
@@ -73,6 +78,8 @@ def all_products(request):
         'current_sorting': sort,
         'var_category': var_category,
         'var_subcategory': var_subcategory,
+        'favorites_item': favorites_item,
+        'favorites': favorites,
     }
 
     # PRINT VARIABLES, DON'T FORGET TO REMOVE
@@ -81,6 +88,8 @@ def all_products(request):
     print("current_categories: ", categories)
     print("current_subcategories: ", subcategories)
     print("current_sorting: ", sort)
+    print("favorites_item: ", favorites_item)
+    print("favorites: ", favorites)
 
     return render(request, 'products/products.html', context)
 

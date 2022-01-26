@@ -14,9 +14,13 @@ SUCCESS_FAV = 50
 @login_required()
 def view_favorites(request):
     """ A view that renders the favorites contents page """
-
-    favorites = Favorites.objects.get(user=request.user)
-
+ 
+    favorites = None
+    try:
+        favorites = Favorites.objects.get(user=request.user)
+    except Favorites.DoesNotExist:
+        pass
+    
     sizes_women = range(36, 44)
     sizes_men = range(40, 47)
     sizes_kids = range(23, 36)

@@ -101,19 +101,6 @@ a {
     border: none;
 }
 
-.position-abs {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-}
-
-.btn-fav .fas {
-    font-size: 1rem;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
-}
-
-
 .btt-button {
     background-color: #E8DCD5;
     height: 42px;
@@ -149,9 +136,20 @@ a {
     overflow-y: auto;
 }
 
-/* Favorites Page */
+/* Favorites Page and Buttons*/
+.position-abs {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.btn-fav .fas {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
 .circle-overlay {
-    background-color: rgba(256, 256, 256, 40%);
+    background-color: rgba(256, 256, 256, 60%);
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -160,6 +158,7 @@ a {
     align-items: center;
 }
 
+.fa-heart,
 .fa-trash-alt {
     font-size: 18px;
 }
