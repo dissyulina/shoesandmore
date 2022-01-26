@@ -7,7 +7,7 @@ from products.models import Product
 from profiles.models import UserProfile
 from favorites.models import Favorites, FavoritesItem
 
-# source: Python Django Ecommerce Customer Wishlist video https://www.youtube.com/watch?v=OgA0TTKAtqQ&t=138s 
+# source: modified from a slack thread, conversation between Joe2308 and ckz8780
 
 @login_required()
 def view_favorites(request):
@@ -45,3 +45,14 @@ def add_to_favorites(request, item_id):
             
     return redirect(redirect_url)
 
+
+@login_required()
+def remove_from_favorites(request, item_id):
+    """ Remove a specified product to the favorites """
+
+    product = get_object_or_404(Product, pk=item_id)
+    favorites, created = Favorites.objects.get_or_create(user=request.user)
+    
+    favorites.products.remove(product)
+    messages.success(request, f'{product.name} is removed from your favorites')
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])

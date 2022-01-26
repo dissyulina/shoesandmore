@@ -31,11 +31,11 @@
                                     </a>
                                 {% endif %}
                                 <!-- Add to favorite button -->
-                                
-                                <a href="{% url 'add_to_favorites' product.id %}" role="button" class="btn-fav position-abs" aria-label="add to favorites">
-                                    <i class="fas fa-heart fa-inverse position-abs"></i>
-                                </a>
-                                
+                                <div class="circle-overlay position-abs">
+                                    <a href="{% url 'remove_from_favorites' product.id %}" role="button" class="btn-fav" aria-label="add to favorites">
+                                        <i class="far fa-trash-alt"></i>
+                                    </a>
+                                </div>
                             </div>
                             <div class="card-body pt-1 ps-0 pb-0">
                                 <p class="card-text mb-0">{{ product.name }}</p>

@@ -149,6 +149,21 @@ a {
     overflow-y: auto;
 }
 
+/* Favorites Page */
+.circle-overlay {
+    background-color: rgba(256, 256, 256, 40%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-trash-alt {
+    font-size: 18px;
+}
+
 /* Checkout Page */
 select:invalid,
 select option[value=""] {
