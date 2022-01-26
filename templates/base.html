@@ -137,6 +137,8 @@
                         {% include 'includes/toasts/toast_warning.html' %}
                     {% elif level == 25 %}
                         {% include 'includes/toasts/toast_success.html' %}
+                    {% elif level == 50 %}
+                        {% include 'includes/toasts/toast_success_nobag.html' %}
                     {% else %}
                         {% include 'includes/toasts/toast_info.html' %}
                     {% endif %}
