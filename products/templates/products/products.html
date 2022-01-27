@@ -251,17 +251,13 @@
                                         
                                         <!-- Add to favorite button -->
                                         <div class="circle-overlay position-abs">
-                                            {% if product.sku in favorites_item %}
-                                                <p>HAHA</p>
-                                                <a href="{% url 'add_to_favorites' product.id %}" role="button" class="btn-fav" aria-label="add to favorites">
+                                            <a href="{% url 'add_to_favorites' product.id %}" role="button" class="btn-fav" aria-label="add to favorites">
+                                                {% if product.id in favorites_item %}
                                                     <i class="fas fa-heart fa-inverse text-danger"></i>
-                                                </a>
-                                                
-                                            {% else %}
-                                                <a href="{% url 'add_to_favorites' product.id %}" role="button" class="btn-fav" aria-label="add to favorites">
+                                                {% else %}
                                                     <i class="fas fa-heart fa-inverse"></i>
-                                                </a>
-                                            {% endif %}
+                                                {% endif %}
+                                            </a>  
                                         </div>
                                     </div>
                                     <div class="card-body pt-1 ps-0 pb-0">

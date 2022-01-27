@@ -19,4 +19,4 @@ class FavoritesItem(models.Model):
         Product, null=False, blank=False, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.product.sku
+        return str(self.product.id)
