@@ -7,6 +7,7 @@ from products.models import Product
 from profiles.models import UserProfile
 from favorites.models import Favorites, FavoritesItem
 
+
 SUCCESS_FAV = 50
 
 # source: modified from a slack thread, conversation between Joe2308 and ckz8780

@@ -17,7 +17,7 @@
             <div class="row">
                 {% if favorites %}
                     {% for product in favorites.products.all %}
-                    <div class="col-6 col-md-4 col-lg-3">
+                    <div class="col-6 col-md-4 col-lg-3" id="card-{{ product.id }}">
                         <div class="card mx-auto">
                             <div>
                                 <!-- Product's image -->
@@ -30,7 +30,7 @@
                                         <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                                     </a>
                                 {% endif %}
-                                <!-- Add to favorite button -->
+                                <!-- Remove from favorites button -->
                                 <div class="circle-overlay position-abs">
                                     <a href="{% url 'remove_from_favorites' product.id %}" role="button" class="btn-fav" aria-label="add to favorites">
                                         <i class="far fa-trash-alt"></i>
@@ -77,7 +77,7 @@
                                             </div>
                                         {% endif %}
                                         <div class="card-footer col-12">
-                                            <input type="submit" class="btn btn-brown mt-2 w-100" value="Add to Bag">
+                                            <input type="submit" class="btn btn-brown mt-2 w-100 btn-add" value="Add to Bag" id="{{ product.id }}">
                                         </div>
                                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                     </div>

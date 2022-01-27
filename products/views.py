@@ -19,7 +19,7 @@ def all_products(request):
     var_category = None
     var_subcategory = None
 
-    if request.user:
+    if request.user.is_authenticated:
         favorites = Favorites.objects.filter(user=request.user)
         favorites_item = FavoritesItem.objects.filter(favorites__in=favorites)
 
@@ -70,17 +70,28 @@ def all_products(request):
 
     current_sorting = f'{sort}_{direction}'
   
-    context = {
-        'products': products,
-        'search_term': query,
-        'current_categories': categories,
-        'current_subcategories': subcategories,
-        'current_sorting': sort,
-        'var_category': var_category,
-        'var_subcategory': var_subcategory,
-        'favorites_item': favorites_item,
-        'favorites': favorites,
-    }
+    if request.user.is_authenticated:
+        context = {
+            'products': products,
+            'search_term': query,
+            'current_categories': categories,
+            'current_subcategories': subcategories,
+            'current_sorting': sort,
+            'var_category': var_category,
+            'var_subcategory': var_subcategory,
+            'favorites_item': favorites_item,
+            'favorites': favorites,
+        }
+    else:
+        context = {
+            'products': products,
+            'search_term': query,
+            'current_categories': categories,
+            'current_subcategories': subcategories,
+            'current_sorting': sort,
+            'var_category': var_category,
+            'var_subcategory': var_subcategory,
+        }
 
     # PRINT VARIABLES, DON'T FORGET TO REMOVE
     print("var_category: ", var_category)
@@ -88,8 +99,6 @@ def all_products(request):
     print("current_categories: ", categories)
     print("current_subcategories: ", subcategories)
     print("current_sorting: ", sort)
-    print("favorites_item: ", favorites_item)
-    print("favorites: ", favorites)
 
     return render(request, 'products/products.html', context)
 
