@@ -60,7 +60,7 @@ def remove_from_favorites(request, item_id):
     """ Remove a specified product to the favorites """
 
     product = get_object_or_404(Product, pk=item_id)
-    favorites, created = Favorites.objects.get_or_create(user=request.user)
+    favorites = Favorites.objects.get(user=request.user)
     
     favorites.products.remove(product)
     messages.add_message(request, SUCCESS_FAV, f'{product.name} is removed from your favorites')

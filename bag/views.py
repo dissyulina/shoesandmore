@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse, HttpResponse, get_object
 from django.contrib import messages
 
 from products.models import Product
+from favorites.models import Favorites
 
 
 def view_bag(request):
@@ -49,8 +50,14 @@ def add_to_bag(request, item_id):
 
     request.session['bag'] = bag
 
+    # Also remove the item from favorites, if current url is favorites
+    if redirect_url == '/favorites/':
+        product = get_object_or_404(Product, pk=item_id)
+        favorites = Favorites.objects.get(user=request.user)
+        favorites.products.remove(product)
+
     return redirect(redirect_url)
-    
+
 
 def adjust_bag(request, item_id):
     """Adjust the quantity of the specified product to the specified amount"""
