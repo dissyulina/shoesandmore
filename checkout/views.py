@@ -25,7 +25,6 @@ def checkout(request):
             'town_or_city': request.POST['town_or_city'],
             'street_address1': request.POST['street_address1'],
             'street_address2': request.POST['street_address2'],
-            'county': request.POST['county'],
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
@@ -58,6 +57,7 @@ def checkout(request):
                     return redirect(reverse('view_bag'))
 
             request.session['save_info'] = 'save-info' in request.POST
+            print("success")
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \

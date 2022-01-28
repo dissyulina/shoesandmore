@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bag_tools %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block page_header %}
+    <div class="navbar-offset"></div>
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <h2 class="my-5 fw-bold">Thank You!</h2>
+                    <p class="mb-5">Your order information is below. A confirmation email will be sent to <strong>{{ order.email }}</strong>.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-7"></div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-7 text-right">
+                    <a href="{% url 'products' %}?subcategory=new_arrivals,sale" class="btn btn-black rounded-0 my-2">
+                        <span class="icon mr-2">
+                            <i class="fas fa-gifts"></i>
+                        </span>
+                        <span class="text-uppercase">Now check out the latest deals!</span>
+                    </a>
+                </div>
+            </div> 
+        </div>
+    </section>
+
+{% endblock %}
