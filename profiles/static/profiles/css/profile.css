@@ -45,12 +45,6 @@
     color: #aab7c4;
 }
 
-#payment-form .form-control,
-#card-element {
-    color: #000;
-    border: 1px solid #000;
-} 
-
 #id_default_country,
 #id_default_country option:not(:first-child) {
     color: #000;
