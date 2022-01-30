@@ -98,7 +98,31 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane container fade" id="reviews"></div>
+                    <div class="tab-pane container fade" id="reviews">
+                        <div class="row">
+                            <div class="col-12 col-md-8 mx-auto">
+                                {% for order in orders %}
+                                    {% for item in order.lineitems.all %}
+                                        <div class="row my-5">
+                                            <div class="col-6">
+                                                <a href="{% url 'product_detail' item.product.id %}" class="d-flex justify-content-end">
+                                                    {% if item.product.image %}
+                                                        <img class="w-75" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                                                    {% else %}
+                                                        <img class="w-75" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                                    {% endif %}
+                                                </a>
+                                            </div>
+                                            <div class="col-6">
+                                                <p><strong>{{ item.product.name }}</strong></p>
+                                                <p>{% if item.product_size %}Size {{ item.product_size|upper }}{% endif %}</p>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             
