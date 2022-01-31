@@ -35,7 +35,7 @@
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="pill" href="#reviews">
                             <i class="fas fa-pen-alt"></i><br>
-                            My Reviews
+                            Ratings / Reviews
                         </a>
                     </li>
                 </ul>
@@ -113,9 +113,20 @@
                                                     {% endif %}
                                                 </a>
                                             </div>
-                                            <div class="col-6">
-                                                <p><strong>{{ item.product.name }}</strong></p>
-                                                <p>{% if item.product_size %}Size {{ item.product_size|upper }}{% endif %}</p>
+                                            <div class="col-6 d-flex flex-column justify-content-center">
+                                                <p class="my-0"><strong><small>{{ item.product.name }}</small></strong></p>
+                                                <p class="my-0"><small>{% if item.product_size %}Size {{ item.product_size|upper }}{% endif %}</small></p>
+                                                <div class="mt-3">
+                                                    <p class="my-0"><small>Give a rating:</small></p>
+                                                    <ul class="list-inline">
+                                                        <li class="list-inline-item"><i class="far fa-2x fa-star"></i></li>
+                                                        <li class="list-inline-item"><i class="far fa-2x fa-star"></i></li>
+                                                        <li class="list-inline-item"><i class="far fa-2x fa-star"></i></li>
+                                                        <li class="list-inline-item"><i class="far fa-2x fa-star"></i></li>
+                                                        <li class="list-inline-item"><i class="far fa-2x fa-star"></i></li>
+                                                    </ul>
+                                                </div>
+                                                <a href="" class="btn btn-brown-inverted mt-3"><small><i class="fas fa-pen-alt"></i> Give Ratings</small></a>
                                             </div>
                                         </div>
                                     {% endfor %}
@@ -133,5 +144,5 @@
 
 {% block postloadjs %}
     {{ block.super }}
-    <script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
+    <script type="text/javascript" src="{% static 'profiles/js/profiles.js' %}"></script>
 {% endblock %}

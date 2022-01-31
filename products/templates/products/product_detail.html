@@ -34,10 +34,13 @@
                         <p class="card-text mb-0">{{ product.name }}</p>
                         <p class="mb-0 text-start fw-bold">${{ product.price }}</p>
                         {% if product.rating %}
-                            <small class="text-muted d-block"><span class="material-icons">star_rate</span>{{ product.rating }} / 5</small>
+                            <small class="text-muted d-block"><i class="fas fa-star"></i> {{ product.rating }} / 5</small>
                         {% else %}
                             <small class="text-muted">No Rating</small>
                         {% endif %}
+                        
+                            <a href="{% url 'product_reviews' product.id %}" class="">See all reviews</a>
+
                         {% if product.category %}
                             <small class="text-muted d-block"><span class="material-icons">sell</span>{{ product.category.friendly_name }}</small>
                         {% else %}
