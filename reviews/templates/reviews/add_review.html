@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="">
+{% endblock %}
+
+{% block page_header %}
+    <div class="navbar-offset"></div>
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <h2 class="my-5 fw-bold">Add A Review</h2>
+                </div>
+            </div>
+            <div class="row my-5">
+                <div class="col-12 col-md-6">
+                    <a href="{% url 'product_detail' product.id %}" class="d-flex justify-content-end">
+                        {% if product.image %}
+                            <img class="w-75" src="{{ product.image.url }}" alt="{{ product.name }}">
+                        {% else %}
+                            <img class="w-75" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                        {% endif %}
+                    </a>
+                </div>
+                <div class="col-12 col-md-6">
+                    <form action="POST" action="{% url 'add_review' product.id %}" class="d-flex flex-column justify-content-center">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <p class="my-0"><strong>{{ product.name }}</strong></p>
+                        <p class="my-0"><small>{% if product_size %}Size {{ product_size|upper }}{% endif %}</small></p>
+                        <div class="mt-5">
+                            <p><small>Give a rating to this product:</small></p>
+                            <ul class="list-inline">
+                                <li class="list-inline-item"><i class="far fa-2x fa-star" data-rating="1"></i></li>
+                                <li class="list-inline-item"><i class="far fa-2x fa-star" data-rating="2"></i></li>
+                                <li class="list-inline-item"><i class="far fa-2x fa-star" data-rating="3"></i></li>
+                                <li class="list-inline-item"><i class="far fa-2x fa-star" data-rating="4"></i></li>
+                                <li class="list-inline-item"><i class="far fa-2x fa-star" data-rating="5"></i></li>
+                            </ul>
+                        </div>
+                        <div class="mt-5">
+                            <label for="review_area" class="form-label"><small>Write a review about this product:</small></label>
+                            <textarea class="form-control" id="review_area" rows="5"></textarea>
+                        </div>
+                        <a role="submit" href="" class="btn btn-brown mt-5"><small><i class="fas fa-pen-alt"></i> Submit Review</small></a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'reviews/js/reviews.js' %}"></script>
+{% endblock %}

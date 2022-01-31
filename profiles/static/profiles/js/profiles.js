@@ -11,13 +11,3 @@ $('#id_default_country').change(function() {
         $(this).css('color', '#000');
     }
 }); 
-
-// Hover on ratings
-$(".fa-star").mouseenter(function(){
-    $(this).removeClass("far").addClass("fas");
-    $(this).parent().prevAll().children('.fa-star').removeClass("far").addClass("fas");
-    $(".fa-star").mouseleave(function(){
-        $(this).removeClass("fas").addClass("far");
-        $(this).parent().prevAll().children('.fa-star').removeClass("fas").addClass("far");
-    });
-});
