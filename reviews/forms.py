@@ -8,7 +8,7 @@ class ReviewForm(forms.ModelForm):
     """
     class Meta:
         model = Review
-        exclude = ('rating', 'review')
+        fields = ('rating', 'review_text')
 
 
     def __init__(self, *args, **kwargs):
@@ -17,8 +17,7 @@ class ReviewForm(forms.ModelForm):
         """
         super().__init__(*args, **kwargs)
         placeholders = {
-            'reviews': 'Write your review here',
+            'review_text': 'Write your review here',
         }
 
-        self.fields['review'].widget.attrs['autofocus'] = True
 

@@ -14,7 +14,16 @@
         <div class="container">
             <div class="row">
                 <div class="col text-center">
-                    <h2 class="my-5 fw-bold">Reviews</h2>
+                    <h2 class="my-5 fw-bold">Reviews for {{ product.name }}</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    {% for review in reviews %}
+                    <p>{{ review.user }}</p>
+                    <p>{{ review.rating }}</p>
+                    <p>{{ review.review_text }}</p>
+                    {% endfor %}
                 </div>
             </div>
         </div>
