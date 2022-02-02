@@ -18,14 +18,22 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 text-small">
                     {% for review in reviews %}
-                    <p>{{ review.user }}</p>
-                    <p>{{ review.rating }}</p>
-                    <p>{{ review.review_text }}</p>
+                    <div class="my-5">
+                        <p><span class="star-rating" data-id="{{ review.user }}" data-rating="{{ review.rating }}"></span></p>
+                        <p><i class="fas fa-star"></i><span> {{ review.rating }} / 5 </span><span class="text-muted float-end">{{ review.date }}</span></p>
+                        <p>By: {{ review.user }}</p>
+                        <p>{{ review.review_text }}</p>
+                    </div>
                     {% endfor %}
                 </div>
             </div>
         </div>
     </section>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'reviews/js/reviews.js' %}"></script>
 {% endblock %}

@@ -31,7 +31,7 @@ def profile(request):
         'reviews': reviews,
         'on_profile_page': True,
     }
-
+    print(reviews)
     return render(request, template, context)
 
 
