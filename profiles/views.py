@@ -5,12 +5,14 @@ from .models import UserProfile
 from .forms import UserProfileForm
 
 from checkout.models import Order
+from reviews.models import Review
 
 
 def profile(request):
     """ Display the user's profile. """
 
     profile = get_object_or_404(UserProfile, user=request.user)
+    reviews = Review.objects.filter(user=profile)
 
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
@@ -26,6 +28,7 @@ def profile(request):
         'profile': profile,
         'form': form,
         'orders': orders,
+        'reviews': reviews,
         'on_profile_page': True,
     }
 

@@ -39,10 +39,10 @@
                             <small class="text-muted">No Rating</small>
                         {% endif %}
                         
-                            <a href="{% url 'product_reviews' product.id %}" class="">See all reviews</a>
+                        <small class="text-muted d-block my-2"><a href="{% url 'product_reviews' product.id %}" class="">See all reviews</a></small>
 
                         {% if product.category %}
-                            <small class="text-muted d-block"><span class="material-icons">sell</span>{{ product.category.friendly_name }}</small>
+                            <small class="text-muted d-block"><i class="fas fa-tag"></i>{{ product.category.friendly_name }}</small>
                         {% else %}
                             <small class="text-muted">No Category</small>
                         {% endif %}

@@ -18,10 +18,15 @@ def all_products(request):
     direction = None
     var_category = None
     var_subcategory = None
+    favorites = None
 
     if request.user.is_authenticated:
-        favorites = Favorites.objects.filter(user=request.user)
-        favorites_item = FavoritesItem.objects.filter(favorites__in=favorites)
+        try:
+            # favorites = Favorites.objects.filter(user=request.user)
+            favorites = Favorites.objects.get(user=request.user)
+            # favorites_item = FavoritesItem.objects.filter(favorites__in=favorites)
+        except Favorites.DoesNotExist:
+            pass
 
     if request.GET:
         if 'sort' in request.GET:
@@ -79,7 +84,7 @@ def all_products(request):
             'current_sorting': sort,
             'var_category': var_category,
             'var_subcategory': var_subcategory,
-            'favorites_item': favorites_item,
+            # 'favorites_item': favorites_item,
             'favorites': favorites,
         }
     else:
@@ -94,11 +99,13 @@ def all_products(request):
         }
 
     # PRINT VARIABLES, DON'T FORGET TO REMOVE
-    print("var_category: ", var_category)
-    print("var_subcategory: ", var_subcategory)
-    print("current_categories: ", categories)
-    print("current_subcategories: ", subcategories)
-    print("current_sorting: ", sort)
+    # print("var_category: ", var_category)
+    # print("var_subcategory: ", var_subcategory)
+    # print("current_categories: ", categories)
+    # print("current_subcategories: ", subcategories)
+    # print("current_sorting: ", sort)
+    # print("favorites_item", favorites_item)
+    print("favorites", favorites)
 
     return render(request, 'products/products.html', context)
 
