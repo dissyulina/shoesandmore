@@ -109,11 +109,10 @@
                             <p class="mb-1"><i class="fas fa-star"></i><span> {{ review.rating }} / 5 </span><span class="text-muted float-end">{{ review.date }}</span></p>
                             <p class="mb-1">By: {{ review.user }}</p>
                             <p class="mb-1">{{ review.review_text }}</p>
-                            <p>{{ review.id }}</p>
                             {% if user.is_authenticated %}
                                 {% if request.user|stringformat:'s' == review.user|stringformat:'s' %}
                                     <a href="{% url 'edit_review' review.id %}" class="btn btn-sm btn-outline-dark"><i class="far fa-edit"></i> Edit</a>
-                                    <a href="" class="btn btn-sm btn-outline-dark"><i class="far fa-edit"></i> Delete</a>
+                                    <a href="{% url 'delete_review' review.id %}" class="btn btn-sm btn-outline-dark"><i class="far fa-trash-alt"></i> Delete</a>
                                 {% endif %}
                             {% endif %}
                         </div>
