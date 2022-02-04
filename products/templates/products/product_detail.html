@@ -13,8 +13,9 @@
             <div class="mt-3" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-                    <li class="breadcrumb-item active text-capitalize" aria-current="page"><a href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'products' %}?category={{ product.category.name }}&subcategory={{ product.subcategory.name }}">{{ product.subcategory.friendly_name }}</a></li>
+                    <li class="breadcrumb-item" aria-current="page"><a href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a></li>
+                    <li class="breadcrumb-item" aria-current="page"><a href="{% url 'products' %}?category={{ product.category.name }}&subcategory={{ product.subcategory.name }}">{{ product.subcategory.friendly_name }}</a></li>
+                    <li class="breadcrumb-item text-decoration-underline" aria-current="page">{{ product.name }}</li>
                 </ol>
             </div>
             <div class="row mt-5">
@@ -31,7 +32,7 @@
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
                     <div>
-                        <p class="card-text mb-0">{{ product.name }}</p>
+                        <h5 class="fw-bold">{{ product.name }}</h5>
                         <p class="mb-0 text-start fw-bold">${{ product.price }}</p>
                         {% if product.rating %}
                             <small class="text-muted d-block"><i class="fas fa-star"></i> {{ product.rating }} / 5</small>
@@ -39,7 +40,7 @@
                             <small class="text-muted">No Rating</small>
                         {% endif %}
                         {% if product.category %}
-                            <small class="text-muted d-block"><i class="fas fa-tag"></i>{{ product.category.friendly_name }}</small>
+                            <small class="text-muted d-block"><i class="fas fa-tag"></i> {{ product.category.friendly_name }}</small>
                         {% else %}
                             <small class="text-muted">No Category</small>
                         {% endif %}
@@ -78,13 +79,13 @@
                                 </div>
     
                                 <div class="col-12">
-                                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
+                                    <a href="{% url 'products' %}" class="btn btn-brown-inverted mt-5">
                                         <span class="icon">
                                             <i class="fas fa-chevron-left"></i>
                                         </span>
                                         <span class="text-uppercase">Keep Shopping</span>
                                     </a>
-                                    <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
+                                    <input type="submit" class="btn btn-brown text-uppercase mt-5" value="Add to Bag">
                                 </div>
                                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             </div>
@@ -96,17 +97,29 @@
     </section>
     <section>
         <div class="container">
-            <div class="row">
-                <div class="col text-start mt-4">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10 text-start mt-4">
                     <h6 class="mt-5 fw-bold">Reviews for {{ product.name }}</h6>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12 text-small">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10 text-small">
                     {% for review in reviews %}
                         <div class="mt-3 mb-2">
-                            <p class="mb-1"><span class="stars" data-rating="{{ review.rating }}"></span></p>
-                            <p class="mb-1"><i class="fas fa-star"></i><span> {{ review.rating }} / 5 </span><span class="text-muted float-end">{{ review.date }}</span></p>
+                            <p class="mb-1"><span class="star-rating" data-rating="{{ review.rating }}"></span></p>
+                            <p class="mb-1">
+                                {% if review.rating == 1 %}
+                                    <span><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>
+                                {% elif review.rating == 2 %}
+                                    <span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>
+                                {% elif review.rating == 3 %}
+                                    <span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>
+                                {% elif review.rating == 4 %}
+                                    <span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span>
+                                {% else %}
+                                    <span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                                {% endif %}
+                            </p>
                             <p class="mb-1">By: {{ review.user }}</p>
                             <p class="mb-1">{{ review.review_text }}</p>
                             {% if user.is_authenticated %}
