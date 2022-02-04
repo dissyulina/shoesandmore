@@ -39,7 +39,7 @@ def add_review(request, product_id):
     review = Review.objects.filter(product=product).filter(user=user)
     if review:
         messages.error(request, "You've already added a review for this item. You can edit your review")
-        return render(request, 'home/index.html')
+        return redirect(reverse('product_detail', args=[product.id]))
 
     # Submit rating and review
     if request.method == 'POST':
@@ -48,14 +48,14 @@ def add_review(request, product_id):
             'rating': request.POST['rating'],
             'review_text': request.POST['review_text'],
         }
-        print(form_data)
+
         form = ReviewForm(form_data)
         if form.is_valid():
             review = form.save(commit=False)
             review.user = user
             review.product = product
             form.save()
-            print(form)
+
             messages.success(request, f'Your review for {product.name} is added successfully')
 
             context = {
@@ -77,3 +77,37 @@ def add_review(request, product_id):
         }
 
         return render(request, 'reviews/add_review.html', context)
+
+
+@login_required
+def edit_review(request, review_id):
+    """ A view to edit product review """
+
+    review = get_object_or_404(Review, pk=review_id)
+    user = get_object_or_404(UserProfile, user=request.user)
+
+    # Check if user authenticated to edit the review
+    if user.id != review.user.id:
+        messages.error(request, 'You are not allowed to edit this review')
+        return render(request, 'home/index.html')
+
+    # Submit rating and review
+    if request.method == 'POST':
+        form = ReviewForm(request.POST, instance=review)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Your review for {review.product.name} is edited successfully')
+
+            return redirect(reverse('product_detail', args=[review.product.id]))
+        
+    else:
+        form = ReviewForm(instance=review)
+    
+    context = {
+        'form': form,
+        'review': review,
+        'on_review_page': True,
+    }
+    print(review)
+
+    return render(request, 'reviews/edit_review.html', context)

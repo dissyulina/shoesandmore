@@ -34,3 +34,7 @@ $('.star-rating').each(function() {
     $(this).html = getStars(numberOfStars)
 })
 */
+
+/* Prepopulate star rating on Edit Review Page */
+const editStars = $('#edit-rating').data("editstars");
+$( '#edit-rating input[ value=' + editStars + ']' ).attr('checked', 'checked');
