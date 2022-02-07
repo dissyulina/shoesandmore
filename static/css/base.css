@@ -1,6 +1,7 @@
 body {
     font-family: 'Noto Sans', sans-serif;
     background-color: #fff;
+    line-height: 1.5;
 }
 
 .text-headings {
@@ -70,7 +71,7 @@ a {
     padding-top: 183px;
 }
 
-/* Hero */
+/* Home Page */
 
 .text-hero {
     font-size: 5rem;
@@ -106,6 +107,16 @@ a {
     width: auto;
 }
 
+.img-accessories {
+    background: url('/media/accessories-promo.jpg') no-repeat center center;
+    background-size: cover;
+    height: 500px;
+    width: auto;
+}
+
+.bg-light-rose {
+    background-color: #E4CBC8;
+}
 /* Products Page */
 .card {
     max-width: 15rem;
