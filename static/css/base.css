@@ -124,22 +124,19 @@ footer {
 
 /* Products Page */
 .card {
-    max-width: 15rem;
+    max-width: 19rem;
     font-size: 0.8rem;
     margin-bottom: 2rem;
     border: none;
 }
 
-.btt-button {
+#back-to-top {
     background-color: #E8DCD5;
     height: 42px;
     width: 42px;
     position: fixed;
     bottom: 10px;
     right: 10px;
-}
-
-.btt-link {
     cursor: pointer;
 }
 

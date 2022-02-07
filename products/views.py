@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.core import serializers
+from django.http import JsonResponse
 from django.db.models import Q
 from django.db.models.functions import Lower
 
@@ -12,7 +14,8 @@ from .models import Product, Category, Subcategory
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
 
-    products = Product.objects.all()
+    products = Product.objects.all()[0:24]
+    total_obj = Product.objects.count()
     query = None
     categories = Category.objects.all()
     subcategories = Subcategory.objects.all()
@@ -24,9 +27,7 @@ def all_products(request):
 
     if request.user.is_authenticated:
         try:
-            # favorites = Favorites.objects.filter(user=request.user)
             favorites = Favorites.objects.get(user=request.user)
-            # favorites_item = FavoritesItem.objects.filter(favorites__in=favorites)
         except Favorites.DoesNotExist:
             pass
 
@@ -80,18 +81,19 @@ def all_products(request):
     if request.user.is_authenticated:
         context = {
             'products': products,
+            'total_obj': total_obj,
             'search_term': query,
             'current_categories': categories,
             'current_subcategories': subcategories,
             'current_sorting': sort,
             'var_category': var_category,
             'var_subcategory': var_subcategory,
-            # 'favorites_item': favorites_item,
             'favorites': favorites,
         }
     else:
         context = {
             'products': products,
+            'total_obj': total_obj,
             'search_term': query,
             'current_categories': categories,
             'current_subcategories': subcategories,
@@ -110,6 +112,19 @@ def all_products(request):
     print("favorites", favorites)
 
     return render(request, 'products/products.html', context)
+
+
+def load_more(request):
+    """Load more products"""
+
+    loaded_item = request.GET.get('loaded_item')
+    loaded_item_int = int(loaded_item)
+    limit = 12
+    product_obj = list(Product.objects.values()[loaded_item_int:loaded_item_int+limit])
+    data = {
+        'products': product_obj
+    }
+    return JsonResponse(data=data)
 
 
 def product_detail(request, product_id):
