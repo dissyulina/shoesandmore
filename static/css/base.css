@@ -117,6 +117,11 @@ a {
 .bg-light-rose {
     background-color: #E4CBC8;
 }
+
+footer {
+    font-size: 14px;
+}
+
 /* Products Page */
 .card {
     max-width: 15rem;
