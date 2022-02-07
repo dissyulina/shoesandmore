@@ -30,15 +30,64 @@
 
     <section>
         <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-6">
-                    
+            <div class="row mt-5 g-0">
+                <div class="col-12 col-md-6 p-0">
+                    <img src="{{ MEDIA_URL }}sneakers-promo.jpg" class="img-fluid w-100">
                 </div>
-                <div class="col-12 col-md-6">
-
+                <div class="col-12 col-md-6 p-0">
+                    <div class="bg-salmon h-100 px-3 px-lg-4 py-5 text-center d-flex flex-column justify-content-center align-items-center">
+                        <h2 class="mt-3 mb-5 text-headings">Sneakers Collection</h2>
+                        <p class="mb-5">Keep things comfy and trendy with sneakers.</p>
+                        <a href="{% url 'products' %}?subcategory=sneakers" class="btn btn-beige text-uppercase mb-3">Shop Now</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <section>
+        <div class="container mt-5">
+            <h3 class="text-headings">Shoes for the whole family</h3>
+            <div class="row g-0">
+                <div class="col-12 col-md-4 position-relative p-0">
+                    <img src="{{ MEDIA_URL }}women-promo.jpg" class="img-fluid w-100">
+                    <a href="" class="btn btn-beige position-absolute btn-bottom start-50 translate-middle text-uppercase"><strong>Women</strong></a>
+                </div>
+                <div class="col-12 col-md-4 position-relative p-0">
+                    <img src="{{ MEDIA_URL }}men-promo.jpg" class="img-fluid w-100">
+                    <a href="" class="btn btn-beige position-absolute btn-bottom start-50 translate-middle text-uppercase"><strong>Men</strong></a>
+                </div>
+                <div class="col-12 col-md-4 position-relative p-0">
+                    <img src="{{ MEDIA_URL }}kids-promo.jpg" class="img-fluid w-100 h-100">
+                    <a href="" class="btn btn-beige position-absolute btn-bottom start-50 translate-middle text-uppercase"><strong>Kids</strong></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container mt-5">
+            <h3 class="text-headings">Check Out Our Best Sellers!</h3>
+           
+        </div>
+    </section>
+
+    <section>
+        <div class="container-xxl">
+            <div class="img-sale">
+                <div class="row h-100">
+                    <div class="col-6"></div>
+                    <div class="col-6 d-flex flex-column justify-content-center align-items-center">
+                        <div class="text-center text-white pe-3">
+                            <h1 class="text-headings text-uppercase">Final Sale</h1>
+                            <p>Up to 60% discount</p>
+                            <a href="" class="btn btn-beige text-uppercase">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
 
 {% endblock %}

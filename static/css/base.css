@@ -77,7 +77,7 @@ a {
 }
 
 .hero {
-	background: url('/media/hero.jpg') no-repeat center center fixed;
+	background: url('/media/hero.jpg') no-repeat center center;
 	background-size: cover;
     height: calc(100vh - 164px);
     margin-top: 167px;
@@ -93,6 +93,17 @@ a {
     background-size: contain;
     height: 80px;
     width: 100px;
+}
+
+.btn-bottom {
+    bottom: 10px;
+}
+
+.img-sale {
+    background: url('/media/sale-mobile.jpg') no-repeat center center;
+    background-size: cover;
+    height: 500px;
+    width: auto;
 }
 
 /* Products Page */
@@ -205,6 +216,9 @@ select option[value=""] {
     .container-xxl {
       max-width: 80%;
     }
+    .img-sale {
+        background: url('/media/sale-desktop.jpg') no-repeat center center;
+    }
 }
 
 /* Mobile and tablet */
@@ -215,7 +229,7 @@ select option[value=""] {
     }
 
     .hero {
-        background: url('/media/hero.jpg') no-repeat center center fixed;
+        background: url('/media/hero.jpg') no-repeat center center;
         background-size: cover;
         height: calc(100vh - 109px);
         margin-top: 109px;
@@ -226,6 +240,7 @@ select option[value=""] {
     .navbar-offset {
         padding-top: 113px;
     }
+    
 }
 
 /* Very small mobile */
