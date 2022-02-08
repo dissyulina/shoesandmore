@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="navbar-offset"></div>
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col text-center py-5">
+                    <h2 class="my-5">{{ blog.title }}</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <small class="text-muted">Created on {{ blog.created_on }} by {{ blog.author }}</small>
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col-12 col-lg-6 d-flex justify-content-center">
+                    {% if blog.image %}
+                        <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="w-100">
+                    {% else %}
+                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ blog.title }}" class="img-fluid w-100">
+                    {% endif %}
+                </div>
+                <div class="col-12 col-lg-6 ps-lg-4">
+                    <p class="mb-4">{{ blog.paragraph1 }}</p>
+                    {% if blog.paragraph2 %}
+                        <p class="mb-4">{{ blog.paragraph2 }}</p>
+                    {% endif %}
+                    {% if blog.paragraph2 %}
+                        <p class="mb-4">{{ blog.paragraph3 }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="d-flex justify-content-center mb-5 pb-4">
+                <a href="{% url 'all_articles' %}" role="button" class="btn bg-salmon">Read More Articles</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

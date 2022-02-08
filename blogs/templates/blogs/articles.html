@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="navbar-offset"></div>
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <h2 class="my-5 fw-bold">Articles</h2>
+                </div>
+            </div>
+            <div class="row">
+                {% for blog in blogs %}
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-4 d-flex justify-content-center">
+                    <div class="card">
+                        {% if blog.image %}
+                            <a href="{% url 'article_detail' blog.id %}">
+                                <img src="{{ blog.image.url }}" class="card-img-top" alt="{{ blog.title }}">
+                            </a>
+                        {% else %}
+                            <a href="{% url 'article_detail' blog.id %}">
+                                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ blog.title }}">
+                            </a>
+                        {% endif %}
+                        <div class="card-body px-0">
+                            <h6 class="card-title">{{ blog.title }}</h6>
+                            <p class="card-text">{{ blog.paragraph1|truncatechars:40 }}</p>
+                            <a href="{% url 'article_detail' blog.id %}">Read the article <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
