@@ -94,7 +94,7 @@
                     <div class="text-center text-white">
                         <h1 class="text-headings text-uppercase">Bags & Accessories</h1>
                         <p>Complete your style with our bags and accessories collection.</p>
-                        <a href="" class="btn btn-beige text-uppercase">Shop Now</a>
+                        <a href="{% url 'products' %}?subcategory=accessories" class="btn btn-beige text-uppercase">Shop Now</a>
                     </div>
                 </div>
             </div>
@@ -102,9 +102,32 @@
     </section>
 
     <section>
-        <div class="bg-light-rose text-center my-5 py-5">
-            <h1 class="text-headings text-uppercase">Articles and Blogs</h1>
-
+        <div class="bg-light-rose text-center mt-5 py-5">
+            <div class="container">
+                <h1 class="text-headings text-uppercase">Articles and Blogs</h1>
+                <div class="row">
+                    {% for blog in blogs %}
+                    <div class="col-12 col-md-4 mt-5 d-flex justify-content-center">
+                        <div class="card">
+                            {% if blog.image %}
+                                <a href="{% url 'article_detail' blog.id %}">
+                                    <img src="{{ blog.image.url }}" class="card-img-top" alt="{{ blog.title }}">
+                                </a>
+                            {% else %}
+                                <a href="{% url 'article_detail' blog.id %}">
+                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ blog.title }}">
+                                </a>
+                            {% endif %}
+                            <div class="card-body">
+                                <h6 class="card-title fw-bold">{{ blog.title }}</h6>
+                                <p class="card-text">{{ blog.paragraph1|truncatechars:40 }}</p>
+                                <a href="{% url 'article_detail' blog.id %}">Read the article <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
     </section>
 
