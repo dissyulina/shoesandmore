@@ -101,14 +101,9 @@
                     <div class="tab-pane container fade" id="reviews">
                         <div class="row">
                             <div class="col-12 col-md-8 mx-auto">
-
                                 {% for order in orders %}
                                     {% for item in order.lineitems.all %}
-                                        {% if item.product in reviews.all %}
-                                        {% endif %}
-                                        <p>{{ reviews.all }}</p>
-                                        <p>{{ item.product }}</p>
-                                        
+                                        {% if item.product.id not in reviews %}
                                         <div class="row my-5">
                                             <div class="col-6">
                                                 <a href="{% url 'product_detail' item.product.id %}" class="d-flex justify-content-end">
@@ -125,7 +120,7 @@
                                                 <a href="{% url 'add_review' item.product.id %}" class="btn btn-brown-inverted mt-3"><small><i class="fas fa-pen-alt"></i> Give Review</small></a>
                                             </div>
                                         </div>
-                                        
+                                        {% endif %}
                                     {% endfor %}
                                 {% endfor %}
                             </div>
