@@ -10,7 +10,6 @@ from reviews.models import Review
 from .models import Product, Category, Subcategory
 
 
-
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
 
@@ -137,7 +136,7 @@ def product_detail(request, product_id):
     """ A view to show individual product details and the reviews"""
 
     product = get_object_or_404(Product, pk=product_id)
-    reviews = Review.objects.filter(product__id__in=product_id)
+    reviews = Review.objects.filter(product=product_id)
 
     sizes_women = range(36, 44)
     sizes_men = range(40, 47)
