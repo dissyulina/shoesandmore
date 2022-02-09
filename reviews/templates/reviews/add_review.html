@@ -37,7 +37,7 @@
                             <fieldset>
                                 <p><small>Give a rating to this product:</small></p>
                                 <span class="star-rating">
-                                    <input type="radio" name="rating" value="1"><i></i>
+                                    <input type="radio" name="rating" value="1" required><i></i>
                                     <input type="radio" name="rating" value="2"><i></i>
                                     <input type="radio" name="rating" value="3"><i></i>
                                     <input type="radio" name="rating" value="4"><i></i>
@@ -47,7 +47,7 @@
                         </div>
                         <div class="mt-5">
                             <label for="review_text" class="form-label"><small>Write a review about this product:</small></label>
-                            <textarea class="form-control" id="review_text" name="review_text" rows="5"></textarea>
+                            <textarea class="form-control" id="review_text" name="review_text" rows="5" maxlength="500"></textarea>
                         </div>
                         <button type="submit" class="btn btn-brown mt-5"><small><i class="fas fa-pen-alt"></i> Submit Review</small></button>
                     </form>

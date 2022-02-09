@@ -34,6 +34,7 @@ def add_review(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
     user = get_object_or_404(UserProfile, user=request.user)
+    total_product_reviews = Review.objects.filter(product=product.id).count() + 1
 
     # If user already submitted review for this product
     review = Review.objects.filter(product=product).filter(user=user)
@@ -57,6 +58,13 @@ def add_review(request, product_id):
             form.save()
 
             messages.success(request, f'Your review for {product.name} is added successfully')
+            
+            # Update rating field on product table
+            print(product.rating)
+            print(total_product_reviews)
+            print(review.rating)
+            product.rating = (((product.rating * total_product_reviews) + review.rating) / (total_product_reviews + 1))
+            product.save()
 
             context = {
                 'product': product,

@@ -121,7 +121,9 @@
                                 {% endif %}
                             </p>
                             <p class="mb-1">By: {{ review.user }}</p>
-                            <p class="mb-1">{{ review.review_text }}</p>
+                            {% if review.review_text %}
+                                <p class="mb-1">{{ review.review_text }}</p>
+                            {% endif %}
                             {% if user.is_authenticated %}
                                 {% if request.user|stringformat:'s' == review.user|stringformat:'s' %}
                                     <a href="{% url 'edit_review' review.id %}" class="btn btn-sm btn-outline-dark"><i class="far fa-edit"></i> Edit</a>

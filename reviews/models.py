@@ -15,8 +15,8 @@ class Review(models.Model):
         (5, 5),
     ]
 
-    rating = models.IntegerField(choices=RATINGS)
-    review_text = models.TextField(max_length=500)
+    rating = models.IntegerField(choices=RATINGS, null=False, blank=False)
+    review_text = models.TextField(max_length=500, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(UserProfile, null=False, blank=False, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)

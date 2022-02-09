@@ -68,6 +68,7 @@ def checkout(request):
                             quantity=item_data,
                         )
                         order_line_item.save()
+                        
                     else:
                         for size, quantity in item_data['items_by_size'].items():
                             order_line_item = OrderLineItem(
@@ -77,6 +78,12 @@ def checkout(request):
                                 product_size=size,
                             )
                             order_line_item.save()
+
+                    # Update total_purchased field on product table
+                    product = Product.objects.get(pk=item_id)
+                    product.total_purchased += order_line_item.quantity
+                    product.save()
+
                 except Product.DoesNotExist:
                     messages.error(request, (
                         "One of the products in your bag wasn't found in our database. "
@@ -144,7 +151,6 @@ def checkout_success(request, order_number):
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
-    order_line = OrderLineItem.objects.get(order=order)
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
@@ -165,11 +171,6 @@ def checkout_success(request, order_number):
             user_profile_form = UserProfileForm(profile_data, instance=profile)
             if user_profile_form.is_valid():
                 user_profile_form.save()
-
-        # Update total_purchased field on product table
-        product = Product.objects.get(pk=order_line.product.id)
-        product.total_purchased += order_line.quantity
-        product.save()
 
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \

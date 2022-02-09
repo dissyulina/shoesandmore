@@ -281,9 +281,11 @@
             </div>
         </div>
         <!-- Load More Button -->
+        {% if var_category == None and var_subcategory == None %}
         <div class="d-flex justify-content-center align-items-center">
             <button id="load-more-button" class="btn btn-beige text-uppercase my-5 fw-bold">Load More Products</button>
         </div>
+        {% endif %}
         {{total_obj|json_script:"json-total"}}
         
         <!-- Back to top button -->
@@ -299,19 +301,7 @@
 {% block postloadjs %}
     {{ block.super }}
     <script>
-        $(document).ready(function() {
-            // Back to top button functionality
-            $("#back-to-top").click(function(event) {
-                event.preventDefault();
-                $("html, body").animate({ scrollTop: 0 }, "slow");
-                return false;
-            });
-
-            // Turn Add to favorite button (heart icon) into red
-            $('.fa-inverse').hover(function(){
-                $(this).toggleClass("text-danger");
-            });
-        });
+        
 
         // Load More Products, adapted from https://www.youtube.com/watch?v=t8luXilRnlE
         const total = JSON.parse(document.getElementById('json-total').textContent);
@@ -377,6 +367,23 @@
         }
         $('#load-more-button').click(function () {
             loadMoreProducts();
+        });
+
+        $(document).ready(function() {
+            // Back to top button functionality
+            $("#back-to-top").click(function(event) {
+                event.preventDefault();
+                $("html, body").animate({ scrollTop: 0 }, "slow");
+                return false;
+            });
+
+            // Turn Add to favorite button (heart icon) into red
+            $('.fa-inverse').hover(function(){
+                $(this).toggleClass("text-danger");
+            });
+            $('.fa-inverse').click(function(){
+                $(this).focus();
+            });
         });
     </script>
     
