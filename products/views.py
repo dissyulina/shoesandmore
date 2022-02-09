@@ -14,7 +14,7 @@ from .models import Product, Category, Subcategory
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
 
-    products = Product.objects.all()[0:24]
+    products = Product.objects.all()
     total_obj = Product.objects.count()
     query = None
     categories = Category.objects.all()
@@ -76,6 +76,9 @@ def all_products(request):
             queries = Q(name__icontains=query)
             products = products.filter(queries)
 
+    else:
+        products = products[0:24]
+
     current_sorting = f'{sort}_{direction}'
   
     if request.user.is_authenticated:
@@ -121,9 +124,12 @@ def load_more(request):
     loaded_item_int = int(loaded_item)
     limit = 12
     product_obj = list(Product.objects.values()[loaded_item_int:loaded_item_int+limit])
+    loaded_item_after = loaded_item_int + limit
     data = {
-        'products': product_obj
+        'products': product_obj,
+        'loaded_item_after': loaded_item_after
     }
+    print(loaded_item_after)
     return JsonResponse(data=data)
 
 
@@ -146,3 +152,4 @@ def product_detail(request, product_id):
     }
 
     return render(request, 'products/product_detail.html', context)
+
