@@ -27,21 +27,30 @@ a {
 }
 
 /* Buttons */
+.btn {
+    padding: 0.75rem 1.5rem; 
+}
+
 .btn-beige {
     background-color: #E8DCD5;
-    padding: 0.75rem 1.5rem; 
+    color: #000;
+    border: 1px solid #E8DCD5;
+}
+
+.btn-beige-inverted {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #E8DCD5;
 }
 
 .btn-brown {
     background-color: #644536;
-    padding: 0.75rem 1.5rem; 
     color: #fff;
     border: 1px solid #644536;
 }
 
 .btn-brown-inverted {
     background-color: #fff;
-    padding: 0.75rem 1.5rem; 
     color: #644536;
     border: 1px solid #644536;
 }
@@ -221,6 +230,10 @@ select option[value=""] {
 
 .allauth-form-inner-content .btn-allauth {
     padding-top: 2.5rem;
+}
+
+.form-group {
+    margin: 10px;
 }
 
 /* --------- MEDIA QUERIES --------- */
