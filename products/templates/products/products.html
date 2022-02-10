@@ -270,6 +270,12 @@
                                                 {% else %}
                                                     <small class="text-muted">No Rating</small>
                                                 {% endif %}
+                                                {% if request.user.is_superuser %}
+                                                <small class="ml-3 float-end">
+                                                    <a href="{% url 'edit_product' product.id %}">Edit</a> | 
+                                                    <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                                                </small>
+                                                {% endif %}
                                             </div>
                                         </div>
                                     </div>
