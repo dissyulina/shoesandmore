@@ -20,7 +20,7 @@
                         <p class="text-uppercase m-0"><strong>Customer Service</strong></p>
                         <ul class="list-unstyled">
                             <li class="mt-2"><a href="">FAQ</a></li>
-                            <li class="mt-2"><a href="">Contact Us</a></li>
+                            <li class="mt-2"><a href="{% url 'contact' %}">Contact Us</a></li>
                             {% if request.user.is_authenticated %}
                                 <li class="mt-2"><a href="{% url 'profile' %}">My Account</a></li>
                             {% else %}
