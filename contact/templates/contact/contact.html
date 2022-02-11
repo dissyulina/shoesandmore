@@ -10,7 +10,33 @@
         <div class="container">
             <div class="row">
                 <div class="col text-center">
-                    <h2 class="my-5 fw-bold">Contact</h2>
+                    <h2 class="my-5 fw-bold text-uppercase">We'd love to hear from you</h2>
+                </div>
+            </div>
+            <div>
+                <p>You can call us, send us an email, or fill out this contact form below. Please note that our customer service teams are very busy just now and we are doing everything we can to get back to you as soon as possible. Thank you for your patience!</p>
+            </div>
+            <div class="text-center my-5">
+                <h4 class="fw-bold">Call Us</h4>
+                <p class="m-0">088 - 123 45 67</p>
+                <p>Monday - Friday 09:00 - 18:00</p>
+            </div>
+            <div class="text-center my-5">
+                <h4 class="fw-bold">Email Us</h4>
+                <p>customerservice@shoesandmore.com</p>
+            </div>
+            <div class="my-5">
+                <h4 class="fw-bold text-center">Contact Form</h4>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-9 col-lg-7">
+                        <form action="{% url 'contact' %}" method="POST">
+                            {% csrf_token %}
+                            {{ form | crispy }} 
+                            <div class="text-end mt-5">
+                                <button class="btn btn-beige" type="submit">Send Message</button>
+                            </div>               
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
