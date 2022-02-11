@@ -19,3 +19,9 @@ def contact(request):
     }
 
     return render(request, 'contact/contact.html', context)
+
+
+def faq(request):
+    """ FAQ Page """
+    return render(request, 'contact/faq.html')
+
