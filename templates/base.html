@@ -61,7 +61,7 @@
                 <div class="col-12 col-md-4 col-lg-5 my-auto py-1 py-lg-0">
                     <ul class="list-inline list-unstyled text-center text-lg-end my-0">
                         <li class="list-inline-item dropdown">
-                            <a class="nav-link" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link text-black" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div class="text-center d-flex align-items-center">
                                     <i class="fas fa-user me-1"></i>
                                     {% if request.user.is_authenticated %}
@@ -85,7 +85,7 @@
                             </div>
                         </li>
                         <li class="list-inline-item">
-                            <a class="nav-link" href="{% url 'view_favorites' %}">
+                            <a class="nav-link text-black" href="{% url 'view_favorites' %}">
                                 <div class="text-center d-flex align-items-center">
                                     <i class="fas fa-heart me-1"></i>
                                     <p class="my-0 d-none d-lg-inline"> Favorites</p>

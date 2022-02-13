@@ -57,7 +57,7 @@ a {
 
 /* Navbar */
 
-.nav-link {
+.navbar-light .navbar-nav .nav-link {
     color: #000;
     padding: 0.5rem;
 }
@@ -78,6 +78,19 @@ a {
 
 .navbar-offset {
     padding-top: 183px;
+}
+
+.search-query input {
+    border: none;
+    border-bottom: 1px solid #000;
+    background-color: #E8DCD5;
+    border-radius: 0%;
+}
+
+.button-icon {
+    border: none;
+    background-color: #E8DCD5;
+    border-bottom: 1px solid #000;
 }
 
 /* Home Page */
@@ -107,6 +120,12 @@ a {
 
 .btn-bottom {
     bottom: 10px;
+}
+
+.btn-home {
+    letter-spacing: 2px;
+    font-family: 'DM Serif Display', serif;
+    text-transform: uppercase;
 }
 
 .img-sale {
