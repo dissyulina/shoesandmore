@@ -19,9 +19,9 @@
             </div>
             <div>
                 <p><strong>Hello, {{ profile }}.</strong></p>
-                <ul class="nav nav-pills nav-justified mt-2 mb-5">
+                <ul class="nav nav-pills nav-justified mt-2 mb-5" id="profile-pills">
                     <li class="nav-item">
-                        <a class="nav-link active" data-bs-toggle="pill" href="#information">
+                        <a class="nav-link" data-bs-toggle="pill" href="#information">
                             <i class="far fa-address-card"></i><br>
                             My Information
                         </a>
@@ -42,7 +42,7 @@
                   
                 <!-- Tab panes -->
                 <div class="tab-content">
-                    <div class="tab-pane container active" id="information">
+                    <div class="tab-pane container" id="information">
                         <div class="row">
                             <div class="col-12 col-md-7">
                                 <p>Default Delivery Information</p>
@@ -57,44 +57,48 @@
                     <div class="tab-pane container fade" id="purchases">
                         <div class="row">
                             <div class="col-12">
-                                <p>Order History</p>
-                                <div class="order-history table-responsive">
-                                    <table class="table table-sm table-borderless">
-                                        <thead>
-                                            <tr>
-                                                <th>Order Number</th>
-                                                <th>Date</th>
-                                                <th>Items</th>
-                                                <th>Order Total</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {% for order in orders %}
+                                {% if orders %}
+                                    <p class="fw-bold">Order History</p>
+                                    <div class="order-history table-responsive">
+                                        <table class="table table-sm table-borderless">
+                                            <thead>
                                                 <tr>
-                                                    <td>
-                                                        <a href="{% url 'order_history' order.order_number %}"
-                                                        title="{{ order.order_number }}">
-                                                            {{ order.order_number|truncatechars:6 }}
-                                                        </a>
-                                                    </td>
-                                                    <td>{{ order.date }}</td>
-                                                    <td>
-                                                        <ul class="list-unstyled">
-                                                            {% for item in order.lineitems.all %}
-                                                                <li class="small">
-                                                                    {% if item.product.has_sizes %}
-                                                                        Size {{ item.product.size|upper }}
-                                                                    {% endif %}{{ item.product.name }} x{{ item.quantity }}
-                                                                </li>
-                                                            {% endfor %}
-                                                        </ul>
-                                                    </td>
-                                                    <td>${{ order.grand_total }}</td>
+                                                    <th>Order Number</th>
+                                                    <th>Date</th>
+                                                    <th>Items</th>
+                                                    <th>Order Total</th>
                                                 </tr>
-                                            {% endfor %}
-                                        </tbody>
-                                    </table>
-                                </div>
+                                            </thead>
+                                            <tbody>
+                                                {% for order in orders %}
+                                                    <tr>
+                                                        <td>
+                                                            <a href="{% url 'order_history' order.order_number %}"
+                                                            title="{{ order.order_number }}">
+                                                                {{ order.order_number|truncatechars:6 }}
+                                                            </a>
+                                                        </td>
+                                                        <td>{{ order.date }}</td>
+                                                        <td>
+                                                            <ul class="list-unstyled">
+                                                                {% for item in order.lineitems.all %}
+                                                                    <li class="small">
+                                                                        {% if item.product.has_sizes %}
+                                                                            Size {{ item.product.size|upper }}
+                                                                        {% endif %}{{ item.product.name }} x{{ item.quantity }}
+                                                                    </li>
+                                                                {% endfor %}
+                                                            </ul>
+                                                        </td>
+                                                        <td>${{ order.grand_total }}</td>
+                                                    </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                {% else %}
+                                    <p>No order history.</p>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -104,22 +108,22 @@
                                 {% for order in orders %}
                                     {% for item in order.lineitems.all %}
                                         {% if item.product.id not in reviews %}
-                                        <div class="row my-5">
-                                            <div class="col-6">
-                                                <a href="{% url 'product_detail' item.product.id %}" class="d-flex justify-content-end">
-                                                    {% if item.product.image %}
-                                                        <img class="w-75" src="{{ item.product.image.url }}" alt="{{ product.name }}">
-                                                    {% else %}
-                                                        <img class="w-75" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                                                    {% endif %}
-                                                </a>
+                                            <div class="row my-5 item-to-be-reviewed">
+                                                <div class="col-6">
+                                                    <a href="{% url 'product_detail' item.product.id %}" class="d-flex justify-content-end">
+                                                        {% if item.product.image %}
+                                                            <img class="w-75" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                                                        {% else %}
+                                                            <img class="w-75" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                                        {% endif %}
+                                                    </a>
+                                                </div>
+                                                <div class="col-6 d-flex flex-column justify-content-center">
+                                                    <p class="my-0"><strong><small>{{ item.product.name }}</small></strong></p>
+                                                    <p class="my-0"><small>{% if item.product_size %}Size {{ item.product_size|upper }}{% endif %}</small></p>
+                                                    <a href="{% url 'add_review' item.product.id %}" class="btn btn-brown-inverted mt-3"><small><i class="fas fa-pen-alt"></i> Give Review</small></a>
+                                                </div>
                                             </div>
-                                            <div class="col-6 d-flex flex-column justify-content-center">
-                                                <p class="my-0"><strong><small>{{ item.product.name }}</small></strong></p>
-                                                <p class="my-0"><small>{% if item.product_size %}Size {{ item.product_size|upper }}{% endif %}</small></p>
-                                                <a href="{% url 'add_review' item.product.id %}" class="btn btn-brown-inverted mt-3"><small><i class="fas fa-pen-alt"></i> Give Review</small></a>
-                                            </div>
-                                        </div>
                                         {% endif %}
                                     {% endfor %}
                                 {% endfor %}
@@ -134,5 +138,5 @@
 
 {% block postloadjs %}
     {{ block.super }}
-    <script type="text/javascript" src="{% static 'profiles/js/profiles.js' %}"></script>
+    <script src="{% static 'profiles/js/profiles.js' %}"></script>
 {% endblock %}
