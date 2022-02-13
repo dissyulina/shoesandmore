@@ -2,6 +2,9 @@ body {
     font-family: 'Noto Sans', sans-serif;
     background-color: #fff;
     line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .text-headings {
