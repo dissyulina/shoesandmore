@@ -2,53 +2,49 @@
     <div class="bg-beige">
         <div class="container">
             <div class="row py-5">
-                <div class="col-6 col-md-3">
-                    <div>
-                        <p class="text-uppercase m-0"><strong>shop</strong></p>
-                        <ul class="list-unstyled">
-                            <li class="mt-2"><a href="{% url 'home' %}">Home</a></li>
-                            <li class="mt-2"><a href="{% url 'products' %}?category=women">Women</a></li>
-                            <li class="mt-2"><a href="{% url 'products' %}?category=men">Men</a></li>
-                            <li class="mt-2"><a href="{% url 'products' %}?category=kids">Kids</a></li>
-                            <li class="mt-2"><a href="{% url 'products' %}?subcategory=accessories">Accessories</a></li>
-                            <li class="mt-2"><a href="{% url 'products' %}?category=sale">Sale</a></li>
-                        </ul>
-                    </div>
+                <div class="col-4 col-md-3">
+                    <p class="text-uppercase m-0"><strong>shop</strong></p>
+                    <ul class="list-unstyled">
+                        <li class="mt-2"><a href="{% url 'home' %}">Home</a></li>
+                        <li class="mt-2"><a href="{% url 'products' %}?category=women">Women</a></li>
+                        <li class="mt-2"><a href="{% url 'products' %}?category=men">Men</a></li>
+                        <li class="mt-2"><a href="{% url 'products' %}?category=kids">Kids</a></li>
+                        <li class="mt-2"><a href="{% url 'products' %}?subcategory=accessories">Accessories</a></li>
+                        <li class="mt-2"><a href="{% url 'products' %}?category=sale">Sale</a></li>
+                    </ul>
                 </div>
-                <div class="col-6 col-md-4">
-                    <div>
-                        <p class="text-uppercase m-0"><strong>Customer Service</strong></p>
-                        <ul class="list-unstyled">
-                            <li class="mt-2"><a href="{% url 'faq' %}">FAQ</a></li>
-                            <li class="mt-2"><a href="{% url 'contact' %}">Contact Us</a></li>
-                            {% if request.user.is_authenticated %}
-                                <li class="mt-2"><a href="{% url 'profile' %}">My Account</a></li>
-                            {% else %}
-                                <li class="mt-2"><a href="{% url 'account_signup' %}">Sign Up</a></li>
-                                <li class="mt-2"><a href="{% url 'account_login' %}">Log In</a></li>
-                            {% endif %}
-                        </ul>
-                    </div>
+                <div class="col-5 col-md-3">
+                    <p class="text-uppercase m-0"><strong>Customer Service</strong></p>
+                    <ul class="list-unstyled">
+                        <li class="mt-2"><a href="{% url 'faq' %}">FAQ</a></li>
+                        <li class="mt-2"><a href="{% url 'contact' %}">Contact Us</a></li>
+                        {% if request.user.is_authenticated %}
+                            <li class="mt-2"><a href="{% url 'profile' %}">My Account</a></li>
+                        {% else %}
+                            <li class="mt-2"><a href="{% url 'account_signup' %}">Sign Up</a></li>
+                            <li class="mt-2"><a href="{% url 'account_login' %}">Log In</a></li>
+                        {% endif %}
+                    </ul>
                 </div>
-                <div class="col-12 col-md-5">
-                    <p class="text-uppercase m-0"><strong>Subscribe to our newsletter</strong></p>
-                    <p class="mt-2">Get the newest discount and promotions straight to your inbox!</p>
+                <div class="col-3 col-md-3">
+                    <p class="text-uppercase m-0"><strong>others</strong></p>
+                    <ul class="list-unstyled">
+                        <li class="mt-2"><a href="{% url 'all_articles' %}">Articles</a></li>
+                    </ul>
                 </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-8 col-sm-6 com-md-4 col-lg-2">
-                    <ul class="list-unstyled list-inline w-100 d-flex justify-content-between">
+                <div class="col-12 col-md-3 d-flex flex-column justify-content-center mt-3 mt-md-0">
+                    <ul class="list-unstyled list-inline w-100 d-flex justify-content-around">
                         <li class="list-inline-item"><a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Open our facebook page in a new tab"><i class="fab fa-facebook-f"></i></a></li>
                         <li class="list-inline-item"><a href="https://www.twitter.com" target="_blank" rel="noopener" aria-label="Open our twitter page in a new tab"><i class="fab fa-twitter"></i></a></li>
                         <li class="list-inline-item"><a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Open our instagram page in a new tab"><i class="fab fa-instagram"></i></a></li>
                         <li class="list-inline-item"><a href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="Open our youtube page in a new tab"><i class="fab fa-youtube"></i></a></li>
                     </ul>
+                    <div>
+                        <a class="d-flex justify-content-center" href="{% url 'home' %}">
+                            <div class="logo"></div>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <a class="d-flex justify-content-center" href="{% url 'home' %}">
-                    <div class="logo"></div>
-                </a>
             </div>
             <div class="d-flex justify-content-center" >
                 <p>For Educational Purposes</p>
