@@ -1,8 +1,17 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_header %}
+{% block extra_css %}
+    <!-- Flickity -->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+{% endblock %}
 
+{% block extra_js %}
+    <!--Flickity-->
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+{% endblock %}
+
+{% block page_header %}
 {% endblock %}
 
 {% block content %}
@@ -68,7 +77,52 @@
     <section>
         <div class="container mt-5">
             <h3 class="text-headings">Check Out Our Best Sellers!</h3>
-           
+            <div class="your-class">
+                <div class="main-carousel" data-flickity='{ "wrapAround": true, "autoPlay": true }'>
+                    {% for product in products %}
+                        <div class="card me-2">
+                            <div>
+                                <!-- Product's image -->
+                                {% if product.image %}
+                                    <a href="{% url 'product_detail' product.id %}">
+                                        <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                    </a>
+                                {% else %}
+                                    <a href="{% url 'product_detail' product.id %}">
+                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                    </a>
+                                {% endif %}
+                                
+                                <!-- Add to favorite button -->
+                                <div class="circle-overlay position-abs">
+                                    <a href="{% url 'add_to_favorites' product.id %}" role="button" class="btn-fav" aria-label="add to favorites">
+                                        {% if product in favorites.products.all %}
+                                            <i class="fas fa-heart fa-inverse text-danger"></i>
+                                        {% else %}
+                                            <i class="fas fa-heart fa-inverse"></i>
+                                        {% endif %}
+                                    </a>  
+                                </div>
+                            </div>
+                            <div class="card-body pt-1 ps-0 pb-0">
+                                <p class="card-text mb-0">{{ product.name }}</p>
+                            </div>
+                            <div class="card-footer bg-white ps-0 pt-0 border-0 text-left">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="mb-0 text-start fw-bold">€{{ product.price }}</p>
+                                        {% if product.rating %}
+                                            <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                                        {% else %}
+                                            <small class="text-muted">No Rating</small>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
     </section>
 
@@ -132,5 +186,52 @@
             </div>
         </div>
     </section>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script>
+        $(document).ready(function(){
+            $('.your-class').slick({
+                setting-name: setting-value
+            });
+        });
+
+        $('.responsive').slick({
+            dots: true,
+            infinite: false,
+            speed: 300,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            responsive: [
+                {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+                },
+                {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+                },
+                {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
+        });
+    </script>
 
 {% endblock %}
