@@ -1,5 +1,5 @@
 <div class="d-block d-lg-none">
-    <a class="navbar-brand me-auto d-flex justify-content-center py-2 ps-1" href="#">
+    <a class="navbar-brand me-auto d-flex justify-content-center py-2 ps-1" href="{% url 'home' %}">
         <div class="logo"></div>
     </a>
 </div>
@@ -8,7 +8,7 @@
     <li class="list-inline-item p-0">
         <a class="text-black nav-link d-block d-lg-none" href="#" id="mobile-search" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="text-center">
-                <div><i class="fas fa-search"></i></div>
+                <i class="fas fa-search"></i>
             </div>
         </a>
         <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="mobile-search">
@@ -25,9 +25,9 @@
         </div>
     </li>
     <li class="list-inline-item dropdown">
-        <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="text-center">
-                <div><i class="fas fa-user"></i></div>
+                <i class="far fa-user"></i>
             </div>
         </a>
         <div class="dropdown-menu border-0" aria-labelledby="user-options">
@@ -35,7 +35,7 @@
                 {% if request.user.is_superuser %}
                     <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
                 {% endif %}
-                <a href="" class="dropdown-item">My Profile</a>
+                <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                 <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
             {% else %}
                 <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
@@ -44,9 +44,9 @@
         </div>
     </li>
     <li class="list-inline-item">
-        <a class="nav-link d-block d-lg-none" href="">
+        <a class="nav-link d-block d-lg-none" href="{% url 'view_favorites' %}">
             <div class="text-center d-flex align-items-center">
-                <i class="fas fa-heart"></i>
+                <i class="far fa-heart"></i>
                 <p class="my-0 d-none d-lg-inline"> Favourites</p>
             </div>
         </a>
@@ -54,7 +54,7 @@
     <li class="list-inline-item">
         <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none" href="{% url 'view_bag' %}">
             <div class="text-center d-flex align-items-center">
-                <i class="fas fa-shopping-bag"></i>
+                <i class="fas fa-shopping-basket"></i>
                 {% if grand_total %}
                     <p class="my-0"><small>${{ grand_total|floatformat:2 }}</small></p>
                 {% else %}
