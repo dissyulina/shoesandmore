@@ -19,6 +19,18 @@
                     {% endif %}
                 </ol>
             </div>
+            <div class="img-sale img-fluid">
+                <div class="row h-100 g-0">
+                    <div class="col-6"></div>
+                    <div class="col-6 d-flex flex-column justify-content-center align-items-center">
+                        <div class="text-center text-white pe-3">
+                            <h1 class="text-headings text-uppercase">Final Sale</h1>
+                            <p>Up to 60% discount</p>
+                            <a href="{% url 'products' %}?subcategory=sale" class="btn btn-beige btn-home">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-lg-2 d-none d-lg-block">
                     <!-- Side Nav -->
@@ -187,22 +199,10 @@
                     {% endif %}
                 </div>
                 <div class="col-12 col-lg-10">
-                    <div class="img-sale">
-                        <div class="row h-100 g-0">
-                            <div class="col-6"></div>
-                            <div class="col-6 d-flex flex-column justify-content-center align-items-center">
-                                <div class="text-center text-white pe-3">
-                                    <h1 class="text-headings text-uppercase">Final Sale</h1>
-                                    <p>Up to 60% discount</p>
-                                    <a href="{% url 'products' %}?subcategory=sale" class="btn btn-beige btn-home">Shop Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="">
+                    <div class="mt-5">
                         <div class="mb-3 d-flex flex-row">
                             <div class="flex-grow-1">
-                                <p class="text-muted mt-3 text-md-start">
+                                <p class="text-muted text-md-start">
                                     {% if search_term or current_categories or current_sorting != 'None_None' %}
                                         <span class="small"><a href="{% url 'products' %}">Back to All Products</a> | </span>
                                     {% endif %}
@@ -210,8 +210,8 @@
                                 </p>
                             </div>
                             <!-- Sorting -->
-                            <div class="mt-2">
-                                <a class="nav-link text-black" href="#" id="sortDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div>
+                                <a class="nav-link text-black py-0" href="#" id="sortDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Sort by 
                                     <i class="fas fa-chevron-down"></i>
                                 </a>
@@ -242,7 +242,7 @@
                         </div>
                     </div>
 
-                    <div class="row mt-md-5" id="product-wrapper">
+                    <div class="row mt-md-2" id="product-wrapper">
                         {% for product in products %}
                             <div class="col-6 col-md-4 col-lg-3">
                                 <div class="card mx-auto">

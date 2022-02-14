@@ -58,7 +58,8 @@ a {
     border: 1px solid #644536;
 }
 
-/* Navbar */
+/* Navbar & Footer*/
+
 .nav-link,
 .navbar-light .navbar-nav .nav-link {
     color: #000;
@@ -117,6 +118,10 @@ footer a:focus {
     color: #7a413b;
 }
 
+footer {
+    font-size: 14px;
+}
+
 /* Home Page */
 
 .text-hero {
@@ -155,8 +160,8 @@ footer a:focus {
 .img-sale {
     background: url('/media/sale-mobile.jpg') no-repeat center center;
     background-size: cover;
-    height: 500px;
-    width: auto;
+    height: 300px;
+    width: 100%;
 }
 
 .img-accessories {
@@ -170,15 +175,18 @@ footer a:focus {
     background-color: #E4CBC8;
 }
 
-footer {
-    font-size: 14px;
+.main-carousel .card {
+    max-width: 12rem;
+    font-size: 0.8rem;
+    margin-bottom: 2rem;
+    border: none;
 }
 
 /* Products Page */
 .card {
-    max-width: 19rem;
+    max-width: 15rem;
     font-size: 0.8rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0.8rem;
     border: none;
 }
 
@@ -187,7 +195,7 @@ footer {
     height: 42px;
     width: 42px;
     position: fixed;
-    bottom: 50vh;
+    bottom: 30vh;
     right: 10px;
     cursor: pointer;
 }
@@ -316,6 +324,7 @@ select option[value=""] {
     }
     .img-sale {
         background: url('/media/sale-desktop.jpg') no-repeat center center;
+        background-size: cover;
     }
 }
 
@@ -343,7 +352,13 @@ select option[value=""] {
 
 /* Very small mobile */
 @media screen and (max-width: 355px) {
+    /*
     .navbar-offset {
         padding-top: 155px;
+    }*/
+
+    .navbar .container-fluid {
+        padding-right: 5px;
+        padding-left: 5px;
     }
 }
