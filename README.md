@@ -36,3 +36,41 @@ The site owner is looking to:
 
 
 
+#### **User Stories** 
+- As a shopper I want to be able to:
+  1. Quickly identify what products/services the site sells.  
+  2. Quickly identify deals and special offers.
+  3. Search for a product.
+  4. Identify a glimpse of most populars products.
+  5. View all products, and easily navigate between categories.
+  6. Sort by price, by rating, and by color.
+  7. View individual product's page and read the relevant information.
+  8. Read a product's review.
+  9. Easily select size and quantity of the product, and add it to shopping bag.
+  10. View the shopping bag with products added in it
+  11. Update the shopping bag by adjusting the quantity of the products, or removing them from the shopping bag.
+  12. Checkout and easily enter my payment information.
+  13. Feel my personal and payment information is safe and secure.
+  14. View an order confirmation after purchasing.
+  15. Receive an email confirmation after purchasing.
+  16. Read relevant articles/ blogs about shoes or accessories.
+  17. Easily navigate within the site, through Navigation Bar and Footer.
+  18. Easily register for an account.
+  19. Find FAQ section for my questions.
+  20. Contact the shop via a contact form.   
+
+- As a registered user/ shopper, I want to be able to:
+  1. Access all functionalities that an unregistered shopper can do
+  2. Easily login or logout.
+  3. Easily recover my password in case I forget it.
+  4. Receive an email confirmation after registering.
+  5. Have a personalized user profile where I can see my order history and change my information.
+  6. Review products that I have purchased before.
+  7. Edit and delete my reviews.
+  8. Add products to the wishlist, and remove them from wishlist.
+  9. Easily put the wishlist products into the shopping bag.  
+
+- As an admin and store management, I want to be able to:
+  1. Add a product.
+  2. Edit or update a product.
+  3. Delete a product.
