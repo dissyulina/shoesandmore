@@ -16,16 +16,16 @@
             </div>
             {% if bag_items %}
                 <div class="row">
-                    <div class="col-12 col-lg-8">
+                    <div class="col-12 col-lg-7 col-xl-8">
                         <div class="table-responsive rounded"></div>
                         <table class="table table-sm table-borderless">
                             <thead class="text-black">
                                 <tr>
-                                    <th scope="col">Product Info</th>
+                                    <th scope="col" class="d-none d-sm-block">Product Info</th>
                                     <th scope="col"></th>
-                                    <th scope="col">Qty</th>
+                                    <th scope="col" class="d-none d-sm-block">Qty</th>
                                     <th scope="col"></th>
-                                    <th scope="col">Subtotal</th>
+                                    <th scope="col" class="d-none d-sm-block">Subtotal</th>
                                 </tr>
                             </thead>
 
@@ -47,7 +47,7 @@
                                     <td class="py-3">
                                         <form class="form update-form" id="{{ item.item_id }}" method="POST" action="{% url 'adjust_bag' item.item_id %}">
                                             {% csrf_token %}
-                                            <div class="form-group w-75">
+                                            <div class="w-100">
                                                 <div class="input-group">
                                                     <select class="form-control form-select quantity-update" name="quantity" value="{{ item.quantity }}">
                                                         {% for qty in range_quantity %}
@@ -65,10 +65,10 @@
                                             </div>
                                         </form>
                                     </td>
-                                    <td class="py-3 pe-5">
+                                    <td class="pt-3 ps-3 pe-sm-3">
                                         <a class="remove-item" href="" id="remove_{{ item.item_id }}" data-product-size="{{ item.size }}"><i class="far fa-trash-alt"></i></a>
                                     </td>
-                                    <td class="py-3">
+                                    <td class="py-3 d-none d-sm-block">
                                         <p class="my-0">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
                                     </td>
                                 </tr>
@@ -77,7 +77,7 @@
                     </div>
 
                     <!-- Total Summary -->
-                    <div class="col-12 col-lg-4 mt-5 ps-5">
+                    <div class="col-12 col-lg-5 col-xl-4 mt-5 ps-lg-5">
                         <div class="border bg-beige p-4">
                             {% if request.user.is_authenticated %}
                             {% else %}
@@ -109,7 +109,7 @@
                                 </p>
                             {% endif %}
                             <div class="text-center mt-3">
-                                <a href="{% url 'checkout' %}" class="btn btn-brown rounded-0">
+                                <a href="{% url 'checkout' %}" class="btn btn-brown w-100">
                                     <span class="text-uppercase">Secure Checkout</span>
                                     <span class="icon">
                                         <i class="fas fa-lock"></i>
@@ -117,11 +117,12 @@
                                 </a>
                             </div>
                             <div class="mt-5">
-                                <p>We accept</p>
+                                <p class="m-0 fw-bold">We accept</p>
+                                <img class="w-100" src="{{ MEDIA_URL }}cards-logo.png" alt="Visa, Master Cards, American Express, and Discover">
                             </div>
                         </div>
                         <div class="my-5 text-end">
-                            <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                            <a href="{% url 'products' %}" class="btn btn-brown-inverted">
                                 <span class="icon">
                                     <i class="fas fa-chevron-left"></i>
                                 </span>
@@ -132,7 +133,7 @@
                 </div>
             {% else %}
                 <p class="lead text-center mb-5">Your bag is empty.</p>
-                <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                <a href="{% url 'products' %}" class="btn btn-brown-inverted">
                     <span class="icon">
                         <i class="fas fa-chevron-left"></i>
                     </span>
