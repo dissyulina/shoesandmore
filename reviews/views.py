@@ -8,8 +8,10 @@ from profiles.models import UserProfile
 from checkout.models import Order, OrderLineItem
 
 from .models import Review
-
 from .forms import ReviewForm
+
+# Defining a new custome message level
+SUCCESS_NO_BAG = 50
 
 
 def product_reviews(request, product_id):
@@ -57,7 +59,7 @@ def add_review(request, product_id):
             review.product = product
             form.save()
 
-            messages.success(request, f'Your review for {product.name} is added successfully')
+            messages.add_message(request, SUCCESS_NO_BAG, f'Your review for {product.name} is added successfully')
             
             # Update rating field on product table
             print(product.rating)
@@ -81,7 +83,7 @@ def add_review(request, product_id):
             'form': form,
             'user_profile': user,
             'review': review,
-            'on_review_page': True,
+            'toast_without_bag': True,
         }
 
         return render(request, 'reviews/add_review.html', context)
@@ -104,7 +106,7 @@ def edit_review(request, review_id):
         form = ReviewForm(request.POST, instance=review)
         if form.is_valid():
             form.save()
-            messages.success(request, f'Your review for {review.product.name} is edited successfully')
+            messages.add_message(request, SUCCESS_NO_BAG, f'Your review for {review.product.name} is edited successfully')
 
             return redirect(reverse('product_detail', args=[review.product.id]))
         
@@ -114,9 +116,8 @@ def edit_review(request, review_id):
     context = {
         'form': form,
         'review': review,
-        'on_review_page': True,
+        'toast_without_bag': True,
     }
-    print(review)
 
     return render(request, 'reviews/edit_review.html', context)
 
@@ -135,5 +136,5 @@ def delete_review(request, review_id):
 
     review.delete()
 
-    messages.success(request, 'Review successfully deleted!')
+    messages.add_message(request, SUCCESS_NO_BAG, 'Review successfully deleted!')
     return redirect(reverse('product_detail', args=[review.product.id]))

@@ -7,6 +7,9 @@ from reviews.models import Review
 from .models import UserProfile
 from .forms import UserProfileForm
 
+# Defining a new custome message level
+SUCCESS_NO_BAG = 50
+
 
 @login_required
 def profile(request):
@@ -19,7 +22,7 @@ def profile(request):
         form = UserProfileForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Profile updated successfully')
+            messages.add_message(request, SUCCESS_NO_BAG, 'Profile updated successfully')
 
     form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
@@ -30,9 +33,9 @@ def profile(request):
         'form': form,
         'orders': orders,
         'reviews': reviews,
-        'on_profile_page': True,
+        #'toast_without_bag': True,
     }
-    print(reviews)
+
     return render(request, template, context)
 
 

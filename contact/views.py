@@ -2,6 +2,10 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import ContactForm
 
+# Defining a new custome message level
+SUCCESS_NO_BAG = 50
+
+
 def contact(request):
     """ Contact Us Page """
 
@@ -9,7 +13,7 @@ def contact(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Contact Form submitted. Thank you!')
+             messages.add_message(request, SUCCESS_NO_BAG, 'Contact Form submitted. Thank you!')
             return redirect('contact')
     else:
         form = ContactForm()

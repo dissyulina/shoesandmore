@@ -8,10 +8,10 @@ from profiles.models import UserProfile
 from favorites.models import Favorites, FavoritesItem
 
 
-SUCCESS_FAV = 50
+# Defining a new custome message level
+SUCCESS_NO_BAG = 50
 
-# source: modified from a slack thread, conversation between Joe2308 and ckz8780
-
+# Source: modified from a slack thread, conversation between Joe2308 and ckz8780
 @login_required()
 def view_favorites(request):
     """ A view that renders the favorites contents page """
@@ -50,7 +50,7 @@ def add_to_favorites(request, item_id):
 
     else:
         favorites.products.add(product)
-        messages.add_message(request, SUCCESS_FAV, f'{product.name} is added to your favorites')
+        messages.add_message(request, SUCCESS_NO_BAG, f'{product.name} is added to your favorites')
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
             
     return redirect(redirect_url)
@@ -64,5 +64,5 @@ def remove_from_favorites(request, item_id):
     favorites = Favorites.objects.get(user=request.user)
     
     favorites.products.remove(product)
-    messages.add_message(request, SUCCESS_FAV, f'{product.name} is removed from your favorites')
+    messages.add_message(request, SUCCESS_NO_BAG, f'{product.name} is removed from your favorites')
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
