@@ -72,7 +72,8 @@ The site owner is looking to:
    5. Have a personalized user profile where I can see my order history and change my information.  
    6. Review products that I have purchased before.  
    7. Edit and delete my reviews.  
-   8. Add products to the wishlist, and remove them from wishlist.  
+   8. Add products to the wishlist, so I can quickly find products I'd like to purchase. 
+   9. Remove products from the wishlist, so I can remove products I don't wish to purchase.
    9. Easily put the wishlist products into the shopping bag.   
 
 - As an admin and store management, I want to be able to:
@@ -119,4 +120,16 @@ Users will be able to:
 - View articles/ blogs about shoes, accessories, and fashion in general.
 - View FAQ page to find answers for their questions.
 - Send message to the store via contact form.
-- Navigate easily and intuitively throughout the site.
+- Navigate easily and intuitively throughout the site.  
+
+<br/>  
+
+### **3. Structure Plane**  
+The website was organized in a Hierarchical Tree Structure that ensures the user can navigate easily and intuitively. Below is the website workflow (was designed using [Creately](https://creately.com/)).  
+
+![The website's structure](readme-testing-files/readme/structure.png "The website's structure")   
+There's a clear page access separation between unregistered users and registered user. While unregistered users can still purchase products and receive the confirmation via email, they are not able to:
+- View their order history
+- Give reviews (and edit or delete their reviews accordingly)  
+- Make a favorite list of products.
+
