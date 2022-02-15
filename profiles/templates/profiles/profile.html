@@ -104,29 +104,34 @@
                     </div>
                     <div class="tab-pane container fade" id="reviews">
                         <div class="row">
-                            <div class="col-12 col-md-8 mx-auto">
-                                {% for order in orders %}
-                                    {% for item in order.lineitems.all %}
-                                        {% if item.product.id not in reviews %}
-                                            <div class="row my-5 item-to-be-reviewed">
-                                                <div class="col-6">
-                                                    <a href="{% url 'product_detail' item.product.id %}" class="d-flex justify-content-end">
-                                                        {% if item.product.image %}
-                                                            <img class="w-75" src="{{ item.product.image.url }}" alt="{{ product.name }}">
-                                                        {% else %}
-                                                            <img class="w-75" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                                                        {% endif %}
-                                                    </a>
+                            <div class="col-12 mx-auto">
+                                <div class="row mb-5">
+                                    <!-- Display products that have been purchased by user, but not yet reviewed -->
+                                    {% for order in orders %}
+                                        {% for item in order.lineitems.all %}
+                                            {% if item.product.id not in reviews %}
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="row g-0 my-3 item-to-be-reviewed">
+                                                        <div class="col-7">
+                                                            <a href="{% url 'product_detail' item.product.id %}" class="d-flex justify-content-center">
+                                                                {% if item.product.image %}
+                                                                    <img class="w-75" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                                                                {% else %}
+                                                                    <img class="w-75" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                                                {% endif %}
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-5 d-flex flex-column justify-content-center">
+                                                            <p class="my-0"><strong><small>{{ item.product.name }}</small></strong></p>
+                                                            <p class="my-0"><small>{% if item.product_size %}Size {{ item.product_size|upper }}{% endif %}</small></p>
+                                                            <a href="{% url 'add_review' item.product.id %}" class="btn btn-brown-inverted mt-3"><small><i class="fas fa-pen-alt"></i> Give Review</small></a>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="col-6 d-flex flex-column justify-content-center">
-                                                    <p class="my-0"><strong><small>{{ item.product.name }}</small></strong></p>
-                                                    <p class="my-0"><small>{% if item.product_size %}Size {{ item.product_size|upper }}{% endif %}</small></p>
-                                                    <a href="{% url 'add_review' item.product.id %}" class="btn btn-brown-inverted mt-3"><small><i class="fas fa-pen-alt"></i> Give Review</small></a>
-                                                </div>
-                                            </div>
-                                        {% endif %}
+                                            {% endif %}
+                                        {% endfor %}
                                     {% endfor %}
-                                {% endfor %}
+                                </div>
                             </div>
                         </div>
                     </div>

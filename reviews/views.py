@@ -59,7 +59,7 @@ def add_review(request, product_id):
             review.product = product
             form.save()
 
-            messages.add_message(request, SUCCESS_NO_BAG, f'Your review for {product.name} is added successfully')
+            messages.add_message(request, SUCCESS_NO_BAG, f'Thank you for giving a review to {product.name}!')
             
             # Update rating field on product table
             print(product.rating)
@@ -73,8 +73,8 @@ def add_review(request, product_id):
                 'form': form,
             }
 
-            return redirect(reverse('product_detail', args=[product.id]))
-        
+            return redirect(reverse('profile'))
+
     else:
         form = ReviewForm()
 
