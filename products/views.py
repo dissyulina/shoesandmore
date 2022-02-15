@@ -138,6 +138,13 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
     reviews = Review.objects.filter(product=product_id)
+    favorites = None
+
+    if request.user.is_authenticated:
+        try:
+            favorites = Favorites.objects.get(user=request.user)
+        except Favorites.DoesNotExist:
+            pass
 
     sizes_women = range(36, 44)
     sizes_men = range(40, 47)
@@ -149,6 +156,7 @@ def product_detail(request, product_id):
         'sizes_women': sizes_women,
         'sizes_men': sizes_men,
         'sizes_kids': sizes_kids,
+        'favorites': favorites,
     }
 
     return render(request, 'products/product_detail.html', context)
