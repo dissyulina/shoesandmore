@@ -16,9 +16,12 @@ def all_products(request):
 
     products = Product.objects.all()
     total_obj = Product.objects.count()
+    all_categories = Category.objects.all()
+    all_subcategories = Subcategory.objects.all()
+    categories = all_categories
+    subcategories = all_subcategories
+    subcategories_exist = None
     query = None
-    categories = Category.objects.all()
-    subcategories = Subcategory.objects.all()
     sort = None
     direction = None
     var_category = None
@@ -48,6 +51,7 @@ def all_products(request):
         if 'category' in request.GET:
             var_category = request.GET['category']
             categories = request.GET['category'].split(',')
+            subcategories_exist = products.filter(category__name__in=categories).values_list('subcategory__name', flat=True)
 
             if 'subcategory' in request.GET:
                 var_subcategory = request.GET['subcategory']
@@ -76,8 +80,8 @@ def all_products(request):
             queries = Q(name__icontains=query)
             products = products.filter(queries)
 
-    else:
-        products = products[0:24]
+
+    products = products[0:24]
 
     current_sorting = f'{sort}_{direction}'
   
@@ -88,10 +92,13 @@ def all_products(request):
             'search_term': query,
             'current_categories': categories,
             'current_subcategories': subcategories,
+            'all_categories': all_categories,
+            'all_subcategories': all_subcategories,
             'current_sorting': sort,
             'var_category': var_category,
             'var_subcategory': var_subcategory,
             'favorites': favorites,
+            'subcategories_exist': subcategories_exist,
         }
     else:
         context = {
@@ -100,19 +107,25 @@ def all_products(request):
             'search_term': query,
             'current_categories': categories,
             'current_subcategories': subcategories,
+            'all_categories': all_categories,
+            'all_subcategories': all_subcategories,
             'current_sorting': sort,
             'var_category': var_category,
             'var_subcategory': var_subcategory,
+            'subcategories_exist': subcategories_exist,
         }
 
     # PRINT VARIABLES, DON'T FORGET TO REMOVE
     # print("var_category: ", var_category)
     # print("var_subcategory: ", var_subcategory)
-    # print("current_categories: ", categories)
-    # print("current_subcategories: ", subcategories)
+    print("current_categories: ", categories)
+    print("current_subcategories: ", subcategories)
+    print("all_categories: ", all_categories)
+    print("all_subcategories: ", all_subcategories)
+    print("subcategories_exist", subcategories_exist)
     # print("current_sorting: ", sort)
     # print("favorites_item", favorites_item)
-    print("favorites", favorites)
+    # print("favorites", favorites)
 
     return render(request, 'products/products.html', context)
 
