@@ -189,5 +189,12 @@ All of the fonts were sourced from [Google Fonts](https://fonts.google.com).
    DM Serif Display is a serif font, used as the headers font on the Home page, in order to contrast them with serif font.  
 
 
-#### **Imagery**  
+#### **Design Changes on The Final Product**  
+While I relied heavily on these Wireframes in order to maintain the desired design, there are several differences between the Mockups and the final product:
+- I changed the logo to become thicker and easier to spot, as the logo in the mockups was too thin and didn't look good on small devices.
+- In the wireframes and mockups, there was a subscription to the newsletter box. I decided not to include this subscription to the newsletter functionality on the final product due to time constraint. 
+- Minor things like buttons colors and image difference were purely design choices that was taken during with the website development.
 
+#### **Database Structure**   
+Database schema was designed using [drawsql](https://drawsql.app/).  
+![The database schema](readme-testing-files/readme/database-schema.png " The database schema")  
