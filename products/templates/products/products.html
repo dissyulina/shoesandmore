@@ -32,7 +32,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row mb-5">
                 <div class="col-lg-2 d-none d-lg-block">
                     <!-- SIDE NAVIGATION -->
                     <!-- If user chooses 'Women' or 'Men' or 'Kids' -->
@@ -43,9 +43,9 @@
                             {% for subcat in all_subcategories %}
                                 {% if subcat.name in subcategories_exist %}
                                     <li class="nav-item">
-                                        <a class="nav-link text-capitalize pb-0 
+                                        <a class="nav-link pb-0 
                                             {% if var_subcategory == subcat.name %}fw-bold{% endif %} 
-                                            {% if subcat.name == 'sale' %}text-uppercase{% endif %} 
+                                            {% if subcat.name == 'sale' %}text-uppercase{% else %}text-capitalize{% endif%} 
                                             {% if subcat.name == 'sale' or subcat.name == 'accessories' or subcat.name == 'new_arrivals' %}mt-3{% endif %}" 
                                             href="{% url 'products' %}?category={{var_category}}&subcategory={{subcat}}">
                                             {{ subcat }}
@@ -127,7 +127,7 @@
                             <div class="col-6 col-md-4 col-lg-3">
                                 <div class="card mx-auto">
                                     <div>
-                                        <!-- Product's image -->
+                                        <!-- Product image -->
                                         {% if product.image %}
                                             <a href="{% url 'product_detail' product.id %}">
                                                 <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
@@ -148,13 +148,18 @@
                                             </a>  
                                         </div>
                                     </div>
+                                    <!-- Product info -->
                                     <div class="card-body pt-1 ps-0 pb-0">
                                         <p class="card-text mb-0">{{ product.name }}</p>
                                     </div>
                                     <div class="card-footer bg-white ps-0 pt-0 border-0 text-left">
                                         <div class="row">
                                             <div class="col">
-                                                <p class="mb-0 text-start fw-bold">€{{ product.price }}</p>
+                                                <p class="mb-0 text-start fw-bold">€{{ product.price }} 
+                                                    {% if product.subcategory.name == 'sale' %}
+                                                        <span class="badge bg-salmon">SALE!</span>
+                                                    {% endif %}
+                                                </p>
                                                 {% if product.rating %}
                                                     <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
                                                 {% else %}
@@ -178,9 +183,9 @@
         </div>
         <!-- Load More Button -->
         {% if var_category == None and var_subcategory == None %}
-        <div class="d-flex justify-content-center align-items-center">
-            <button id="load-more-button" class="btn btn-beige text-uppercase my-5 fw-bold">Load More Products</button>
-        </div>
+            <div class="d-flex justify-content-center align-items-center">
+                <button id="load-more-button" class="btn btn-beige text-uppercase my-5 fw-bold">Load More Products</button>
+            </div>
         {% endif %}
         {{total_obj|json_script:"json-total"}}
         
@@ -269,7 +274,7 @@
             // Back to top button functionality
             $("#back-to-top").click(function(event) {
                 event.preventDefault();
-                $("html, body").animate({ scrollTop: 0 }, "slow");
+                $("html, body").animate({ scrollTop: 0 });
                 return false;
             });
 
