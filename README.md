@@ -177,4 +177,17 @@ High fidelity mock-ups were created using Figma as well for a better and clearer
 - [High Fidelity Mock-up for Sign Up page](readme-testing-files/readme/high-fidelity-mockups/mockup-signup.png)  
 - [High Fidelity Mock-up for Log In page](readme-testing-files/readme/high-fidelity-mockups/mockup-login.png)  
 
+#### **Color Scheme**  
+The overall color-theme of the website was natural earthy colors, which have relaxing and comforting influences, and encourages feelings of warmth and calmness. Using [Coolors](https://coolors.co), I started with beige (#E8DCD5) and brown (#644536), and generated one more color that compliments them both - the result was a salmon color (#B2675E). I also found a hero image that fits the overal theme and colors accordingly.   
+![The color scheme](readme-testing-files/readme/color-scheme.png "The color scheme")  
+
+#### **Typography**  
+All of the fonts were sourced from [Google Fonts](https://fonts.google.com).   
+- Main font: Noto Sans   
+   Noto Sans is a sans-serif font, used as the main font, for all paragraphs and buttons. Open Sans was chosen because it has a modern and clean style. 
+- Secondary font: DM Serif Display    
+   DM Serif Display is a serif font, used as the headers font on the Home page, in order to contrast them with serif font.  
+
+
+#### **Imagery**  
 
