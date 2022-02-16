@@ -32,6 +32,7 @@ a {
 /* Buttons */
 .btn {
     padding: 0.75rem 1.5rem; 
+    border-radius: 0%;
 }
 
 .btn-beige {
@@ -184,7 +185,7 @@ footer {
 
 /* Products Page */
 .card {
-    max-width: 15rem;
+    max-width: 19rem;
     font-size: 0.8rem;
     margin-bottom: 0.8rem;
     border: none;
@@ -352,6 +353,9 @@ select option[value=""] {
 
 /* Very small mobile */
 @media screen and (max-width: 355px) {
+    body p {
+        font-size: 0.875rem;
+    }
     /*
     .navbar-offset {
         padding-top: 155px;

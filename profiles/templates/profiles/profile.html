@@ -84,7 +84,7 @@
                                                                 {% for item in order.lineitems.all %}
                                                                     <li class="small">
                                                                         {% if item.product.has_sizes %}
-                                                                            Size {{ item.product.size|upper }}
+                                                                            Size {{ item.product_size|upper }}
                                                                         {% endif %}{{ item.product.name }} x{{ item.quantity }}
                                                                     </li>
                                                                 {% endfor %}
@@ -124,7 +124,7 @@
                                                         <div class="col-5 d-flex flex-column justify-content-center">
                                                             <p class="my-0"><strong><small>{{ item.product.name }}</small></strong></p>
                                                             <p class="my-0"><small>{% if item.product_size %}Size {{ item.product_size|upper }}{% endif %}</small></p>
-                                                            <a href="{% url 'add_review' item.product.id %}" class="btn btn-brown-inverted mt-3"><small><i class="fas fa-pen-alt"></i> Give Review</small></a>
+                                                            <a href="{% url 'add_review' item.product.id %}" class="btn btn-beige mt-3"><small><i class="fas fa-pen-alt"></i> Give Review</small></a>
                                                         </div>
                                                     </div>
                                                 </div>

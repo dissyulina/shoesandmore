@@ -14,25 +14,25 @@
         <div class="container">
             <div class="row">
                 <div class="col text-center">
-                    <h2 class="my-5 fw-bold">Add A Review</h2>
+                    <h2 class="my-5 fw-bold">Add A Review for {{ product.name }}</h2>
                 </div>
             </div>
             <div class="row my-5">
-                <div class="col-12 col-md-6">
-                    <a href="{% url 'product_detail' product.id %}" class="d-flex justify-content-end">
+                <div class="col-12 col-md-6 col-xl-4 offset-xl-2">
+                    <a href="{% url 'product_detail' product.id %}" class="d-flex justify-content-center">
                         {% if product.image %}
-                            <img class="w-75" src="{{ product.image.url }}" alt="{{ product.name }}">
+                            <img class="w-100" src="{{ product.image.url }}" alt="{{ product.name }}">
                         {% else %}
-                            <img class="w-75" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                            <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                         {% endif %}
                     </a>
                 </div>
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6 col-xl-4">
                     <form method="POST" action="{% url 'add_review' product.id %}" class="d-flex flex-column justify-content-center">
                         {% csrf_token %}
                         <p class="my-0"><strong>{{ product.name }}</strong></p>
                         <p class="my-0"><small>{% if product_size %}Size {{ product_size|upper }}{% endif %}</small></p>
-                        <div class="mt-5">
+                        <div class="mt-4">
                             <!-- Adapted from: https://codeconvey.com/feedback-form-in-html/-->
                             <fieldset>
                                 <p><small>Give a rating to this product:</small></p>
@@ -45,11 +45,14 @@
                                 </span>
                             </fieldset>
                         </div>
-                        <div class="mt-5">
+                        <div class="mt-4">
                             <label for="review_text" class="form-label"><small>Write a review about this product:</small></label>
                             <textarea class="form-control" id="review_text" name="review_text" rows="5" maxlength="500"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-brown mt-5"><small><i class="fas fa-pen-alt"></i> Submit Review</small></button>
+                        <div class="d-flex justify-content-end mt-4">
+                            <a href="{% url 'profile' %}" class="btn btn-brown-inverted me-2"><small>Cancel</small></a>
+                            <button type="submit" class="btn btn-brown"><small><i class="fas fa-pen-alt"></i> Submit Review</small></button>
+                        </div>
                     </form>
                 </div>
             </div>
