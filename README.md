@@ -14,7 +14,7 @@
 Welcome to Shoes and More website!
 Shoes and More is an e-commerce website that sells shoes and accessories (bags, wallets, etc). It's completed with authentication mechanism and stripe payments to allow users to safely purchased products from the site.  
 
-Please note that this website game was created for the Code Institute’s Milestone Project 4 as part of their Diploma in Full Stack Software Development. The requirements are to make a full-stack website, using HTML, CSS, JavaScript, Django+Python, relational database, stripe payments, and other additional libraries as needed.  
+Please note that this website was created for the Code Institute’s Milestone Project 4 as part of their Diploma in Full Stack Software Development. The requirements are to make a full-stack website, using HTML, CSS, JavaScript, Django+Python, relational database, stripe payments, and other additional libraries as needed.  
 
 <br/>  
 
@@ -131,5 +131,27 @@ The website was organized in a Hierarchical Tree Structure that ensures the user
 There's a clear page access separation between unregistered users and registered user. While unregistered users can still purchase products and receive the confirmation via email, they are not able to:
 - View their order history
 - Give reviews (and edit or delete their reviews accordingly)  
-- Make a favorite list of products.
+- Make a favorite list of products.  
+
+Those features mentioned are available for registered users.
+
+### **4. Skeleton Plane**  
+Wireframes were created using Figma to design the navigation and interface of the website. The wireframes were created only for desktop, which then will be transformed to high fidelity mock-ups in various device sizes (see Surface Plane). 
+
+- [Wireframe for Home page](readme-testing-files/readme/wireframes/wireframe-home.png) 
+- [Wireframe for Products page](readme-testing-files/readme/wireframes/wireframe-products.png)  
+- [Wireframe for Individual Product page](readme-testing-files/readme/wireframes/wireframe-individual-product.png)  
+- [Wireframe for Favorites page](readme-testing-files/readme/wireframes/wireframe-favorites.png)  
+- [Wireframe for Shopping Bag page](readme-testing-files/readme/wireframes/wireframe-shoppingbag.png)  
+- [Wireframe for Checkout page](readme-testing-files/readme/wireframes/wireframe-checkout.png)  
+- [Wireframe for Profile page (Update user's information)](readme-testing-files/readme/wireframes/wireframe-profile-updateinfo.png)  
+- [Wireframe for Profile page (View order history)](readme-testing-files/readme/wireframes/wireframe-profile-orderhistory.png)  
+- [Wireframe for Profile page (Reviews)](readme-testing-files/readme/wireframes/wireframe-profile-reviews.png)  
+- [Wireframe for Articles page](readme-testing-files/readme/wireframes/wireframe-articles.png)  
+- [Wireframe for Individual Article page](readme-testing-files/readme/wireframes/wireframe-individual-article.png)  
+- [Wireframe for Contact page](readme-testing-files/readme/wireframes/wireframe-contact.png)  
+- [Wireframe for Add / Edit Review page](readme-testing-files/readme/wireframes/wireframe-add-edit-review.png)  
+- [Wireframe for Sign Up page](readme-testing-files/readme/wireframes/wireframe-signup.png)  
+- [Wireframe for Log In page](readme-testing-files/readme/wireframes/wireframe-login.png)  
+
 
