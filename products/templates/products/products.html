@@ -13,21 +13,33 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
                     {% if var_category %}
-                        <li class="breadcrumb-item active text-capitalize" aria-current="page">{{ var_category }}</li>
+                        <li class="breadcrumb-item active text-capitalize" aria-current="page">
+                            <a href="{% url 'products' %}?category={{var_category}}">{{ var_category }}</a>
+                        </li>
                     {% else %}
-                        <li class="breadcrumb-item active" aria-current="page">All Products</li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            <a href="{% url 'products' %}">All Products</a></li>
+                    {% endif %}
+                    {% if var_subcategory %}
+                        <li class="breadcrumb-item active text-capitalize" aria-current="page">
+                            <a href="{% url 'products' %}?category={{var_category}}&subcategory={{ var_subcategory }}">
+                                {{ var_subcategory }}
+                            </a>
+                        </li>
                     {% endif %}
                 </ol>
             </div>
             <!-- Sale banner -->
-            <div class="img-sale img-fluid">
-                <div class="row h-100 g-0">
-                    <div class="col-6"></div>
-                    <div class="col-6 d-flex flex-column justify-content-center align-items-center">
-                        <div class="text-center text-white pe-3">
-                            <h1 class="text-headings text-uppercase">Final Sale</h1>
-                            <p>Up to 60% discount</p>
-                            <a href="{% url 'products' %}?subcategory=sale" class="btn btn-beige btn-home">Shop Now</a>
+            <div class="d-none d-sm-block">
+                <div class="img-sale img-fluid">
+                    <div class="row h-100 g-0">
+                        <div class="col-6"></div>
+                        <div class="col-6 d-flex flex-column justify-content-center align-items-center">
+                            <div class="text-center text-white pe-3">
+                                <h1 class="text-headings text-uppercase">Final Sale</h1>
+                                <p>Up to 60% discount</p>
+                                <a href="{% url 'products' %}?subcategory=sale" class="btn btn-beige btn-home">Shop Now</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -79,7 +91,7 @@
                     {% endif %}
                 </div>
                 <div class="col-12 col-lg-10">
-                    <div class="mt-5">
+                    <div class="mt-sm-3 mt-lg-4">
                         <div class="mb-3 d-flex flex-row">
                             <div class="flex-grow-1">
                                 <p class="text-muted text-md-start">
