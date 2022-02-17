@@ -344,6 +344,14 @@ Toast messages provide the user the necessary feedback of their activities wheth
 - The bags and accesssories section provides direct navigation to the accessories products.  
 - The articles and blogs section displays the latest 3 articles written by store admin or other superusers. Users can also navigate to the articles page and view all articles by clicking the See More Articles button.  
 
+#### **2. Products Page**  
+[See the image of Products page here](readme-testing-files/readme/products.png)   
+- The Products page starts with a breadcrumb navigation that indicates the current page’s location within a navigational hierarchy. For example, if the user chose the Women Sneakers, then the breadcrumb will show: Home > Women > Sneakers.
+- Below the breadcrumb there's a 'Final Sale' banner, as normally users are interested in checking out the sale items first. If users click the shop now button, it will filter the products to display only the sale items.  
+- Side Navigation feature (only on desktop) helps users to quickly navigate through the categories and subcategories, and will filter the products to display only the categories and subcategories of choice. On smaller devices, users can click the hamburger icon to navigate.
+- The result of products displayed can also be sorted by price, rating, and name.
+- The products are displayed into 4 columns on large screen, 3 columns on medium screen, and 2 columns on small screen.
+- A back to top button is in fixed positioned on the right side of the screen.  
 
 
 
