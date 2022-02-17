@@ -67,7 +67,7 @@
                             <div class="form-row">
                                 {% if product.has_sizes %}
                                     <div class="col-12">
-                                        <p><strong>Size:</strong></p>
+                                        <p class="m-0"><strong>Size:</strong></p>
                                         <select class="form-control form-select rounded-0 w-50" name="product_size" id='id_product_size' required>
                                             <option value="" disabled selected>Choose a size</option>
                                             {% if product.category.name == 'women' %}
@@ -87,7 +87,7 @@
                                     </div>
                                 {% endif %}
                                 <div class="col-12">
-                                    <p class="mt-3"><strong>Quantity:</strong></p>
+                                    <p class="mt-3 mb-0"><strong>Quantity:</strong></p>
                                     <div class="w-50">
                                         <div class="input-group">
                                             <input class="form-control qty_input" type="number" name="quantity" 
@@ -95,7 +95,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 d-flex mt-4">
+                                <div class="col-12 d-flex mt-4 mt-xl-5">
                                     <a href="{% url 'products' %}" class="btn btn-brown-inverted me-3">
                                         <span class="icon">
                                             <i class="fas fa-chevron-left"></i>
@@ -115,9 +115,9 @@
 
     <!-- Reviews Section -->
     <section>
-        <div class="container">
+        <div class="container box-shadow mt-5 mb-5 p-3 p-lg-5">
             <div class="row justify-content-center">
-                <div class="col-12 col-lg-10 text-start mt-4">
+                <div class="col-12 col-lg-10 text-start">
                     {% if reviews %}
                         <h6 class="mt-2 fw-bold">Reviews for {{ product.name }}</h6>
                     {% else %}
@@ -129,8 +129,8 @@
                 <div class="col-12 col-lg-10 text-small">
                     {% for review in reviews %}
                         <div class="mt-3 mb-2">
-                            <p class="mb-1"><span class="star-rating" data-rating="{{ review.rating }}"></span></p>
-                            <p class="mb-1">
+                            <!--<p class="mb-1"><span class="star-rating" data-rating="{{ review.rating }}"></span></p>-->
+                            <p class="mb-1 star-rating">
                                 {% if review.rating == 1 %}
                                     <span><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>
                                 {% elif review.rating == 2 %}
