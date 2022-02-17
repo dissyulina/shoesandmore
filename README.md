@@ -350,8 +350,18 @@ Toast messages provide the user the necessary feedback of their activities wheth
 - Below the breadcrumb there's a 'Final Sale' banner, as normally users are interested in checking out the sale items first. If users click the shop now button, it will filter the products to display only the sale items.  
 - Side Navigation feature (only on desktop) helps users to quickly navigate through the categories and subcategories, and will filter the products to display only the categories and subcategories of choice. On smaller devices, users can click the hamburger icon to navigate.
 - The result of products displayed can also be sorted by price, rating, and name.
-- The products are displayed into 4 columns on large screen, 3 columns on medium screen, and 2 columns on small screen.
+- The products are displayed into 4 columns on large screen, 3 columns on medium screen, and 2 columns on small screen.  
+- On the top right of each of the product's image, there's a heart icon that turns red when user hovers over it. By clicking this icon, a registered user can add the product to their favorites list. The heart icon will then turns red to indicate that the product has listed in user's favorites.
 - A back to top button is in fixed positioned on the right side of the screen.  
+
+#### **3. Individual Product Page**  
+[See the image of Individual Product page here](readme-testing-files/readme/individual-product-page.png)  
+- The Individual Product page starts with a breadcrumb navigation that indicates the current page’s location within a navigational hierarchy. 
+- The page features the product's image, name, price, rating, category tag, and reviews on the bottom of the page. 
+- On the top right of the product's image, there's a heart icon that turns red when user hovers over it. By clicking this icon, a registered user can add the product to their favorites list. The heart icon will then turns red to indicate that the product has listed in user's favorites.
+- Users can add the product to their shopping bag by choosing the size, the quantity, and click Add to Bag button.  
+- A registered user is able to edit or delete their own review. The buttons to edit and to delete show up below the specified review.  
+
 
 
 
