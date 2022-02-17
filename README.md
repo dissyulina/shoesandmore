@@ -294,7 +294,7 @@ Database schema was designed using [drawsql](https://drawsql.app/). The database
   - Stores the topics of contact form. 
   - Subject field: a one-word name for database purposes.
   - Text field: a longer name for display on the contact form.
-  - I decided to make this into separate model instead of a choice field, because I wanted to define a separate naming fields for database and for display.
+  - I decided to make this into separate model instead of a choice field, because I wanted to define a separate naming fields for database and for display, and for future flexibility in adding/ editing/ removing a topic.  
 
 - **ContactForm model**
   - Stores the contact form filled by the user.
@@ -305,6 +305,36 @@ Database schema was designed using [drawsql](https://drawsql.app/). The database
   - Message: the message in the form.
   - Date: the date it was sent.  
 
-  
+<br/>  
+
+## **Features**  
+### **A. General Design Features**  
+- **Fully responsive** - Each page of the site is fully responsive on all device sizes (with minimum dimension 320px or an iPhone 4/5) and features intuitive navigational buttons.  
+
+- **Navbar** (on all pages)   
+   ![The Navbar on desktop](readme-testing-files/readme/navbar-desktop.png "The Navbar on desktop")   
+
+   - The Navbar is responsive and turns to a hamburger menu on a smaller device. It is also sticky, thus it follows along when the user scrolls down, so the user can easily navigate the site without scrolling back to the top.
+   - The logo is placed at the top center of the Navbar, creating a simmetry between left and right, and links back to Home page.
+   - A search box is positioned on the left side of the Navbar, providing the ease of searching a keyword from the beginning. 
+   - For unregistered users, the Sign In buttons are visible right away, conventionally placed at the top-right of the page. It's a dropdown link which will give options to Register or to Log In. After the user successfully logged in, the previously Sign In button turns to a My Account dropdown button, which provides the links to My Profile and to Log Out.
+   - Favorites and Shopping Bag links are placed on the Navbar to give a quick access from any page the user is currently at.   
+   - There are 6 nav-links to navigate between products categories and subcategories - All Products, Women, Men, Kids, Accessories, and Sale.
+   - A sales banner about free delivery is placed right below the Navbar, and also displayed on all pages.  
+
+- **Footer** (on all pages)  
+   ![The Footer on desktop](readme-testing-files/readme/footer-desktop.png "The Footer on desktop") 
+   The Footer uses the same color as the Navbar and provides all navigation links, the social media links of the store as well (that opens in a new tab), and the logo that leads back to the Home page.  
+
+- **Toast message**   
+Toast messages provide the user the necessary feedback of their activities whether it's successfully executed or not. The toast messages are color coded: red for error messages, blue for info/ alert messages, yellow for warning messages, and green for succcess messages. Users will get success toast the most, for example when users add a product to the shopping bag, they will get a success toast message with bag display. While when users for example add a product to their favorites list, they will get a success toast message without bag display. Below are the examples of success toast messages (without bag and with bag display).   
+![Success toast message - without bag display](readme-testing-files/readme/toast-suceess-nobag.png "Success toast message - without bag display")
+![Success toast message - with bag display](readme-testing-files/readme/toast-success.png "Success toast message - with bag display")   
+
+
+
+
+
+
 
    
