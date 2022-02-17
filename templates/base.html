@@ -46,14 +46,14 @@
             <div class="row d-none d-lg-flex">
                 <div class="col-12 col-md-4 col-lg-5 my-auto py-1 py-lg-0">
                     <form method="GET" action="{% url 'products' %}">
-                        <div class="input-group search-query">
+                        <div class="input-group search-query w-75">
                             <input class="form-control" type="text" name="q" placeholder="Search item">
                             <button class="button-icon" type="submit"><i class="fas fa-search"></i></button>
                         </div>
                     </form>
                 </div>
                 <div class="col-12 col-md-4 col-lg-2 my-auto py-1 py-lg-0 text-center">
-                    <a class="navbar-brand d-flex justify-content-center" href="{% url 'home' %}">
+                    <a class="navbar-brand me-0 d-flex justify-content-center" href="{% url 'home' %}">
                         <div class="logo"></div>
                     </a>
                 </div>
@@ -119,7 +119,7 @@
             </div>
 
             <div id="delivery-banner" class="row text-center">
-                <div class="col text-white">
+                <div class="col bg-salmon">
                     <h6 class="logo-font my-1">Free delivery on orders over ${{ free_delivery_threshold }}!</h6>                
                 </div>            
             </div>

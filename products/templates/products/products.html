@@ -112,22 +112,22 @@
                                         <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&subcategory={{ var_subcategory }}&sort=price&direction=asc">By Price (Lowest to Highest)</a></li>
                                         <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&subcategory={{ var_subcategory }}&sort=price&direction=desc">By Price (Highest to Lowest)</a></li>
                                         <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&subcategory={{ var_subcategory }}&sort=rating&direction=desc">By Rating</a></li>
-                                        <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&subcategory={{ var_subcategory }}&sort=name&direction=asc">By Color</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&subcategory={{ var_subcategory }}&sort=name&direction=asc">By Name</a></li>
                                     {% elif var_category and var_subcategory == None %}
                                         <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&sort=price&direction=asc">By Price (Lowest to Highest)</a></li>
                                         <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&sort=price&direction=desc">By Price (Highest to Lowest)</a></li>
                                         <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&sort=rating&direction=desc">By Rating</a></li>
-                                        <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&sort=name&direction=asc">By Color</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&sort=name&direction=asc">By Name</a></li>
                                     {% elif var_category == None and var_subcategory %}
                                         <li><a class="dropdown-item" href="{% url 'products' %}?subcategory={{ var_subcategory }}&sort=price&direction=asc">By Price (Lowest to Highest)</a></li>
                                         <li><a class="dropdown-item" href="{% url 'products' %}?subcategory={{ var_subcategory }}&sort=price&direction=desc">By Price (Highest to Lowest)</a></li>
                                         <li><a class="dropdown-item" href="{% url 'products' %}?subcategory={{ var_subcategory }}&sort=rating&direction=desc">By Rating</a></li>
-                                        <li><a class="dropdown-item" href="{% url 'products' %}?subcategory={{ var_subcategory }}&sort=name&direction=asc">By Color</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'products' %}?subcategory={{ var_subcategory }}&sort=name&direction=asc">By Name</a></li>
                                     {% else %}
                                         <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">By Price (Lowest to Highest)</a></li>
                                         <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=desc">By Price (Highest to Lowest)</a></li>
                                         <li><a class="dropdown-item" href="{% url 'products' %}?sort=rating&direction=desc">By Rating</a></li>
-                                        <li><a class="dropdown-item" href="{% url 'products' %}?sort=name&direction=asc">By Color</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'products' %}?sort=name&direction=asc">By Name</a></li>
                                     {% endif %}
                                 </ul>
                             </div> 
