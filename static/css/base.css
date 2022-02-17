@@ -25,7 +25,7 @@ a {
 }
 
 .bg-salmon {
-    background-color: #B2675E;
+    background-color: #a5554c;
     color: #fff;
 }
 
@@ -82,10 +82,6 @@ a {
     border: none;
 }
 
-#delivery-banner {
-    background-color: #B2675E;
-}
-
 .navbar-offset {
     padding-top: 183px;
 }
@@ -121,6 +117,17 @@ footer a:focus {
 
 footer {
     font-size: 14px;
+}
+
+.social-circle {
+    width: 40px;
+    height: 40px;
+    padding: 0.75rem;
+    border-radius: 50%;
+    background-color: rgba(256, 256, 256, 60%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Home Page */
@@ -199,6 +206,10 @@ footer {
     bottom: 30vh;
     right: 10px;
     cursor: pointer;
+}
+
+.star-rating {
+    color: #FDC542;
 }
 
 /* Toasts */
@@ -353,7 +364,9 @@ select option[value=""] {
 
 /* Very small mobile */
 @media screen and (max-width: 355px) {
-    body p {
+    body p,
+    body li,
+    body a {
         font-size: 0.875rem;
     }
     /*
