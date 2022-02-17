@@ -38,11 +38,11 @@
                         <span class="float-right">${{ total|floatformat:2 }}</span>
                     </p></strong>
                     {% if free_delivery_delta > 0 %}
-                        <p class="mb-0 p-2 bg-salmon shadow-sm text-center">
+                        <p class="mb-0 p-2 bg-beige shadow-sm text-center">
                             Spend <strong>${{ free_delivery_delta }}</strong> more to get free next day delivery!
                         </p>
                     {% endif %}
-                    <a href="{% url 'view_bag' %}" class="btn btn-beige rounded-0 mt-3 w-100">
+                    <a href="{% url 'view_bag' %}" class="btn btn-brown w-100">
                         <span class="text-uppercase">Go To Secure Checkout</span>
                         <span class="icon">
                             <i class="fas fa-lock"></i>
