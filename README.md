@@ -332,6 +332,23 @@ Toast messages provide the user the necessary feedback of their activities wheth
 ![Success toast message - with bag display](readme-testing-files/readme/toast-success.png "Success toast message - with bag display")   
 
 
+### **B. Page Features**  
+#### **1. Home Page**  
+[See the image of the Homepage here](readme-testing-files/readme/home-page.png)   
+- On the Home page, I used multiple images as a marketing strategy to attract users attention to browse more into the website, and hopefully to make a purchase.  
+- The hero-image covers 100% of the viewport height and width, with an impactful heading in a jumbotron to give the user a great first impression. It introduces the new arrivals, which are products for spring, with a CTA button to directly browse the new arrivals.  
+- The sneakers collection section provides direct navigation to the sneakers.  
+- The shoes for the whole family section provides direct navigation to the main categories based on gender/ age: Women, Men, and Kids.  
+- The best sellers section gives information to users which products have been purchased the most, which indicates the most popular products. The products are displayed in a multi-items carousel of 8 products.  
+- The final sale section provides direct navigation to the sale products.   
+- The bags and accesssories section provides direct navigation to the accessories products.  
+- The articles and blogs section displays the latest 3 articles written by store admin or other superusers. Users can also navigate to the articles page and view all articles by clicking the See More Articles button.  
+
+
+
+
+
+
 
 
 
