@@ -191,10 +191,120 @@ All of the fonts were sourced from [Google Fonts](https://fonts.google.com).
 
 #### **Design Changes on The Final Product**  
 While I relied heavily on these Wireframes in order to maintain the desired design, there are several differences between the Mockups and the final product:
-- I changed the logo to become thicker and easier to spot, as the logo in the mockups was too thin and didn't look good on small devices.
+- I changed the logo to a new one that's thicker and easier to spot, as the previous logo in the mockups was too thin and didn't look good on small devices.
 - In the wireframes and mockups, there was a subscription to the newsletter box. I decided not to include this subscription to the newsletter functionality on the final product due to time constraint. 
-- Minor things like buttons colors and image difference were purely design choices that was taken during with the website development.
+- Minor things like buttons colors and image difference were purely design choices that was taken during with the website development. 
+- I added 
 
-#### **Database Structure**   
-Database schema was designed using [drawsql](https://drawsql.app/).  
+<br/>  
+
+## **Database Design**    
+
+Database schema was designed using [drawsql](https://drawsql.app/). The database was first managed using SQLite during the development process, then Postgres in production with Heroku. 
 ![The database schema](readme-testing-files/readme/database-schema.png " The database schema")  
+
+- **Category model**   
+   - Stores category name for a product. The categories in this case are Women, Men, and Kids.
+   - Name field: the name used for database purpose.
+   - Friendly_name field: the name used for display.
+
+- **Subcategory model**
+   - Stores subcategory name for a product. The subcategories in the database are Sandals, Sneakers, Oxfords, Heels, Boots, Mules, Flats, Outdoors, Loafers, Slippers, Sale, Accessories, and New Arrivals.  
+   - The Category model and Subcategory model have no relationship. I decided not to define a relationship/ pairing between them to make it more flexible. Both are fully independent of each other.  
+   - Name field: the name used for database purpose.
+   - Friendly_name field: the name used for display.  
+   
+- **Product model**  
+   - Stores detailed information about a product.
+   - Category field: the category of the product, a foreign key from Category model.
+   - Subcategory field: the subcategory of the product, a foreign key from Subcategory model. 
+   - Sku field: alpha numeric code assigned for a product.
+   - Name field: the name of the product, a required field.
+   - Has_sizes: has a boolean value - Yes for shoes, No for accessories.
+   - Price: the price of the product, a required field.
+   - Rating: the rating of the product. Each product has an initial rating value given by retailer based on its quality from manufacturer. The default value is 3. Each time a user gives a rating to the product, it calculates the average and update this field (read more about this on Feature section - Add Review)  
+   - Image: the image of the product.
+   - Total_purchased: the quantity of purchased for this product. The initial (default) value is 0. Each time a user purchases the product, the value also adds up.  
+
+- **User model**  
+   - Stores registration information of a user, the model was created as one of the components of Django's authentication system (more information on this, see [django.contrib.auth](https://docs.djangoproject.com/en/4.0/ref/contrib/auth/)). The fields include (but not limited to) username, email, and password.  
+
+- **Order model**
+   - Stores all information related to a successfully placed order.
+   - Order_number field: a unique order number generated automatically using UUID.
+   - User_profile field: the user that ordered, a foreign key from UserProfile model (if the user is registered).
+   - Full_name field: the full name of the buyer.
+   - Email field: the email address of the buyer.
+   - Phone_number: the phone number of the buyer.
+   - Street_address1: the first line of street address of the buyer.
+   - Street_address2: the second line of street address of the buyer.
+   - Town_or_city: the town or city name of the buyer.
+   - Postcode: the postcode of the buyer.
+   - Country: the country of the buyer.
+   - Date: the date of purchase.
+   - Delivery_cost: the delivery cost of the transaction.
+   - Order_total: the total price of order (the total of quantity times individual product price).
+   - Grand_total: the order_total + delivery_cost.
+   - Original_bag: a json object of the products and sizes that were in the bag.
+   - Stripe_pid: a payment intent id from stripe for successfull order.
+
+- **OrderLineItem model**
+   - Stores order details of a product that have been purchased.
+   - Product field: the product ordered, a foreign key from Product model.
+   - Order field: the order number for this product ordered, a foreign key from Order model.
+   - Product_size field: the size of the product ordered.
+   - Quantity field: the quantity of the product ordered.
+   - Lineitem_total field: the quantity times the individual product price.  
+
+- **UserProfile model**
+   - Stores user's address information for registered user.
+   - User field: the user itself, a foreign key from User model.
+   - Default_phone_number field: the phone numbe of the user.
+   - Default_street_address1 field: the first line of street address of the user.
+   - Default_street_address2 field: the second line of street address of the user.
+   - Default_town_or_city field: the town or city name of the user.
+   - Default_postcode field: the postcode of the user.
+   - Default_country field: the country of the user.  
+
+- **Review model**  
+   - Stores user's review of products that the user had previously purchased.
+   - Product field: the reviewed product, a foreign key from Product model.
+   - User field: the user itself, a foreign key from UserProfile.
+   - Rating: the rating that the user gave for the product.
+   - Review_text: the review that the user gave for the product.
+   - Date: the date it was created.
+
+- **Blog model**  
+   - Stores articles/ blogs for the website.
+   - Image field: the image for the article.  
+   - Author field: the author of the article, a foreign key from User model.
+   - Title field: the title for the article.
+   - Paragraph1: the first paragraph for the article.
+   - Paragraph2: the second paragraph for the article.
+   - Paragraph3: the third paragraph for the article.
+   - Created_on: the data it was created.  
+
+- **Favorites model**  
+   - Stores list of favorites products of a registered user.
+   - User: the user that created the favorites list, a foreign key from User model.
+   - Products field: the list of products.  
+   - Because there would be a many to many relationship between favorites and products, i.e. one product can be listed in multiple (users) favorites , and one favorites can have multiple of products, I decided to define a through/ intermediary model between the two models ([source from django documentation](https://docs.djangoproject.com/en/4.0/ref/models/fields/#django.db.models.ManyToManyField.through_fields)). The through model named  **FavoritesItem model**, which stores each product in one table with favorites as a foreign key.  
+
+- **Topic model**
+  - Stores the topics of contact form. 
+  - Subject field: a one-word name for database purposes.
+  - Text field: a longer name for display on the contact form.
+  - I decided to make this into separate model instead of a choice field, because I wanted to define a separate naming fields for database and for display.
+
+- **ContactForm model**
+  - Stores the contact form filled by the user.
+  - Name field: the name of the user.
+  - Email field: the email of the user.
+  - Topic field: the topic of the message, a foreign key from Topic model.
+  - Order_number: the order number if the user has it. Filled manually by the user.
+  - Message: the message in the form.
+  - Date: the date it was sent.  
+
+  
+
+   
