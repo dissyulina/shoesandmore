@@ -391,12 +391,26 @@ Toast messages provide the user the necessary feedback of their activities wheth
 - Registered users can also find this summary of order on their Profile page.  
 
 #### **8. Profile Page - My Information**  
-
+[See the image of Profile page - My Information here](readme-testing-files/readme/profile-information-page.png)  
+- The Profile page features three pill sections - My Information, My Purchases, and Ratings/ Reviews.
+- On My Information section, users can update their delivery information. This information will pre-populate the Checkout form for future transactions, so that registered users don't have to fill it out all over again. They just have to fill the payment information.  
+- By changing the input fields and clicking the Update Information button, the delivery information is updated in the database.  
 
 #### **9. Profile Page - My Purchases**  
+[See the image of Profile page - My Purchases here](readme-testing-files/readme/profile-orderhistory-page.png)  
+- On My Purchases section, users can view all their order history, sorted by order date (from the earliest to the latest).
+- Each order number can be clicked, and it will lead to the Checkout Success page of the order, so that user can see the detail information of that particular order.
 
 
 #### **10. Profile Page - Ratings/Reviews**  
+[See the image of Profile page - Ratings/Reviews here](readme-testing-files/readme/profile-reviews-page.png)  
+- On Ratings/ Reviews section, user can view all products that they have purchased before and are waiting to be reviewed. Users can only review products that they have purchased before, so that they can give trustworthy reviews to the products. 
+- Users can give rating and review by clicking the Give Review button on the right side of the product. They will then be directed to the Add Review page.   
+- After the review for a product is added, the product will be removed from this section.  
+
+#### **11. Articles Page**  
+
+#### **12. Individual Article Page**  
 
 
 
