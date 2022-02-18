@@ -53,3 +53,20 @@
     max-height: 416px; /* height of profile form + submit button */
     overflow-y: auto;
 }
+
+.item-to-be-reviewed img {
+    width: 80%;
+}
+
+/* Media Queries */
+/* Very small mobile */
+@media screen and (max-width: 400px) {
+    .form-control, 
+    .form-check,
+    .table {
+        font-size: 14px;
+    }
+    .item-to-be-reviewed img {
+        width: 100%;
+    }
+}
