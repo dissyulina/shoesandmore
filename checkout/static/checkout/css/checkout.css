@@ -1,14 +1,18 @@
-.StripeElement,
+/*.StripeElement,*/
 .stripe-style-input {
     box-sizing: border-box;
     height: 40px;
-    padding: 10px 12px;
+
     border: 1px solid transparent;
     border-radius: 0px;
     background-color: white;
     box-shadow: 0 1px 3px 0 #e6ebf1;
     -webkit-transition: box-shadow 150ms ease;
     transition: box-shadow 150ms ease;
+}
+
+.StripeElement {
+    padding: 10px 12px; 
 }
 
 .StripeElement--focus,
@@ -25,9 +29,8 @@
     color: #aab7c4;
 }
 
-.fieldset-label {
-    position: relative;
-    right: .5rem;
+.form-group {
+    margin: 10px 0;
 }
 
 #payment-form .form-control,
@@ -57,8 +60,11 @@
 
 /* Media Queries */
 /* Very small mobile */
-@media screen and (max-width: 460px) {
-  .order-confirmation-wrapper p {
-      font-size: 12px;
-  }
+@media screen and (max-width: 400px) {
+    .form-control, 
+    .form-check, 
+    .ElementsApp, 
+    .ElementsApp .InputElement {
+        font-size: 14px;
+    }
 }
