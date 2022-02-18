@@ -193,8 +193,9 @@ All of the fonts were sourced from [Google Fonts](https://fonts.google.com).
 While I relied heavily on these Wireframes in order to maintain the desired design, there are several differences between the Mockups and the final product:
 - I changed the logo to a new one that's thicker and easier to spot, as the previous logo in the mockups was too thin and didn't look good on small devices.
 - In the wireframes and mockups, there was a subscription to the newsletter box. I decided not to include this subscription to the newsletter functionality on the final product due to time constraint. 
+- The color #B2675E was changed to a slightly dark color #A5554C, because it didn't have enough contrast when paired with white text.
 - Minor things like buttons colors and image difference were purely design choices that was taken during with the website development. 
-- I added 
+
 
 <br/>  
 
@@ -377,8 +378,25 @@ Toast messages provide the user the necessary feedback of their activities wheth
 - The total price, the delivery price, and the grand total are separated in a box, to gain user's attention on what the next action is. A CTA button to chekout, and a visual information of accepted method of payments are placed in the box as well.
 - If the user decides to browse for more products, a Keep Shopping button is positioned below the grand total box as a secondary option.  
 
+#### **6. Checkout Page**  
+[See the image of Checkout page here](readme-testing-files/readme/checkout-page.png)  
+- The Checkout page features the checkout form to process the transaction and the order information.
+- The Chekout form is clearly divided into 3 sections: Details (user's full name and email), Delivery (user's delivery address), and Payment (user's card detail).  
+- The order information is filled with summary of all products from the Bag page, along with the grand total. CTA buttons are present inside the box for the user to pay and therefore complete the order, or to go back to Adjust bag as secondary option. 
+
+#### **7. Checkout Success Page**   
+[See the image of Checkout Sucess page here](readme-testing-files/readme/checkout-success-page.png)  
+- The Checkout Success page features the summary of order transaction that had just successfully processed, right after the user proceed to complete the order on Checkout page.
+- Users can see the Order information, items list, delivery address, and billing information.
+- Registered users can also find this summary of order on their Profile page.  
+
+#### **8. Profile Page - My Information**  
 
 
+#### **9. Profile Page - My Purchases**  
+
+
+#### **10. Profile Page - Ratings/Reviews**  
 
 
 
