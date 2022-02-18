@@ -409,8 +409,14 @@ Toast messages provide the user the necessary feedback of their activities wheth
 - After the review for a product is added, the product will be removed from this section.  
 
 #### **11. Articles Page**  
+[See the image of Articles page here](readme-testing-files/readme/articles-page.png)  
+- The Articles page features all relevant articles about shoes and accessories. This provides better customer experiences beside basic purchasing funtionality, and hopefully will increase users engagement with the store.  
+- All articles are featured in a card-like display, with an image, a title, a small part of the article, and a Read the article link that will bring the user to the Individual Article page.  
 
 #### **12. Individual Article Page**  
+[See the image of Articles page here](readme-testing-files/readme/individual-article-page.png)  
+- The Individual Article page feature the article itself, the image, the title, and date created. 
+- Read more articles button is placed on the bottom-center of the page to bring users back to the Articles page.
 
 
 
