@@ -274,6 +274,11 @@ footer {
     border: none;
 }
 
+/* Bag Page */
+.img-creditcard {
+    width: 200px;
+}
+
 /* Checkout Page */
 select:invalid,
 select option[value=""] {
