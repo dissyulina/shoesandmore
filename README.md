@@ -408,17 +408,32 @@ Toast messages provide the user the necessary feedback of their activities wheth
 - Users can give rating and review by clicking the Give Review button on the right side of the product. They will then be directed to the Add Review page.   
 - After the review for a product is added, the product will be removed from this section.  
 
-#### **11. Articles Page**  
+#### **11. Add/ Edit Review Page**  
+[See the image of Add/ Edit Review page here](readme-testing-files/readme/add-edit-review-page.png)  
+- The Add Review page features a form to submit rating and review for the specified product. Users can give rating (range 1 to 5), and/or a review to the product. The rating is required (users can't submit the form if the rating is empty).
+- To submit the rating and review, a Submit Review button is placed below the form. There's also a Cancel button which will bring users back to their profile (review section).
+- After the review is submitted, users is directed back to their profile (review section) as well, to encourage user to review more products.
+- Even though there are two separate templates each for Add Review page and Edit Review page, the display and layout are exactly the same between the two. The only difference is, on Edit Review page, the rating input and review text area are already prepopulated with the existing rating and review from the user. 
+- As mentioned above on the Individual Product page, user can edit their review by accessing the Individual Product page first, find the review, and then click Edit button.  
+
+#### **12. Articles Page**  
 [See the image of Articles page here](readme-testing-files/readme/articles-page.png)  
 - The Articles page features all relevant articles about shoes and accessories. This provides better customer experiences beside basic purchasing funtionality, and hopefully will increase users engagement with the store.  
 - All articles are featured in a card-like display, with an image, a title, a small part of the article, and a Read the article link that will bring the user to the Individual Article page.  
 
-#### **12. Individual Article Page**  
+#### **13. Individual Article Page**  
 [See the image of Articles page here](readme-testing-files/readme/individual-article-page.png)  
 - The Individual Article page feature the article itself, the image, the title, and date created. 
 - Read more articles button is placed on the bottom-center of the page to bring users back to the Articles page.
 
+#### **14. FAQ Page**  
+[See the image of FAQ page here](readme-testing-files/readme/faq-page.png)  
+- FAQ page features the frequently asked questions about payment, order, return policy, etc. User can access this page by clicking the FAQ link on the footer.  
+- If users can't find their answers in this page, they are invited to contact the store directly by clicking Go to Contact Page button placed on the bottom-center of the page.  
 
+#### **15. Contact Page**  
+
+#### **16. Sign In and Log In Page**  
 
 
 
