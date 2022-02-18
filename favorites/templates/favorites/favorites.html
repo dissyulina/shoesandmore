@@ -14,7 +14,7 @@
                     <h2 class="my-5 fw-bold">Favorites</h2>
                 </div>
             </div>
-            <div class="row">
+            <div class="row mb-5">
                 {% if favorites %}
                     {% for product in favorites.products.all %}
                     <div class="col-6 col-md-4 col-lg-3" id="card-{{ product.id }}">

@@ -224,6 +224,7 @@ footer {
     top: 72px;
     right: 15px;
     z-index: 99999999999;
+    max-width: 90vw;
 }
 
 .custom-toast {

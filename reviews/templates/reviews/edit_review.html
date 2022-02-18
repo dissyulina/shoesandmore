@@ -14,15 +14,13 @@
         <div class="container">
             <div class="row">
                 <div class="col text-center">
-                    <h2 class="my-5 fw-bold">Edit Review</h2>
+                    <h2 class="my-5 fw-bold">Edit Review for {{ product.name }}</h2>
                 </div>
             </div>
-            <div class="row my-5 justify-content-center">
-
+            <div class="row mb-5 justify-content-center">
                 <div class="col-12 col-md-6">
                     <form method="POST" action="{% url 'edit_review' review.id %}" class="d-flex flex-column justify-content-center">
-                        {% csrf_token %}
-                        
+                        {% csrf_token %} 
                         <div class="mt-5">
                             <!-- Adapted from: https://codeconvey.com/feedback-form-in-html/-->
                             <fieldset>

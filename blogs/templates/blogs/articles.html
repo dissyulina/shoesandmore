@@ -13,7 +13,7 @@
                     <h2 class="my-5 fw-bold">Articles</h2>
                 </div>
             </div>
-            <div class="row">
+            <div class="row mb-5">
                 {% for blog in blogs %}
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-4 d-flex justify-content-center">
                     <div class="card">
@@ -27,7 +27,7 @@
                             </a>
                         {% endif %}
                         <div class="card-body px-0">
-                            <h6 class="card-title">{{ blog.title }}</h6>
+                            <h6 class="card-title fw-bold">{{ blog.title }}</h6>
                             <p class="card-text">{{ blog.paragraph1|truncatechars:40 }}</p>
                             <a href="{% url 'article_detail' blog.id %}">Read the article <i class="fas fa-arrow-right"></i></a>
                         </div>

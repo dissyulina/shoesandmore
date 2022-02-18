@@ -17,7 +17,7 @@
                     <h2 class="my-5 fw-bold">Add A Review for {{ product.name }}</h2>
                 </div>
             </div>
-            <div class="row my-5">
+            <div class="row mb-5">
                 <div class="col-12 col-md-6 col-xl-4 offset-xl-2">
                     <a href="{% url 'product_detail' product.id %}" class="d-flex justify-content-center">
                         {% if product.image %}
@@ -27,7 +27,7 @@
                         {% endif %}
                     </a>
                 </div>
-                <div class="col-12 col-md-6 col-xl-4">
+                <div class="col-12 col-md-6 col-xl-4 pt-4 pt-md-0">
                     <form method="POST" action="{% url 'add_review' product.id %}" class="d-flex flex-column justify-content-center">
                         {% csrf_token %}
                         <p class="my-0"><strong>{{ product.name }}</strong></p>
