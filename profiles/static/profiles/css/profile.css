@@ -32,13 +32,8 @@
     background-color: #fefde5 !important;
 }
 
-.fieldset-label {
-    position: relative;
-    right: .5rem;
-}
-
 .form-group {
-    margin: 10px;
+    margin: 10px 0;
 }
 
 .profile-form-input::placeholder {

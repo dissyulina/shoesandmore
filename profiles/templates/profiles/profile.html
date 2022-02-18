@@ -43,13 +43,16 @@
                 <!-- Tab panes -->
                 <div class="tab-content">
                     <div class="tab-pane container" id="information">
+                        <p class="mb-5">Update your delivery information.</p>
                         <div class="row">
-                            <div class="col-12 col-md-7">
-                                <p>Default Delivery Information</p>
+                            <div class="col-12 col-md-7 mx-auto">
+                                <p class="fs-5 mb-4 p-2 w-100 fw-bold bg-beige">Default Delivery Information</p>
                                 <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                                     {% csrf_token %}
                                     {{ form|crispy }}
-                                    <button class="btn btn-brown float-end my-5">Update Information</button>
+                                    <div class="d-flex justify-content-center">
+                                        <button class="btn btn-brown mt-4 mb-5">Update Information</button>
+                                    </div>
                                 </form>
                             </div>
                         </div>
