@@ -360,7 +360,24 @@ Toast messages provide the user the necessary feedback of their activities wheth
 - The page features the product's image, name, price, rating, category tag, and reviews on the bottom of the page. 
 - On the top right of the product's image, there's a heart icon that turns red when user hovers over it. By clicking this icon, a registered user can add the product to their favorites list. The heart icon will then turns red to indicate that the product has listed in user's favorites.
 - Users can add the product to their shopping bag by choosing the size, the quantity, and click Add to Bag button.  
-- A registered user is able to edit or delete their own review. The buttons to edit and to delete show up below the specified review.  
+- A registered user is able to edit or delete their own review. The buttons to edit and to delete show up below it.  
+
+#### **4. Favorites Page**  
+[See the image of Favorites page here](readme-testing-files/readme/favorites-page.png)  
+- The Favorites page features all products that the user has been saved as their favorites. The products are displayed in resemblance with products page, using the product's image, name, price, and rating. They are displayed into 4 columns on large screen, 3 columns on medium screen, and 2 columns on small screen. 
+- The heart icon on the top right of product's image is replaced by a trash icon, which indicates its function to remove the product from favorites.
+- Since favorites are a list of products that the user is interested in and willing to buy, below each product, there are an option to choose the size and an Add to Bag button. This allows users to add the product to their shopping bag directly and easily, without going to the individual product page.  
+
+#### **5. Bag Page**  
+[See the image of Bag page here](readme-testing-files/readme/bag-page.png)  
+- The Bag page features all products that the user has been added to the shopping bag, and the total price that the user has to pay (if the user decides to continue). On this page, users can adjust the quantity of products, or remove the products from the bag.  
+- It displays the products information such as product's image, name, sku, price, size of choice, and the quantity of choice.
+- A trash icon is placed on each product's row, which indicates that users can use this button to remove the specified product from their bag.
+- The subtotal column informs users the product's price times the quantity. If the user changes the quantity, the subtotal changes accordingly.
+- The total price, the delivery price, and the grand total are separated in a box, to gain user's attention on what the next action is. A CTA button to chekout, and a visual information of accepted method of payments are placed in the box as well.
+- If the user decides to browse for more products, a Keep Shopping button is positioned below the grand total box as a secondary option.  
+
+
 
 
 
