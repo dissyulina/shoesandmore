@@ -361,7 +361,15 @@ Toast messages provide the user the necessary feedback of their activities wheth
 - The page features the product's image, name, price, rating, category tag, and reviews on the bottom of the page. 
 - On the top right of the product's image, there's a heart icon that turns red when user hovers over it. By clicking this icon, a registered user can add the product to their favorites list. The heart icon will then turns red to indicate that the product has listed in user's favorites.
 - Users can add the product to their shopping bag by choosing the size, the quantity, and click Add to Bag button.  
-- A registered user is able to edit or delete their own review. The buttons to edit and to delete show up below it.  
+
+**Review Section** 
+- Under the product information, there's a review section which lists all the reviews for the product. If a user has written a review for the product before, the buttons to edit and to delete show up below it. A registered user is able to edit or delete their own review.  
+Below are the example, if I logged in as user "Janedoe".  
+![Edit and Delete Review buttons](readme-testing-files/readme/review-edit-delete-button.png "Edit and Delete Review buttons")   
+If the user clicks the Edit button, they will be directed to Edit Review page [see Edit Review page](https://github.com/dissyulina/shoesandmore#11-add-edit-review-page).  
+While if the user clicks the Delete button, a confirmation modal will pop out to confirm if the user really want to delete it.   
+![Confirmation modal before deleting review](readme-testing-files/readme/delete-review-modal.png "Confirmation modal before deleting review")  
+
 
 #### **4. Favorites Page**  
 [See the image of Favorites page here](readme-testing-files/readme/favorites-page.png)  
@@ -450,10 +458,14 @@ Toast messages provide the user the necessary feedback of their activities wheth
 
 #### **18. Edit Product page (Admin / Superuser only)**  
 [See the image of Edit Product page here](readme-testing-files/readme/edit-product-page.png)  
-- The Edit Product page is only available for Admin or Superuser. This page can be accessed by clicking Edit link that is available on each product in the Products page, after logging in as an admin.  
+- The Edit Product page is only available for Admin or Superuser. This page can be accessed by clicking Edit link that is available on each product in the Products page, or on Individual Product page, after logging in as an admin.  
 - The Edit Product page's design and layout are exactly the same as Add Product page in order to give a sense of consistency and minimal learning curve for admin. 
 - To edit the product, an Update Product button is placed on the bottom-center of the page. A cancel button is available as well which will direct them back to the products page.  
 
+#### **19. Delete Product Functionality (Admin / Superuser only)**  
+- The Edit Product functionality is only available for Admin or Superuser. This functionality can be accessed by clicking Edit link that is available on each product in the Products page, or on Individual Product page, after logging in as an admin.  
+- After the admin clicks the Delete button, a confirmation modal will pop out to confirm if they really want to delete it.   
+![Confirmation modal before deleting a product](readme-testing-files/readme/delete-product-modal.png "Confirmation modal before deleting a product")   
 
 
 
