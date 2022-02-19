@@ -94,9 +94,9 @@
                     <div class="mt-sm-3 mt-lg-4">
                         <div class="mb-3 d-flex flex-row">
                             <div class="flex-grow-1">
-                                <p class="text-muted text-md-start">
+                                <p class="text-muted text-md-start small">
                                     {% if search_term or current_categories or current_sorting != 'None_None' %}
-                                        <span class="small"><a href="{% url 'products' %}">Back to All Products</a> | </span>
+                                        <span><a href="{% url 'products' %}">Back to All Products</a> | </span>
                                     {% endif %}
                                     {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
                                 </p>
@@ -178,10 +178,32 @@
                                                     <small class="text-muted">No Rating</small>
                                                 {% endif %}
                                                 {% if request.user.is_superuser %}
-                                                <small class="ml-3 float-end">
-                                                    <a href="{% url 'edit_product' product.id %}">Edit</a> | 
-                                                    <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
-                                                </small>
+                                                    <small class="ml-3 float-end">
+                                                        <a href="{% url 'edit_product' product.id %}">Edit</a> | 
+                                                        <a class="text-danger" data-bs-toggle="modal" data-bs-target="#product-{{ product.id }}">Delete</a>
+                                                    </small>
+                                                    <!-- Confirmation modal before deleting the product -->
+                                                    <div class="modal fade" tabindex="-1" id="product-{{ product.id }}" aria-labelledby="modal-delete-{{ product.id }}" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header bg-beige border-0">
+                                                                    <h5 class="fw-bold">Delete Product</h5>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body text-center border-0">
+                                                                    <p>Are you sure you want to delete this product: </p>
+                                                                    <p class="fw-bold">{{ product.name }}</p>
+                                                                    {% if product.image %}
+                                                                        <img class="w-50" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                                                    {% endif %}
+                                                                </div>
+                                                                <div class="modal-footer border-0 justify-content-center">
+                                                                    <button type="button" class="btn btn-beige-inverted" data-bs-dismiss="modal">Cancel</button>
+                                                                    <a role="button" class="btn btn-beige" href="{% url 'delete_product' product.id %}">Yes, Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 {% endif %}
                                             </div>
                                         </div>

@@ -1,10 +1,10 @@
 {% if widget.is_initial %}
-    <p>{{ widget.initial_text }}:</p>
-    <a href="{{ widget.value.url }}">
+    <p class="form-group">{{ widget.initial_text }}:</p>
+    <a class="form-group" href="{{ widget.value.url }}">
         <img width="96" height="96" class="rounded shadow-sm" src="{{ widget.value.url }}">
     </a>
     {% if not widget.required %}
-        <div class="custom-control custom-checkbox mt-2">
+        <div class="custom-control custom-checkbox mt-2 form-group">
             <input class="custom-control-input" type="checkbox" name="{{ widget.checkbox_name }}" id="{{ widget.checkbox_id }}">
             <label class="custom-control-label text-danger" for="{{ widget.checkbox_id }}">{{ widget.clear_checkbox_label }}</label>
         </div>
@@ -14,4 +14,5 @@
 <span class="btn btn-beige btn-sm btn-file form-group">
     Select Image <input id="new-image" type="{{ widget.type }}" name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
 </span>
+<small class="d-block text-muted form-group">Please make sure to upload a squared-size image to keep the products page's layout clean.</small>
 <strong><p class="text-danger form-group" id="filename"></p></strong> 
