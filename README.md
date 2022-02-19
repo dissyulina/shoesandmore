@@ -428,12 +428,33 @@ Toast messages provide the user the necessary feedback of their activities wheth
 
 #### **14. FAQ Page**  
 [See the image of FAQ page here](readme-testing-files/readme/faq-page.png)  
-- FAQ page features the frequently asked questions about payment, order, return policy, etc. User can access this page by clicking the FAQ link on the footer.  
+- The FAQ page features the frequently asked questions about payment, order, return policy, etc. User can access this page by clicking the FAQ link on the footer.  
 - If users can't find their answers in this page, they are invited to contact the store directly by clicking Go to Contact Page button placed on the bottom-center of the page.  
 
 #### **15. Contact Page**  
+[See the image of Contact page here](readme-testing-files/readme/contact-page.png)  
+- The Contact Page features information on how to contact the store. It provides phone number, email address, and a contact form. 
+- Users can fill out the contact form and submit it. The server side will store it in the database so the store admin can see and process all of the messages.
 
-#### **16. Sign In and Log In Page**  
+#### **16. Register and Log In Page**  
+[See the image of Register page here](readme-testing-files/readme/register-page.png)  
+[See the image of Login page here](readme-testing-files/readme/login-page.png)  
+- The Register/ Sign Up page allows users to register to the website. To register, users have to provide email address, username, and password. After registration, users will get an email confirmation that requires users to activate their account by clicking a link. Only after the account is activated, users can access the website as registered users.  
+- The Log In page allows registered users to log back in to the website. To login, users have to provide the email address or the username, and the password.  
+
+#### **17. Product Management / Add Product page (Admin / Superuser only)**  
+[See the image of Product Management page here](readme-testing-files/readme/add-product-page.png)  
+- The Product Management page is only available for Admin or Superuser. This page can be accessed by clicking My Account on the Navbar after logging in as an admin.  
+- The Product Management page features a form that functions to add a product to the store. On this form, admin can fill out the category, subcategory, sku, name, has sizes (true or false), price, rating, and image.  
+- To submit the new product, an Add Product button is placed on the bottom-center of the page. A cancel button is available as well which will direct them to the products page. 
+
+#### **18. Edit Product page (Admin / Superuser only)**  
+[See the image of Edit Product page here](readme-testing-files/readme/edit-product-page.png)  
+- The Edit Product page is only available for Admin or Superuser. This page can be accessed by clicking Edit link that is available on each product in the Products page, after logging in as an admin.  
+- The Edit Product page's design and layout are exactly the same as Add Product page in order to give a sense of consistency and minimal learning curve for admin. 
+- To edit the product, an Update Product button is placed on the bottom-center of the page. A cancel button is available as well which will direct them back to the products page.  
+
+
 
 
 
