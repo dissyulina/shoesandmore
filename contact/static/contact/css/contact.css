@@ -1,0 +1,15 @@
+.form-control {
+    border: 1px solid rgb(160, 160, 160);
+    border-radius: 0;
+}
+
+.contact-wrapper {
+    border: 1px solid #000;
+}
+/* Media Queries */
+/* Very small mobile */
+@media screen and (max-width: 400px) {
+    .form-control {
+        font-size: 14px;
+    }
+}
