@@ -20,7 +20,7 @@
         "model": "products.subcategory",
         "fields": {
             "name": "oxfords",
-            "friendly_name": "Oxfords and Loafers"
+            "friendly_name": "Oxfords"
         }
     },
     {
@@ -28,7 +28,7 @@
         "model": "products.subcategory",
         "fields": {
             "name": "heels",
-            "friendly_name": "Pumps and High Heels"
+            "friendly_name": "Pumps/ High Heels"
         }
     },
     {
@@ -83,16 +83,16 @@
         "pk": 11,
         "model": "products.subcategory",
         "fields": {
-            "name": "sale",
-            "friendly_name": "Sale"
+            "name": "accessories",
+            "friendly_name": "Accessories"
         }
     },
     {
         "pk": 12,
         "model": "products.subcategory",
         "fields": {
-            "name": "accessories",
-            "friendly_name": "Accessories"
+            "name": "sale",
+            "friendly_name": "Sale"
         }
     },
     {

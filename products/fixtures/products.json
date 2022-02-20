@@ -11,7 +11,7 @@
          "rating":4.6,
          "image":"1.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -26,7 +26,7 @@
          "rating":3.9,
          "image":"2.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -41,7 +41,7 @@
          "rating":4.2,
          "image":"3.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -56,7 +56,7 @@
          "rating":3.5,
          "image":"4.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -71,7 +71,7 @@
          "rating":4.4,
          "image":"5.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -86,7 +86,7 @@
          "rating":4.3,
          "image":"6.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -101,7 +101,7 @@
          "rating":4.7,
          "image":"7.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -116,7 +116,7 @@
          "rating":4.8,
          "image":"8.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -131,7 +131,7 @@
          "rating":4.3,
          "image":"9.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -146,7 +146,7 @@
          "rating":4.6,
          "image":"10.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -161,7 +161,7 @@
          "rating":4.4,
          "image":"11.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -176,7 +176,7 @@
          "rating":4.3,
          "image":"12.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -191,7 +191,7 @@
          "rating":4.1,
          "image":"13.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -206,7 +206,7 @@
          "rating":4.2,
          "image":"14.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -221,7 +221,7 @@
          "rating":4.8,
          "image":"15.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -236,7 +236,7 @@
          "rating":3.8,
          "image":"16.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -251,7 +251,7 @@
          "rating":3.6,
          "image":"17.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -262,11 +262,11 @@
          "name":"Green Suede Oxford",
          "price":38.99,
          "category":1,
-         "subcategory":3,
+         "subcategory":13,
          "rating":4.0,
          "image":"18.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -281,7 +281,7 @@
          "rating":4.0,
          "image":"19.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -296,7 +296,7 @@
          "rating":4.5,
          "image":"20.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -311,7 +311,7 @@
          "rating":3.7,
          "image":"21.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -326,7 +326,7 @@
          "rating":3.6,
          "image":"22.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -341,7 +341,7 @@
          "rating":4.0,
          "image":"23.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -356,7 +356,7 @@
          "rating":4.5,
          "image":"24.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -371,7 +371,7 @@
          "rating":4.5,
          "image":"25.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -386,7 +386,7 @@
          "rating":3.5,
          "image":"26.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -401,7 +401,7 @@
          "rating":3.9,
          "image":"27.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -416,7 +416,7 @@
          "rating":4.2,
          "image":"28.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -431,7 +431,7 @@
          "rating":3.8,
          "image":"29.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -446,7 +446,202 @@
          "rating":4.3,
          "image":"30.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":31,
+      "model":"products.product",
+      "fields":{
+         "sku":"sa-br-0000031",
+         "name":"Brown Leather Sandals",
+         "price": 25.99,
+         "category":2,
+         "subcategory":1,
+         "rating":3.3,
+         "image":"31.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":32,
+      "model":"products.product",
+      "fields":{
+         "sku":"sn-pr-0000032",
+         "name":"Print Cheetah Sneakers",
+         "price": 44.99,
+         "category":1,
+         "subcategory":13,
+         "rating":3.7,
+         "image":"32.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":33,
+      "model":"products.product",
+      "fields":{
+         "sku":"sa-gr-0000033",
+         "name":"Gray Outdoor Sandals",
+         "price":32.99,
+         "category":2,
+         "subcategory":1,
+         "rating":3.6,
+         "image":"33.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":34,
+      "model":"products.product",
+      "fields":{
+         "sku":"lo-br-0000031",
+         "name":"Brown Leather Loafers",
+         "price":40.99,
+         "category":2,
+         "subcategory":9,
+         "rating":3.2,
+         "image":"34.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":35,
+      "model":"products.product",
+      "fields":{
+         "sku":"lo-bl-0000035",
+         "name":"Black String Loafers",
+         "price":53.99,
+         "category":2,
+         "subcategory":9,
+         "rating":4.1,
+         "image":"35.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":36,
+      "model":"products.product",
+      "fields":{
+         "sku":"bt-br-0000036",
+         "name":"Brown Leather Boots",
+         "price":59.99,
+         "category":2,
+         "subcategory":5,
+         "rating":4.5,
+         "image":"36.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":37,
+      "model":"products.product",
+      "fields":{
+         "sku":"fl-re-0000037",
+         "name":"Red Pointy Flats",
+         "price":34.99,
+         "category":1,
+         "subcategory":7,
+         "rating":3.9,
+         "image":"37.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":38,
+      "model":"products.product",
+      "fields":{
+         "sku":"lo-bl-0000038",
+         "name":"Black Leather Loafers",
+         "price":37.99,
+         "category":1,
+         "subcategory":9,
+         "rating":4.1,
+         "image":"38.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":39,
+      "model":"products.product",
+      "fields":{
+         "sku":"bt-bl-0000039",
+         "name":"Black Suede Boots",
+         "price":45.99,
+         "category":2,
+         "subcategory":5,
+         "rating":4.3,
+         "image":"39.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":40,
+      "model":"products.product",
+      "fields":{
+         "sku":"lo-or-0000040",
+         "name":"Orange Beady Loafers",
+         "price":35.99,
+         "category":1,
+         "subcategory":9,
+         "rating":3.9,
+         "image":"40.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":41,
+      "model":"products.product",
+      "fields":{
+         "sku":"od-gr-0000041",
+         "name":"Gray Outdoor Shoes",
+         "price":51.99,
+         "category":2,
+         "subcategory":8,
+         "rating":4.3,
+         "image":"41.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":42,
+      "model":"products.product",
+      "fields":{
+         "sku":"ml-bl-0000042",
+         "name":"Black Plain Mules",
+         "price":29.99,
+         "category":1,
+         "subcategory":6,
+         "rating":3.7,
+         "image":"42.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":43,
+      "model":"products.product",
+      "fields":{
+         "sku":"od-gr-0000043",
+         "name":"Green Outdoor Shoes",
+         "price":53.99,
+         "category":1,
+         "subcategory":8,
+         "rating":3.9,
+         "image":"43.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
       }
    },
    {
@@ -457,11 +652,311 @@
          "name":"Black Burberry Boots",
          "price":105.99,
          "category":1,
-         "subcategory":11,
+         "subcategory":12,
          "rating":4.2,
          "image":"44.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":45,
+      "model":"products.product",
+      "fields":{
+         "sku":"ox-br-0000045",
+         "name":"Brown Oxfords",
+         "price":49.99,
+         "category":2,
+         "subcategory":3,
+         "rating":3.6,
+         "image":"45.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":46,
+      "model":"products.product",
+      "fields":{
+         "sku":"sn-wh-0000046",
+         "name":"White Canvas Sneakers",
+         "price":29.99,
+         "category":2,
+         "subcategory":2,
+         "rating":2.9,
+         "image":"46.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":47,
+      "model":"products.product",
+      "fields":{
+         "sku":"ox-bl-0000047",
+         "name":"Black Blue Oxfords",
+         "price": 67.99,
+         "category":2,
+         "subcategory":3,
+         "rating":4.3,
+         "image":"47.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":48,
+      "model":"products.product",
+      "fields":{
+         "sku":"sl-pi-0000048",
+         "name":"Pink Crocs Slippers",
+         "price":25.99,
+         "category":3,
+         "subcategory":10,
+         "rating":4.5,
+         "image":"48.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":49,
+      "model":"products.product",
+      "fields":{
+         "sku":"sn-gr-0000049",
+         "name":"Gray Colorful Sneakers",
+         "price":59.99,
+         "category":2,
+         "subcategory":2,
+         "rating":4.6,
+         "image":"49.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":50,
+      "model":"products.product",
+      "fields":{
+         "sku":"sn-pr-0000050",
+         "name":"Colorful Print Sneakers",
+         "price":53.99,
+         "category":2,
+         "subcategory":2,
+         "rating":4.0,
+         "image":"50.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":51,
+      "model":"products.product",
+      "fields":{
+         "sku":"sa-bl-0000051",
+         "name":"Black Sandals",
+         "price":23.99,
+         "category":3,
+         "subcategory":1,
+         "rating":3.9,
+         "image":"51.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":52,
+      "model":"products.product",
+      "fields":{
+         "sku":"ox-br-0000052",
+         "name":"Brown Leather Formal Oxfords",
+         "price": 67.99,
+         "category":2,
+         "subcategory":3,
+         "rating":4.7,
+         "image":"52.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":53,
+      "model":"products.product",
+      "fields":{
+         "sku":"sl-gr-0000053",
+         "name":"Green Crocs Slippers",
+         "price": 25.99,
+         "category":3,
+         "subcategory":10,
+         "rating":4.5,
+         "image":"53.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":54,
+      "model":"products.product",
+      "fields":{
+         "sku":"bt-br-0000054",
+         "name":"Brown Fringe Suede Boots",
+         "price": 28.99,
+         "category":3,
+         "subcategory":5,
+         "rating":4.7,
+         "image":"54.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":55,
+      "model":"products.product",
+      "fields":{
+         "sku":"sa-or-0000053",
+         "name":"Orange Black Sandals",
+         "price": 23.99,
+         "category":3,
+         "subcategory":1,
+         "rating":3.5,
+         "image":"55.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":56,
+      "model":"products.product",
+      "fields":{
+         "sku":"bt-pi-0000056",
+         "name":"Pink Print Boots",
+         "price": 33.99,
+         "category":3,
+         "subcategory":5,
+         "rating":3.7,
+         "image":"56.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":57,
+      "model":"products.product",
+      "fields":{
+         "sku":"bt-pi-0000057",
+         "name":"Pink Bunny Boots",
+         "price": 33.99,
+         "category":3,
+         "subcategory":5,
+         "rating":4.8,
+         "image":"57.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":58,
+      "model":"products.product",
+      "fields":{
+         "sku":"sn-bl-0000058",
+         "name":"Black Leather Sneakers",
+         "price": 38.99,
+         "category":3,
+         "subcategory":13,
+         "rating":4.3,
+         "image":"58.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":59,
+      "model":"products.product",
+      "fields":{
+         "sku":"bt-pi-0000059",
+         "name":"Pink Warm Winter Boots",
+         "price": 22.99,
+         "category":3,
+         "subcategory":12,
+         "rating":3.9,
+         "image":"59.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":60,
+      "model":"products.product",
+      "fields":{
+         "sku":"fl-bl-0000060",
+         "name":"Black Ballerina Flats",
+         "price": 25.99,
+         "category":1,
+         "subcategory":7,
+         "rating":4.0,
+         "image":"60.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":61,
+      "model":"products.product",
+      "fields":{
+         "sku":"sl-be-0000061",
+         "name":"Beige Fluffy Lockdown Slippers",
+         "price": 27.99,
+         "category":1,
+         "subcategory":10,
+         "rating":4.3,
+         "image":"61.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":62,
+      "model":"products.product",
+      "fields":{
+         "sku":"lo-pi-0000062",
+         "name":"Pink Checkered Loafers",
+         "price": 24.99,
+         "category":3,
+         "subcategory":9,
+         "rating":4.1,
+         "image":"62.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":63,
+      "model":"products.product",
+      "fields":{
+         "sku":"sa-or-0000063",
+         "name":"Orange Summer Sandals",
+         "price": 23.99,
+         "category":3,
+         "subcategory":13,
+         "rating":4.5,
+         "image":"63.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":64,
+      "model":"products.product",
+      "fields":{
+         "sku":"sn-bl-0000064",
+         "name":"Black Sneakers",
+         "price": 35.99,
+         "category":3,
+         "subcategory":2,
+         "rating":4.7,
+         "image":"64.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
       }
    },
    {
@@ -472,11 +967,176 @@
          "name":"Brown Suede Autumn Boots",
          "price":25.99,
          "category":1,
-         "subcategory":11,
+         "subcategory":12,
          "rating":3.5,
          "image":"65.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":66,
+      "model":"products.product",
+      "fields":{
+         "sku":"ac-br-0000066",
+         "name":"Brown Leather Medium Slingbag",
+         "price":25.99,
+         "category":1,
+         "subcategory":11,
+         "rating":3.2,
+         "image":"66.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":67,
+      "model":"products.product",
+      "fields":{
+         "sku":"bt-br-0000067",
+         "name":"Brown Sturdy Boots",
+         "price":46.99,
+         "category":3,
+         "subcategory":5,
+         "rating":3.7,
+         "image":"67.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":68,
+      "model":"products.product",
+      "fields":{
+         "sku":"ac-pr-0000068",
+         "name":"Round Rotan Ethnic Slingbag",
+         "price":35.99,
+         "category":1,
+         "subcategory":11,
+         "rating":3.2,
+         "image":"68.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":69,
+      "model":"products.product",
+      "fields":{
+         "sku":"ac-gr-0000069",
+         "name":"Gray Wolf Medium Bag",
+         "price":52.99,
+         "category":1,
+         "subcategory":11,
+         "rating":3.8,
+         "image":"69.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":70,
+      "model":"products.product",
+      "fields":{
+         "sku":"ac-wh-0000070",
+         "name":"White Blue Flower Handbag",
+         "price":63.99,
+         "category":1,
+         "subcategory":11,
+         "rating":4.0,
+         "image":"70.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":71,
+      "model":"products.product",
+      "fields":{
+         "sku":"ac-gr-0000071",
+         "name":"Gray Laptop Backpack",
+         "price":56.99,
+         "category":2,
+         "subcategory":11,
+         "rating":4.8,
+         "image":"71.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":72,
+      "model":"products.product",
+      "fields":{
+         "sku":"ac-be-0000072",
+         "name":"Beige Handbag",
+         "price":55.99,
+         "category":1,
+         "subcategory":11,
+         "rating":4.3,
+         "image":"72.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":73,
+      "model":"products.product",
+      "fields":{
+         "sku":"ac-br-0000073",
+         "name":"Brown Leather Laptop Bag",
+         "price":52.99,
+         "category":2,
+         "subcategory":11,
+         "rating":3.6,
+         "image":"73.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":74,
+      "model":"products.product",
+      "fields":{
+         "sku":"ac-bl-0000074",
+         "name":"Blue Laptop Backpack",
+         "price":65.99,
+         "category":2,
+         "subcategory":11,
+         "rating":4.5,
+         "image":"74.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":75,
+      "model":"products.product",
+      "fields":{
+         "sku":"ac-br-0000075",
+         "name":"Brown Leather Backpack",
+         "price":49.99,
+         "category":2,
+         "subcategory":11,
+         "rating":3.7,
+         "image":"75.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
+      }
+   },
+   {
+      "pk":76,
+      "model":"products.product",
+      "fields":{
+         "sku":"ac-bl-0000076",
+         "name":"Blue Shawl",
+         "price":19.99,
+         "category":1,
+         "subcategory":11,
+         "rating":3.8,
+         "image":"76.jpg",
+         "has_sizes": true,
+         "total_purchased": 0
       }
    },
    {
@@ -487,11 +1147,11 @@
          "name":"Brown Timberland Loafers",
          "price":54.99,
          "category":2,
-         "subcategory":11,
+         "subcategory":12,
          "rating":4.5,
          "image":"94.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -506,7 +1166,7 @@
          "rating":4.3,
          "image":"95.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -521,7 +1181,7 @@
          "rating":4.6,
          "image":"96.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -532,11 +1192,11 @@
          "name":"Orange Warm Waterproof Boots",
          "price":23.99,
          "category":1,
-         "subcategory":11,
+         "subcategory":12,
          "rating":3.6,
          "image":"97.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -551,7 +1211,7 @@
          "rating":4.3,
          "image":"98.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -562,11 +1222,11 @@
          "name":"Brown Outdoor Timberland Boots",
          "price":44.99,
          "category":2,
-         "subcategory":11,
+         "subcategory":12,
          "rating":4.3,
          "image":"99.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -577,11 +1237,11 @@
          "name":"Black Leather Boots",
          "price":35.99,
          "category":2,
-         "subcategory":11,
+         "subcategory":12,
          "rating":4.0,
          "image":"100.jpg",
          "has_sizes": true,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -596,7 +1256,7 @@
          "rating":4.2,
          "image":"101.jpg",
          "has_sizes": false,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    },
    {
@@ -611,7 +1271,7 @@
          "rating":4.3,
          "image":"102.jpg",
          "has_sizes": false,
-         "total_purchased": 10
+         "total_purchased": 0
       }
    }
 ]
