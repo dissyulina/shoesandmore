@@ -28,7 +28,7 @@
         "model": "products.subcategory",
         "fields": {
             "name": "heels",
-            "friendly_name": "Pumps/ High Heels"
+            "friendly_name": "High Heels"
         }
     },
     {
