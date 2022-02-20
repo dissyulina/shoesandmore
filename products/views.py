@@ -80,9 +80,6 @@ def all_products(request):
             queries = Q(name__icontains=query)
             products = products.filter(queries)
 
-
-    products = products[0:24]
-
     current_sorting = f'{sort}_{direction}'
   
     if request.user.is_authenticated:
@@ -128,22 +125,6 @@ def all_products(request):
     # print("favorites", favorites)
 
     return render(request, 'products/products.html', context)
-
-
-def load_more(request):
-    """Load more products"""
-
-    loaded_item = request.GET.get('loaded_item')
-    loaded_item_int = int(loaded_item)
-    limit = 12
-    product_obj = list(Product.objects.values()[loaded_item_int:loaded_item_int+limit])
-    loaded_item_after = loaded_item_int + limit
-    data = {
-        'products': product_obj,
-        'loaded_item_after': loaded_item_after
-    }
-    print(loaded_item_after)
-    return JsonResponse(data=data)
 
 
 def product_detail(request, product_id):

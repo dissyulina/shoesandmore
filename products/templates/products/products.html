@@ -215,95 +215,12 @@
                 </div>
             </div>
         </div>
-        <!-- Load More Button -->
-        {% if var_category == None and var_subcategory == None %}
-            <div class="d-flex justify-content-center align-items-center">
-                <button id="load-more-button" class="btn btn-beige text-uppercase my-5 fw-bold">Load More Products</button>
-            </div>
-        {% endif %}
-        {{total_obj|json_script:"json-total"}}
-        
-        <!-- Back to top button -->
-        <a class="text-center" id="back-to-top" href="#">
-            <div class="h-100 shadow-sm rounded-0 d-flex justify-content-center align-items-center">
-                <i class="fas fa-arrow-up"></i>
-            </div>
-        </a>
     </section>
-
 {% endblock %}
 
 {% block postloadjs %}
     {{ block.super }}
     <script>
-        
-
-        // Load More Products, adapted from https://www.youtube.com/watch?v=t8luXilRnlE
-        const total = JSON.parse(document.getElementById('json-total').textContent);
-
-        function loadMoreProducts() {
-            let _current_item = $('.card').length
-            const content_container = document.getElementById("product-wrapper");
-            $.ajax({
-                url: '{% url "load_more" %}',
-                type: 'GET',
-                data: {
-                    'loaded_item': _current_item,
-                },
-                beforeSend: function () {
-                    $('#load-more-button').html('<i class="fas fa-spinner"></i>');
-                },
-                success: function (response) {
-                    console.log(response)
-                    const data = response.products
-                    $('#load-more-spinner').addClass('d-none');
-                    data.map(product => {
-                        content_container.innerHTML += 
-                        `<div class="col-6 col-md-4 col-lg-3">\
-                            <div class="card mx-auto">\
-                                <div>\
-                                    <a href="/products/${product.id}">\
-                                        <img class="card-img-top img-fluid" src="/media/${product.image}" alt="${product.name}">\
-                                    </a>\
-                                    <div class="circle-overlay position-abs">\
-                                        <a href="/favorites/add_to_favorites/${product.id}" role="button" class="btn-fav" aria-label="add to favorites">\
-                                            {% if product in favorites.products.all %}\
-                                                <i class="fas fa-heart fa-inverse text-danger"></i>\
-                                            {% else %}\
-                                                <i class="fas fa-heart fa-inverse"></i>\
-                                            {% endif %}\
-                                        </a>\
-                                    </div>\
-                                </div>\
-                                <div class="card-body pt-1 ps-0 pb-0">\
-                                    <p class="card-text mb-0">${product.name}</p>\
-                                </div>\
-                                <div class="card-footer bg-white ps-0 pt-0 border-0 text-left">\
-                                    <div class="row">\
-                                        <div class="col">\
-                                            <p class="mb-0 text-start fw-bold">€ ${product.price}</p>\
-                                            <small class="text-muted"><i class="fas fa-star mr-1"></i> ${product.rating} / 5</small>\
-                                        </div>\
-                                    </div>\
-                                </div>\
-                            </div>\
-                        </div>`
-                    });
-                    if (_current_item == total) {
-                        $('#load-more-button').addClass('d-none');
-                    } else {
-                        $('#load-more-button').text('Load More Products');
-                    }
-                },
-                error: function (err) {
-                    console.log(err);
-                },
-            });
-        }
-        $('#load-more-button').click(function () {
-            loadMoreProducts();
-        });
-
         $(document).ready(function() {
             // Back to top button functionality
             $("#back-to-top").click(function(event) {
@@ -321,5 +238,4 @@
             });
         });
     </script>
-    
 {% endblock %}
