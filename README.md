@@ -348,9 +348,10 @@ Toast messages provide the user the necessary feedback of their activities wheth
 #### **2. Products Page**  
 [See the image of Products page here](readme-testing-files/readme/products.png)   
 - The Products page starts with a breadcrumb navigation that indicates the current page’s location within a navigational hierarchy. For example, if the user chose the Women Sneakers, then the breadcrumb will show: Home > Women > Sneakers.
-- Below the breadcrumb there's a 'Final Sale' banner, as normally users are interested in checking out the sale items first. If users click the shop now button, it will filter the products to display only the sale items.  
-- Side Navigation feature (only on desktop) helps users to quickly navigate through the categories and subcategories, and will filter the products to display only the categories and subcategories of choice. On smaller devices, users can click the hamburger icon to navigate.
-- The result of products displayed can also be sorted by price, rating, and name.
+- Below the breadcrumb there's a 'Final Sale' banner, as normally users are interested in checking out the sale items first. If users click the shop now button, it will filter the products to display only the sale items. This Sale banner is not displayed on mobiles to save spaces. 
+- Side Navigation feature (only on desktop) helps users to quickly navigate through the categories and subcategories, and will filter the products to display only the categories and subcategories of choice. On smaller devices, users can click the hamburger icon to navigate.  
+- The Side Navigation can't be applied on mobiles and tablets due to the limitation of spaces. To replace it, a dropdown button is available on mobiles and tablets in order to provide the same functionality to navigate throughout subcategories.
+- The result of products displayed can also be sorted by price (lowest to highest and highest to lowest), rating (highest to lowest), popularity/ best sellers (highest to lowest), and name (A to Z).  
 - The products are displayed into 4 columns on large screen, 3 columns on medium screen, and 2 columns on small screen.  
 - On the top right of each of the product's image, there's a heart icon that turns red when user hovers over it. By clicking this icon, a registered user can add the product to their favorites list. The heart icon will then turns red to indicate that the product has listed in user's favorites.
 - A back to top button is in fixed positioned on the right side of the screen.  
@@ -464,10 +465,21 @@ While if the user clicks the Delete button, a confirmation modal will pop out to
 
 #### **19. Delete Product Functionality (Admin / Superuser only)**  
 - The Edit Product functionality is only available for Admin or Superuser. This functionality can be accessed by clicking Edit link that is available on each product in the Products page, or on Individual Product page, after logging in as an admin.  
-- After the admin clicks the Delete button, a confirmation modal will pop out to confirm if they really want to delete it.   
+- After the admin clicks the Delete button, a confirmation modal will pop out to confirm if they really want to delete it. The modal comes with the product name and image for admin to be sure that it is the right product.  
 ![Confirmation modal before deleting a product](readme-testing-files/readme/delete-product-modal.png "Confirmation modal before deleting a product")   
 
+<br/>  
 
+### **Features to be implemented in the future**
+Due to limited resources (time constraint, skill of the developer at the moment, and other reasons), some features couldn't be implemented now. There are so many potentials to develop this e-commerce website in the next development phase, adding more features and functionality. These features would be a great addition to the web app:
+1. Adding more payment methods. 
+   While there are many methods of payments that can be implemented, because of time constraint, I could only added payments with cards. In the next development phase, more payment methods should be added, such as: bank account debit, paypal, Apple pay, etc, so that it would resemble a real e-commerce / online store website more.  
+2. Adding an option to sign in with social medias.  
+   Social media logins make registration faster and easier and some users would prefer that. Websites can also gather profile- or social data for further analysis purposes. Social login also gives instant demographic and psychographic data about the customers, which can be used for a better segmentation, website design, products, and so on.  
+3. Adding stock management for the products.
+   Right now there are no stock field on the product model, so it's based on assumption that the logistic management is taken care of somewhere else (not in the website). It would be a great addition to the project to add stock management functionality, where number of products available is also a field in the product table. When the number reaches certain amount, it alerts warning to restock the amount. If the number reaches 0, the product would not be displayed on the website until it's restocked.  
+
+   
 
 
 
