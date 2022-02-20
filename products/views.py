@@ -57,18 +57,14 @@ def all_products(request):
                 var_subcategory = request.GET['subcategory']
                 subcategories = request.GET['subcategory'].split(',')
                 products = products.filter(category__name__in=categories, subcategory__name__in=subcategories)
-                subcategories = Subcategory.objects.filter(name__in=subcategories)
 
             else:
                 products = products.filter(category__name__in=categories)
-
-            categories = Category.objects.filter(name__in=categories)
 
         if 'subcategory' in request.GET:
             var_subcategory = request.GET['subcategory']
             subcategories = request.GET['subcategory'].split(',')
             products = products.filter(subcategory__name__in=subcategories)
-            subcategories = Subcategory.objects.filter(name__in=subcategories)
 
         if 'q' in request.GET:
             query = request.GET['q']
@@ -76,47 +72,27 @@ def all_products(request):
                 messages.error(request, "You didn't enter any search criteria!")
                 return redirect(reverse('products'))
 
-            # ADD DESCRIPTION TO QUERY ?????
             queries = Q(name__icontains=query)
             products = products.filter(queries)
-
-    current_sorting = f'{sort}_{direction}'
   
-    if request.user.is_authenticated:
-        context = {
-            'products': products,
-            'total_obj': total_obj,
-            'search_term': query,
-            'current_categories': categories,
-            'current_subcategories': subcategories,
-            'all_categories': all_categories,
-            'all_subcategories': all_subcategories,
-            'current_sorting': sort,
-            'var_category': var_category,
-            'var_subcategory': var_subcategory,
-            'favorites': favorites,
-            'subcategories_exist': subcategories_exist,
-        }
-    else:
-        context = {
-            'products': products,
-            'total_obj': total_obj,
-            'search_term': query,
-            'current_categories': categories,
-            'current_subcategories': subcategories,
-            'all_categories': all_categories,
-            'all_subcategories': all_subcategories,
-            'current_sorting': sort,
-            'var_category': var_category,
-            'var_subcategory': var_subcategory,
-            'subcategories_exist': subcategories_exist,
-        }
+    context = {
+        'products': products,
+        'total_obj': total_obj,
+        'search_term': query,
+        'all_categories': all_categories,
+        'all_subcategories': all_subcategories,
+        'current_sorting': sort,
+        'var_category': var_category,
+        'var_subcategory': var_subcategory,
+        'favorites': favorites,
+        'subcategories_exist': subcategories_exist,
+    }
 
     # PRINT VARIABLES, DON'T FORGET TO REMOVE
     # print("var_category: ", var_category)
     # print("var_subcategory: ", var_subcategory)
-    print("current_categories: ", categories)
-    print("current_subcategories: ", subcategories)
+    #print("current_categories: ", categories)
+    #print("current_subcategories: ", subcategories)
     print("all_categories: ", all_categories)
     print("all_subcategories: ", all_subcategories)
     print("subcategories_exist", subcategories_exist)
