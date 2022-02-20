@@ -42,7 +42,7 @@ The site owner is looking to:
 
 
 #### **User Stories** 
-- As a shopper I want to be able to:
+As a shopper I want to be able to:
    1. Quickly identify what products/services the site sells.  
    2. Quickly identify deals and special offers.   
    3. Search for a product.   
@@ -64,7 +64,7 @@ The site owner is looking to:
    19. Find FAQ section for my questions.  
    20. Contact the shop via a contact form.    
 
-- As a registered user/ shopper, I want to be able to:
+As a registered user/ shopper, I want to be able to:
    1. Access all functionalities that an unregistered shopper can do.  
    2. Easily login or logout.  
    3. Easily recover my password in case I forget it.  
@@ -74,9 +74,9 @@ The site owner is looking to:
    7. Edit and delete my reviews.  
    8. Add products to the wishlist, so I can quickly find products I'd like to purchase. 
    9. Remove products from the wishlist, so I can remove products I don't wish to purchase.
-   9. Easily put the wishlist products into the shopping bag.   
+   10. Easily put the wishlist products into the shopping bag.   
 
-- As an admin and store management, I want to be able to:
+As an admin and store management, I want to be able to:
    1. Add a product.  
    2. Edit or update a product.  
    3. Delete a product.  
@@ -472,13 +472,22 @@ While if the user clicks the Delete button, a confirmation modal will pop out to
 
 ### **Features to be implemented in the future**
 Due to limited resources (time constraint, skill of the developer at the moment, and other reasons), some features couldn't be implemented now. There are so many potentials to develop this e-commerce website in the next development phase, adding more features and functionality. These features would be a great addition to the web app:
-1. Adding more payment methods. 
+1. Adding more payment methods.  
    While there are many methods of payments that can be implemented, because of time constraint, I could only added payments with cards. In the next development phase, more payment methods should be added, such as: bank account debit, paypal, Apple pay, etc, so that it would resemble a real e-commerce / online store website more.  
 2. Adding an option to sign in with social medias.  
    Social media logins make registration faster and easier and some users would prefer that. Websites can also gather profile- or social data for further analysis purposes. Social login also gives instant demographic and psychographic data about the customers, which can be used for a better segmentation, website design, products, and so on.  
-3. Adding stock management for the products.
-   Right now there are no stock field on the product model, so it's based on assumption that the logistic management is taken care of somewhere else (not in the website). It would be a great addition to the project to add stock management functionality, where number of products available is also a field in the product table. When the number reaches certain amount, it alerts warning to restock the amount. If the number reaches 0, the product would not be displayed on the website until it's restocked.  
+3. Adding stock management for the products.  
+   Right now there are no stock field on the product model, so it's based on assumption that the logistic management is taken care of somewhere else (not in the website). It would be a great addition to the project to add stock management functionality, where number of products available is also a field in the product table. When the number reaches certain amount, it alerts warning to restock the amount. If the number reaches 0, the product would not be displayed on the website until it's restocked. 
+4. Applying Load More Products button functionality.  
+   For a perfect user experience, it would be better if not all products load altogether the first time, but rather just a number of them. Users will then decide if they want to see more products by clicking a Load More button. This ensures the products page loads faster the first time.  
+   I tried to implement this by using AJAX by passing the data from front-end to back-end back and forth. I could apply it, the button worked, but it didn't work with the category and subcategory filters, sorting, and favorites functionality. Due to time constraint and it was still half done, I decided to remove it and will instead implement it on the next development phase.   
 
+<br/>   
+
+## **Issues and Bugs**   
+### **Solved Issues**   
+I ran into several issues and bugs while developing the website. Some of the tough ones are listed below, along with the solutions that successfully solved them.   
+1. **Issue**: For products that are in the favorites list of the user that is currently in session, the heart icon on the top left of the product image becomes red. I had difficulties in trying to implement this feature. I tried to check if an instance is listed in the queryset of the users' favorites.
    
 
 
