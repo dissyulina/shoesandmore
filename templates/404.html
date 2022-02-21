@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="navbar-offset"></div>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <img src="{% static 'images/error/404.png' %}" class="img-fluid" alt="404 image" width="600px" height="600px">
+                <h2 class="my-5 fw-bold">Oops this page doesn't exist..</h2>
+                <a class="btn btn-beige" href="{% url 'home' %}">Back to Homepage</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
