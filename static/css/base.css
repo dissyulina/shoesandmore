@@ -149,7 +149,7 @@ footer {
 }
 
 .logo {
-    background: url('/media/logo.png') no-repeat center center;
+    background: url('/static/images/logo.png') no-repeat center center;
     background-size: contain;
     height: 80px;
     width: 100px;
