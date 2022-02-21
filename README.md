@@ -568,7 +568,7 @@ I ran into several issues and bugs while developing the website. Some of the tou
    git push heroku main
    ```
 14. Go to the app's dashboard on Heroku and go to Deploy. Connect the app to Github by clicking Github and search for the repository. Click connect. Also enable the automatic deploy by clicking Enable Automatic Deploys, so that everytime we push to github, the code will automatically be deployed to Heroku as well.  
-15. Generate a key from [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/) and add it to the convig variables in Heroku. Go back to settings.py and replace the secret key setting with the call to get it from the environment, and use empty strung as a default. 
+15. Generate a key from [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/) and add it to the convig variables in Heroku. Go back to settings.py and replace the secret key setting with the call to get it from the environment, and use empty string as a default. 
    ```
    SECRET_KEY = os.environ.get('SECRET_KEY', '')
    ```
@@ -577,6 +577,133 @@ I ran into several issues and bugs while developing the website. Some of the tou
    DEBUG = 'DEVELOPMENT' in os.environ
    ```
    
+<br/>  
+
+### **AWS Bucket Creation**   
+All static and media files in this project are storeed in Amazon Web Services S3 bucket (https://aws.amazon.com/) which is a cloud based storage service. You can create your own bucket by following these steps:   
+1. Go to [Amazon Web Service website](https://aws.amazon.com/) and click on Create An AWS Account, or login if you already have an account.  
+2. Login to your new account, go to AWS Management Console and find service S3. Click on Create Bucket.   
+   - Give it a name (I recommend naming your bucket to match the Heroku app name), and choose region closest to you.  
+   - In Object Ownership section, choose ACLS enabled. and Bucket Owner Preffered.   
+   - Uncheck box 'Block All Public Access'.  
+   - Check box 'I acknowledge that the current settings might result in this bucket and the objects within becoming public.'  
+   - Click on Create Bucket, and your bucket is created.  
+3. Click on your newly created bucket, and navigate to the Properties tab. Scroll down to the bottom until you find Static Website Hosting. Click on Edit, then enable. 
+   - Hosting type: choose Host a Static Website   
+   - Index document: index.html  
+   - Error document: error.html
+   - Click on Save Changes.  
+4. Navigate to the Permissions tab. Scroll down to the bottom until you find Cross-origin resource sharing (CORS). Click on Edit, and paste in this Cors Configuration below, which is going to set up the required access between the Heroku app and this S3 bucket. Click on Save Changes. 
+   ```
+   [
+      {
+         "AllowedHeaders": [
+            "Authorization"
+         ],
+         "AllowedMethods": [
+            "GET"
+         ],
+         "AllowedOrigins": [
+            "*"
+         ],
+         "ExposeHeaders": []
+      }
+   ]
+   ```   
+   Still on the Permissions tab, find Bucket policy, click on Edit, and then go to Policy Generator. 
+   - Select Type of Policy: choose S3 Bucket Policy   
+   - Effect: choose Allow   
+   - Principal: *   
+   - Actions: select GetObject   
+   - Fill in the Amazon Resource Name (ARN), from the Bucket ARN back in the Bucket Policy   
+   - Click on the Add Statement and then Generate Policy. Copy the policy and paste in the bucket policy editor.  
+   - Add a slash star on to the end of the resource key (because we want to allow access to all resources in this bucket). Click Save.
+      The resource key should look like this
+      ```  
+      "Resource": "arn:aws:s3:::YOUR_BUCKET_NAME/*",  
+      ```  
+   
+   Still on Permissions tab, go to Access Control List (ACL) section, click Edit and enable List for Everyone (public access), and accept the warning box.  
+
+5. With the bucket ready, now we need to create a user to access it through another service called IAM which stands for Identity and Access Management. Go back to the service menu and open IAM.   
+   a. Create a group for our user to live in.  
+      Click User Groups, and then create a new group with a name you want. I gave the group the name: manage-shoes-and-more. Scroll down to the bottom and click on Create Group.     
+   b. Create an access policy giving the group access to the S3 bucket that has been created.  
+      - Click on Policy, and then Create Policy. Go to the JSON tab, and then select import managed policy, which will let us import one that AWS has pre-built for full access to S3. Search for S3, then import the AmazonS3FullAccess policy.   
+      - Because we only want to allow full access to our new bucket and everything within it, paste the bucket ARN (from the bucket policy page in s3) in the JSON editor.
+      ```
+      "Resource": [
+         "arn:aws:s3:::YOUR_BUCKET_NAME",
+         "arn:aws:s3:::YOUR_BUCKET_NAME/*"
+      ]
+      ```  
+      Now click on Next:Tags, then click Next:Review. 
+      - Give the review policy a name and a description, then click Create Policy. The policy has now been created. 
+      
+   c. Finally, assign the user to the group so it can use the policy to access all our files.  
+      - Go to User Groups, and select the group. Go to the Permissions tab, open the Add Permissions dropdown, and click Attach Policies.  
+      - Select the policy and click Add permissions at the bottom.  
+      - Create a user to put in the group, by going to the Users page, and clicking Add Users.  
+      - Set a user name, give them access type: Programmatic access, and then click Next: Permissions.   
+      - Check on the group that has the policy attached. Click Next: Tags, then click Next: Review, and lastly Create User.     
+      - Download the csv file and save it.  
+
+### **Connect Django to AWS Bucket**   
+1. Install two new packages: boto3 and django-storages. Freeze them into requirements.txt.   
+   ```
+   pip3 install boto3
+   pip3 install django-storages 
+   pip3 freeze > requirements.txt  
+   ```  
+2. Add storages to the Installed Apps in settings.py.
+3. We need to tell Django which bucket it should be communicating with. We'll only want to do this on Heroku, so add an if statement as well.
+   ```
+   if 'USE_AWS' in os.environ:
+      # Bucket Config
+      AWS_STORAGE_BUCKET_NAME = 'YOUR_BUCKET_NAME'
+      AWS_S3_REGION_NAME = 'YOUR_REGION'
+      AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+      AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+      AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+   ```
+   Set the Config Vars on Heroku. On your app's dashboard on Heroku, go to Settings and click Reveal Convig Vars. Set this variables:
+   Variables | Value
+   --- | ---
+   AWS_ACCESS_KEY_ID | your access key id from the csv file that you've downloaded before
+   AWS_SECRET_ACCESS_KEY | your secret access key from the csv file that you've downloaded before
+   USE_AWS | True    
+
+   Also remove the COLLECTSTATIC variable from the Config Vars.   
+
+4. We then want to tell Django that in production we want to use S3 to store our static files whenever someone runs collectstatic, and that we sent any uploaded images to go there as well.  
+Create a custom_storages.py file in your project's root directory, and inside it, include the Static and Media Storage locations: 
+   ```
+   from django.conf import settings
+   from storages.backends.s3boto3 import S3Boto3Storage
+ 
+
+   class StaticStorage(S3Boto3Storage):
+      location = settings.STATICFILES_LOCATION
+
+
+   class MediaStorage(S3Boto3Storage):
+      location = settings.MEDIAFILES_LOCATION
+   ```  
+   Add to settings.py, still under the if USE_AWS :
+   ```
+   # Static and media files
+   STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+   STATICFILES_LOCATION = 'static'
+   DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+   MEDIAFILES_LOCATION = 'media' 
+
+   # Override static and media URLs in production
+   STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+   MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+   ``` 
+
+
+
 
 
 
