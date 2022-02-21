@@ -489,11 +489,97 @@ Due to limited resources (time constraint, skill of the developer at the moment,
 I ran into several issues and bugs while developing the website. Some of the tough ones are listed below, along with the solutions that successfully solved them.   
 1. **Issue**: For products that are in the favorites list of the user that is currently in session, the heart icon on the top left of the product image becomes red. I had difficulties in trying to implement this feature. I tried to check if an instance is listed in the queryset of the users' favorites.
    
+<br/>  
 
+## **Deployment**
+1. Create a new app on Heroku on [Heroku website](https://www.heroku.com), give it a name and choose the closest region. I named the app: shoes-and-more.  
+2. Ont the resources tab, provision a new Heroku Postgres database.  
+3. Go to Gitpod and install dj_database_url and psycopg2. 
+   ```
+   pip3 install dj_database_url
+   pip3 install psycopg2-binary
+   ```
+4. Set them in the requirements.txt to ensure Heroku installs them as our apps requirements when we deploy it.  
+   ``` 
+   pip3 freeze > requirements.txt
+   ```
+5. Set up a new database for the site by going to the project's settings.py and importing dj_database_url. Comment out the database's default configuration, and replace the default database with a call to dj_database_url.parse and pass it the database URL from Heroku (you can get it from your config variables in your app setting tab)
+   ```
+   DATABASES = {
+     'default': dj_database_url.parse('YOUR_DATABASE_URL_FROM_HEROKU')
+   }
+   ```
+6. Run migrations
+   ```
+   python3 manage.py migrate
+   ```  
+7. Import all products' data. I'm using fixtures json files, therefore I'm using loaddata.
+   ```
+   python3 manage.py loaddata categories
+   python3 manage.py loaddata subcategories
+   python3 manage.py loaddata products
+   ```
+8. Set up a new superuser, fill out the username, email address, and password.
+   ```
+   python3 manage.py create superuser
+   ```  
+9. Remove the database config from Heroku and uncomment the original config. Add a conditional statement to define that when the app is running on Heroku. we connect to Postgres, and otherwise, we connect to Sqlite.   
+   ```
+   if 'DATABASE_URL' in os.environ:
+      DATABASES = {
+         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+      }
+   else:
+      DATABASES = {
+         'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+         }
+      }
+   ```  
+10. Install gunicorn which will act as the webserver, and put it on our requirements.txt.   
+   ``` 
+   pip3 install gunicorn
+   pip3 freeze > requirements.txt
+   ```
+11. Create a Procfile, to tell Heroku to create a web dyno, which will run unicorn and serve the Django app.   
+   ```
+   touch Procfile
+   ```   
 
-
-
-
-
-
+   Inside the Procfile:
+   ```
+   web: gunicorn shoes_and_more.wsgi:application
+   ```
+12. Login to Heroku through CLI, using ```heroku login```. Once logged in, disable the collect static temporarily, so that Heroku won't try to collect static files when it deploys.
+   ```
+   heroku config:set DISABLE_COLLECTSTATIC=1 --app shoes-and-more
+   ```
+   And add the hostname of the Heroku app to allowed hosts in the project's settings.py, and also add localhost so that Gitpod will still work as well:  
+   ```
+   ALLOWED_HOSTS = ['shoes-and-more.herokuapp.com', 'localhost']
+   ```   
+13. Add, commit, and push to gitpod and then to Heroku. After pushing to gitpod as usual, initialize git remote first:
+   ```
+   heroku git:remote -a shoes-and-more
+   ``` 
+   Then push to Heroku:
+   ```
+   git push heroku main
+   ```
+14. Go to the app's dashboard on Heroku and go to Deploy. Connect the app to Github by clicking Github and search for the repository. Click connect. Also enable the automatic deploy by clicking Enable Automatic Deploys, so that everytime we push to github, the code will automatically be deployed to Heroku as well.  
+15. Generate a key from [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/) and add it to the convig variables in Heroku. Go back to settings.py and replace the secret key setting with the call to get it from the environment, and use empty strung as a default. 
+   ```
+   SECRET_KEY = os.environ.get('SECRET_KEY', '')
+   ```
+   Set debug to be true only if there's a variable called development in the environment.
+   ```
+   DEBUG = 'DEVELOPMENT' in os.environ
+   ```
    
+
+
+
+
+CREDITS
+Error page image: Storyset by Freepik
