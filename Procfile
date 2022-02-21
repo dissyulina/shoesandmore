@@ -1,1 +1,1 @@
-web: gunicorn shoes-and-more.wsgi:application
+web: gunicorn shoes_and_more.wsgi:application
