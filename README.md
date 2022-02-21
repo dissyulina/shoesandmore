@@ -656,15 +656,31 @@ All static and media files in this project are storeed in Amazon Web Services S3
    pip3 freeze > requirements.txt  
    ```  
 2. Add storages to the Installed Apps in settings.py.
-3. We need to tell Django which bucket it should be communicating with. We'll only want to do this on Heroku, so add an if statement as well.
+3. In settings.py, we need to set cache control, set bucket configurations, set static and media files location, and override static and media URLs in production. We'll only want to do this on Heroku, so add an if statement as well.
    ```
    if 'USE_AWS' in os.environ:
+      # Cache control
+      AWS_S3_OBJECT_PARAMETERS = {
+         'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+         'CacheControl': 'max-age=94608000',
+      }
+
       # Bucket Config
       AWS_STORAGE_BUCKET_NAME = 'YOUR_BUCKET_NAME'
       AWS_S3_REGION_NAME = 'YOUR_REGION'
       AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
       AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
       AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+      # Static and media files
+      STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+      STATICFILES_LOCATION = 'static'
+      DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+      MEDIAFILES_LOCATION = 'media' 
+
+      # Override static and media URLs in production
+      STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+      MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
    ```
    Set the Config Vars on Heroku. On your app's dashboard on Heroku, go to Settings and click Reveal Convig Vars. Set this variables:
    Variables | Value
@@ -689,18 +705,13 @@ Create a custom_storages.py file in your project's root directory, and inside it
    class MediaStorage(S3Boto3Storage):
       location = settings.MEDIAFILES_LOCATION
    ```  
-   Add to settings.py, still under the if USE_AWS :
-   ```
-   # Static and media files
-   STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-   STATICFILES_LOCATION = 'static'
-   DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-   MEDIAFILES_LOCATION = 'media' 
 
-   # Override static and media URLs in production
-   STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
-   MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
-   ``` 
+5. Finally, push these changes on Github.
+   ```
+   git add .
+   git commit -m "Your commit message"
+   git push
+   ```  
 
 
 
