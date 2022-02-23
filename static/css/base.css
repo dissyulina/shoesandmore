@@ -59,6 +59,12 @@ a {
     border: 1px solid #644536;
 }
 
+.btn-brown:hover {
+    background-color: #8a6553;
+    color: #fff;
+    border: 1px solid #8a6553;
+}
+
 /* Navbar & Footer*/
 
 .nav-link,

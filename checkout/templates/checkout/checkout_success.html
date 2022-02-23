@@ -54,7 +54,7 @@
                         </div>
                         
                         {% for item in order.lineitems.all %}
-                        <div class="row">
+                        <div class="row mb-2">
                             <div class="col-4">
                                 <a href="{% url 'product_detail' item.product.id %}">
                                     {% if item.product.image %}
