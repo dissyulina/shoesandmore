@@ -483,11 +483,80 @@ Due to limited resources (time constraint, skill of the developer at the moment,
    I tried to implement this by using AJAX by passing the data from front-end to back-end back and forth. I could apply it, the button worked, but it didn't work with the category and subcategory filters, sorting, and favorites functionality. Due to time constraint and it was still half done, I decided to remove it and will instead implement it on the next development phase.   
 
 <br/>   
+## **Testing**
+The testing documentation can be found here.  
+
+<br/>
 
 ## **Issues and Bugs**   
 ### **Solved Issues**   
 I ran into several issues and bugs while developing the website. Some of the tough ones are listed below, along with the solutions that successfully solved them.   
-1. **Issue**: For products that are in the favorites list of the user that is currently in session, the heart icon on the top left of the product image becomes red. I had difficulties in trying to implement this feature. I tried to check if an instance is listed in the queryset of the users' favorites.
+1. **ISSUE** : For products that are in the favorites list of the user (that's currently logged-in), the heart icon on the top left of the product image becomes red. I had difficulties in trying to implement this feature. I tried to check if the product is listed in the queryset of the users' favorites by defining this:   
+   In views.py:   
+   ```
+   products = Product.objects.all()  
+   favorites = Favorites.objects.filter(user=request.user) 
+   ```
+   And in the template:  
+   ```
+   {% for product in product %} 
+      ...
+      {% if product in favorites %}
+         <i class="fas fa-heart fa-inverse text-danger"></i>
+      {% else %}
+         <i class="fas fa-heart fa-inverse"></i>
+      {% endif %}
+      ...
+   {% enfor %}
+   ```
+   But that didn't work. I also tried a few other variations but failed to implement it.  
+   **SOLUTION** : The Code Institute's Tutor has helped me to figure out and to understand how to check if an instance exists in a query set, and how to define the correct query set. After going through the code, the solution was actually very simple:   
+   In views.py:   
+   ```
+   products = Product.objects.all()  
+   favorites = Favorites.objects.get(user=request.user) 
+   ```
+   And in the template:  
+   ```
+   {% for product in product %} 
+      ...
+      {% if product in favorites.products.all %}
+         <i class="fas fa-heart fa-inverse text-danger"></i>
+      {% else %}
+         <i class="fas fa-heart fa-inverse"></i>
+      {% endif %}
+      ...
+   {% enfor %}
+   ```
+   By this time I understood more on how to do this, which will affect my second problem.   
+
+2. **ISSUE** : The second problem was actually very similar to the first one. For every registered user, on their profile page, there's a review section. This review section is listed with all products that the user has bought before, and are waiting to be reviewed. Once the user gives a review to a product, the product will dissapear from this section. Therefore, for this section, I wanted to display only the products that are in user's order history, and are not listed in the reviews database. This problem was rather complicated because you have to check in multiple tables, and the process is not straightforward. Based on my understanding, this what came to my mind.  
+   In views.py:   
+   ```
+   profile = get_object_or_404(UserProfile, user=request.user)
+   reviews = Review.objects.filter(user=profile)
+   orders = profile.orders.all()
+   ```
+   And in the template:  
+   ```
+   {% for order in orders %}
+      {% for item in order.lineitems.all %}
+         {% if item.product.id not in reviews %}
+            <!-- Display the products here -->
+            ...
+         {% endif %}
+      {% endfor %}
+   {% enfor %}
+   ```
+   **SOLUTION** : The above solution didn't work. After a few hours of googling and implementing, I found this topic on [Stack Overflow](https://stackoverflow.com/questions/51663212/how-to-check-if-value-occurs-in-a-field-of-a-model-list-in-django) and learned about values_list(). I then read the documentation about [Django documentation about values_list](https://docs.djangoproject.com/en/4.0/ref/models/querysets/#values-list), which returns a QuerySet that returns single values (if using flat=True). Using this method, I changed the reviews variable in views.py to this:
+   ``` 
+   reviews = Review.objects.filter(user=profile).values_list('product__id', flat=True)
+   ```
+   So that the reviews variable will just return a list of product_id values, thus will make it easier to check in the template: ```{% if item.product.id not in reviews %}```. This method worked and the products are displayed as I wanted originally.  
+
+
+### **Bugs**   
+
    
 <br/>  
 
