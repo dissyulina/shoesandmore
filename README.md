@@ -721,3 +721,10 @@ Create a custom_storages.py file in your project's root directory, and inside it
 
 CREDITS
 Error page image: Storyset by Freepik
+
+Articles
+1. These Forgotten $45 Sneakers From the ’90s Are Making a Major Comeback, sourced from https://news.yahoo.com/forgotten-45-sneakers-90s-making-212402565.html   
+2. Mix and Match Your Style for Spring!, sourced from: https://www.bali-silk.com/mix-and-match-tips-for-spring-summer-2021-trends/   
+3. Best Paint Markers to Use for Bag and Shoe Designs, sourced from: https://www.ehow.com/about_4706948_paint-markers-use-shoe-designs.html   
+4. Ways to Make Your All-Weather Boots More Fashionable, sourced from https://www.theartofaccessories.com/ways-to-make-your-all-weather-boots-more-fashionable/   
+5. The Ultimate Guide to Spring Style for Men, sourced from: https://theessentialman.com/ultimate-guide-spring-style-men/   
