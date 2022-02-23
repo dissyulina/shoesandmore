@@ -14,22 +14,6 @@ from .forms import ReviewForm
 SUCCESS_NO_BAG = 50
 
 
-def product_reviews(request, product_id):
-    """ View to show individual product reviews"""
-
-    #reviews = get_object_or_404(Review, pk=product_id)
-    reviews = Review.objects.filter(product__id__in=product_id)
-
-    product = get_object_or_404(Product, pk=product_id)
-    
-    context = {
-        'reviews': reviews,
-        'product': product,
-    }
-    print(reviews)
-    return render(request, 'reviews/product_reviews.html', context)
-
-
 @login_required
 def add_review(request, product_id):
     """ View to add product review """
