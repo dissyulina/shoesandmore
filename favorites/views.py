@@ -53,7 +53,7 @@ def add_to_favorites(request, item_id):
         messages.add_message(request, SUCCESS_NO_BAG, f'{product.name} is added to your favorites')
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
             
-    return redirect(redirect_url)
+    #return redirect(redirect_url)
 
 
 @login_required()
