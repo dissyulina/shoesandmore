@@ -1,0 +1,58 @@
+[
+    {
+        "pk": 1,
+        "model": "contact.topic",
+        "fields": {
+            "subject": "product",
+            "text": "Products Information"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "contact.topic",
+        "fields": {
+            "subject": "delivery",
+            "text": "Order Information"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "contact.topic",
+        "fields": {
+            "subject": "payment",
+            "text": "Cards and Payment"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "contact.topic",
+        "fields": {
+            "subject": "delivery",
+            "text": "Delivery"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "contact.topic",
+        "fields": {
+            "subject": "return",
+            "text": "Returning Items"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "contact.topic",
+        "fields": {
+            "subject": "complaint",
+            "text": "Complaints"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "contact.topic",
+        "fields": {
+            "subject": "other",
+            "text": "Other Topics"
+        }
+    }
+]
