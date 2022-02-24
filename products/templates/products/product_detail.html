@@ -45,20 +45,11 @@
                 <div class="col-12 col-md-6">
                     <div>
                         <h5 class="fw-bold">{{ product.name }}</h5>
-                        <p class="mb-0 text-start fw-bold">${{ product.price }}</p>
-                        {% if product.rating %}
-                            <small class="text-muted d-block"><i class="fas fa-star"></i> {{ product.rating }} / 5</small>
-                        {% else %}
-                            <small class="text-muted">No Rating</small>
-                        {% endif %}
-                        {% if product.category %}
-                            <small class="text-muted d-block"><i class="fas fa-tag"></i> {{ product.category.friendly_name }}</small>
-                        {% else %}
-                            <small class="text-muted">No Category</small>
-                        {% endif %}
+                        <p class="mb-0 text-start fw-bold">€{{ product.price }}</p>
+                        <!-- Edit & Delete buttons for superuser/ admin only -->
                         {% if request.user.is_superuser %}
-                            <small class="ml-3 float-end">
-                                <a href="{% url 'edit_product' product.id %}">Edit</a> | 
+                            <small class="my-2">
+                                <a href="{% url 'edit_product' product.id %}" class="text-primary">Edit</a> | 
                                 <a href="" class="text-danger" data-bs-toggle="modal" data-bs-target="#product-{{ product.id }}">Delete</a>
                             </small>
                             <!-- Confirmation modal before deleting the product -->
@@ -84,6 +75,18 @@
                                 </div>
                             </div>
                         {% endif %}
+                        
+                        {% if product.rating %}
+                            <small class="text-muted d-block"><i class="fas fa-star"></i> {{ product.rating }} / 5</small>
+                        {% else %}
+                            <small class="text-muted">No Rating</small>
+                        {% endif %}
+                        {% if product.category %}
+                            <small class="text-muted d-block"><i class="fas fa-tag"></i> {{ product.category.friendly_name }}</small>
+                        {% else %}
+                            <small class="text-muted">No Category</small>
+                        {% endif %}
+                        
                         <form class="form pt-3" action="{% url 'add_to_bag' product.id %}" method="POST">
                             {% csrf_token %}
                             <div class="form-row">
