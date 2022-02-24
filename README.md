@@ -325,7 +325,7 @@ Database schema was designed using [drawsql](https://drawsql.app/). The database
 
 - **Footer** (on all pages)  
    ![The Footer on desktop](readme-testing-files/readme/footer-desktop.png "The Footer on desktop") 
-   The Footer uses the same color as the Navbar and provides all navigation links, the social media links of the store as well (that opens in a new tab), and the logo that leads back to the Home page.  
+   The Footer uses the same color as the Navbar and provides all navigation links, the social media links of the store as well (that opens in a new tab), and the logo that leads back to the Home page. Here we also have links to the Articles, the FAQ page, and the Contact page. Since the main business of Shoes And More is selling shoes and accessories, these three pages although still important, are not the main pages of the site. Therefore the links to these pages are only available on footer, which can be found on the bottom of every pages anyway.  
 
 - **Toast message**   
 Toast messages provide the user the necessary feedback of their activities whether it's successfully executed or not. The toast messages are color coded: red for error messages, blue for info/ alert messages, yellow for warning messages, and green for succcess messages. Users will get success toast the most, for example when users add a product to the shopping bag, they will get a success toast message with bag display. While when users for example add a product to their favorites list, they will get a success toast message without bag display. Below are the examples of success toast messages (without bag and with bag display).   
@@ -582,11 +582,13 @@ I ran into several issues and bugs while developing the website. Some of the tou
    ```
    python3 manage.py migrate
    ```  
-7. Import all products' data. I'm using fixtures json files, therefore I'm using loaddata.
+7. Import all products, topics (for contact form), and blogs data. I'm using fixtures json files, therefore I'm using loaddata.
    ```
    python3 manage.py loaddata categories
    python3 manage.py loaddata subcategories
    python3 manage.py loaddata products
+   python3 manage.py loaddata topics
+   python3 manage.py loaddata blogs
    ```
 8. Set up a new superuser, fill out the username, email address, and password.
    ```
