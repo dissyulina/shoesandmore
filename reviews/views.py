@@ -46,9 +46,6 @@ def add_review(request, product_id):
             messages.add_message(request, SUCCESS_NO_BAG, f'Thank you for giving a review to {product.name}!')
             
             # Update rating field on product table
-            print(product.rating)
-            print(total_product_reviews)
-            print(review.rating)
             product.rating = (((product.rating * total_product_reviews) + review.rating) / (total_product_reviews + 1))
             product.save()
 
@@ -79,7 +76,10 @@ def edit_review(request, review_id):
 
     review = get_object_or_404(Review, pk=review_id)
     user = get_object_or_404(UserProfile, user=request.user)
-
+    product = review.product
+    edited_rating = review.rating
+    total_product_reviews = Review.objects.filter(product=product.id).count() + 1
+    
     # Check if user authenticated to edit the review
     if user.id != review.user.id:
         messages.error(request, 'You can only edit your own review')
@@ -89,6 +89,10 @@ def edit_review(request, review_id):
     if request.method == 'POST':
         form = ReviewForm(request.POST, instance=review)
         if form.is_valid():
+            # Update rating field on product table
+            product.rating = ((product.rating * total_product_reviews) - edited_rating + review.rating) / total_product_reviews
+            product.save()
+            
             form.save()
             messages.add_message(request, SUCCESS_NO_BAG, f'Your review for {review.product.name} is edited successfully')
 
@@ -112,11 +116,18 @@ def delete_review(request, review_id):
 
     review = get_object_or_404(Review, pk=review_id)
     user = get_object_or_404(UserProfile, user=request.user)
+    product = review.product
+    deleted_rating = review.rating
+    total_product_reviews = Review.objects.filter(product=product.id).count() + 1
 
     # Check if authenticated user created review being deleted
     if user.id != review.user.id:
         messages.error(request, 'You can only delete your own review')
         return render(request, 'home/index.html')
+
+    # Update rating field on product table
+    product.rating = (((product.rating * total_product_reviews) - deleted_rating) / (total_product_reviews - 1))
+    product.save()
 
     review.delete()
 
