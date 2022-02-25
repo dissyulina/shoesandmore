@@ -518,7 +518,9 @@ Due to limited resources (time constraint, skill of the developer at the moment,
    I tried to implement this by using AJAX by passing the data from front-end to back-end back and forth. I could apply it, the button worked, but it didn't work with the category and subcategory filters, sorting, and favorites functionality. Due to time constraint and it was still half done, I decided to remove it and will instead implement it on the next development phase.   
 
 <br/>   
-## **Testing**
+
+## **Testing**  
+
 The testing documentation can be found here.  
 
 <br/>
@@ -587,7 +589,7 @@ I ran into several issues and bugs while developing the website. Some of the tou
    ``` 
    reviews = Review.objects.filter(user=profile).values_list('product__id', flat=True)
    ```
-   So that the reviews variable will just return a list of product_id values, thus will make it easier to check in the template: ```{% if item.product.id not in reviews %}```. This method worked and the products are displayed as I wanted originally.  
+   So that the reviews variable will just return a list of product_id values, thus will make it more straightforward to check if the id doesn't exist in the list: ```{% if item.product.id not in reviews %}```. This method worked and the products are displayed as I wanted originally.  
 
 
 ### **Bugs**   
@@ -595,18 +597,110 @@ I ran into several issues and bugs while developing the website. Some of the tou
    
 <br/>  
 
-## **Deployment**
-1. Create a new app on Heroku on [Heroku website](https://www.heroku.com), give it a name and choose the closest region. I named the app: shoes-and-more.  
-2. Ont the resources tab, provision a new Heroku Postgres database.  
-3. Go to Gitpod and install dj_database_url and psycopg2. 
+## **Deployment**  
+The project was developed using Gitpod as the IDE, committed to Git as a local repository, and pushed/ stored to GitHub. The web application is deployed on Heroku because we can't host a Python project on Github pages, with static and media files stored in AWS S3. The repository itself is hosted on Github.  
+
+### **A. How To Use This Project**
+To use and further develop this project you can either fork or clone the repository.  
+
+#### **Fork GitHub Repository**  
+By forking the GitHub repository you can make a copy of the original repository on your GitHub account to view and/or make changes without affecting the original repository, by using the following steps:  
+
+1. Log in to GitHub.  
+2. Navigate to the main page of the GitHub Repository that you want to fork.  
+3. At the top right of the Repository just below your profile picture, locate the "Fork" Button.  
+4. You should now have a copy of the original repository in your GitHub account.  
+5. Changes made to the forked repository can be merged with the original repository via a pull request.  
+
+#### **Clone Github Repository**  
+By cloning a GitHub Repository you can create a local copy on your computer of the remote repository. The developer who clones a repository can synchronize their copy of the codebase with any updates made by fellow developers with push or pull request. Cloning is done by using the following steps:  
+
+1. Log in to GitHub.  
+2. Navigate to the main page of the GitHub Repository that you want to clone.  
+3. Above the list of files, click the dropdown called "Code".  
+4. To clone the repository using HTTPS, under "HTTPS", copy the link.  
+5. Open Git Bash.  
+6. Change the current working directory to the location where you want the cloned directory to be made.  
+7. Type git clone, and then paste the URL you copied in Step 4.  
+```$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY```
+8. Press Enter. Your local clone will be created.   
+```
+$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+> Cloning into `CI-Clone`...
+> remote: Counting objects: 10, done.
+> remote: Compressing objects: 100% (8/8), done.
+> remove: Total 10 (delta 1), reused 10 (delta 1)
+> Unpacking objects: 100% (10/10), done.
+```  
+Changes made on the local machine (cloned repository) can be pushed to the upstream repository directly if you have a write access for the repository. Otherwise, the changes made in the cloned repository are first pushed to the forked repository, and then a pull request is created.  
+Click [Here](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository) to retrieve pictures for some of the buttons and more detailed explanations of the above process.  
+
+#### **Project Set Up After Forking or Cloning**   
+1. Install all dependencies by typing in the CLI ```pip3 install -r requirements.txt```  
+2. Create a ```.gitignore``` file and ```env.py``` file in the project's root directory. Add the ```env.py``` file to ```.gitignore```. 
+3. Inside the env.py file, enter the project's environment variables:   
+   ```
+   import os
+
+   os.environ.setdefault("SECRET_KEY", <your_secret_key>)
+   os.environ.setdefault("DEVELOPMENT", '1')
+   os.environ.setdefault("STRIPE_PUBLIC_KEY", <your_key>)
+   os.environ.setdefault("STRIPE_SECRET_KEY", <your_key>)
+   os.environ.setdefault("STRIPE_WH_SECRET", <your_key>)
+   ```   
+   You can get the keys from:
+   - "SECRET_KEY" can be generated using [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/)   
+   - "STRIPE_PUBLIC_KEY" and "STRIPE_SECRET_KEY" can be generated by creating a stripe account. The keys are found in 'Developers' Section, under 'API Keys'.  
+   - In the Developer Section, under 'Webhooks', add a new endpoint.  "STRIPE_WH_SECRET". On Endpoint URL, enter:  
+   ``` https://<your_host_url>/checkout/wh/ ```   
+   Select to listen to all events, and create endpoint, and you can view your "STRIPE_WH_SECRET".   
+
+4. Make migrations to setup the inital database operations.  
+   ``` 
+   python3 manage.py makemigrations 
+   python3 manage.py migrate 
+   ```   
+5. Load all datas for the database.  
+   ```
+   python3 manage.py loaddata categories
+   python3 manage.py loaddata subcategories
+   python3 manage.py loaddata products
+   python3 manage.py loaddata topics
+   python3 manage.py loaddata blogs
+   ``` 
+6. Create a super user.
+   ```
+   python3 manage.py create superuser
+   ```  
+The project should now complete to run and can now be used for development. To run the project, type in the CLI terminal: ```python3 manage.py runserver```     
+
+<br/>  
+
+### **B. Deployment to Heroku**  
+This project is deployed on Heroku for production, with all static and media files stored on AWS S3. These are steps to deploy on Heroku:
+
+1. Navigate to Heroku.com, create a new account or login if you already have an account. On the dashboard page, click "Create New App" button. Give the app a name, the name must be unique with hypens between words. Set the region closest to you, and click "Create App".   
+2. On the resources tab, provision a new Heroku Postgres database.  
+3. Configure variables on Heroku by navigating to Settings, and click on Reveal Config Vars. You may not have all the values yet. Add the others as you progress through the steps.   
+   Varables | Key   
+   ---| ---   
+   AWS_ACCESS_KEY_ID | your_access_key_id_from_AWS   
+   AWS_SECRET_ACCESS_KEY | your_secret_access_key_from_AWS  
+   DATABASE_URL | your_database_url   
+   EMAIL_HOST_PASS | your_app_password_from_your_email   
+   EMAIL_HOST_USER | your_email_address  
+   SECRET_KEY | your_secret_key 
+   STRIPE_PUBLIC_KEY | your_stripe_public_key  
+   STRIPE_SECRET_KEY | your_stripe_secret_key  
+   USE_AWS | True 
+   DISABLE_COLLECTSTATIC | 1   
+
+4. If you haven't install it, install dj_database_url and psycopg2.
    ```
    pip3 install dj_database_url
    pip3 install psycopg2-binary
    ```
-4. Set them in the requirements.txt to ensure Heroku installs them as our apps requirements when we deploy it.  
-   ``` 
-   pip3 freeze > requirements.txt
-   ```
+   Note: you don't have to do this if you've installed all dependencies in the requirements.txt file.  
 5. Set up a new database for the site by going to the project's settings.py and importing dj_database_url. Comment out the database's default configuration, and replace the default database with a call to dj_database_url.parse and pass it the database URL from Heroku (you can get it from your config variables in your app setting tab)
    ```
    DATABASES = {
@@ -617,7 +711,7 @@ I ran into several issues and bugs while developing the website. Some of the tou
    ```
    python3 manage.py migrate
    ```  
-7. Import all products, topics (for contact form), and blogs data. I'm using fixtures json files, therefore I'm using loaddata.
+7. Import all products, topics (for contact form), and blogs data. I'm using fixtures json files, use therefore the loaddata method.  
    ```
    python3 manage.py loaddata categories
    python3 manage.py loaddata subcategories
@@ -643,15 +737,13 @@ I ran into several issues and bugs while developing the website. Some of the tou
          }
       }
    ```  
-10. Install gunicorn which will act as the webserver, and put it on our requirements.txt.   
+10. Install gunicorn (if you haven't) which will act as the webserver, and put it on the requirements.txt.   
    ``` 
    pip3 install gunicorn
    pip3 freeze > requirements.txt
    ```
+   Note: you don't have to do this if you've installed all dependencies in the requirements.txt file.  
 11. Create a Procfile, to tell Heroku to create a web dyno, which will run unicorn and serve the Django app.   
-   ```
-   touch Procfile
-   ```   
 
    Inside the Procfile:
    ```
@@ -685,8 +777,8 @@ I ran into several issues and bugs while developing the website. Some of the tou
    
 <br/>  
 
-### **AWS Bucket Creation**   
-All static and media files in this project are storeed in Amazon Web Services S3 bucket (https://aws.amazon.com/) which is a cloud based storage service. You can create your own bucket by following these steps:   
+### **C. AWS Bucket Creation**   
+All static and media files in this project are stored in [Amazon Web Services S3 bucket](https://aws.amazon.com/) which is a cloud based storage service. You can create your own bucket by following these steps:   
 1. Go to [Amazon Web Service website](https://aws.amazon.com/) and click on Create An AWS Account, or login if you already have an account.  
 2. Login to your new account, go to AWS Management Console and find service S3. Click on Create Bucket.   
    - Give it a name (I recommend naming your bucket to match the Heroku app name), and choose region closest to you.  
@@ -754,7 +846,11 @@ All static and media files in this project are storeed in Amazon Web Services S3
       - Check on the group that has the policy attached. Click Next: Tags, then click Next: Review, and lastly Create User.     
       - Download the csv file and save it.  
 
-### **Connect Django to AWS Bucket**   
+<br/>  
+
+### **D. Connect Django to AWS Bucket**   
+Note: If you've forked the repository, all of these steps are already done/ written on the files. Make sure you've installed all dependencies in the requirements.txt file, add all the AWS-related Config Vars to Heroku, and remove the DISABLE_COLLECTSTATIC variable from Heroku.   
+Here are the steps I took to connect Django to AWS:  
 1. Install two new packages: boto3 and django-storages. Freeze them into requirements.txt.   
    ```
    pip3 install boto3
@@ -819,13 +915,11 @@ Create a custom_storages.py file in your project's root directory, and inside it
    git push
    ```  
 
+<br/>
 
 
+## **CREDITS**   
 
-
-
-
-CREDITS
 Error page image: Storyset by Freepik
 
 Articles
