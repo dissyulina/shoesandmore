@@ -1,25 +1,60 @@
 # **Shoes And More**
 ![Shoes and More website in variouse devices](readme-testing-files/readme/main-image.png "Shoes and More website in variouse devices")  
 
-[View live website here]()
+[View the live website here](https://shoes-and-more.herokuapp.com/)
 
 </br>  
 
-**Table of Contents**   
-
-
-------
-
-## **Introduction**   
 Welcome to Shoes and More website!
 Shoes and More is an e-commerce website that sells shoes and accessories (bags, wallets, etc). It's completed with authentication mechanism and stripe payments to allow users to safely purchased products from the site.  
 
-Please note that this website was created for the Code Institute’s Milestone Project 4 as part of their Diploma in Full Stack Software Development. The requirements are to make a full-stack website, using HTML, CSS, JavaScript, Django+Python, relational database, stripe payments, and other additional libraries as needed.  
+Please note that this website was created for the Code Institute’s Milestone Project 4 as part of their Diploma in Full Stack Software Development. The requirements are to make a full-stack website, using HTML, CSS, JavaScript, Django+Python, relational database, stripe payments, and other additional libraries as needed. 
+
+<br/>  
+
+## **Table of Contents**   
+1. [UX Development Planes](https://github.com/dissyulina/shoesandmore#ux-development-plane)   
+   A. [Strategy Plane](https://github.com/dissyulina/shoesandmore#a-strategy-plane) 
+      - [Project Goals, User Goals, and Site Owner Goals](https://github.com/dissyulina/shoesandmore#project-goals)   
+      - [User Stories](https://github.com/dissyulina/shoesandmore#user-goals)   
+   B. [Scope Plane](https://github.com/dissyulina/shoesandmore#b-scope-plane)  
+   C. [Structure Plane](https://github.com/dissyulina/shoesandmore#c-structure-plane)  
+   D. [Skeleton Plane (Wireframes)](https://github.com/dissyulina/shoesandmore#d-skeleton-plane)  
+   E. [Surface Plane (High Fidelity Mock-ups)](https://github.com/dissyulina/shoesandmore#e-surface-plane)  
+      - [Color Scheme](https://github.com/dissyulina/shoesandmore#color-scheme)  
+      - [Typography](https://github.com/dissyulina/shoesandmore#typography)  
+2. [Database Design](https://github.com/dissyulina/shoesandmore#database-design)  
+3. [Features](https://github.com/dissyulina/shoesandmore#features)   
+   A. [General Design Features](https://github.com/dissyulina/shoesandmore#a-general-design-features)   
+   B. [Page Features](https://github.com/dissyulina/shoesandmore#b-page-features)  
+   C. [Features to be Implemented in The Future](https://github.com/dissyulina/shoesandmore#features-to-be-implemented-in-the-future)
+4. [Testing]()    
+   - [Go to TESTING.md]
+5. [Issues and Bugs](https://github.com/dissyulina/shoesandmore#issues-and-bugs)  
+   - [Solved Issues](https://github.com/dissyulina/shoesandmore#solved-issues)  
+   - Known Issues & Unsolved Bugs  
+6. [Deployment](https://github.com/dissyulina/shoesandmore#deployment)  
+   - Deployment to Heroku
+   - How To Use This Project
+7. Technology Used  
+   - Main Languanges  
+   - Libraries and Frameworks  
+   - Database Management  
+   - Tools and Programs  
+9. Credits  
+   - Code
+   - Contents
+   - Images
+10. Acknowledgements   
+
+------
+
+ 
 
 <br/>  
 
 ## **UX Development Plane**   
-### **1. Strategy Plane**  
+### **A. Strategy Plane**  
 #### **Project Goals**   
 The primary goal of this project is to create an e-commerce website that works perfectly, is visually appealing in design, and intuitive for a first time user. It allows user to perform not only the basic functionalities in an e-commerce website (such as sign up/ log in, ability to purchase items and perform payments), but also to ensure that users have a great experience and more interactivity within the site through additional functionalities such as put items into their wishlist, and write reviews, and reading articles.  
 
@@ -83,7 +118,7 @@ As an admin and store management, I want to be able to:
 
 <br/>  
 
-### **2. Scope Plane**  
+### **B. Scope Plane**  
 Based on all goals and user stories, a scope was defined for the site with room for future improvements.  
 
 #### **Functional Requirements**  
@@ -124,7 +159,7 @@ Users will be able to:
 
 <br/>  
 
-### **3. Structure Plane**  
+### **C. Structure Plane**  
 The website was organized in a Hierarchical Tree Structure that ensures the user can navigate easily and intuitively. Below is the website workflow (was designed using [Creately](https://creately.com/)).  
 
 ![The website's structure](readme-testing-files/readme/structure.png "The website's structure")   
@@ -137,7 +172,7 @@ Those features mentioned are available for registered users.
 
 <br/>  
 
-### **4. Skeleton Plane**  
+### **D. Skeleton Plane**  
 Wireframes were created using Figma to design the navigation and interface of the website. The wireframes were created only for desktop, which then will be transformed to high fidelity mock-ups in various device sizes (see Surface Plane). 
 
 - [Wireframe for Home page](readme-testing-files/readme/wireframes/wireframe-home.png) 
@@ -158,7 +193,7 @@ Wireframes were created using Figma to design the navigation and interface of th
 
 <br/>  
 
-### **5. Surface Plane**  
+### **E. Surface Plane**  
 High fidelity mock-ups were created using Figma as well for a better and clearer visualization before coding, and also to check if the color scheme and images match and work great together. This has allowed the developer to concentrate solely on the development part (front end and back end), as the design has already made with such details. The high fidelity mock-ups were created in three different device sizes - desktop, tablet, and mobile.  
 
 - [High Fidelity Mock-up for Home page](readme-testing-files/readme/high-fidelity-mockups/mockup-home.png)  
