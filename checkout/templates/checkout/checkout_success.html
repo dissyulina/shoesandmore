@@ -15,7 +15,7 @@
         <div class="container">
             <div class="row">
                 <div class="col text-center">
-                    <h2 class="my-5 fw-bold">Thank You!</h2>
+                    <h2 class="my-4 my-sm-5 fw-bold">Thank You!</h2>
                     <p class="mb-5">Your order information is below. A confirmation email will be sent to <strong>{{ order.email }}</strong>.</p>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                                 <p class="mb-0"><small>Order Number</small></p>
                             </div>
                             <div class="col-8 text-md-right">
-                                <p class="mb-0"><small>{{ order.order_number }}</small></p>
+                                <p class="mb-0 text-truncate"><small>{{ order.order_number }}</small></p>
                             </div>
                         </div>
     
@@ -58,9 +58,9 @@
                             <div class="col-4">
                                 <a href="{% url 'product_detail' item.product.id %}">
                                     {% if item.product.image %}
-                                        <img class="w-50" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                                        <img src="{{ item.product.image.url }}" alt="{{ product.name }}">
                                     {% else %}
-                                        <img class="w-50" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                        <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                                     {% endif %}
                                 </a>
                             </div>

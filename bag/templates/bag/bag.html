@@ -11,7 +11,7 @@
         <div class="container">
             <div class="row">
                 <div class="col text-center">
-                    <h2 class="my-5 fw-bold">Shopping Bag</h2>
+                    <h2 class="my-4 my-sm-5 fw-bold">Shopping Bag</h2>
                 </div>
             </div>
             {% if bag_items %}
@@ -43,8 +43,29 @@
                                         <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
                                         <p class="my-0">€{{ item.product.price }}</p>
                                         <p class="my-0"><strong>Size: </strong>{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
+                                        <div class="d-block d-sm-none">
+                                            <form class="form update-form" id="{{ item.item_id }}" method="POST" action="{% url 'adjust_bag' item.item_id %}">
+                                                {% csrf_token %}
+                                                <div class="w-75">
+                                                    <div class="input-group">
+                                                        <select class="form-control form-select quantity-update" name="quantity" value="{{ item.quantity }}">
+                                                            {% for qty in range_quantity %}
+                                                                {% if qty == item.quantity %}
+                                                                    <option value="{{ qty }}" selected>{{ qty }}</option>
+                                                                {% else %}
+                                                                    <option value="{{ qty }}">{{ qty }}</option>
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        </select>
+                                                        {% if item.product.has_sizes %}
+                                                            <input type="hidden" name="product_size" value="{{ item.size }}">
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </td>
-                                    <td class="py-3">
+                                    <td class="py-3 d-none d-sm-block">
                                         <form class="form update-form" id="{{ item.item_id }}" method="POST" action="{% url 'adjust_bag' item.item_id %}">
                                             {% csrf_token %}
                                             <div class="w-100">
@@ -83,7 +104,7 @@
                             {% else %}
                                 <div class="mb-4">
                                     <p><strong>I have an account</strong></p>
-                                    <p><small>Login to your account so you can save this transaction to your profile.</small></p>
+                                    <p>Login to your account so you can save this transaction to your profile.</p>
                                     <div class="text-center">
                                         <a href="{% url 'account_login' %}?next={{request.path}}" role="button" class="btn btn-light btn-sm">Go to login page</a>
                                     </div>
@@ -116,7 +137,7 @@
                                     </span>
                                 </a>
                             </div>
-                            <div class="mt-5">
+                            <div class="mt-4 mt-sm-5">
                                 <p class="mb-1">We accept</p>
                                 <img class="img-creditcard" src="{{ MEDIA_URL }}cards-logo.png" alt="Visa, Master Cards, American Express, and Discover">
                             </div>

@@ -53,10 +53,12 @@
     </li>
     <li class="list-inline-item">
         <a class="{% if grand_total %}font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none" href="{% url 'view_bag' %}">
-            <div class="text-center d-flex align-items-center">
-                <i class="fas fa-shopping-basket"></i>
+            <div class="text-center d-flex align-items-center position-relative">
+                <i class="fas fa-shopping-basket me-1"></i>
                 {% if grand_total %}
-                    <p class="my-0"><small> ${{ grand_total|floatformat:2 }}</small></p>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-salmon">
+                        <small>{{ product_count }}</small>
+                    </span>
                 {% else %}
                     <p class="my-0 d-none d-lg-inline"> Shopping Bag</p>
                 {% endif %}

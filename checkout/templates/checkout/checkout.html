@@ -15,7 +15,7 @@
         <div class="container">
             <div class="row">
                 <div class="col text-center">
-                    <h2 class="my-5 fw-bold">Checkout</h2>
+                    <h2 class="my-4 my-sm-5 fw-bold">Checkout</h2>
                 </div>
             </div>
             <div class="row mb-5">
@@ -37,7 +37,7 @@
                             {{ order_form.postcode | as_crispy_field }}
                             {{ order_form.town_or_city | as_crispy_field }}
                             {{ order_form.country | as_crispy_field }}
-                            <div class="form-check form-check-inline float-right mr-0">
+                            <div class="form-check form-check-inline float-right ps-0 me-0">
                                 {% if user.is_authenticated %}
                                     <label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
                                     <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
@@ -60,10 +60,10 @@
 
                 <!-- Order Summary -->
                 <div class="col-12 col-lg-6 ps-lg-5">
-                    <div class="box-shadow mt-5 mb-5 p-3">
+                    <div class="box-shadow my-4 my-sm-5 p-3">
                         <p class="text-muted">Order Summary ({{ product_count }})</p>
                         <div class="row">
-                            <div class="col-7 offset-2">
+                            <div class="col-6 offset-3">
                                 <p class="mb-1 mt-0 small text-muted">Item</p>
                             </div>
                             <div class="col-3 text-right">
@@ -72,7 +72,7 @@
                         </div>
                         {% for item in bag_items %}
                             <div class="row mb-2">
-                                <div class="col-2">
+                                <div class="col-3 pe-0">
                                     <a href="{% url 'product_detail' item.product.id %}">
                                         {% if item.product.image %}
                                             <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.name }}">
@@ -81,7 +81,7 @@
                                         {% endif %}
                                     </a>
                                 </div>
-                                <div class="col-7">
+                                <div class="col-6">
                                     <p class="my-0 small"><strong>{{ item.product.name }}</strong></p>
                                     <p class="my-0 small">Size: {% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
                                     <p class="my-0 small">Qty: {{ item.quantity }}</p>

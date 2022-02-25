@@ -88,8 +88,15 @@ a {
     border: none;
 }
 
+.label-bag {
+    font-size: 12px;
+    padding: 0 5px;
+    border-radius: 50%;
+    vertical-align: bottom;
+}
+
 .navbar-offset {
-    padding-top: 183px;
+    padding-top: 177px;
 }
 
 .search-query input {
@@ -146,7 +153,6 @@ footer {
 	background: url('/media/hero.jpg') no-repeat center center;
 	background-size: cover;
     height: calc(100vh - 164px);
-    margin-top: 167px;
 }
 
 .overlay {
@@ -369,31 +375,46 @@ select option[value=""] {
         background: url('/media/hero.jpg') no-repeat center center;
         background-size: cover;
         height: calc(100vh - 109px);
-        margin-top: 109px;
     }
     .text-hero {
         font-size: 3rem;
     }
     .navbar-offset {
-        padding-top: 113px;
+        padding-top: 109px;
     }
     
 }
 
 /* Very small mobile */
-@media screen and (max-width: 355px) {
+@media screen and (max-width: 400px) {
     body p,
     body li,
-    body a {
+    body a,
+    .nav-link .fa-heart,
+    .form-select,
+    .form-control {
         font-size: 0.875rem;
     }
-    /*
-    .navbar-offset {
-        padding-top: 155px;
-    }*/
+    
+    .navbar {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
 
     .navbar .container-fluid {
         padding-right: 5px;
         padding-left: 5px;
+    }
+
+    .logo-font {
+        font-size: 0.875rem;
+    }
+
+    .navbar-offset {
+        padding-top: 90px;
+    }
+
+    .hero {
+        height: calc(100vh - 90px);
     }
 }

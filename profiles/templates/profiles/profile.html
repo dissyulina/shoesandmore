@@ -19,7 +19,7 @@
             </div>
             <div>
                 <p><strong>Hello, {{ profile }}.</strong></p>
-                <ul class="nav nav-pills nav-justified mt-2 mb-5" id="profile-pills">
+                <ul class="nav nav-pills nav-justified mt-2 mb-4 mb-sm-5" id="profile-pills">
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="pill" href="#information">
                             <i class="far fa-address-card"></i><br>
@@ -43,7 +43,7 @@
                 <!-- Tab panes -->
                 <div class="tab-content">
                     <div class="tab-pane container" id="information">
-                        <p class="mb-5">Update your delivery information.</p>
+                        <p class="mb-4 mb-sm-5">Update your delivery information.</p>
                         <div class="row">
                             <div class="col-12 col-md-7 mx-auto">
                                 <p class="fs-5 mb-4 p-2 w-100 fw-bold bg-beige">Default Delivery Information</p>
@@ -59,7 +59,7 @@
                     </div>
                     <div class="tab-pane container fade" id="purchases">
                         <div class="row mb-5">
-                            <div class="col-12">
+                            <div class="col-12 px-0">
                                 {% if orders %}
                                     <p class="fs-5 mb-4 p-2 w-100 fw-bold bg-beige">Order History</p>
                                     <div class="order-history table-responsive">
@@ -81,7 +81,7 @@
                                                                 {{ order.order_number|truncatechars:6 }}
                                                             </a>
                                                         </td>
-                                                        <td>{{ order.date }}</td>
+                                                        <td class="small">{{ order.date }}</td>
                                                         <td>
                                                             <ul class="list-unstyled">
                                                                 {% for item in order.lineitems.all %}
@@ -93,7 +93,7 @@
                                                                 {% endfor %}
                                                             </ul>
                                                         </td>
-                                                        <td>${{ order.grand_total }}</td>
+                                                        <td class="small">${{ order.grand_total }}</td>
                                                     </tr>
                                                 {% endfor %}
                                             </tbody>
@@ -126,8 +126,8 @@
                                                             </a>
                                                         </div>
                                                         <div class="col-5 d-flex flex-column justify-content-center">
-                                                            <p class="my-0"><strong><small>{{ item.product.name }}</small></strong></p>
-                                                            <p class="my-0"><small>{% if item.product_size %}Size {{ item.product_size|upper }}{% endif %}</small></p>
+                                                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                                                            <p class="my-0">{% if item.product_size %}Size {{ item.product_size|upper }}{% endif %}</p>
                                                             <a href="{% url 'add_review' item.product.id %}" class="btn btn-beige mt-3"><small><i class="fas fa-pen-alt"></i> Give Review</small></a>
                                                         </div>
                                                     </div>

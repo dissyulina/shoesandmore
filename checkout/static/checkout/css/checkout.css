@@ -58,6 +58,10 @@
     height: 100%;
 }
 
+.order-confirmation-wrapper img {
+    width: 50%;
+}
+
 /* Media Queries */
 /* Very small mobile */
 @media screen and (max-width: 400px) {
@@ -66,5 +70,9 @@
     .ElementsApp, 
     .ElementsApp .InputElement {
         font-size: 14px;
+    }
+
+    .order-confirmation-wrapper img {
+        width: 100%;
     }
 }
