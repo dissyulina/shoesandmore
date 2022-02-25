@@ -33,27 +33,28 @@ Please note that this website was created for the Code Institute’s Milestone P
 5. [Issues and Bugs](https://github.com/dissyulina/shoesandmore#issues-and-bugs)  
    - [Solved Issues](https://github.com/dissyulina/shoesandmore#solved-issues)  
    - Known Issues & Unsolved Bugs  
-6. [Deployment](https://github.com/dissyulina/shoesandmore#deployment)  
-   - Deployment to Heroku
-   - How To Use This Project
-7. Technology Used  
+6. Technology Used  
    - Main Languanges  
    - Libraries and Frameworks  
    - Database Management  
    - Tools and Programs  
-9. Credits  
+7. [Deployment](https://github.com/dissyulina/shoesandmore#deployment)  
+   A. [How To Use This Project](https://github.com/dissyulina/shoesandmore#a-how-to-use-this-project)  
+   B. [Deployment to Heroku](https://github.com/dissyulina/shoesandmore#b-deployment-to-heroku)   
+   C. [AWS Bucket Creation](https://github.com/dissyulina/shoesandmore#c-aws-bucket-creation)  
+   D. [Connect Django to AWS Bucket](https://github.com/dissyulina/shoesandmore#d-connect-django-to-aws-bucket)   
+8. Credits  
    - Code
    - Contents
    - Images
-10. Acknowledgements   
+9. Acknowledgements   
 
 ------
 
  
-
 <br/>  
 
-## **UX Development Plane**   
+## **UX DEVELOPMENT PLANE**   
 ### **A. Strategy Plane**  
 #### **Project Goals**   
 The primary goal of this project is to create an e-commerce website that works perfectly, is visually appealing in design, and intuitive for a first time user. It allows user to perform not only the basic functionalities in an e-commerce website (such as sign up/ log in, ability to purchase items and perform payments), but also to ensure that users have a great experience and more interactivity within the site through additional functionalities such as put items into their wishlist, and write reviews, and reading articles.  
@@ -73,8 +74,6 @@ The target user for this site is:
 The site owner is looking to:
 - Be able to make money by providing products (and services) to the users. 
 - Manage products in the website.
-
-
 
 #### **User Stories** 
 As a shopper I want to be able to:
@@ -234,7 +233,7 @@ While I relied heavily on these Wireframes in order to maintain the desired desi
 
 <br/>  
 
-## **Database Design**    
+## **DATABASE DESIGN**    
 
 Database schema was designed using [drawsql](https://drawsql.app/). The database was first managed using SQLite during the development process, then Postgres in production with Heroku. 
 ![The database schema](readme-testing-files/readme/database-schema.png " The database schema")  
@@ -343,7 +342,7 @@ Database schema was designed using [drawsql](https://drawsql.app/). The database
 
 <br/>  
 
-## **Features**  
+## **FEATURES**  
 ### **A. General Design Features**  
 - **Fully responsive** - Each page of the site is fully responsive on all device sizes (with minimum dimension 320px or an iPhone 4/5) and features intuitive navigational buttons.  
 
@@ -519,14 +518,13 @@ Due to limited resources (time constraint, skill of the developer at the moment,
 
 <br/>   
 
-## **Testing**  
+## **TESTING**  
 
 The testing documentation can be found here.  
 
 <br/>
 
-## **Issues and Bugs**   
-### **Solved Issues**   
+## **ISSUES AND BUGS**   
 I ran into several issues and bugs while developing the website. Some of the tough ones are listed below, along with the solutions that successfully solved them.   
 1. **ISSUE** : For products that are in the favorites list of the user (that's currently logged-in), the heart icon on the top left of the product image becomes red. I had difficulties in trying to implement this feature. I tried to check if the product is listed in the queryset of the users' favorites by defining this:   
    In views.py:   
@@ -590,14 +588,82 @@ I ran into several issues and bugs while developing the website. Some of the tou
    reviews = Review.objects.filter(user=profile).values_list('product__id', flat=True)
    ```
    So that the reviews variable will just return a list of product_id values, thus will make it more straightforward to check if the id doesn't exist in the list: ```{% if item.product.id not in reviews %}```. This method worked and the products are displayed as I wanted originally.  
+  
 
-
-### **Bugs**   
-
-   
 <br/>  
 
-## **Deployment**  
+## **TECHNOLOGY USED**  
+### **Main Language**   
+   * [HTML5](https://en.wikipedia.org/wiki/HTML5)   
+   * [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)   
+   * [JavaScript](https://en.wikipedia.org/wiki/JavaScript)   
+   * [Python](https://en.wikipedia.org/wiki/Python_(programming_language))   
+
+### **Libraries and Frameworks**  
+   * [Django](https://flickity.metafizzy.co/)   
+   Flickity was used to build carousels on Home Page.   
+   * [Django Template](https://jinja.palletsprojects.com)  
+   Django Template was used as a templating language for Django to display backend data to HTML.   
+   * [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/)  
+   Bootstrap 5 was used throughout the website to help with styling and responsiveness.  
+   * [Google Fonts](https://fonts.google.com)  
+   Google fonts was used to import the fonts into the html file, and were used on all parts of the site.  
+   * [Font Awesome](https://fontawesome.com)  
+   Font Awesome was used throughout the website to add icons for aesthetic and UX purposes.   
+   * [jQuery 3.6.0](https://jquery.com/)  
+   jQuery was used as a JavaScript library to help writing less JavaScript code.  
+   * [Flickity](https://flickity.metafizzy.co/)   
+   Flickity was used to build carousels on Home Page.    
+
+### **Packages / Dependecies Installed**   
+   * [Django Allauth](https://django-allauth.readthedocs.io/en/latest/)  
+   Django Allauth was used for user authentication, registration, and account management.  
+   * [Django Crispy Form](https://django-crispy-forms.readthedocs.io/en/latest/)   
+   Django Crispy Form was used to control the rendering of the forms.  
+   * [Django Countries](https://pypi.org/project/django-countries/)   
+   Django Countries was used to provide country choices for use with forms and a country field for models.   
+   * [Pillow](https://pypi.org/project/Pillow/)  
+   Pillow was used to add image processing capabilities.  
+   * [Gunicorn](https://gunicorn.org/)  
+   Gunicorn was used as Python WSGI HTTP Server for UNIX to support the deployment of Django application.  
+
+### **Database Management**  
+   * [SQLite](https://www.sqlite.com/index.html)   
+   SQLite was used as a single-file databae in development.   
+   * [Heroku Postgres](https://www.heroku.com/postgres)   
+   Heroku Postgres database was used in production, as a service based on PostgreSQL provided by Heroku.  
+
+### **Payment Service**  
+   * [Stripe](https://stripe.com/en-gb-nl)  
+   Stripe was used to process the online payments for the transactions in the website.  
+
+### **Cloud Storage**  
+   * [Amazon Web Service S3](https://aws.amazon.com/s3/)
+   AWS S3 was used to store all static and media files in production.  
+
+### **Tools and Programs**  
+   * [Git](https://git-scm.com)  
+   Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.  
+   * [GitHub](https://github.com)  
+   GitHub was used to store the projects code after being pushed from Git. 
+   * [Heroku](https://www.heroku.com)   
+   Heroku was used to deploy the website.  
+   * [Figma](https://www.figma.com)  
+   Figma was used to create the wireframes and the high fidelity mock up during the design process.  
+   * [Autoprefixer CSS](https://autoprefixer.github.io)  
+   Autoprefixer CSS was used to add vendor prefixes to the CSS rules, to ensure that they work across all browsers.   
+   * [Am I Responsive](ami.responsivedesign.is)  
+   Am I Responsive was used to preview the website across a variety of popular devices.   
+   * [Photopea](https://www.photopea.com/)   
+   Photopea is an online image editor to edit .ai file, and was used to edit the hero image.  
+   * [Tiny JPG](https://tinyjpg.com) and [Tiny PNG](https://tinypng.com)    
+   Tiny JPG and Tiny PNG were used to reduce the file size of the images.   
+   * [Coolors](https://coolors.co)  
+   Coolors was used to create a cohesive color scheme for the website.   
+
+<br/>  
+
+## **DEPLOYMENT**  
 The project was developed using Gitpod as the IDE, committed to Git as a local repository, and pushed/ stored to GitHub. The web application is deployed on Heroku because we can't host a Python project on Github pages, with static and media files stored in AWS S3. The repository itself is hosted on Github.  
 
 ### **A. How To Use This Project**
@@ -917,6 +983,8 @@ Create a custom_storages.py file in your project's root directory, and inside it
 
 <br/>
 
+
+<br/>   
 
 ## **CREDITS**   
 
