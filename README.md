@@ -31,13 +31,12 @@ Please note that this website was created for the Code Institute’s Milestone P
 4. [Testing]()    
    - [Go to TESTING.md]
 5. [Issues and Bugs](https://github.com/dissyulina/shoesandmore#issues-and-bugs)  
-   - [Solved Issues](https://github.com/dissyulina/shoesandmore#solved-issues)  
-   - Known Issues & Unsolved Bugs  
-6. Technology Used  
-   - Main Languanges  
-   - Libraries and Frameworks  
-   - Database Management  
-   - Tools and Programs  
+6. [Technology Used](https://github.com/dissyulina/shoesandmore#technology-used)  
+   - [Main Languanges](https://github.com/dissyulina/shoesandmore#main-language)  
+   - [Libraries and Frameworks](https://github.com/dissyulina/shoesandmore#libraries-and-frameworks)  
+   = [Packages / Dependencies](https://github.com/dissyulina/shoesandmore#packages--dependecies-installed)  
+   - [Database, Payment Service, and Cloud Storage](https://github.com/dissyulina/shoesandmore#database-management)  
+   - [Tools and Programs](https://github.com/dissyulina/shoesandmore#tools-and-programs)  
 7. [Deployment](https://github.com/dissyulina/shoesandmore#deployment)  
    A. [How To Use This Project](https://github.com/dissyulina/shoesandmore#a-how-to-use-this-project)  
    B. [Deployment to Heroku](https://github.com/dissyulina/shoesandmore#b-deployment-to-heroku)   
@@ -984,15 +983,47 @@ Create a custom_storages.py file in your project's root directory, and inside it
 <br/>
 
 
-<br/>   
-
 ## **CREDITS**   
+### **1. Code**  
+- The code in Code Institute's video on Boutique Ado project was used as the main reference point to set up an e-commerce / online store project using HTML, CSS, JS, Python+Django, PostgresQL database, Stripe, and AWS S3 as storage. 
+- Automated Testing was learned by reading other student's projects, some of the code on automated testing was sourced from these projects too:
+  * https://github.com/rebeccatraceyt/delphin_lifesavingclub  
+  * https://github.com/lemocla/Which-way-is-up  
+  * https://github.com/Abibubble/ms4-lead-shot-hazard   
+- 
 
-Error page image: Storyset by Freepik
+### **2. Images**  
+All products images were sourced from accross free-images source website:
+[Pexels](https://www.pexels.com/), [Unsplash](https://unsplash.com/), and [Kaggle](https://www.kaggle.com/).  
 
-Articles
+Other images for the website:
+
+* From [Pexels](https://www.pexels.com/)  
+   - Hero Images on Homepage: by Cottonbro   
+   - Image on Women collection on Homepage: by Dziana Hasanbekava  
+   - Image on Men collection on Homepage: by Yo Yo  
+   - Image on Kids collection on Homepage: by Victoria Borodinova  
+   - Image on Sale collection on Homepage: by Cliff Booth  
+   - Image on Bags and accessories collection on Homepage:  by Socialcut  
+   - Image on article 'Best Paint Markers to Use for Bag and Shoe Designs' on Articles page: by Mister Mister  
+   - Image on article 'Ways to Make Your All-Weather Boots More Fashionable' on Articles page: by Pavel Danilyuk  
+   - Image on article 'Mix and Match Your Style for Spring!' on Articles page: by Engin Akyurt  
+   - Image on article 'hese Forgotten $45 Sneakers From the ’90s Are Making a Major Comeback' on Articles page: by Karolina Grabowska  
+
+* From [Unsplash](https://unsplash.com/)  
+   - Sneakers collection on Homepage : by Samuel Lopes.  
+   - Image on article 'The Ultimate Guide to Spring Style for Men' on Articles page: by Rayul  
+
+* From [Freepik](https://www.freepik.com/)  
+   - Error page images - 404 page, 403 page, and 500 page: by Storyset  
+
+
+### **3. Content**  
+**Articles / Blogs**
 1. These Forgotten $45 Sneakers From the ’90s Are Making a Major Comeback, sourced from https://news.yahoo.com/forgotten-45-sneakers-90s-making-212402565.html   
 2. Mix and Match Your Style for Spring!, sourced from: https://www.bali-silk.com/mix-and-match-tips-for-spring-summer-2021-trends/   
 3. Best Paint Markers to Use for Bag and Shoe Designs, sourced from: https://www.ehow.com/about_4706948_paint-markers-use-shoe-designs.html   
 4. Ways to Make Your All-Weather Boots More Fashionable, sourced from https://www.theartofaccessories.com/ways-to-make-your-all-weather-boots-more-fashionable/   
 5. The Ultimate Guide to Spring Style for Men, sourced from: https://theessentialman.com/ultimate-guide-spring-style-men/   
+
+
