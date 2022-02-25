@@ -17,6 +17,7 @@ Please note that this website was created for the Code Institute’s Milestone P
    A. [Strategy Plane](https://github.com/dissyulina/shoesandmore#a-strategy-plane) 
       - [Project Goals, User Goals, and Site Owner Goals](https://github.com/dissyulina/shoesandmore#project-goals)   
       - [User Stories](https://github.com/dissyulina/shoesandmore#user-goals)   
+
    B. [Scope Plane](https://github.com/dissyulina/shoesandmore#b-scope-plane)  
    C. [Structure Plane](https://github.com/dissyulina/shoesandmore#c-structure-plane)  
    D. [Skeleton Plane (Wireframes)](https://github.com/dissyulina/shoesandmore#d-skeleton-plane)  
@@ -27,25 +28,26 @@ Please note that this website was created for the Code Institute’s Milestone P
 3. [Features](https://github.com/dissyulina/shoesandmore#features)   
    A. [General Design Features](https://github.com/dissyulina/shoesandmore#a-general-design-features)   
    B. [Page Features](https://github.com/dissyulina/shoesandmore#b-page-features)  
-   C. [Features to be Implemented in The Future](https://github.com/dissyulina/shoesandmore#features-to-be-implemented-in-the-future)
-4. [Testing]()    
-   - [Go to TESTING.md]
+   C. [Features to be Implemented in The Future](https://github.com/dissyulina/shoesandmore#c-features-to-be-implemented-in-the-future)
+4. [Testing](https://github.com/dissyulina/shoesandmore#testing)    
+   [Go to TESTING.md]
 5. [Issues and Bugs](https://github.com/dissyulina/shoesandmore#issues-and-bugs)  
 6. [Technology Used](https://github.com/dissyulina/shoesandmore#technology-used)  
-   - [Main Languanges](https://github.com/dissyulina/shoesandmore#main-language)  
-   - [Libraries and Frameworks](https://github.com/dissyulina/shoesandmore#libraries-and-frameworks)  
-   = [Packages / Dependencies](https://github.com/dissyulina/shoesandmore#packages--dependecies-installed)  
-   - [Database, Payment Service, and Cloud Storage](https://github.com/dissyulina/shoesandmore#database-management)  
-   - [Tools and Programs](https://github.com/dissyulina/shoesandmore#tools-and-programs)  
+   A. [Main Languanges](https://github.com/dissyulina/shoesandmore#a-main-language)  
+   B. [Libraries and Frameworks](https://github.com/dissyulina/shoesandmore#b-libraries-and-frameworks)  
+   C. [Packages / Dependencies](https://github.com/dissyulina/shoesandmore#c-packages--dependecies-installed)  
+   D. [Database, Payment Service, and Cloud Storage](https://github.com/dissyulina/shoesandmore#d-database-management)  
+   E [Tools and Programs](https://github.com/dissyulina/shoesandmore#e-tools-and-programs)  
 7. [Deployment](https://github.com/dissyulina/shoesandmore#deployment)  
    A. [How To Use This Project](https://github.com/dissyulina/shoesandmore#a-how-to-use-this-project)  
    B. [Deployment to Heroku](https://github.com/dissyulina/shoesandmore#b-deployment-to-heroku)   
    C. [AWS Bucket Creation](https://github.com/dissyulina/shoesandmore#c-aws-bucket-creation)  
    D. [Connect Django to AWS Bucket](https://github.com/dissyulina/shoesandmore#d-connect-django-to-aws-bucket)   
-8. Credits  
-   - Code
-   - Contents
-   - Images
+8. [Credits](https://github.com/dissyulina/shoesandmore#credits)  
+   A. [Code](https://github.com/dissyulina/shoesandmore#a-code)  
+   B. [Images](https://github.com/dissyulina/shoesandmore#b-images)  
+   C. [Contents](https://github.com/dissyulina/shoesandmore#c-content)  
+   
 9. Acknowledgements   
 
 ------
@@ -758,7 +760,6 @@ This project is deployed on Heroku for production, with all static and media fil
    STRIPE_PUBLIC_KEY | your_stripe_public_key  
    STRIPE_SECRET_KEY | your_stripe_secret_key  
    USE_AWS | True 
-   DISABLE_COLLECTSTATIC | 1   
 
 4. If you haven't install it, install dj_database_url and psycopg2.
    ```
@@ -831,7 +832,7 @@ This project is deployed on Heroku for production, with all static and media fil
    git push heroku main
    ```
 14. Go to the app's dashboard on Heroku and go to Deploy. Connect the app to Github by clicking Github and search for the repository. Click connect. Also enable the automatic deploy by clicking Enable Automatic Deploys, so that everytime we push to github, the code will automatically be deployed to Heroku as well.  
-15. Generate a key from [Django Secret Key Generator](https://miniwebtool.com/django-secret-key-generator/) and add it to the convig variables in Heroku. Go back to settings.py and replace the secret key setting with the call to get it from the environment, and use empty string as a default. 
+15. Go back to settings.py and replace the secret key setting with the call to get it from the environment, and use empty string as a default. 
    ```
    SECRET_KEY = os.environ.get('SECRET_KEY', '')
    ```
@@ -984,15 +985,16 @@ Create a custom_storages.py file in your project's root directory, and inside it
 
 
 ## **CREDITS**   
-### **1. Code**  
+### **A. Code**  
 - The code in Code Institute's video on Boutique Ado project was used as the main reference point to set up an e-commerce / online store project using HTML, CSS, JS, Python+Django, PostgresQL database, Stripe, and AWS S3 as storage. 
 - Automated Testing was learned by reading other student's projects, some of the code on automated testing was sourced from these projects too:
   * https://github.com/rebeccatraceyt/delphin_lifesavingclub  
   * https://github.com/lemocla/Which-way-is-up  
   * https://github.com/Abibubble/ms4-lead-shot-hazard   
-- 
+- The star rating system on Add Review and Edit Review page, adapted from [this article](https://codeconvey.com/feedback-form-in-html/), on how to transform radio button input elements into a star rating system from 1 to 5.  
 
-### **2. Images**  
+
+### **B. Images**  
 All products images were sourced from accross free-images source website:
 [Pexels](https://www.pexels.com/), [Unsplash](https://unsplash.com/), and [Kaggle](https://www.kaggle.com/).  
 
@@ -1018,7 +1020,7 @@ Other images for the website:
    - Error page images - 404 page, 403 page, and 500 page: by Storyset  
 
 
-### **3. Content**  
+### **C. Content**  
 **Articles / Blogs**
 1. These Forgotten $45 Sneakers From the ’90s Are Making a Major Comeback, sourced from https://news.yahoo.com/forgotten-45-sneakers-90s-making-212402565.html   
 2. Mix and Match Your Style for Spring!, sourced from: https://www.bali-silk.com/mix-and-match-tips-for-spring-summer-2021-trends/   
@@ -1026,4 +1028,10 @@ Other images for the website:
 4. Ways to Make Your All-Weather Boots More Fashionable, sourced from https://www.theartofaccessories.com/ways-to-make-your-all-weather-boots-more-fashionable/   
 5. The Ultimate Guide to Spring Style for Men, sourced from: https://theessentialman.com/ultimate-guide-spring-style-men/   
 
+<br/> 
 
+## **Acknowledgements**  
+- My mentor, Oluwaseun Owonikoko, for the helpful feedback on every detail of the website.  
+- Code Institute's Tutor Support, for the quick response and helfpful solutions.  
+- My husband Sandi, for his daily continuous support and for testing the website across our mobile devices.  
+- Slack community, as the first help to ask when I encountered a problem.  
