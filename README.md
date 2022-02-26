@@ -566,7 +566,7 @@ I ran into several issues and bugs while developing the website. Some of the tou
    ```
    By this time I understood more on how to do this, which will affect my second problem.   
 
-2. **ISSUE** : The second problem was actually very similar to the first one. For every registered user, on their profile page, there's a review section. This review section is listed with all products that the user has bought before, and are waiting to be reviewed. Once the user gives a review to a product, the product will dissapear from this section. Therefore, for this section, I wanted to display only the products that are in user's order history, and are not listed in the reviews database. This problem was rather complicated because you have to check in multiple tables, and the process is not straightforward. Based on my understanding, this what came to my mind.  
+2. **ISSUE** : The second problem was actually very similar to the first one. For every registered user, on their profile page, there's a review section. This review section lists with all products that the user has bought before, and are waiting to be reviewed. Once the user gives a review to a product, the product will dissapear from this section. Therefore, for this section, I wanted to display only the products that are in user's order history, and are not listed in the reviews database. This problem was rather complicated because you have to check in multiple tables, and the process is not straightforward. Based on my understanding, this what came to my mind.  
    In views.py:   
    ```
    profile = get_object_or_404(UserProfile, user=request.user)
@@ -590,6 +590,46 @@ I ran into several issues and bugs while developing the website. Some of the tou
    ```
    So that the reviews variable will just return a list of product_id values, thus will make it more straightforward to check if the id doesn't exist in the list: ```{% if item.product.id not in reviews %}```. This method worked and the products are displayed as I wanted originally.  
   
+3. **ISSUE** : After a user gives a rating to a product, I wanted to update the product's rating by recalculating the average of the ratings. Each product has an intial rating given by the admin (the default rating is 3, but admin can input another number). Here's the calculation example:  
+    Inital product rating = 3.6    
+    User A gives a rating = 5  
+    Updated product rating = (3.6 + 5) / 2 = 4.3  
+    User B gives a rating = 4  
+    Updated product rating = (3.6 + 5 + 4) / 3 = 4.2   
+In this way I would have to maintain two variables - the intial product rating, and the updated rating. I would have to get these variables and all ratings for this product to be able to recalculate the average each time a new rating is submitted.  
+**SOLUTION** : I was thinking about other ways to implement this, as I would prefer to have just one field for rating. And this rating will be updated with a new value each time a new rating is added. I finally find a math calculation to do this.  
+   If a user submits a new review/rating:
+   ```  
+   product = get_object_or_404(Product, pk=product_id)
+
+   # We add 1 by the end to include the inital rating from admin  
+   total_product_reviews = Review.objects.filter(product=product.id).count() + 1
+
+   # Form review submitted by user
+   review = form.save(commit=False)
+
+   product.rating = (((product.rating * total_product_reviews) + review.rating) / (total_product_reviews + 1))
+   ```
+
+   If a user edits his/her rating:
+   ``` 
+   review = get_object_or_404(Review, pk=review_id)
+   product = review.product
+   edited_rating = review.rating
+   total_product_reviews = Review.objects.filter(product=product.id).count() + 1
+
+   product.rating = ((product.rating * total_product_reviews) - edited_rating + review.rating) / total_product_reviews
+   ``` 
+
+   If a user deletes his/her rating:
+   ```
+   review = get_object_or_404(Review, pk=review_id)
+   product = review.product
+   deleted_rating = review.rating
+   total_product_reviews = Review.objects.filter(product=product.id).count() + 1
+
+   product.rating = ((product.rating * total_product_reviews) - deleted_rating) / (total_product_reviews - 1)
+   ```   
 
 <br/>  
 
