@@ -83,7 +83,7 @@ As a shopper I want to be able to:
    3. Search for a product.   
    4. Identify a glimpse of most populars products.   
    5. View all products, and easily navigate between categories.  
-   6. Sort by price, by rating, and by color.   
+   6. Sort by price, by rating, and by popularity.  
    7. View individual product's page and read the relevant information.  
    8. Read a product's review.  
    9. Easily select size and quantity of the product, and add it to shopping bag.  
