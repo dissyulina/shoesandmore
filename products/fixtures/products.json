@@ -985,7 +985,7 @@
          "subcategory":11,
          "rating":3.2,
          "image":"66.jpg",
-         "has_sizes": true,
+         "has_sizes": false,
          "total_purchased": 0
       }
    },
@@ -1015,7 +1015,7 @@
          "subcategory":11,
          "rating":3.2,
          "image":"68.jpg",
-         "has_sizes": true,
+         "has_sizes": false,
          "total_purchased": 0
       }
    },
@@ -1030,7 +1030,7 @@
          "subcategory":11,
          "rating":3.8,
          "image":"69.jpg",
-         "has_sizes": true,
+         "has_sizes": false,
          "total_purchased": 0
       }
    },
@@ -1045,7 +1045,7 @@
          "subcategory":11,
          "rating":4.0,
          "image":"70.jpg",
-         "has_sizes": true,
+         "has_sizes": false,
          "total_purchased": 0
       }
    },
@@ -1060,7 +1060,7 @@
          "subcategory":11,
          "rating":4.8,
          "image":"71.jpg",
-         "has_sizes": true,
+         "has_sizes": false,
          "total_purchased": 0
       }
    },
@@ -1075,7 +1075,7 @@
          "subcategory":11,
          "rating":4.3,
          "image":"72.jpg",
-         "has_sizes": true,
+         "has_sizes": false,
          "total_purchased": 0
       }
    },
@@ -1090,7 +1090,7 @@
          "subcategory":11,
          "rating":3.6,
          "image":"73.jpg",
-         "has_sizes": true,
+         "has_sizes": false,
          "total_purchased": 0
       }
    },
@@ -1105,7 +1105,7 @@
          "subcategory":11,
          "rating":4.5,
          "image":"74.jpg",
-         "has_sizes": true,
+         "has_sizes": false,
          "total_purchased": 0
       }
    },
@@ -1120,7 +1120,7 @@
          "subcategory":11,
          "rating":3.7,
          "image":"75.jpg",
-         "has_sizes": true,
+         "has_sizes": false,
          "total_purchased": 0
       }
    },
@@ -1135,7 +1135,7 @@
          "subcategory":11,
          "rating":3.8,
          "image":"76.jpg",
-         "has_sizes": true,
+         "has_sizes": false,
          "total_purchased": 0
       }
    },
@@ -1252,7 +1252,7 @@
          "name":"Brown Leather Wallet",
          "price":29.99,
          "category":2,
-         "subcategory":12,
+         "subcategory":11,
          "rating":4.2,
          "image":"101.jpg",
          "has_sizes": false,
@@ -1267,7 +1267,7 @@
          "name":"Green Small Bag",
          "price":31.99,
          "category":1,
-         "subcategory":12,
+         "subcategory":11,
          "rating":4.3,
          "image":"102.jpg",
          "has_sizes": false,
