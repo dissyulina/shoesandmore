@@ -47,8 +47,7 @@ Please note that this website was created for the Code Institute’s Milestone P
    A. [Code](https://github.com/dissyulina/shoesandmore#a-code)  
    B. [Images](https://github.com/dissyulina/shoesandmore#b-images)  
    C. [Contents](https://github.com/dissyulina/shoesandmore#c-content)  
-   
-9. Acknowledgements   
+9. [Acknowledgements](https://github.com/dissyulina/shoesandmore#acknowledgements)   
 
 ------
 

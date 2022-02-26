@@ -171,3 +171,20 @@ As a registered user/ shopper, I want to be able to:
 10. *Easily put the wishlist products into the shopping bag.*   
    By clicking the Favorites link on the Navbar (heart icon on mobile's Navbar), user can navigate to the Favorites page to view all products the user has added to favorites. Users can remove products from the Favorites by clicking the Trash-can icon on the top-right of each product. Users can also directly add the product to the shopping bag by choosing a size and then click on 'Add to Bag' button.  
    ![Favorites](readme-testing-files/testing/user-stories/favorites.png "Favorites")    
+
+
+As an admin and store management, I want to be able to:
+   1. Add a product.  
+   Admin can add a product to the website by logging in as admin, navigate to My Account and choose Product Management. Admin then will be directed to the Add Products page. After filling out the form, they can click 'Add Product' button.   
+   ![Add product](readme-testing-files/testing/user-stories/add-product.png "Add product")   
+
+   2. Edit or update a product. 
+   Admin can edit a product by logging in as admin, navigate to the Products page or the Individual Product page and click on Edit link. 
+   ![Edit and Delete product](readme-testing-files/testing/user-stories/admin-edit-delete.png "Edit and Delete product")   
+
+   Admin then will be directed to the Edit Products page. After filling out the form, they can click 'Edit Product' button.  
+   ![Edit product](readme-testing-files/testing/user-stories/edit-product.png "Edit product")   
+
+   3. Delete a product.  
+   Admin can delete a product by logging in as admin, navigate to the Products page or the Individual Product page and click on Delete link. A modal will then show up to confirm the deletion. Admin can confirm it by clicking on the 'Yes, Delete' button.  
+   ![Edit and Delete product](readme-testing-files/readme/delete-product-modal.png "Edit and Delete product")   
