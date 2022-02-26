@@ -17,8 +17,17 @@
                     <h2 class="my-5 fw-bold">Edit Review for {{ product.name }}</h2>
                 </div>
             </div>
-            <div class="row mb-5 justify-content-center">
-                <div class="col-12 col-md-6">
+            <div class="row mb-5">
+                <div class="col-12 col-md-6 col-xl-4 offset-xl-2">
+                    <a href="{% url 'product_detail' product.id %}" class="d-flex justify-content-center">
+                        {% if product.image %}
+                            <img class="w-100" src="{{ product.image.url }}" alt="{{ product.name }}">
+                        {% else %}
+                            <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                        {% endif %}
+                    </a>
+                </div>
+                <div class="col-12 col-md-6 col-xl-4 pt-4 pt-md-0">
                     <form method="POST" action="{% url 'edit_review' review.id %}" class="d-flex flex-column justify-content-center">
                         {% csrf_token %} 
                         <div class="mt-5">
@@ -38,8 +47,10 @@
                             <label for="review_text" class="form-label"><small>Write a review about this product:</small></label>
                             <textarea class="form-control" id="review_text" name="review_text" rows="5">{{ review.review_text }}</textarea>
                         </div>
-                        <button type="button" class="btn btn-inverted-brown" onclick="history.back()">Cancel</button>
-                        <button type="submit" class="btn btn-brown mt-5"><small><i class="fas fa-pen-alt"></i> Submit Review</small></button>
+                        <div class="d-flex justify-content-end mt-4">
+                            <a role="button" href="{% url 'product_detail' product.id %}" class="btn btn-brown-inverted me-2">Cancel</a>
+                            <button type="submit" class="btn btn-brown"><small><i class="fas fa-pen-alt"></i> Submit Review</small></button>
+                        </div>
                     </form>
                 </div>
             </div>

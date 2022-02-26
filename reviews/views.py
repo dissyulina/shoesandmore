@@ -104,6 +104,7 @@ def edit_review(request, review_id):
     context = {
         'form': form,
         'review': review,
+        'product': product,
         'toast_without_bag': True,
     }
 
