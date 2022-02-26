@@ -32,10 +32,10 @@
                         {% csrf_token %}
                         <p class="my-0"><strong>{{ product.name }}</strong></p>
                         <p class="my-0"><small>{% if product_size %}Size {{ product_size|upper }}{% endif %}</small></p>
-                        <div class="mt-4">
+                        <div class="mt-3 mt-md-4">
                             <!-- Adapted from: https://codeconvey.com/feedback-form-in-html/-->
                             <fieldset>
-                                <p><small>Give a rating to this product:</small></p>
+                                <p>Give a rating to this product:</p>
                                 <span class="star-rating">
                                     <input type="radio" name="rating" value="1" required><i></i>
                                     <input type="radio" name="rating" value="2"><i></i>
@@ -45,8 +45,8 @@
                                 </span>
                             </fieldset>
                         </div>
-                        <div class="mt-4">
-                            <label for="review_text" class="form-label"><small>Write a review about this product:</small></label>
+                        <div class="mt-3 mt-md-4">
+                            <label for="review_text" class="form-label">Write a review about this product:</label>
                             <textarea class="form-control" id="review_text" name="review_text" rows="5" maxlength="500"></textarea>
                         </div>
                         <div class="d-flex justify-content-end mt-4">

@@ -454,7 +454,7 @@ While if the user clicks the Delete button, a confirmation modal will pop out to
 
 #### **11. Add/ Edit Review Page**  
 [See the image of Add/ Edit Review page here](readme-testing-files/readme/add-edit-review-page.png)  
-- The Add Review page features a form to submit rating and review for the specified product. Users can give rating (range 1 to 5), and/or a review to the product. The rating is required (users can't submit the form if the rating is empty).
+- The Add Review page features a form to submit rating and review for the specified product. Users can give rating (range 1 to 5), and/or a review to the product. The rating is required (users can't submit the form if the rating is empty), while the review text input is not.
 - To submit the rating and review, a Submit Review button is placed below the form. There's also a Cancel button which will bring users back to their profile (review section).
 - After the review is submitted, users is directed back to their profile (review section) as well, to encourage user to review more products.
 - Even though there are two separate templates each for Add Review page and Edit Review page, the display and layout are exactly the same between the two. The only difference is, on Edit Review page, the rating input and review text area are already prepopulated with the existing rating and review from the user. 
@@ -1050,7 +1050,7 @@ Other images for the website:
    - Image on article 'Best Paint Markers to Use for Bag and Shoe Designs' on Articles page: by Mister Mister  
    - Image on article 'Ways to Make Your All-Weather Boots More Fashionable' on Articles page: by Pavel Danilyuk  
    - Image on article 'Mix and Match Your Style for Spring!' on Articles page: by Engin Akyurt  
-   - Image on article 'hese Forgotten $45 Sneakers From the ’90s Are Making a Major Comeback' on Articles page: by Karolina Grabowska  
+   - Image on article 'These Forgotten $45 Sneakers From the ’90s Are Making a Major Comeback' on Articles page: by Karolina Grabowska  
 
 * From [Unsplash](https://unsplash.com/)  
    - Sneakers collection on Homepage : by Samuel Lopes.  
@@ -1067,6 +1067,11 @@ Other images for the website:
 3. Best Paint Markers to Use for Bag and Shoe Designs, sourced from: https://www.ehow.com/about_4706948_paint-markers-use-shoe-designs.html   
 4. Ways to Make Your All-Weather Boots More Fashionable, sourced from https://www.theartofaccessories.com/ways-to-make-your-all-weather-boots-more-fashionable/   
 5. The Ultimate Guide to Spring Style for Men, sourced from: https://theessentialman.com/ultimate-guide-spring-style-men/   
+
+**FAQ**
+FAQs content was sourced from online shop:
+1. [H&M](https://www2.hm.com/en_gb/customer-service.html)   
+2. [Shoes.com](https://www.shoes.com/faq.html)   
 
 <br/> 
 

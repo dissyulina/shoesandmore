@@ -96,7 +96,7 @@ As a shopper I want to be able to:
 
 16. *Read relevant articles/ blogs about shoes or accessories.*   
    Users can find the Articles page by clicking the link to the articles on footer, or on the homepage. Users can choose to view an article by clicking one of them.  
-   ![All articles](readme-testing-files/testing/user-stories/articles.png"All articles")  
+   ![All articles](readme-testing-files/testing/user-stories/articles.png "All articles")  
    ![Individual article](readme-testing-files/testing/user-stories/individual-article.png "Individual article")  
 
 17. *Easily navigate within the site, through Navigation Bar and Footer.*
@@ -121,3 +121,53 @@ As a shopper I want to be able to:
    ![Contact form](readme-testing-files/testing/user-stories/contact-form.png "Contact form")   
 
 <br/>
+
+As a registered user/ shopper, I want to be able to:
+1. *Access all functionalities that an unregistered shopper can do.*   
+   All of the features and functionality above are certainly also available and accessible for registered / logged-in users.   
+
+2. *Easily login or logout.*  
+   Logged-in users can log out by clicking the user icon on the left side of the Navbar.  
+   ![Logout link](readme-testing-files/testing/user-stories/logout-link.png "Logout link")      
+
+3. *Easily recover my password in case I forget it.*   
+   On the Log In page, there's an option to change your password below the buttons. When clicked, it will lead the users to the password reset page.   
+   ![Password reset](readme-testing-files/testing/user-stories/password-reset.png "Password reset")      
+
+4. *Receive an email confirmation after registering.*  
+   After successfully register to the website, users then will be informed to check on their inbox.  
+   ![Email verification 1](readme-testing-files/testing/user-stories/email-verify-1.png "Email verification 1")      
+   In the user's inbox, an email from Shoes And More is found. Users then will be asked to verify their email by clicking the link provided.  
+   ![Email verification 2](readme-testing-files/testing/user-stories/email-verify-2.png "Email verification 2")      
+   After the link is clicked, users then will be directed back to the website, and to confirm the email address.   
+   ![Email verification 3](readme-testing-files/testing/user-stories/email-verify-3.png "Email verification 3")      
+
+5. *Have a personalized user profile where I can see my order history and change my information.*   
+   By navigating to the My Account in the Navbar (or user icon on mobile), and click on My Profile, users can see their profile page. This page is divided into 3 pills/tabs - My Information, My Purchases, and Ratings/Reviews. User can see/update their delivery information and see their order history by clicking My Information pill and My Purchases pill respectively.  
+   ![Update information](readme-testing-files/testing/user-stories/profile-information.png "Update information")  
+   ![Order history](readme-testing-files/testing/user-stories/profile-orderhistory.png "Order history")   
+
+6. *Review products that I have purchased before.*  
+   User can review the products that they have already purchased before by navigating to the Ratings/Reviews pill on the My Profile page. 
+   ![Products to be reviewed](readme-testing-files/testing/user-stories/profile-reviews.png "Products to be reviewed")   
+   By clicking the Give Review button, users will be directed to the Add Review page.  
+   ![Add review](readme-testing-files/testing/user-stories/add-review.png "Add review")  
+
+7. *Edit and delete my reviews.*  
+   Once users submit a review, they can view the review by navigating to the Individual Product page in the Reviews section. If the user owns the review, there will be two buttons available under the review - Edit button and Delete button.  
+   ![Review](readme-testing-files/testing/user-stories/review.png "Review")  
+
+   When the Edit button is clicked, the user will be directed to the Edit Review page, which has a similar layout with the Add Review page. The only difference is, on Edit Review, the input rating and review are already pre-populated with the existing review. User can submit the updated review by clicking the 'Submit Review' button.   
+   ![Edit review](readme-testing-files/testing/user-stories/edit-review.png "Edit review")   
+
+   When the Delete button is clicked, a modal will show up to confirm users if they really want to delete their review. To confirm, click the 'Yes, Delete' button. 
+   ![Modal to delete review](readme-testing-files/testing/user-stories/modal-delete-review.png "Modal to delete review")  
+
+8. *Add products to the wishlist, so I can quickly find products I'd like to purchase.*  
+   Users can add products to their favorites by clicking the heart icon on the top-right of each product. This heart icon then turned red if the product is in the user's favorites.  
+   ![Heart icon to add to favorites](readme-testing-files/testing/user-stories/heart-icon.png "Heart icon to add to favorites")    
+
+9. *Remove products from the wishlist, so I can remove products I don't wish to purchase.*  
+10. *Easily put the wishlist products into the shopping bag.*   
+   By clicking the Favorites link on the Navbar (heart icon on mobile's Navbar), user can navigate to the Favorites page to view all products the user has added to favorites. Users can remove products from the Favorites by clicking the Trash-can icon on the top-right of each product. Users can also directly add the product to the shopping bag by choosing a size and then click on 'Add to Bag' button.  
+   ![Favorites](readme-testing-files/testing/user-stories/favorites.png "Favorites")    
