@@ -28,9 +28,9 @@
                                     <th scope="col" class="d-none d-sm-block">Subtotal</th>
                                 </tr>
                             </thead>
-
                             {% for item in bag_items %}
                                 <tr>
+                                    <!-- Product's image -->
                                     <td class="py-3 w-25">
                                         {% if item.product.image %}
                                         <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
@@ -38,17 +38,24 @@
                                         <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
                                         {% endif %}
                                     </td>
+                                    <!-- Product's information -->
                                     <td class="py-3">
                                         <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                                         <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
                                         <p class="my-0">€{{ item.product.price }}</p>
-                                        <p class="my-0"><strong>Size: </strong>{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
+                                        <p class="my-0">
+                                            <strong>Size: </strong>
+                                            {% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}
+                                        </p>
+                                        <!-- Update quantity selection, on small until large devices -->
                                         <div class="d-block d-sm-none">
-                                            <form class="form update-form" id="{{ item.item_id }}" method="POST" action="{% url 'adjust_bag' item.item_id %}">
+                                            <form class="form update-form" id="{{ item.item_id }}" method="POST" 
+                                                action="{% url 'adjust_bag' item.item_id %}">
                                                 {% csrf_token %}
                                                 <div class="w-75">
                                                     <div class="input-group">
-                                                        <select class="form-control form-select quantity-update" name="quantity" value="{{ item.quantity }}">
+                                                        <select class="form-control form-select quantity-update" 
+                                                            name="quantity" value="{{ item.quantity }}">
                                                             {% for qty in range_quantity %}
                                                                 {% if qty == item.quantity %}
                                                                     <option value="{{ qty }}" selected>{{ qty }}</option>
@@ -65,12 +72,15 @@
                                             </form>
                                         </div>
                                     </td>
+                                    <!-- Update quantity selection on mobile and very small devices-->
                                     <td class="py-3 d-none d-sm-block">
-                                        <form class="form update-form" id="{{ item.item_id }}" method="POST" action="{% url 'adjust_bag' item.item_id %}">
+                                        <form class="form update-form" id="{{ item.item_id }}" method="POST" 
+                                            action="{% url 'adjust_bag' item.item_id %}">
                                             {% csrf_token %}
                                             <div class="w-100">
                                                 <div class="input-group">
-                                                    <select class="form-control form-select quantity-update" name="quantity" value="{{ item.quantity }}">
+                                                    <select class="form-control form-select quantity-update" 
+                                                        name="quantity" value="{{ item.quantity }}">
                                                         {% for qty in range_quantity %}
                                                             {% if qty == item.quantity %}
                                                                 <option value="{{ qty }}" selected>{{ qty }}</option>
@@ -86,9 +96,14 @@
                                             </div>
                                         </form>
                                     </td>
+                                    <!-- Remove item button (trash-can icon)-->
                                     <td class="pt-3 ps-3 pe-sm-3">
-                                        <a class="remove-item" href="" id="remove_{{ item.item_id }}" data-product-size="{{ item.size }}"><i class="far fa-trash-alt"></i></a>
+                                        <a class="remove-item" href="" id="remove_{{ item.item_id }}" 
+                                            data-product-size="{{ item.size }}">
+                                            <i class="far fa-trash-alt"></i>
+                                        </a>
                                     </td>
+                                    <!-- Subtotal -->
                                     <td class="py-3 d-none d-sm-block">
                                         <p class="my-0">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
                                     </td>
@@ -100,17 +115,20 @@
                     <!-- Total Summary -->
                     <div class="col-12 col-lg-5 col-xl-4 mt-5 ps-lg-5">
                         <div class="border bg-beige p-4">
+                            <!-- If user is not logged in, ask user to sign up or log in -->
                             {% if request.user.is_authenticated %}
                             {% else %}
                                 <div class="mb-4">
                                     <p><strong>I have an account</strong></p>
                                     <p>Login to your account so you can save this transaction to your profile.</p>
                                     <div class="text-center">
-                                        <a href="{% url 'account_login' %}?next={{request.path}}" role="button" class="btn btn-light btn-sm">Go to login page</a>
+                                        <a href="{% url 'account_login' %}?next={{request.path}}" role="button" 
+                                            class="btn btn-light btn-sm">Go to login page</a>
                                     </div>
                                 </div>
                                 <hr>
                             {% endif %}
+                            <!-- Bag Total, Delivery cost, and Grand Total -->
                             <div class="d-flex justify-content-between">
                                 <h6>Bag Total: </h6>
                                 <h6>€{{ total|floatformat:2 }}</h6>
@@ -126,11 +144,12 @@
                             </div>
                             {% if free_delivery_delta > 0 %}
                                 <p class="mb-1 text-danger">
-                                    You could get free delivery by spending just <strong>€{{ free_delivery_delta }}</strong> more!
+                                    You could get free delivery by spending just 
+                                    <strong>€{{ free_delivery_delta }}</strong> more!
                                 </p>
                             {% endif %}
                             <div class="text-center mt-3">
-                                <a href="{% url 'checkout' %}" class="btn btn-brown w-100">
+                                <a href="{% url 'checkout' %}" class="btn btn-brown w-100" role="button">
                                     <span class="text-uppercase">Secure Checkout</span>
                                     <span class="icon">
                                         <i class="fas fa-lock"></i>
@@ -139,11 +158,12 @@
                             </div>
                             <div class="mt-4 mt-sm-5">
                                 <p class="mb-1">We accept</p>
-                                <img class="img-creditcard" src="{{ MEDIA_URL }}cards-logo.png" alt="Visa, Master Cards, American Express, and Discover">
+                                <img class="img-creditcard" src="{{ MEDIA_URL }}cards-logo.png" 
+                                    alt="Visa, Master Cards, American Express, and Discover">
                             </div>
                         </div>
                         <div class="my-5 text-end">
-                            <a href="{% url 'products' %}" class="btn btn-brown-inverted">
+                            <a href="{% url 'products' %}" class="btn btn-brown-inverted" role="button">
                                 <span class="icon">
                                     <i class="fas fa-chevron-left"></i>
                                 </span>
@@ -153,8 +173,9 @@
                     </div>
                 </div>
             {% else %}
+                <!-- If Bag is empty -->
                 <p class="text-center mb-5">Your bag is empty.</p>
-                <a href="{% url 'products' %}" class="btn btn-brown-inverted mb-5 float-end">
+                <a href="{% url 'products' %}" class="btn btn-brown-inverted mb-5 float-end" role="button">
                     <span class="icon">
                         <i class="fas fa-chevron-left"></i>
                     </span>
@@ -163,31 +184,29 @@
             {% endif %}
         </div>
     </section>
-
 {% endblock %}
 
 {% block postloadjs %}
-{{ block.super }}
+    {{ block.super }}
+    <script>
+        // Update quantity on change
+        $('.quantity-update').on('change', function(e) {
+            $(this).closest('.update-form').submit();
+            console.log($(this).closest('.update-form').attr('id'));
+        })
 
-<script type="text/javascript">
-    // Update quantity on change
-    $('.quantity-update').on('change', function(e) {
-        $(this).closest('.update-form').submit();
-        console.log($(this).closest('.update-form').attr('id'));
-    })
+        // Remove item and reload on click
+        $('.remove-item').click(function(e) {
+            var csrfToken = "{{ csrf_token }}";
+            var itemId = $(this).attr('id').split('remove_')[1];
+            var size = $(this).data('product-size');
+            var url = `/bag/remove/${itemId}/`;
+            var data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
 
-    // Remove item and reload on click
-    $('.remove-item').click(function(e) {
-        var csrfToken = "{{ csrf_token }}";
-        var itemId = $(this).attr('id').split('remove_')[1];
-        var size = $(this).data('product-size');
-        var url = `/bag/remove/${itemId}/`;
-        var data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
-
-        $.post(url, data)
-         .done(function() {
-             location.reload();
-         });
-    })
-</script>
+            $.post(url, data)
+            .done(function() {
+                location.reload();
+            });
+        })
+    </script>
 {% endblock %}

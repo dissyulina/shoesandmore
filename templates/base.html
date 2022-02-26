@@ -7,7 +7,7 @@
             <meta http-equiv="X-UA-Compatible" content="ie=edge">
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
-            <meta name="description" content="Shoes and More is an online store where you can buy shoes and accessories"/>
+            <meta name="description" content="Shoes and Accessories for Women, Men, Kids. Discover new collection for Spring! Boots, Sneakers, Flats, High Heels, Oxfords."/>
             <meta name="keywords" content="shoes, accessories, bags, boots, sneakers, heels, oxfords, outdoor shoes, flats, sandals, slippers, mules">
             <link rel="shortcut icon" type="image/png" href="{% static 'favicon/favicon.ico' %}" title="Shoes and More Thumbnail Image">
         {% endblock %}
@@ -19,11 +19,14 @@
             <!-- Google Fonts -->
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Noto+Sans:wght@400;700&display=swap" 
+                rel="stylesheet">
             <!-- Font Awesome -->
-            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" 
+                integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" 
+                crossorigin="anonymous">
             <!-- Bootstrap CSS -->
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
             <link rel="stylesheet" href="{% static 'css/base.css' %}">
         {% endblock %}
 
@@ -32,9 +35,15 @@
 
         {% block corejs %}
             <!-- jQuery (minified) -->
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+                crossorigin="anonymous">
+            </script>
             <!-- Bootstrap JS -->
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
+                integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" 
+                crossorigin="anonymous">
+            </script>
             <!-- Stripe -->
             <script src="https://js.stripe.com/v3/"></script>
         {% endblock %}
@@ -47,6 +56,7 @@
     <body>
         <nav class="container-fluid fixed-top pt-md-1 bg-beige">
             <div class="row d-none d-lg-flex">
+                <!-- Search input -->
                 <div class="col-12 col-md-4 col-lg-5 my-auto py-1 py-lg-0">
                     <form method="GET" action="{% url 'products' %}">
                         <div class="input-group search-query w-75">
@@ -55,15 +65,19 @@
                         </div>
                     </form>
                 </div>
+                <!-- Logo -->
                 <div class="col-12 col-md-4 col-lg-2 my-auto py-1 py-lg-0 text-center">
                     <a class="navbar-brand me-0 d-flex justify-content-center" href="{% url 'home' %}">
-                        <div class="logo"></div>
+                        <div class="logo" title="Shoes And More logo"></div>
                     </a>
                 </div>
+                <!-- Right Side Navigation on desktop: Sign In, Favorites, and Shopping Bag-->
                 <div class="col-12 col-md-4 col-lg-5 my-auto py-1 py-lg-0">
                     <ul class="list-inline list-unstyled text-center text-lg-end my-0">
+                        <!-- Sign In dropdown -->
                         <li class="list-inline-item dropdown">
-                            <a class="nav-link text-black" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link text-black" href="#" id="user-options-desktop" 
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div class="text-center d-flex align-items-center">
                                     <i class="far fa-user me-1"></i>
                                     {% if request.user.is_authenticated %}
@@ -73,10 +87,12 @@
                                     {% endif %}
                                 </div>
                             </a>
-                            <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                            <div class="dropdown-menu border-0" aria-labelledby="user-options-desktop">
                                 {% if request.user.is_authenticated %}
                                     {% if request.user.is_superuser %}
-                                        <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+                                        <a href="{% url 'add_product' %}" class="dropdown-item">
+                                            Product Management
+                                        </a>
                                     {% endif %}
                                     <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                                     <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
@@ -86,6 +102,7 @@
                                 {% endif %}
                             </div>
                         </li>
+                        <!-- Favorites -->
                         <li class="list-inline-item">
                             <a class="nav-link text-black" href="{% url 'view_favorites' %}">
                                 <div class="text-center d-flex align-items-center">
@@ -94,8 +111,10 @@
                                 </div>
                             </a>
                         </li>
+                        <!-- Shopping Bag -->
                         <li class="list-inline-item">
-                            <a class="{% if grand_total %}font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}">
+                            <a class="{% if grand_total %}font-weight-bold{% else %}text-black{% endif %} nav-link" 
+                                href="{% url 'view_bag' %}">
                                 <div class="text-center d-flex align-items-center">
                                     <i class="fas fa-shopping-basket me-1"></i>
                                     {% if grand_total %}
@@ -110,24 +129,29 @@
                 </div>
             </div>
 
-            <!-- Navigation Menu -->
+            <!-- Navigation Menu for Products -->
             <div class="navbar navbar-light navbar-expand-lg">
                 <div class="container-fluid p-0">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                        data-bs-target="#navbarToggleExternalContent" 
+                        aria-controls="navbarToggleExternalContent" 
+                        aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     {% include 'includes/mobile-top.html' %}
                     {% include 'includes/main-nav.html' %}
                 </div>
             </div>
-
+            <!-- Delivery banner -->
             <div id="delivery-banner" class="row text-center">
                 <div class="col bg-salmon">
-                    <h6 class="logo-font my-1">Free delivery on orders over €{{ free_delivery_threshold }}!</h6>                
+                    <h6 class="logo-font my-1">
+                        Free delivery on orders over €{{ free_delivery_threshold }}!
+                    </h6>                
                 </div>            
             </div>
         </nav>
-
+        <!-- For Toasts -->
         {% if messages %}
         <div class="message-container">
             {% for message in messages %}

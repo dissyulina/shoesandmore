@@ -16,9 +16,11 @@
 {% endblock %}
 
 {% block content %}
+    <!-- Hero Section-->
     <header class="hero">
         <div class="overlay">
-            <div class="container h-100 text-uppercase text-headings text-center d-flex flex-column justify-content-center">
+            <div class="container h-100 text-uppercase text-headings text-center 
+                d-flex flex-column justify-content-center">
                 <div class="row">
                     <div class="col-12 text-white py-4 py-lg-5">
                         <h3>New Collection</h3>
@@ -31,70 +33,97 @@
                 </div>
                 <div class="row">
                     <div class="col-12 text-white py-4 py-lg-5">
-                        <a href="{% url 'products' %}?subcategory=new_arrivals" class="btn btn-beige btn-lg btn-home">Shop Now</a>
+                        <a href="{% url 'products' %}?subcategory=new_arrivals" 
+                            class="btn btn-beige btn-lg btn-home">
+                            Shop Now
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-
+    <!-- Sneakers Promotion Section-->
     <section>
         <div class="container">
             <div class="row mt-5 g-0">
                 <div class="col-12 col-md-6 p-0">
-                    <img src="{{ MEDIA_URL }}sneakers-promo.jpg" class="img-fluid w-100">
+                    <img src="{{ MEDIA_URL }}sneakers-promo.jpg" class="img-fluid w-100" 
+                        alt="a sneaker">
                 </div>
                 <div class="col-12 col-md-6 p-0">
-                    <div class="bg-salmon h-100 px-3 px-lg-4 py-5 text-center d-flex flex-column justify-content-center align-items-center">
+                    <div class="bg-salmon h-100 px-3 px-lg-4 py-5 text-center d-flex 
+                        flex-column justify-content-center align-items-center">
                         <h2 class="mt-3 mb-5 text-headings">Sneakers Collection</h2>
                         <p class="mb-5">Keep things comfy and trendy with sneakers.</p>
-                        <a href="{% url 'products' %}?subcategory=sneakers" class="btn btn-beige btn-home mb-3">Shop Now</a>
+                        <a href="{% url 'products' %}?subcategory=sneakers" 
+                            class="btn btn-beige btn-home mb-3">
+                            Shop Now
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
+    <!-- Category Promotion Section-->
     <section>
         <div class="container mt-5">
             <h3 class="text-headings">Shoes for the whole family</h3>
             <div class="row g-0">
                 <div class="col-12 col-md-4 position-relative p-0">
-                    <img src="{{ MEDIA_URL }}women-promo.jpg" class="img-fluid w-100">
-                    <a href="" class="btn btn-beige position-absolute btn-bottom start-50 translate-middle btn-home"><strong>Women</strong></a>
+                    <img src="{{ MEDIA_URL }}women-promo.jpg" 
+                        class="img-fluid w-100" alt="a woman sitting">
+                    <a class="btn btn-beige position-absolute btn-bottom 
+                        start-50 translate-middle btn-home" 
+                        href="{% url 'products' %}?category=women" >
+                        <strong>Women</strong>
+                    </a>
                 </div>
                 <div class="col-12 col-md-4 position-relative p-0">
-                    <img src="{{ MEDIA_URL }}men-promo.jpg" class="img-fluid w-100">
-                    <a href="" class="btn btn-beige position-absolute btn-bottom start-50 translate-middle btn-home"><strong>Men</strong></a>
+                    <img src="{{ MEDIA_URL }}men-promo.jpg" 
+                        class="img-fluid w-100" alt="a man standing">
+                    <a class="btn btn-beige position-absolute btn-bottom 
+                        start-50 translate-middle btn-home" 
+                        href="{% url 'products' %}?category=men">
+                        <strong>Men</strong>
+                    </a>
                 </div>
                 <div class="col-12 col-md-4 position-relative p-0">
-                    <img src="{{ MEDIA_URL }}kids-promo.jpg" class="img-fluid w-100 h-100">
-                    <a href="" class="btn btn-beige position-absolute btn-bottom start-50 translate-middle btn-home"><strong>Kids</strong></a>
+                    <img src="{{ MEDIA_URL }}kids-promo.jpg" 
+                        class="img-fluid w-100 h-100" alt="two children standing">
+                    <a class="btn btn-beige position-absolute btn-bottom 
+                        start-50 translate-middle btn-home" 
+                        href="{% url 'products' %}?category=kids">
+                        <strong>Kids</strong>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
-
+    <!-- Best Sellers Section-->
     <section>
         <div class="container my-5">
             <h3 class="text-headings">Check Out Our Best Sellers!</h3>
-            <div class="main-carousel" data-flickity='{ "wrapAround": true, "imagesLoaded": true }'>
+            <div class="main-carousel" 
+                data-flickity='{ "wrapAround": true, "imagesLoaded": true }'>
                 {% for product in products %}
                     <div class="card me-2">
                         <div>
                             <!-- Product's image -->
                             {% if product.image %}
                                 <a href="{% url 'product_detail' product.id %}">
-                                    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                    <img class="card-img-top img-fluid" 
+                                        src="{{ product.image.url }}" alt="{{ product.name }}">
                                 </a>
                             {% else %}
                                 <a href="{% url 'product_detail' product.id %}">
-                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                    <img class="card-img-top img-fluid" 
+                                        src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                                 </a>
                             {% endif %}
-                            <!-- Add to favorite button -->
+                            <!-- Add to favorite button (heart icon)-->
                             <div class="circle-overlay position-abs">
-                                <a href="{% url 'add_to_favorites' product.id %}" role="button" class="btn-fav" aria-label="add to favorites">
+                                <a href="{% url 'add_to_favorites' product.id %}" role="button" 
+                                    class="btn-fav" aria-label="add to favorites">
                                     {% if product in favorites.products.all %}
                                         <i class="fas fa-heart fa-inverse text-danger"></i>
                                     {% else %}
@@ -103,6 +132,7 @@
                                 </a>  
                             </div>
                         </div>
+                        <!-- Product's information -->
                         <div class="card-body pt-1 ps-0 pb-0">
                             <p class="card-text mb-0">{{ product.name }}</p>
                         </div>
@@ -111,7 +141,9 @@
                                 <div class="col">
                                     <p class="mb-0 text-start fw-bold">€{{ product.price }}</p>
                                     {% if product.rating %}
-                                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                                        <small class="text-muted"><i class="fas fa-star mr-1"></i>
+                                            {{ product.rating }} / 5
+                                        </small>
                                     {% else %}
                                         <small class="text-muted">No Rating</small>
                                     {% endif %}
@@ -123,38 +155,45 @@
             </div>
         </div>
     </section>
-
+    <!-- Final Sale Promotion Section-->
     <section>
         <div class="container my-5">
             <div class="img-sale">
                 <div class="row h-100 g-0">
                     <div class="col-6"></div>
-                    <div class="col-6 d-flex flex-column justify-content-center align-items-center">
+                    <div class="col-6 d-flex flex-column justify-content-center 
+                        align-items-center">
                         <div class="text-center text-white pe-3">
                             <h1 class="text-headings text-uppercase">Final Sale</h1>
                             <p>Up to 60% discount</p>
-                            <a href="{% url 'products' %}?subcategory=sale" class="btn btn-beige btn-home">Shop Now</a>
+                            <a href="{% url 'products' %}?subcategory=sale" 
+                                class="btn btn-beige btn-home">Shop Now
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
+    <!-- Bags & Accessories Promotion Section-->
     <section>
         <div class="container my-5">
             <div class="img-accessories">
-                <div class="overlay px-3 d-flex flex-column justify-content-center align-items-center">
+                <div class="overlay px-3 d-flex flex-column 
+                    justify-content-center align-items-center">
                     <div class="text-center text-white">
                         <h1 class="text-headings text-uppercase">Bags & Accessories</h1>
                         <p>Complete your style with our bags and accessories collection.</p>
-                        <a href="{% url 'products' %}?subcategory=accessories" class="btn btn-beige btn-home">Shop Now</a>
+                        <a href="{% url 'products' %}?subcategory=accessories" 
+                            class="btn btn-beige btn-home">
+                            Shop Now
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
+    <!-- Articles / Blogs Section-->
     <section>
         <div class="bg-light-rose text-center mt-5 py-5">
             <div class="container">
@@ -165,23 +204,29 @@
                         <div class="card">
                             {% if blog.image %}
                                 <a href="{% url 'article_detail' blog.id %}">
-                                    <img src="{{ blog.image.url }}" class="card-img-top" alt="{{ blog.title }}">
+                                    <img src="{{ blog.image.url }}" class="card-img-top" 
+                                        alt="{{ blog.title }}">
                                 </a>
                             {% else %}
                                 <a href="{% url 'article_detail' blog.id %}">
-                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ blog.title }}">
+                                    <img class="card-img-top img-fluid" 
+                                        src="{{ MEDIA_URL }}noimage.png" alt="{{ blog.title }}">
                                 </a>
                             {% endif %}
                             <div class="card-body">
                                 <h6 class="card-title fw-bold">{{ blog.title }}</h6>
                                 <p class="card-text">{{ blog.paragraph1|truncatechars:40 }}</p>
-                                <a href="{% url 'article_detail' blog.id %}">Read the article <i class="fas fa-arrow-right"></i></a>
+                                <a href="{% url 'article_detail' blog.id %}">Read the article 
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
                     {% endfor %}
                 </div>
-                <a href="{% url 'all_articles' %}" class="btn bg-salmon mt-4">See All Articles</a>
+                <a href="{% url 'all_articles' %}" class="btn bg-salmon mt-4" role="button">
+                    See All Articles
+                </a>
             </div>
         </div>
     </section>

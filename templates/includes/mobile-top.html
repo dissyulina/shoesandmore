@@ -1,22 +1,29 @@
+<!-- Logo -->
 <div class="d-block d-lg-none">
-    <a class="navbar-brand me-auto d-flex justify-content-center py-2 ps-1" href="{% url 'home' %}">
-        <div class="logo"></div>
+    <a class="navbar-brand me-auto d-flex justify-content-center py-2 ps-1" 
+        href="{% url 'home' %}">
+        <div class="logo" title="Shoes And More logo"></div>
     </a>
 </div>
 
 <ul class="list-inline ms-auto mb-0">
+    <!-- Search product -->
     <li class="list-inline-item p-0">
-        <a class="text-black nav-link d-block d-lg-none" href="#" id="mobile-search" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="text-black nav-link d-block d-lg-none" href="#" 
+            id="mobile-search" data-bs-toggle="dropdown" 
+            aria-haspopup="true" aria-expanded="false">
             <div class="text-center">
                 <i class="fas fa-search"></i>
             </div>
         </a>
-        <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="mobile-search">
+        <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" 
+            aria-labelledby="mobile-search">
             <form class="form" method="GET" action="{% url 'products' %}">
                 <div class="input-group w-100">
-                    <input class="form-control border rounded-0" type="text" name="q" placeholder="Search our site">
+                    <input class="form-control border rounded-0" type="text" 
+                        name="q" placeholder="Search our site">
                     <div class="input-group-append">
-                        <button class="form-control form-control btn btn-black border border-black rounded-0" type="submit">
+                        <button class="form-control form-control" type="submit">
                             <i class="fas fa-search"></i>
                         </button>
                     </div>
@@ -24,13 +31,15 @@
             </form>
         </div>
     </li>
+    <!-- Sign In dropdown -->
     <li class="list-inline-item dropdown">
-        <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options-mobile" 
+            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="text-center">
                 <i class="far fa-user"></i>
             </div>
         </a>
-        <div class="dropdown-menu border-0" aria-labelledby="user-options">
+        <div class="dropdown-menu border-0" aria-labelledby="user-options-mobile">
             {% if request.user.is_authenticated %}
                 {% if request.user.is_superuser %}
                     <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
@@ -43,6 +52,7 @@
             {% endif %}
         </div>
     </li>
+    <!-- Favorites -->
     <li class="list-inline-item">
         <a class="nav-link d-block d-lg-none" href="{% url 'view_favorites' %}">
             <div class="text-center d-flex align-items-center">
@@ -51,8 +61,10 @@
             </div>
         </a>
     </li>
+    <!-- Shopping Bag -->
     <li class="list-inline-item">
-        <a class="{% if grand_total %}font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none" href="{% url 'view_bag' %}">
+        <a class="{% if grand_total %}font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none" 
+            href="{% url 'view_bag' %}">
             <div class="text-center d-flex align-items-center position-relative">
                 <i class="fas fa-shopping-basket me-1"></i>
                 {% if grand_total %}
