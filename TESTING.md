@@ -26,12 +26,17 @@
 6. Pep8 Online Testing  
 7. Lighthouse Testing  
 
-The website was extensively tested during the development by using:
+<br/>
+
+The website was extensively tested during the development and after development by using:
 - ```console.log()``` and developer tools for front-end  
 - Printing variables to the terminal for back-end  
 - Manual testing and developing based on the user stories  
+- Automated testing on Django at the end of development phase. 
+- Few other testing using programs 
 
-<br/>
+The testings are documented below.
+
 
 ### **1. User Stories Testing**  
 As a shopper I want to be able to:
@@ -193,6 +198,38 @@ As an admin and store management, I want to be able to:
 
 <br/>  
 
-### **2. Auto Prefixer CSS**  
+### **2. Auto Prefixer CSS**   
 [Autoprefixer CSS](https://autoprefixer.github.io/) was used to add CSS vendor prefixes to the CSS rules after the developing process was done, to ensure that the they work across all browsers.  
 
+<br/>  
+
+### **3. Manual Testing by The Developer**  
+#### **Browsers Compatibility**   
+The website was tested through the following browsers: Google Chrome, Microsoft Edge, Opera, Mozilla Firefox, and Safari (iOS) browsers.  
+
+#### **Devices**  
+The website was also viewed on the following devices:  
+- Windows Desktop  
+- Windows Laptop  
+- Tablets: iPad Mini 2 and iPad 2018  
+- Mobile: iPhone7, iPhone 8, iPhone 12 Mini, Asus Zenfone Max Pro M2, and LG G5
+- Friends and family members were asked to review the site on their devices and to point out any bugs and/or user experience issues.  
+
+#### **Responsiveness**   
+To check the responsiveness of the website across all devices, the developer tools are used regularly during the developing process. Based on the  
+**Result**: 
+
+#### **Links**   
+The links were tested to ensure that:  
+- All navigation links are linking correctly.  
+- All buttons on the forms are working (to cancel or to submit the form).  
+- The social media buttons are working and opening in a new tab.  
+
+**Result**: All of the above are working properly.  
+
+#### **Forms**  
+The form was also tested to ensure that:  
+- The required attributes are working.  
+- The regex patterns for username and password are working.  
+- There's a validation message that explains the correct format if the user filled in the wrong format (for username and password).  
+- If a user fills out the wrong format, it won't break the website. For example, if I fill in letters in the "Servings" or "Prep + Cooking Time" field, it won't cause any error to the website.  

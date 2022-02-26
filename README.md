@@ -366,6 +366,9 @@ Toast messages provide the user the necessary feedback of their activities wheth
 ![Success toast message - without bag display](readme-testing-files/readme/toast-suceess-nobag.png "Success toast message - without bag display")
 ![Success toast message - with bag display](readme-testing-files/readme/toast-success.png "Success toast message - with bag display")   
 
+- **Error Pages**  
+Error pages for 403, 404, and 500 errors were created to ensure a great user experience even when the user encounters an error. Users can be informed of the error and can easily navigate back to homepage.   
+
 
 ### **B. Page Features**  
 #### **1. Home Page**  
