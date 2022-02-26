@@ -27,9 +27,11 @@
 7. Lighthouse Testing  
 
 The website was extensively tested during the development by using:
-- console.log() and developer tools for front-end  
-- printing variables to the terminal for back-end  
-- manual testing and developing based on the user stories  
+- ```console.log()``` and developer tools for front-end  
+- Printing variables to the terminal for back-end  
+- Manual testing and developing based on the user stories  
+
+<br/>
 
 ### **1. User Stories Testing**  
 As a shopper I want to be able to:
@@ -105,7 +107,7 @@ As a shopper I want to be able to:
    ![Navbar on desktop](readme-testing-files/readme/navbar-desktop.png "Navbar on desktop")   
    ![Footer on desktop](readme-testing-files/readme/footer-desktop.png "Footer on desktop")   
    Navbar and Footer on mobile:   
-   ![Navbar on mobile](readme-testing-files/testing/user-stories/navbar-mobile.png "Navbar on mobile") 
+   ![Navbar on mobile](readme-testing-files/testing/user-stories/navbar-mobile.png "Navbar on mobile")  
    ![Footer on mobile](readme-testing-files/testing/user-stories/footer-mobile.png "Footer on mobile")     
 
 18. *Easily register for an account.*   
@@ -160,7 +162,7 @@ As a registered user/ shopper, I want to be able to:
    When the Edit button is clicked, the user will be directed to the Edit Review page, which has a similar layout with the Add Review page. The only difference is, on Edit Review, the input rating and review are already pre-populated with the existing review. User can submit the updated review by clicking the 'Submit Review' button.   
    ![Edit review](readme-testing-files/testing/user-stories/edit-review.png "Edit review")   
 
-   When the Delete button is clicked, a modal will show up to confirm users if they really want to delete their review. To confirm, click the 'Yes, Delete' button. 
+   When the Delete button is clicked, a modal will show up to confirm users if they really want to delete their review. To confirm, click the 'Yes, Delete' button.  
    ![Modal to delete review](readme-testing-files/testing/user-stories/modal-delete-review.png "Modal to delete review")  
 
 8. *Add products to the wishlist, so I can quickly find products I'd like to purchase.*  
@@ -174,17 +176,23 @@ As a registered user/ shopper, I want to be able to:
 
 
 As an admin and store management, I want to be able to:
-   1. Add a product.  
+1. *Add a product.*   
    Admin can add a product to the website by logging in as admin, navigate to My Account and choose Product Management. Admin then will be directed to the Add Products page. After filling out the form, they can click 'Add Product' button.   
    ![Add product](readme-testing-files/testing/user-stories/add-product.png "Add product")   
 
-   2. Edit or update a product. 
-   Admin can edit a product by logging in as admin, navigate to the Products page or the Individual Product page and click on Edit link. 
+2. *Edit or update a product.*   
+   Admin can edit a product by logging in as admin, navigate to the Products page or the Individual Product page and click on Edit link.  
    ![Edit and Delete product](readme-testing-files/testing/user-stories/admin-edit-delete.png "Edit and Delete product")   
 
    Admin then will be directed to the Edit Products page. After filling out the form, they can click 'Edit Product' button.  
    ![Edit product](readme-testing-files/testing/user-stories/edit-product.png "Edit product")   
 
-   3. Delete a product.  
+3. *Delete a product.*   
    Admin can delete a product by logging in as admin, navigate to the Products page or the Individual Product page and click on Delete link. A modal will then show up to confirm the deletion. Admin can confirm it by clicking on the 'Yes, Delete' button.  
    ![Edit and Delete product](readme-testing-files/readme/delete-product-modal.png "Edit and Delete product")   
+
+<br/>  
+
+### **2. Auto Prefixer CSS**  
+[Autoprefixer CSS](https://autoprefixer.github.io/) was used to add CSS vendor prefixes to the CSS rules after the developing process was done, to ensure that the they work across all browsers.  
+

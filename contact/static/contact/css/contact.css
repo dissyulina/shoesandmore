@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 .form-control {
     border: 1px solid rgb(160, 160, 160);
     border-radius: 0;
@@ -6,6 +13,7 @@
 .contact-wrapper {
     border: 1px solid #000;
 }
+
 /* Media Queries */
 /* Very small mobile */
 @media screen and (max-width: 400px) {

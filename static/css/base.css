@@ -1,10 +1,22 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 body {
     font-family: 'Noto Sans', sans-serif;
     background-color: #fff;
     line-height: 1.5;
     min-height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 
 .text-headings {
@@ -30,6 +42,7 @@ a {
 }
 
 /* Buttons */
+
 .btn {
     padding: 0.75rem 1.5rem; 
     border-radius: 0%;
@@ -63,6 +76,12 @@ a {
     background-color: #8a6553;
     color: #fff;
     border: 1px solid #8a6553;
+}
+
+.btn-beige:hover {
+    background-color: #b4a69d;
+    color: #000;
+    border: 1px solid #b4a69d;
 }
 
 /* Navbar & Footer*/
@@ -138,9 +157,15 @@ footer {
     padding: 0.75rem;
     border-radius: 50%;
     background-color: rgba(256, 256, 256, 60%);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 /* Home Page */
@@ -203,6 +228,7 @@ footer {
 }
 
 /* Products Page */
+
 .card {
     max-width: 19rem;
     font-size: 0.8rem;
@@ -227,10 +253,12 @@ footer {
 /* Individual Product Page */
 
 .box-shadow {
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    -webkit-box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+            box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
 /* Toasts */
+
 .message-container {
     position: fixed;
     top: 72px;
@@ -254,6 +282,7 @@ footer {
 }
 
 /* Favorites Page and Buttons*/
+
 .position-abs {
     position: absolute;
     top: 5px;
@@ -270,9 +299,15 @@ footer {
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .fa-heart,
@@ -288,17 +323,20 @@ footer {
 }
 
 /* Bag Page */
+
 .img-creditcard {
     width: 200px;
 }
 
 /* Checkout Page */
+
 select:invalid,
 select option[value=""] {
     color: #6c757d !important;
 }
 
 /* Allauth */
+
 .allauth-form-inner-content {
     margin: 2rem auto;
     padding: 2.5rem;
@@ -354,10 +392,12 @@ select option[value=""] {
 
 /* --------- MEDIA QUERIES --------- */
 /* Slightly larger container on xl screens  */
+
 @media screen and (min-width: 1200px) {
     .container-xxl {
       max-width: 80%;
     }
+    
     .img-sale {
         background: url('/media/sale-desktop.jpg') no-repeat center center;
         background-size: cover;
@@ -365,6 +405,7 @@ select option[value=""] {
 }
 
 /* Mobile and tablet */
+
 @media screen and (max-width: 991px) {
     .logo {
         height: 50px;
@@ -376,16 +417,18 @@ select option[value=""] {
         background-size: cover;
         height: calc(100vh - 109px);
     }
+
     .text-hero {
         font-size: 3rem;
     }
+
     .navbar-offset {
         padding-top: 109px;
     }
-    
 }
 
 /* Very small mobile */
+
 @media screen and (max-width: 400px) {
     body p,
     body li,

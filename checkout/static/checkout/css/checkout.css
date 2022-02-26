@@ -1,14 +1,26 @@
-/*.StripeElement,*/
-.stripe-style-input {
-    box-sizing: border-box;
-    height: 40px;
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
 
+/* StripeElement */
+.stripe-style-input {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    height: 40px;
     border: 1px solid transparent;
     border-radius: 0px;
     background-color: white;
-    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-box-shadow: 0 1px 3px 0 #e6ebf1;
+            box-shadow: 0 1px 3px 0 #e6ebf1;
     -webkit-transition: box-shadow 150ms ease;
+    -webkit-transition: -webkit-box-shadow 150ms ease;
+    transition: -webkit-box-shadow 150ms ease;
+    -o-transition: box-shadow 150ms ease;
     transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease, -webkit-box-shadow 150ms ease;
 }
 
 .StripeElement {
@@ -18,11 +30,28 @@
 .StripeElement--focus,
 .stripe-style-input:focus,
 .stripe-style-input:active {
-    box-shadow: 0 1px 3px 0 #cfd7df;
+    -webkit-box-shadow: 0 1px 3px 0 #cfd7df;
+            box-shadow: 0 1px 3px 0 #cfd7df;
 }
 
 .StripeElement--webkit-autofill {
     background-color: #fefde5 !important;
+}
+
+.stripe-style-input::-webkit-input-placeholder {
+    color: #aab7c4;
+}
+
+.stripe-style-input::-moz-placeholder {
+    color: #aab7c4;
+}
+
+.stripe-style-input:-ms-input-placeholder {
+    color: #aab7c4;
+}
+
+.stripe-style-input::-ms-input-placeholder {
+    color: #aab7c4;
 }
 
 .stripe-style-input::placeholder {
@@ -51,9 +80,15 @@
 }
 
 .loading-spinner {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     margin: 0;
     height: 100%;
 }
