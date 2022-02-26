@@ -30,7 +30,7 @@ Please note that this website was created for the Code Institute’s Milestone P
    B. [Page Features](https://github.com/dissyulina/shoesandmore#b-page-features)  
    C. [Features to be Implemented in The Future](https://github.com/dissyulina/shoesandmore#c-features-to-be-implemented-in-the-future)
 4. [Testing](https://github.com/dissyulina/shoesandmore#testing)    
-   [Go to TESTING.md]
+   [Go to TESTING.md](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#shoes-and-more---testing)
 5. [Issues and Bugs](https://github.com/dissyulina/shoesandmore#issues-and-bugs)  
 6. [Technology Used](https://github.com/dissyulina/shoesandmore#technology-used)  
    A. [Main Languanges](https://github.com/dissyulina/shoesandmore#a-main-language)  
