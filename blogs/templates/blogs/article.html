@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% block extra_title %} - Individual Article Page{% endblock %}
 
 {% block page_header %}
     <div class="navbar-offset"></div>
@@ -8,24 +9,31 @@
 {% block content %}
     <section>
         <div class="container">
+            <!-- Title -->
             <div class="row">
                 <div class="col text-center py-2 py-md-3">
                     <h2 class="my-3 my-md-5">{{ blog.title }}</h2>
                 </div>
             </div>
+            <!-- Author -->
             <div class="row">
                 <div class="col-12">
-                    <small class="text-muted">Created on {{ blog.created_on }} by {{ blog.author }}</small>
+                    <small class="text-muted">
+                        Created on {{ blog.created_on }} by {{ blog.author }}
+                    </small>
                 </div>
             </div>
             <div class="row mb-5">
+                <!-- Image -->
                 <div class="col-12 col-lg-6">
                     {% if blog.image %}
                         <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="w-100">
                     {% else %}
-                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ blog.title }}" class="img-fluid w-100">
+                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" 
+                            alt="{{ blog.title }}" class="img-fluid w-100">
                     {% endif %}
                 </div>
+                <!-- Article text -->
                 <div class="col-12 col-lg-6 ps-lg-4">
                     <p class="my-4 mt-lg-0">{{ blog.paragraph1 }}</p>
                     {% if blog.paragraph2 %}
@@ -36,8 +44,11 @@
                     {% endif %}
                 </div>
             </div>
+            <!-- Back to Articles page button -->
             <div class="d-flex justify-content-center mb-5 pb-4">
-                <a href="{% url 'all_articles' %}" role="button" class="btn bg-salmon">Read More Articles</a>
+                <a href="{% url 'all_articles' %}" role="button" class="btn bg-salmon">
+                    Read More Articles
+                </a>
             </div>
         </div>
     </section>

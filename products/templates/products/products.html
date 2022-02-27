@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% block extra_title %} - Products Page{% endblock %}
 
 {% block page_header %}
     <div class="navbar-offset"></div>
@@ -11,10 +12,14 @@
             <!-- Breadcrumb -->
             <div class="mt-3" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{% url 'products' %}">All Products</a></li>
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'products' %}">All Products</a>
+                    </li>
                     {% if var_category %}
                         <li class="breadcrumb-item active text-capitalize" aria-current="page">
-                            <a href="{% url 'products' %}?category={{var_category}}">{{ var_category }}</a>
+                            <a href="{% url 'products' %}?category={{var_category}}">
+                                {{ var_category }}
+                            </a>
                         </li>
                     {% endif %}
                     {% if var_subcategory %}
@@ -35,7 +40,9 @@
                             <div class="text-center text-white pe-3">
                                 <h1 class="text-headings text-uppercase">Final Sale</h1>
                                 <p>Up to 60% discount</p>
-                                <a href="{% url 'products' %}?subcategory=sale" class="btn btn-beige btn-home">Shop Now</a>
+                                <a href="{% url 'products' %}?subcategory=sale" class="btn btn-beige btn-home">
+                                    Shop Now
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -70,7 +77,9 @@
                             {% for cat in all_categories %}
                             <li class="nav-item">
                                 <a class="nav-link text-capitalize pb-0" 
-                                href="{% url 'products' %}?category={{ cat }}&subcategory={{ var_subcategory }}">{{ cat.friendly_name }}</a>
+                                    href="{% url 'products' %}?category={{ cat }}&subcategory={{ var_subcategory }}">
+                                    {{ cat.friendly_name }}
+                                </a>
                             </li>
                             {% endfor %}
                         </ul>
@@ -81,7 +90,9 @@
                             {% for cat in all_categories %}
                             <li class="nav-item">
                                 <a class="nav-link text-capitalize pb-0" 
-                                href="{% url 'products' %}?category={{ cat }}">{{ cat.friendly_name }}</a>
+                                    href="{% url 'products' %}?category={{ cat }}">
+                                    {{ cat.friendly_name }}
+                                </a>
                             </li>
                             {% endfor %}
                         </ul>
@@ -93,7 +104,8 @@
                             <!-- Category navigation for mobile and tablets -->
                             <div class="me-auto">
                                 <div class="btn-group d-lg-none">
-                                    <button class="text-black btn btn-beige text-start" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button class="text-black btn btn-beige text-start" 
+                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Choose Category <i class="fas fa-chevron-down"></i>
                                     </button>
                                     <ul class="dropdown-menu">
@@ -101,13 +113,22 @@
                                     {% if var_category == "women" or var_category == "men" or var_category == "kids" %}
                                         {% for subcat in all_subcategories %}
                                             {% if subcat.name in subcategories_exist %}
-                                                <li><a class="dropdown-item" href="{% url 'products' %}?category={{var_category}}&subcategory={{subcat}}">{{ subcat.friendly_name }}</a></li>
+                                                <li>
+                                                    <a class="dropdown-item" 
+                                                        href="{% url 'products' %}?category={{var_category}}&subcategory={{subcat}}">
+                                                        {{ subcat.friendly_name }}
+                                                    </a>
+                                                </li>
                                             {% endif%}
                                         {% endfor %}
                                     <!-- If user chooses All Products, display the categories instead -->
                                     {% else %}
                                         {% for cat in all_categories %}
-                                            <li><a class="dropdown-item" href="{% url 'products' %}?category={{ cat }}">{{ cat.friendly_name }}</a></li>
+                                            <li>
+                                                <a class="dropdown-item" href="{% url 'products' %}?category={{ cat }}">
+                                                    {{ cat.friendly_name }}
+                                                </a>
+                                            </li>
                                         {% endfor %}
                                     {% endif %}
                                     </ul>
@@ -115,35 +136,130 @@
                             </div>
                             <!-- SORTING -->
                             <div class="d-flex align-items-center">
-                                <a class="text-black btn btn-beige text-end" href="#" id="sortDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="text-black btn btn-beige text-end" href="#" id="sortDropdown" 
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Sort by 
                                     <i class="fas fa-chevron-down"></i>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="sortDropdown">
                                     {% if var_category and var_subcategory %}
-                                        <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&subcategory={{ var_subcategory }}&sort=price&direction=asc">By Price (Lowest to Highest)</a></li>
-                                        <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&subcategory={{ var_subcategory }}&sort=price&direction=desc">By Price (Highest to Lowest)</a></li>
-                                        <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&subcategory={{ var_subcategory }}&sort=rating&direction=desc">By Rating (Highest to Lowest)</a></li>
-                                        <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&subcategory={{ var_subcategory }}&sort=total_purchased&direction=desc">By Popularity (Highest to Lowest)</a></li>
-                                        <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&subcategory={{ var_subcategory }}&sort=name&direction=asc">By Name (A to Z)</a></li>
+                                        <li>
+                                            <a class="dropdown-item" 
+                                                href="{% url 'products' %}?category={{ var_category }}&subcategory={{ var_subcategory }}&sort=price&direction=asc">
+                                                By Price (Lowest to Highest)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" 
+                                                href="{% url 'products' %}?category={{ var_category }}&subcategory={{ var_subcategory }}&sort=price&direction=desc">
+                                                By Price (Highest to Lowest)
+                                            </a>
+                                        </li>
+                                        <li><a class="dropdown-item" 
+                                                href="{% url 'products' %}?category={{ var_category }}&subcategory={{ var_subcategory }}&sort=rating&direction=desc">
+                                                By Rating (Highest to Lowest)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" 
+                                                href="{% url 'products' %}?category={{ var_category }}&subcategory={{ var_subcategory }}&sort=total_purchased&direction=desc">
+                                                By Popularity (Highest to Lowest)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" 
+                                                href="{% url 'products' %}?category={{ var_category }}&subcategory={{ var_subcategory }}&sort=name&direction=asc">
+                                                By Name (A to Z)
+                                            </a>
+                                        </li>
                                     {% elif var_category and var_subcategory == None %}
-                                        <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&sort=price&direction=asc">By Price (Lowest to Highest)</a></li>
-                                        <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&sort=price&direction=desc">By Price (Highest to Lowest)</a></li>
-                                        <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&sort=rating&direction=desc">By Rating (Highest to Lowest)</a></li>
-                                        <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&sort=total_purchased&direction=desc">By Popularity (Highest to Lowest)</a></li>
-                                        <li><a class="dropdown-item" href="{% url 'products' %}?category={{ var_category }}&sort=name&direction=asc">By Name (A to Z)</a></li>
+                                        <li>
+                                            <a class="dropdown-item" 
+                                                href="{% url 'products' %}?category={{ var_category }}&sort=price&direction=asc">
+                                                By Price (Lowest to Highest)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" 
+                                                href="{% url 'products' %}?category={{ var_category }}&sort=price&direction=desc">
+                                                By Price (Highest to Lowest)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" 
+                                                href="{% url 'products' %}?category={{ var_category }}&sort=rating&direction=desc">
+                                                By Rating (Highest to Lowest)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" 
+                                                href="{% url 'products' %}?category={{ var_category }}&sort=total_purchased&direction=desc">
+                                                By Popularity (Highest to Lowest)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" 
+                                                href="{% url 'products' %}?category={{ var_category }}&sort=name&direction=asc">
+                                                By Name (A to Z)
+                                            </a>
+                                        </li>
                                     {% elif var_category == None and var_subcategory %}
-                                        <li><a class="dropdown-item" href="{% url 'products' %}?subcategory={{ var_subcategory }}&sort=price&direction=asc">By Price (Lowest to Highest)</a></li>
-                                        <li><a class="dropdown-item" href="{% url 'products' %}?subcategory={{ var_subcategory }}&sort=price&direction=desc">By Price (Highest to Lowest)</a></li>
-                                        <li><a class="dropdown-item" href="{% url 'products' %}?subcategory={{ var_subcategory }}&sort=rating&direction=desc">By Rating (Highest to Lowest)</a></li>
-                                        <li><a class="dropdown-item" href="{% url 'products' %}?subcategory={{ var_subcategory }}&sort=total_purchased&direction=desc">By Popularity (Highest to Lowest)</a></li>
-                                        <li><a class="dropdown-item" href="{% url 'products' %}?subcategory={{ var_subcategory }}&sort=name&direction=asc">By Name (A to Z)</a></li>
+                                        <li>
+                                            <a class="dropdown-item" 
+                                                href="{% url 'products' %}?subcategory={{ var_subcategory }}&sort=price&direction=asc">
+                                                By Price (Lowest to Highest)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" 
+                                                href="{% url 'products' %}?subcategory={{ var_subcategory }}&sort=price&direction=desc">
+                                                By Price (Highest to Lowest)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" 
+                                                href="{% url 'products' %}?subcategory={{ var_subcategory }}&sort=rating&direction=desc">
+                                                By Rating (Highest to Lowest)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" 
+                                                href="{% url 'products' %}?subcategory={{ var_subcategory }}&sort=total_purchased&direction=desc">
+                                                By Popularity (Highest to Lowest)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" 
+                                                href="{% url 'products' %}?subcategory={{ var_subcategory }}&sort=name&direction=asc">
+                                                By Name (A to Z)
+                                            </a>
+                                        </li>
                                     {% else %}
-                                        <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">By Price (Lowest to Highest)</a></li>
-                                        <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=desc">By Price (Highest to Lowest)</a></li>
-                                        <li><a class="dropdown-item" href="{% url 'products' %}?sort=rating&direction=desc">By Rating (Highest to Lowest)</a></li>
-                                        <li><a class="dropdown-item" href="{% url 'products' %}?sort=total_purchased&direction=desc">By Popularity (Highest to Lowest)</a></li>
-                                        <li><a class="dropdown-item" href="{% url 'products' %}?sort=name&direction=asc">By Name (A to Z)</a></li>
+                                        <li>
+                                            <a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">
+                                                By Price (Lowest to Highest)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=desc">
+                                                By Price (Highest to Lowest)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="{% url 'products' %}?sort=rating&direction=desc">
+                                                By Rating (Highest to Lowest)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="{% url 'products' %}?sort=total_purchased&direction=desc">
+                                                By Popularity (Highest to Lowest)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="{% url 'products' %}?sort=name&direction=asc">
+                                                By Name (A to Z)
+                                            </a>
+                                        </li>
                                     {% endif %}
                                 </ul>
                             </div> 
@@ -151,7 +267,8 @@
                         <p class="text-muted text-md-start small">
                             {% if search_term  %}
                                 <span><a href="{% url 'products' %}">Back to All Products</a> | </span>
-                                {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+                                {{ products|length }} Products{% if search_term %} found for 
+                                <strong>"{{ search_term }}"</strong>{% endif %}
                             {% endif %}
                         </p>
                     </div>
@@ -164,16 +281,19 @@
                                         <!-- Product image -->
                                         {% if product.image %}
                                             <a href="{% url 'product_detail' product.id %}">
-                                                <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                                <img class="card-img-top img-fluid" src="{{ product.image.url }}" 
+                                                    alt="{{ product.name }}">
                                             </a>
                                         {% else %}
                                             <a href="{% url 'product_detail' product.id %}">
-                                                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" 
+                                                    alt="{{ product.name }}">
                                             </a>
                                         {% endif %}
                                         <!-- Add to favorite button (Heart icon)-->
                                         <div class="circle-overlay position-abs">
-                                            <a href="{% url 'add_to_favorites' product.id %}" role="button" class="btn-fav" aria-label="add to favorites">
+                                            <a href="{% url 'add_to_favorites' product.id %}" role="button" 
+                                                class="btn-fav" aria-label="add to favorites">
                                                 {% if product in favorites.products.all %}
                                                     <i class="fas fa-heart fa-inverse text-danger"></i>
                                                 {% else %}
@@ -195,22 +315,29 @@
                                                     {% endif %}
                                                 </p>
                                                 {% if product.rating %}
-                                                    <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                                                    <small class="text-muted">
+                                                        <i class="fas fa-star mr-1"></i>{{ product.rating }} / 5
+                                                    </small>
                                                 {% else %}
                                                     <small class="text-muted">No Rating</small>
                                                 {% endif %}
                                                 {% if request.user.is_superuser %}
                                                     <small class="ml-3 float-end">
                                                         <a href="{% url 'edit_product' product.id %}">Edit</a> | 
-                                                        <a href="" class="text-danger" data-bs-toggle="modal" data-bs-target="#product-{{ product.id }}">Delete</a>
+                                                        <a href="" class="text-danger" data-bs-toggle="modal" 
+                                                            data-bs-target="#product-{{ product.id }}">
+                                                            Delete
+                                                        </a>
                                                     </small>
                                                     <!-- Confirmation modal before deleting the product -->
-                                                    <div class="modal fade" tabindex="-1" id="product-{{ product.id }}" aria-labelledby="modal-delete-{{ product.id }}" aria-hidden="true">
+                                                    <div class="modal fade" tabindex="-1" id="product-{{ product.id }}" 
+                                                        aria-labelledby="modal-delete-{{ product.id }}" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered">
                                                             <div class="modal-content">
                                                                 <div class="modal-header bg-beige border-0">
                                                                     <h5 class="fw-bold">Delete Product</h5>
-                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" 
+                                                                        aria-label="Close"></button>
                                                                 </div>
                                                                 <div class="modal-body text-center border-0">
                                                                     <p class="fs-6">Are you sure you want to delete this product: </p>
@@ -220,8 +347,14 @@
                                                                     {% endif %}
                                                                 </div>
                                                                 <div class="modal-footer border-0 justify-content-center">
-                                                                    <button type="button" class="btn btn-beige-inverted" data-bs-dismiss="modal">Cancel</button>
-                                                                    <a role="button" class="btn btn-beige" href="{% url 'delete_product' product.id %}">Yes, Delete</a>
+                                                                    <button type="button" class="btn btn-beige-inverted" 
+                                                                        data-bs-dismiss="modal">
+                                                                        Cancel
+                                                                    </button>
+                                                                    <a role="button" class="btn btn-beige" 
+                                                                        href="{% url 'delete_product' product.id %}">
+                                                                        Yes, Delete
+                                                                    </a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -237,27 +370,16 @@
                 </div>
             </div>
         </div>
+        <!-- Back to top button -->
+        <a class="text-center" id="back-to-top" href="#">
+            <div class="h-100 shadow-sm rounded-0 d-flex justify-content-center align-items-center">
+                <i class="fas fa-arrow-up"></i>
+            </div>
+        </a>
     </section>
 {% endblock %}
 
 {% block postloadjs %}
     {{ block.super }}
-    <script>
-        $(document).ready(function() {
-            // Back to top button functionality
-            $("#back-to-top").click(function(event) {
-                event.preventDefault();
-                $("html, body").animate({ scrollTop: 0 });
-                return false;
-            });
-
-            // Turn Add to favorite button (heart icon) into red
-            $('.fa-inverse').hover(function(){
-                $(this).toggleClass("text-danger");
-            });
-            $('.fa-inverse').click(function(){
-                $(this).focus();
-            });
-        });
-    </script>
+    <script src="{% static 'products/js/products.js' %}"></script>
 {% endblock %}

@@ -241,7 +241,7 @@ footer {
     height: 42px;
     width: 42px;
     position: fixed;
-    bottom: 30vh;
+    bottom: 10vh;
     right: 10px;
     cursor: pointer;
 }

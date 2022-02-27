@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% block extra_title %} - Checkout Success Page{% endblock %}
 {% load bag_tools %}
 
 {% block extra_css %}
@@ -16,9 +17,13 @@
             <div class="row">
                 <div class="col text-center">
                     <h2 class="my-4 my-sm-5 fw-bold">Thank You!</h2>
-                    <p class="mb-5">Your order information is below. A confirmation email will be sent to <strong>{{ order.email }}</strong>.</p>
+                    <p class="mb-5">
+                        Your order information is below. A confirmation email will be sent to 
+                        <strong>{{ order.email }}</strong>.
+                    </p>
                 </div>
             </div>
+            <!-- The order confirmation -->
             <div class="row">
                 <div class="col-12 col-lg-7 col-xl-6 mx-auto">
                     <div class="order-confirmation-wrapper p-2 border">
@@ -27,7 +32,7 @@
                                 <p class="fw-bold"><small>Order Info:</small></p>
                             </div>
                         </div>
-    
+                        <!-- Order Number -->
                         <div class="row">
                             <div class="col-4">
                                 <p class="mb-0"><small>Order Number</small></p>
@@ -36,7 +41,7 @@
                                 <p class="mb-0 text-truncate"><small>{{ order.order_number }}</small></p>
                             </div>
                         </div>
-    
+                        <!-- Date -->
                         <div class="row">
                             <div class="col-4">
                                 <p class="mb-0"><small>Order Date</small></p>
@@ -46,38 +51,41 @@
                             </div>
                         </div>
                         <hr>
-
+                        <!-- Item(s) -->
                         <div class="row">
                             <div class="col">
                                 <p class="fw-bold mt-2"><small>Order Items:</small></p>
                             </div>
                         </div>
-                        
                         {% for item in order.lineitems.all %}
-                        <div class="row mb-2">
-                            <div class="col-4">
-                                <a href="{% url 'product_detail' item.product.id %}">
-                                    {% if item.product.image %}
-                                        <img src="{{ item.product.image.url }}" alt="{{ product.name }}">
-                                    {% else %}
-                                        <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                                    {% endif %}
-                                </a>
+                            <div class="row mb-2">
+                                <div class="col-4">
+                                    <a href="{% url 'product_detail' item.product.id %}">
+                                        {% if item.product.image %}
+                                            <img src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                                        {% else %}
+                                            <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                        {% endif %}
+                                    </a>
+                                </div>
+                                <div class="col-8">
+                                    <p class="my-0 small">
+                                        {{ item.product.name }}{% if item.product_size %} 
+                                        - Size {{ item.product_size|upper }}{% endif %}
+                                    </p>
+                                    <p class="my-0 small text-muted">
+                                        {{ item.quantity }} @ ${{ item.product.price }} each
+                                    </p>
+                                </div>
                             </div>
-                            <div class="col-8">
-                                <p class="my-0 small">{{ item.product.name }}{% if item.product_size %} - Size {{ item.product_size|upper }}{% endif %}</p>
-                                <p class="my-0 small text-muted">{{ item.quantity }} @ ${{ item.product.price }} each</p>
-                            </div>
-                        </div>
                         {% endfor %}
                         <hr>
-
+                        <!-- Delivery Info : Name, Address, Phone -->
                         <div class="row">
                             <div class="col">
                                 <p class="fw-bold mt-2"><small>Delivering To:</small></p>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col-4">
                                 <p class="mb-0"><small>Name</small></p>
@@ -86,7 +94,6 @@
                                 <p class="mb-0"><small>{{ order.full_name }}</small></p>
                             </div>
                         </div>
-    
                         <div class="row">
                             <div class="col-4">
                                 <p class="mb-0"><small>Address 1</small></p>
@@ -95,7 +102,6 @@
                                 <p class="mb-0"><small>{{ order.street_address1 }}</small></p>
                             </div>
                         </div>
-    
                         {% if order.street_address2 %}
                         <div class="row">
                             <div class="col-4">
@@ -114,7 +120,6 @@
                                 <p class="mb-0"><small>{{ order.town_or_city }}</small></p>
                             </div>
                         </div>
-    
                         {% if order.postcode %}
                         <div class="row">
                             <div class="col-4">
@@ -125,7 +130,6 @@
                             </div>
                         </div>
                         {% endif %}
-
                         <div class="row">
                             <div class="col-4">
                                 <p class="mb-0"><small>Country</small></p>
@@ -134,7 +138,6 @@
                                 <p class="mb-0"><small>{{ order.country }}</small></p>
                             </div>
                         </div>
-    
                         <div class="row">
                             <div class="col-4">
                                 <p class="mb-0"><small>Phone Number</small></p>
@@ -144,7 +147,7 @@
                             </div>
                         </div>
                         <hr>
-
+                        <!-- Billing Info  -->
                         <div class="row">
                             <div class="col">
                                 <p class="fw-bold mt-2"><small>Billing Info:</small></p>
@@ -158,7 +161,6 @@
                                 <p class="mb-0"><small>{{ order.order_total }}</small></p>
                             </div>
                         </div>
-    
                         <div class="row">
                             <div class="col-4">
                                 <p class="mb-0"><small>Delivery</small></p>
@@ -167,7 +169,6 @@
                                 <p class="mb-0"><small>{{ order.delivery_cost }}</small></p>
                             </div>
                         </div>
-    
                         <div class="row">
                             <div class="col-4">
                                 <p class="mb-0"><small>Grand Total</small></p>
@@ -179,17 +180,20 @@
                     </div>
                 </div>
             </div>
+            <!-- Buttons to Go Back to Profile or to Browse Products -->
             <div class="row">
                 <div class="col-12 col-lg-7 col-xl-6 mx-auto text-center">
                     {% if from_profile %}
-                        <a href="{% url 'profile' %}" class="btn btn-brown-inverted my-5">
+                        <a href="{% url 'profile' %}" class="btn btn-brown-inverted my-5" 
+                            role="button">
                             <span class="icon mr-2">
                                 <i class="fas fa-angle-left"></i>
                             </span>
                             <span class="text-uppercase">Back to Profile</span>
                         </a>
                     {% else %}
-                        <a href="{% url 'products' %}" class="btn btn-brown my-5">
+                        <a href="{% url 'products' %}" class="btn btn-brown my-5" 
+                            role="button">
                             <span class="icon mr-2">
                                 <i class="fas fa-gifts"></i>
                             </span>
@@ -200,5 +204,4 @@
             </div> 
         </div>
     </section>
-
 {% endblock %}

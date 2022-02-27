@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% block extra_title %} - Edit Product Page{% endblock %}
 
 {% block page_header %}
     <div class="navbar-offset"></div>
@@ -14,9 +15,11 @@
                     <h5 class="mb-4 p-2 fw-bold bg-beige">Edit a Product</h5>
                 </div>
             </div>
+            <!-- Edit Product Form -->
             <div class="row">
                 <div class="col-12 col-md-10 col-lg-8 col-xl-6 mx-auto">
-                    <form method="POST" action="{% url 'edit_product' product.id %}" class="form mb-2" enctype="multipart/form-data">
+                    <form method="POST" action="{% url 'edit_product' product.id %}" 
+                        class="form mb-2" enctype="multipart/form-data">
                         {% csrf_token %}
                         {% for field in form %}
                             {% if field.name != 'image' %}
@@ -26,8 +29,12 @@
                             {% endif %}
                         {% endfor %}
                         <div class="text-center my-5">
-                            <a class="btn btn-beige-inverted" href="{% url 'products' %}">Cancel</a>
-                            <button class="btn btn-beige" type="submit">Update Product</button>
+                            <a class="btn btn-beige-inverted" href="{% url 'products' %}">
+                                Cancel
+                            </a>
+                            <button class="btn btn-beige" type="submit">
+                                Update Product
+                            </button>
                         </div>
                     </form>
                 </div>            

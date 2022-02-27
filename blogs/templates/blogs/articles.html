@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% block extra_title %} - Articles Page{% endblock %}
 
 {% block page_header %}
     <div class="navbar-offset"></div>
@@ -14,6 +15,7 @@
                 </div>
             </div>
             <div class="row mb-5">
+                <!-- Display all articles in cards layout -->
                 {% for blog in blogs %}
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-4 d-flex justify-content-center">
                     <div class="card">
@@ -29,11 +31,16 @@
                         <div class="card-body px-0">
                             <h6 class="card-title fw-bold">{{ blog.title }}</h6>
                             <p class="card-text">{{ blog.paragraph1|truncatechars:40 }}</p>
-                            <a href="{% url 'article_detail' blog.id %}">Read the article <i class="fas fa-arrow-right"></i></a>
+                            <a href="{% url 'article_detail' blog.id %}">Read the article 
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
                 {% endfor %}
+            </div>
+            <div class="d-flex justify-content-center mb-5">
+                <a href="{% url 'home' %}" class="btn bg-salmon" role="button">Back to Homepage</a>
             </div>
         </div>
     </section>

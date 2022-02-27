@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% block extra_title %} - Checkout Page{% endblock %}
 {% load bag_tools %}
 
 {% block extra_css %}
@@ -39,12 +40,19 @@
                             {{ order_form.country | as_crispy_field }}
                             <div class="form-check form-check-inline float-right ps-0 me-0">
                                 {% if user.is_authenticated %}
-                                    <label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
-                                    <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+                                    <label class="form-check-label" for="id-save-info">
+                                        Save this delivery information to my profile
+                                    </label>
+                                    <input class="form-check-input ml-2 mr-0" type="checkbox" 
+                                        id="id-save-info" name="save-info" checked>
                                 {% else %}
                                     <label class="form-check-label" for="id-save-info">
-                                        <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
-                                        <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+                                        <a class="text-info" href="{% url 'account_signup' %}">
+                                            Create an account
+                                        </a> or 
+                                        <a class="text-info" href="{% url 'account_login' %}">
+                                            login
+                                        </a> to save this information
                                     </label>
                                 {% endif %}
                             </div>
@@ -70,28 +78,37 @@
                                 <p class="mb-1 mt-0 small text-muted">Subtotal</p>
                             </div>
                         </div>
+                        <!-- Display the items -->
                         {% for item in bag_items %}
                             <div class="row mb-2">
                                 <div class="col-3 pe-0">
                                     <a href="{% url 'product_detail' item.product.id %}">
                                         {% if item.product.image %}
-                                            <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                                            <img class="w-100" src="{{ item.product.image.url }}" 
+                                                alt="{{ product.name }}">
                                         {% else %}
-                                            <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                            <img class="w-100" src="{{ MEDIA_URL }}noimage.png" 
+                                                alt="{{ product.name }}">
                                         {% endif %}
                                     </a>
                                 </div>
                                 <div class="col-6">
                                     <p class="my-0 small"><strong>{{ item.product.name }}</strong></p>
-                                    <p class="my-0 small">Size: {% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
+                                    <p class="my-0 small">
+                                        Size: {% if item.product.has_sizes %}{{ item.size|upper }}
+                                        {% else %}N/A{% endif %}
+                                    </p>
                                     <p class="my-0 small">Qty: {{ item.quantity }}</p>
                                 </div>
                                 <div class="col-3 text-right">
-                                    <p class="my-0 small">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                                    <p class="my-0 small">
+                                        €{{ item.product.price | calc_subtotal:item.quantity }}
+                                    </p>
                                 </div>
                             </div>
                         {% endfor %}
                         <hr class="my-3">
+                        <!-- Grand Total calculation -->
                         <div class="row text-black text-right">
                             <div class="col-7 offset-2">
                                 <p class="my-0">Order Total:</p>
@@ -104,7 +121,7 @@
                                 <p class="my-0"><strong>€{{ grand_total | floatformat:2 }}</strong></p>
                             </div>
                         </div>
-
+                        <!-- Buttons to Go Back to Bag Page or to Complete The Order -->
                         <div class="submit-button mt-5 justify-content-end d-flex flex-column flex-sm-row ">                    
                             <a href="{% url 'view_bag' %}" class="btn btn-brown-inverted mb-2 mb-sm-0 me-sm-2">
                                 <span class="icon">
@@ -119,19 +136,22 @@
                                 </span>
                             </button>
                         </div>
+                        <!-- Billing charge info for users -->
                         <div>
                             <p class="small text-danger text-end mb-2 my-0">
                                 <span class="icon">
                                     <i class="fas fa-exclamation-circle"></i>
                                 </span>
-                                <span>Your card will be charged <strong>€{{ grand_total|floatformat:2 }}</strong></span>
+                                <span>Your card will be charged 
+                                    <strong>€{{ grand_total|floatformat:2 }}</strong>
+                                </span>
                             </p>
                         </div>
                     </div>
-                    
                 </div>
             </div>
         </div>
+        <!-- Spinner (after clicking Complete Order button)-->
         <div id="loading-overlay">
             <h1 class="text-light loading-spinner">
                 <span class="icon"><i class="fas fa-3x fa-sync-alt fa-spin"></i></span>

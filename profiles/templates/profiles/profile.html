@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% block extra_title %} - Profile Page{% endblock %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
@@ -19,6 +20,7 @@
             </div>
             <div>
                 <p><strong>Hello, {{ profile }}.</strong></p>
+                <!-- Pills Nav -->
                 <ul class="nav nav-pills nav-justified mt-2 mb-4 mb-sm-5" id="profile-pills">
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="pill" href="#information">
@@ -40,8 +42,9 @@
                     </li>
                 </ul>
                   
-                <!-- Tab panes -->
+                <!-- Pills Content -->
                 <div class="tab-content">
+                    <!-- My Information -->
                     <div class="tab-pane container" id="information">
                         <p class="mb-4 mb-sm-5">Update your delivery information.</p>
                         <div class="row">
@@ -57,6 +60,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- My Purchases -->
                     <div class="tab-pane container fade" id="purchases">
                         <div class="row mb-5">
                             <div class="col-12 px-0">
@@ -105,10 +109,14 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Ratings/ Reviews -->
                     <div class="tab-pane container fade" id="reviews">
                         <div class="row">
                             <div class="col-12 mx-auto">
-                                <p class="mb-4">How do you find the items? Help other people to make decisions to buy the products by giving reviews below!</p>
+                                <p class="mb-4">
+                                    How do you find the items? Help other people to make decisions 
+                                    to buy the products by giving reviews below!
+                                </p>
                                 <div class="row mb-5">
                                     <!-- Display products that have been purchased by user, but not yet reviewed -->
                                     {% for order in orders %}
@@ -117,7 +125,8 @@
                                                 <div class="col-12 col-lg-6">
                                                     <div class="row g-0 my-3 item-to-be-reviewed">
                                                         <div class="col-7 pe-2">
-                                                            <a href="{% url 'product_detail' item.product.id %}" class="d-flex justify-content-center">
+                                                            <a href="{% url 'product_detail' item.product.id %}" 
+                                                                class="d-flex justify-content-center">
                                                                 {% if item.product.image %}
                                                                     <img src="{{ item.product.image.url }}" alt="{{ product.name }}">
                                                                 {% else %}
@@ -127,8 +136,12 @@
                                                         </div>
                                                         <div class="col-5 d-flex flex-column justify-content-center">
                                                             <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                                                            <p class="my-0">{% if item.product_size %}Size {{ item.product_size|upper }}{% endif %}</p>
-                                                            <a href="{% url 'add_review' item.product.id %}" class="btn btn-beige mt-3"><small><i class="fas fa-pen-alt"></i> Give Review</small></a>
+                                                            <p class="my-0">
+                                                                {% if item.product_size %}Size {{ item.product_size|upper }}{% endif %}
+                                                            </p>
+                                                            <a href="{% url 'add_review' item.product.id %}" class="btn btn-beige mt-3">
+                                                                <small><i class="fas fa-pen-alt"></i> Give Review</small>
+                                                            </a>
                                                         </div>
                                                     </div>
                                                 </div>

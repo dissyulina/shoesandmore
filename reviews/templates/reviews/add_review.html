@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% block extra_title %} - Add Review Page{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'reviews/css/reviews.css' %}">
@@ -18,6 +19,7 @@
                 </div>
             </div>
             <div class="row mb-5">
+                <!-- Product image -->
                 <div class="col-12 col-md-6 col-xl-4 offset-xl-2">
                     <a href="{% url 'product_detail' product.id %}" class="d-flex justify-content-center">
                         {% if product.image %}
@@ -27,6 +29,7 @@
                         {% endif %}
                     </a>
                 </div>
+                <!-- Add Review Form -->
                 <div class="col-12 col-md-6 col-xl-4 pt-4 pt-md-0">
                     <form method="POST" action="{% url 'add_review' product.id %}" class="d-flex flex-column justify-content-center">
                         {% csrf_token %}
