@@ -1,6 +1,6 @@
 from django.test import TestCase, Client
 from django.urls import reverse
-from .models import Contact
+
 
 class TestContactViews(TestCase):
 
@@ -23,7 +23,7 @@ class TestContactViews(TestCase):
         self.assertTemplateUsed(response, 'contact/contact.html')
 
     def test_can_send_contact_form(self):
-        """ 
+        """
         Check if the form is sent successfully
         and if it redirects back to contact page
         """

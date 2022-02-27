@@ -194,7 +194,7 @@
         $('.quantity-update').on('change', function(e) {
             $(this).closest('.update-form').submit();
             console.log($(this).closest('.update-form').attr('id'));
-        })
+        });
 
         // Remove item and reload on click
         $('.remove-item').click(function(e) {
@@ -208,6 +208,6 @@
             .done(function() {
                 location.reload();
             });
-        })
+        });
     </script>
 {% endblock %}

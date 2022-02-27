@@ -6,7 +6,11 @@ from products.models import Product
 class Favorites(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     products = models.ManyToManyField(
-        Product, default="", through='FavoritesItem', through_fields=('favorites', 'product'))
+        Product,
+        default="",
+        through='FavoritesItem',
+        through_fields=('favorites', 'product')
+    )
 
     def __str__(self):
         return f'Favorites ({self.user})'

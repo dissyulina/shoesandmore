@@ -10,14 +10,5 @@ class ReviewForm(forms.ModelForm):
         model = Review
         fields = ('rating', 'review_text')
 
-
     def __init__(self, *args, **kwargs):
-        """
-        Add placeholders and classes, set autofocus on review field
-        """
         super().__init__(*args, **kwargs)
-        placeholders = {
-            'review_text': 'Write your review here',
-        }
-
-

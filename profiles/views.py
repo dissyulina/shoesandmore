@@ -16,13 +16,15 @@ def profile(request):
     """ Display the user's profile. """
 
     profile = get_object_or_404(UserProfile, user=request.user)
-    reviews = Review.objects.filter(user=profile).values_list('product__id', flat=True)
+    reviews = Review.objects.filter(user=profile).values_list(
+        'product__id', flat=True)
 
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
-            messages.add_message(request, SUCCESS_NO_BAG, 'Profile updated successfully')
+            messages.add_message(request, SUCCESS_NO_BAG,
+                                 'Profile updated successfully')
 
     form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
@@ -33,7 +35,6 @@ def profile(request):
         'form': form,
         'orders': orders,
         'reviews': reviews,
-        #'toast_without_bag': True,
     }
 
     return render(request, template, context)

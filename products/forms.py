@@ -19,19 +19,26 @@ class ProductForm(forms.ModelForm):
         }
         help_texts = {
             'has_sizes': _('Choose YES for shoes and NO for accessories'),
-            'rating': _('Input rating from the manufacturer based on the quality. Default is 3.'),
+            'rating': _(
+                'Please input rating from the manufacturer. The default is 3.'
+            ),
         }
 
-    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
-    
+    image = forms.ImageField(label='Image', required=False,
+                             widget=CustomClearableFileInput)
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         categories = Category.objects.all()
-        friendly_names_cat = [(c.id, c.get_friendly_name()) for c in categories]
-        
+        friendly_names_cat = [
+            (c.id, c.get_friendly_name()) for c in categories
+        ]
+
         subcategories = Subcategory.objects.all()
-        friendly_names_sub = [(s.id, s.get_friendly_name()) for s in subcategories]
+        friendly_names_sub = [
+            (s.id, s.get_friendly_name()) for s in subcategories
+        ]
 
         self.fields['category'].choices = friendly_names_cat
         self.fields['subcategory'].choices = friendly_names_sub

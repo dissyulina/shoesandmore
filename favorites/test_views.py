@@ -63,12 +63,14 @@ class TestAddToFavoritesViews(TestCase):
         login = self.client.login(username=self.test_user.username,
                                   password='pswd123')
         self.assertTrue(login)
-    
+
     def test_can_add_to_favorites(self):
         """ Test if a product can be added successfully """
         login = self.client.login(username=self.test_user.username,
                                   password='pswd123')
-        response = self.client.get(f'/favorites/add_to_favorites/{self.product.id}/')
+        response = self.client.get(
+            f'/favorites/add_to_favorites/{self.product.id}/'
+            )
         existing_items = FavoritesItem.objects.filter(product=self.product.id)
         self.assertTrue(login)
         self.assertEqual(response.status_code, 302)
@@ -102,15 +104,3 @@ class TestRemoveFromFavoritesViews(TestCase):
         login = self.client.login(username=self.test_user.username,
                                   password='pswd123')
         self.assertTrue(login)
-
-    """
-    def test_can_remove_from_favorites(self):
-         Test if a product can be removed successfully 
-        login = self.client.login(username=self.test_user.username,
-                                  password='pswd123')
-        response = self.client.get(f'/favorites/remove_from_favorites/{self.product.id}/')
-        existing_items = FavoritesItem.objects.filter(product=self.product.id)
-        self.assertTrue(login)
-        #self.assertEqual(response.status_code, 302)
-        self.assertEqual(len(existing_items), 0)
-    """

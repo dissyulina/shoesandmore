@@ -16,7 +16,7 @@ class ReviewAdmin(admin.ModelAdmin):
         'review_text',
     )
 
-    ordering = ( '-product', '-date')
+    ordering = ('-product', '-date')
     list_filter = ('rating',)
 
 

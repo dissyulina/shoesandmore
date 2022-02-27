@@ -2,7 +2,7 @@
 let countrySelected = $('#id_default_country').val();
 if(!countrySelected) {
     $('#id_default_country').css('color', '#aab7c4');
-};
+}
 $('#id_default_country').change(function() {
     countrySelected = $(this).val();
     if(!countrySelected) {
@@ -16,7 +16,7 @@ $('#id_default_country').change(function() {
 $(document).ready(function(){
     let itemToBeReviewed = $('.item-to-be-reviewed').length;
     if (itemToBeReviewed === 0) {
-        $('#reviews').html("<p>No items to be reviewed.</p>")
+        $('#reviews').html("<p>No items to be reviewed.</p>");
     }
 });
 
@@ -30,7 +30,6 @@ $(document).ready(function(){
     if (activePill) {
         $('#profile-pills a[href="' + activePill + '"]').addClass("active");
         let activeContent = activePill.substring(1);
-        console.log(activeContent)
         $('#' + activeContent).addClass("show active");
     } else {
         $('#profile-pills a[href="#information"]').addClass("active");

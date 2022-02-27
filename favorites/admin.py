@@ -7,7 +7,7 @@ class ProductInline(admin.StackedInline):
 
 
 class FavoritesAdmin(admin.ModelAdmin):
-    inlines = [ProductInline,]
+    inlines = [ProductInline, ]
 
 
 admin.site.register(Favorites, FavoritesAdmin)

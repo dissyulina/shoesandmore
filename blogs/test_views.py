@@ -29,17 +29,19 @@ class TestIndividualArticleViews(TestCase):
 
     def setUp(self):
         self.client = Client()
+        self.user = User.objects.create(username='user',
+                                        email="user@mail.com",
+                                        password="pswd123")
+        self.blog = Blog.objects.create(author=self.user,
+                                        title='Test',
+                                        paragraph1='Blog example')
 
     def test_url_response(self):
         """ Test URL response success """
-        user = User.objects.create(username='user', email="user@mail.com", password="pswd123")
-        blog = Blog.objects.create(author=user, title='Test', paragraph1='Blog example')
-        response = self.client.get(f'/blogs/{blog.id}')
+        response = self.client.get(f'/blogs/{self.blog.id}')
         self.assertEqual(response.status_code, 200)
 
     def test_view_uses_correct_template(self):
         """ Test using correct template """
-        user = User.objects.create(username='user', email="user@mail.com", password="pswd123")
-        blog = Blog.objects.create(author=user, title='Test', paragraph1='Blog example')
-        response = self.client.get(f'/blogs/{blog.id}')
+        response = self.client.get(f'/blogs/{self.blog.id}')
         self.assertTemplateUsed(response, 'blogs/article.html')

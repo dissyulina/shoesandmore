@@ -5,7 +5,6 @@ from django.urls import reverse
 
 from products.models import Product
 from profiles.models import UserProfile
-from checkout.models import Order, OrderLineItem
 
 from .models import Review
 from .forms import ReviewForm
@@ -20,12 +19,16 @@ def add_review(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
     user = get_object_or_404(UserProfile, user=request.user)
-    total_product_reviews = Review.objects.filter(product=product.id).count() + 1
+    total_product_reviews = Review.objects.filter(
+        product=product.id).count() + 1
 
     # If user already submitted review for this product
     review = Review.objects.filter(product=product).filter(user=user)
     if review:
-        messages.error(request, "You've already added a review for this item. You can edit your review")
+        messages.error(
+            request,
+            "You've already added a review for this item"
+        )
         return redirect(reverse('product_detail', args=[product.id]))
 
     # Submit rating and review
@@ -43,10 +46,18 @@ def add_review(request, product_id):
             review.product = product
             form.save()
 
-            messages.add_message(request, SUCCESS_NO_BAG, f'Thank you for giving a review to {product.name}!')
-            
+            messages.add_message(
+                request,
+                SUCCESS_NO_BAG,
+                f'Thank you for giving a review to {product.name}!'
+            )
+
             # Update rating field on product table
-            product.rating = (((product.rating * total_product_reviews) + review.rating) / (total_product_reviews + 1))
+            product.rating = (
+                ((product.rating * total_product_reviews) + review.rating) / (
+                    total_product_reviews + 1
+                )
+            )
             product.save()
 
             context = {
@@ -78,8 +89,9 @@ def edit_review(request, review_id):
     user = get_object_or_404(UserProfile, user=request.user)
     product = review.product
     edited_rating = review.rating
-    total_product_reviews = Review.objects.filter(product=product.id).count() + 1
-    
+    total_product_reviews = Review.objects.filter(
+        product=product.id).count() + 1
+
     # Check if user authenticated to edit the review
     if user.id != review.user.id:
         messages.error(request, 'You can only edit your own review')
@@ -90,17 +102,25 @@ def edit_review(request, review_id):
         form = ReviewForm(request.POST, instance=review)
         if form.is_valid():
             # Update rating field on product table
-            product.rating = ((product.rating * total_product_reviews) - edited_rating + review.rating) / total_product_reviews
+            product.rating = (
+                ((product.rating * total_product_reviews) - edited_rating + (
+                    review.rating)) / (total_product_reviews)
+            )
             product.save()
-            
-            form.save()
-            messages.add_message(request, SUCCESS_NO_BAG, f'Your review for {review.product.name} is edited successfully')
 
-            return redirect(reverse('product_detail', args=[review.product.id]))
-        
+            form.save()
+            messages.add_message(
+                request,
+                SUCCESS_NO_BAG,
+                f'Your review for {review.product.name} is edited successfully'
+            )
+
+            return redirect(reverse('product_detail',
+                                    args=[review.product.id]))
+
     else:
         form = ReviewForm(instance=review)
-    
+
     context = {
         'form': form,
         'review': review,
@@ -119,7 +139,8 @@ def delete_review(request, review_id):
     user = get_object_or_404(UserProfile, user=request.user)
     product = review.product
     deleted_rating = review.rating
-    total_product_reviews = Review.objects.filter(product=product.id).count() + 1
+    total_product_reviews = Review.objects.filter(
+        product=product.id).count() + 1
 
     # Check if authenticated user created review being deleted
     if user.id != review.user.id:
@@ -127,10 +148,18 @@ def delete_review(request, review_id):
         return render(request, 'home/index.html')
 
     # Update rating field on product table
-    product.rating = (((product.rating * total_product_reviews) - deleted_rating) / (total_product_reviews - 1))
+    product.rating = (
+        ((product.rating * total_product_reviews) - deleted_rating) / (
+            total_product_reviews - 1
+        )
+    )
     product.save()
 
     review.delete()
 
-    messages.add_message(request, SUCCESS_NO_BAG, 'Review successfully deleted!')
+    messages.add_message(
+        request,
+        SUCCESS_NO_BAG,
+        'Review successfully deleted!'
+    )
     return redirect(reverse('product_detail', args=[review.product.id]))
