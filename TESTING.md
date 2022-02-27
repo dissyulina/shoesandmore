@@ -220,16 +220,26 @@ To check the responsiveness of the website across all devices, the developer too
 **Result**: 
 
 #### **Links**   
-The links were tested to ensure that:  
-- All navigation links are linking correctly.  
-- All buttons on the forms are working (to cancel or to submit the form).  
+All links and buttons were tested to ensure that:  
+- All navigation links are linking correctly and working as expected.    
 - The social media buttons are working and opening in a new tab.  
+**Result**: All of the links and buttons are working properly.  
+![Links manual testing](readme-testing-files/testing/links-test.png "Links manual testing")   
 
-**Result**: All of the above are working properly.  
+
 
 #### **Forms**  
 The form was also tested to ensure that:  
+- For a few forms such as Edit Review, Edit Product, Checkout, and User Profile Information form, the fields are automatically filled out/prepopulated with the existing data (if the data is available). 
 - The required attributes are working.  
-- The regex patterns for username and password are working.  
 - There's a validation message that explains the correct format if the user filled in the wrong format (for username and password).  
-- If a user fills out the wrong format, it won't break the website. For example, if I fill in letters in the "Servings" or "Prep + Cooking Time" field, it won't cause any error to the website.  
+- Submit and Cancel/ Back button work as expected.  
+- Data get saved into the database.  
+- Toast message informs feedback after submitting the form.  
+**Result**: All of the links and buttons are working properly.   
+![Forms manual testing](readme-testing-files/testing/forms-test.png"Forms manual testing")  
+
+
+
+#### **Defensive (Security) Testing**  
+The defensive testing was done to make sure certain actions can only be performed by authorized users/admin. The test was done as below:
