@@ -137,15 +137,15 @@
                                             name="product_size" id='id_product_size' required>
                                             <option value="" disabled selected>Choose a size</option>
                                             {% if product.category.name == 'women' %}
-                                                {% for size in sizes_women %}:
+                                                {% for size in sizes_women %}
                                                 <option value="{{ size }}">{{ size }}</option>
                                                 {% endfor %}
                                             {% elif product.category.name == 'men' %}
-                                                {% for size in sizes_men %}:
+                                                {% for size in sizes_men %}
                                                     <option value="{{ size }}">{{ size }}</option>
                                                 {% endfor %}
                                             {% else %}
-                                                {% for size in sizes_kids %}:
+                                                {% for size in sizes_kids %}
                                                     <option value="{{ size }}">{{ size }}</option>
                                                 {% endfor %}
                                             {% endif %}
@@ -193,7 +193,7 @@
                 <div class="row justify-content-center">
                     <div class="col-12 col-lg-10 text-start">
                         {% if reviews %}
-                            <h6 class="mt-2 fw-bold">Reviews for {{ product.name }}</h6>
+                            <h5 class="mt-2 fw-bold">Reviews for {{ product.name }}</h5>
                         {% else %}
                             <p class="mt-2">
                                 There's no reviews for {{ product.name }} at the moment.
@@ -267,7 +267,7 @@
                                         </a>
                                         <!-- Confirmation modal before deleting the review -->
                                         <div class="modal fade" tabindex="-1" id="review-{{ review.id }}" 
-                                            aria-labelledby="modal-delete-{{ review.id }}" aria-hidden="true">
+                                            aria-labelledby="review-{{ review.id }}" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered">
                                                 <div class="modal-content">
                                                     <div class="modal-header bg-beige border-0">

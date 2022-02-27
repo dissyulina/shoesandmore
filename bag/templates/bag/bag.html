@@ -50,13 +50,13 @@
                                         </p>
                                         <!-- Update quantity selection, on small until large devices -->
                                         <div class="d-block d-sm-none">
-                                            <form class="form update-form" id="{{ item.item_id }}" method="POST" 
+                                            <form class="form update-form" id="desktop-{{ item.item_id }}" method="POST" 
                                                 action="{% url 'adjust_bag' item.item_id %}">
                                                 {% csrf_token %}
                                                 <div class="w-75">
                                                     <div class="input-group">
                                                         <select class="form-control form-select quantity-update" 
-                                                            name="quantity" value="{{ item.quantity }}">
+                                                            name="quantity">
                                                             {% for qty in range_quantity %}
                                                                 {% if qty == item.quantity %}
                                                                     <option value="{{ qty }}" selected>{{ qty }}</option>
@@ -75,13 +75,13 @@
                                     </td>
                                     <!-- Update quantity selection on mobile and very small devices-->
                                     <td class="py-3 d-none d-sm-block">
-                                        <form class="form update-form" id="{{ item.item_id }}" method="POST" 
+                                        <form class="form update-form" id="mobile-{{ item.item_id }}" method="POST" 
                                             action="{% url 'adjust_bag' item.item_id %}">
                                             {% csrf_token %}
                                             <div class="w-100">
                                                 <div class="input-group">
                                                     <select class="form-control form-select quantity-update" 
-                                                        name="quantity" value="{{ item.quantity }}">
+                                                        name="quantity">
                                                         {% for qty in range_quantity %}
                                                             {% if qty == item.quantity %}
                                                                 <option value="{{ qty }}" selected>{{ qty }}</option>

@@ -54,7 +54,7 @@
                 <div class="col-12 col-md-6 p-0">
                     <div class="bg-salmon h-100 px-3 px-lg-4 py-5 text-center d-flex 
                         flex-column justify-content-center align-items-center">
-                        <h2 class="mt-3 mb-5 text-headings">Sneakers Collection</h2>
+                        <h2 class="mt-3 mb-5 text-headings fs-1">Sneakers Collection</h2>
                         <p class="mb-5">Keep things comfy and trendy with sneakers.</p>
                         <a href="{% url 'products' %}?subcategory=sneakers" 
                             class="btn btn-beige btn-home mb-3">
@@ -165,7 +165,7 @@
                     <div class="col-6 d-flex flex-column justify-content-center 
                         align-items-center">
                         <div class="text-center text-white pe-3">
-                            <h1 class="text-headings text-uppercase">Final Sale</h1>
+                            <h2 class="text-headings text-uppercase fs-1">Final Sale</h2>
                             <p>Up to 60% discount</p>
                             <a href="{% url 'products' %}?subcategory=sale" 
                                 class="btn btn-beige btn-home">Shop Now
@@ -183,7 +183,7 @@
                 <div class="overlay px-3 d-flex flex-column 
                     justify-content-center align-items-center">
                     <div class="text-center text-white">
-                        <h1 class="text-headings text-uppercase">Bags & Accessories</h1>
+                        <h2 class="text-headings text-uppercase fs-1">Bags & Accessories</h2>
                         <p>Complete your style with our bags and accessories collection.</p>
                         <a href="{% url 'products' %}?subcategory=accessories" 
                             class="btn btn-beige btn-home">
@@ -198,7 +198,7 @@
     <section>
         <div class="bg-light-rose text-center mt-5 py-5">
             <div class="container">
-                <h1 class="text-headings text-uppercase">Articles and Blogs</h1>
+                <h2 class="text-headings text-uppercase">Articles and Blogs</h2>
                 <div class="row">
                     {% for blog in blogs %}
                     <div class="col-12 col-md-4 mt-5 d-flex justify-content-center">

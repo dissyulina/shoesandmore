@@ -61,18 +61,18 @@
                                         {% if product.has_sizes %}
                                             <div class="col-12">
                                                 <select class="form-control form-select rounded-0 w-100" 
-                                                    name="product_size" id='id_product_size' required>
+                                                    name="product_size" id="product_size_{{ product.id }}" required>
                                                     <option value="" disabled selected>Choose a size</option>
                                                     {% if product.category.name == 'women' %}
-                                                        {% for size in sizes_women %}:
+                                                        {% for size in sizes_women %}
                                                         <option value="{{ size }}">{{ size }}</option>
                                                         {% endfor %}
                                                     {% elif product.category.name == 'men' %}
-                                                        {% for size in sizes_men %}:
+                                                        {% for size in sizes_men %}
                                                             <option value="{{ size }}">{{ size }}</option>
                                                         {% endfor %}
                                                     {% else %}
-                                                        {% for size in sizes_kids %}:
+                                                        {% for size in sizes_kids %}
                                                             <option value="{{ size }}">{{ size }}</option>
                                                         {% endfor %}
                                                     {% endif %}
