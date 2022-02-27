@@ -38,7 +38,7 @@ The website was extensively tested during the development and after development 
 The testings are documented below.
 
 
-### **1. User Stories Testing**  
+## **1. User Stories Testing**  
 As a shopper I want to be able to:
 
 1. *Quickly identify what products/services the site sells.*   
@@ -198,16 +198,16 @@ As an admin and store management, I want to be able to:
 
 <br/>  
 
-### **2. Auto Prefixer CSS**   
+## **2. Auto Prefixer CSS**   
 [Autoprefixer CSS](https://autoprefixer.github.io/) was used to add CSS vendor prefixes to the CSS rules after the developing process was done, to ensure that the they work across all browsers.  
 
 <br/>  
 
-### **3. Manual Testing by The Developer**  
-#### **Browsers Compatibility**   
+## **3. Manual Testing by The Developer**  
+### **Browsers Compatibility**   
 The website was tested through the following browsers: Google Chrome, Microsoft Edge, Opera, Mozilla Firefox, and Safari (iOS) browsers.  
 
-#### **Devices**  
+### **Devices**  
 The website was also viewed on the following devices:  
 - Windows Desktop  
 - Windows Laptop  
@@ -215,20 +215,21 @@ The website was also viewed on the following devices:
 - Mobile: iPhone7, iPhone 8, iPhone 12 Mini, Asus Zenfone Max Pro M2, and LG G5
 - Friends and family members were asked to review the site on their devices and to point out any bugs and/or user experience issues.  
 
-#### **Responsiveness**   
+### **Responsiveness**   
 To check the responsiveness of the website across all devices, the developer tools are used regularly during the developing process. Based on the  
 **Result**: 
 
-#### **Links**   
+### **Links**   
 All links and buttons were tested to ensure that:  
 - All navigation links are linking correctly and working as expected.    
 - The social media buttons are working and opening in a new tab.  
+
 **Result**: All of the links and buttons are working properly.  
 ![Links manual testing](readme-testing-files/testing/links-test.png "Links manual testing")   
 
 
 
-#### **Forms**  
+### **Forms**  
 The form was also tested to ensure that:  
 - For a few forms such as Edit Review, Edit Product, Checkout, and User Profile Information form, the fields are automatically filled out/prepopulated with the existing data (if the data is available). 
 - The required attributes are working.  
@@ -236,10 +237,83 @@ The form was also tested to ensure that:
 - Submit and Cancel/ Back button work as expected.  
 - Data get saved into the database.  
 - Toast message informs feedback after submitting the form.  
+
 **Result**: All of the links and buttons are working properly.   
-![Forms manual testing](readme-testing-files/testing/forms-test.png"Forms manual testing")  
+
+![Forms manual testing](readme-testing-files/testing/forms-test.png "Forms manual testing")  
 
 
-
-#### **Defensive (Security) Testing**  
+### **Defensive Testing**  
 The defensive testing was done to make sure certain actions can only be performed by authorized users/admin. The test was done as below:
+
+
+## **HTML & CSS Validator Testing**  
+I planned to do the HTML & CSS testing useing W3C Validator, but unfortunately on the day that I did this testing (Feb 27th 2022), the W3C was offline the whole day. Due to time constraint (the deadline for this project was Feb 28th 2022), I decided to use another HTML & CSS Validator.  
+
+### HTML   
+[Validator.nu (X)HTML5 Validator](https://html5.validator.nu/) was used to validate the website on the HTML part. These are the errors and warnings I got:   
+![HTML Validator testing](readme-testing-files/testing/html-validator.png "HTML Validator testing")  
+After fixing all the warnings and errors, all pages passed the Validator. Below are the screen capture of the result for every pages.  
+- [Homepage (index.html)](readme-testing-files/testing/html-validator/home.png)   
+- [Products Page (products.html)](readme-testing-files/testing/html-validator/products.png)   
+- [Individual Product Page (product_detail.html)](readme-testing-files/testing/html-validator/individual-product.png)      
+- [Add Product Page (add_product.html)](readme-testing-files/testing/html-validator/add-product.png)   
+- [Edit Product Page (edit_product.html)](readme-testing-files/testing/html-validator/edit-product.png)   
+- [Shopping Bag Page (bag.html)](readme-testing-files/testing/html-validator/shopping-bag.png)   
+- [Checkout Page (checkout.html)](readme-testing-files/testing/html-validator/checkout.png)   
+- [Checkout Success Page (checkout_success.html)](readme-testing-files/testing/html-validator/checkout-success.png)   
+- [Favorites Page (favorites.html)](readme-testing-files/testing/html-validator/favorites.png)   
+- [Profile Page (profile.html)](readme-testing-files/testing/html-validator/profile.png)   
+- [Add Review Page (add_review.html)](readme-testing-files/testing/html-validator/add-review.png)   
+- [Edit Review Page (edit_review.html)](readme-testing-files/testing/html-validator/edit-review.png)   
+- [Articles Page (articles.html)](readme-testing-files/testing/html-validator/articles.png)   
+- [Individual Article Page (article.html)](readme-testing-files/testing/html-validator/individual-article.png)   
+- [Contact Page (contact.html)](readme-testing-files/testing/html-validator/contact.png)   
+- [FAQ Page (faq.html)](readme-testing-files/testing/html-validator/faq.png)   
+
+### CSS   
+
+
+## JavaScript Testing   
+I ran the javascript code through [JSHint](https://jshint.com/), and there were some warnings about missing semicolons - which now have been fixed, and one undefined variable: ```Stripe```. We know that ```Stripe``` is an external variable from the Stripe Payment that we use in the website, so it's not defined inside the JS file.  
+See below the screencapture of the testing result.  
+- [stripe_elements.js](readme-testing-files/testing/js-hint/stripe-elements-js.png)    
+- [products.js](readme-testing-files/testing/js-hint/products-js.png)    
+- [reviews.js](readme-testing-files/testing/js-hint/review-js.png)    
+- [profiles.js](readme-testing-files/testing/js-hint/profiles-js.png)    
+
+<br/>  
+
+## Flake8 and Pep8 Online Testing  
+Using Flake8 python linting on Gitpod, I have fixed almost all problems.  
+
+Still existing problems:
+- On apps.py in checkout app : 
+   Problem: ```'checkout.signals' imported but unused```  
+   Explanation: It is to be imported, but the linting doesn't know that yet and so throws an error, so I decided to ignore this error.  
+- On webhooks.py in checkout app:
+   Problem: ```local variable 'e' is assigned to but never userd```   
+   Explanation: The lint was catching too general exception Exception (broad-except). I decided to ignore this error.
+- On settings.py in project's folder:
+   Problem: ```line too long (91 > 79 characters)```
+   ```
+   AUTH_PASSWORD_VALIDATORS = [
+      {
+         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+      },
+      {
+         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+      },
+      {
+         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+      },
+      {
+         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+      },
+   ] 
+   ```   
+   Explanation: I decided to ignore this problem as the lines couldn't be broken down without breaking the password validation functionality.   
+   
+All other warnings, errors, and problems on Gitpod's flake 8 are resolved.   
+
+To add more validation to the code, I also used [Pep8 Online](http://pep8online.com/checkresult), and all codes passed the PEP8 requirements.  
