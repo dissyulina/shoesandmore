@@ -5,8 +5,8 @@
 
 </br>  
 
-Welcome to Shoes and More website!
-Shoes and More is an e-commerce website that sells shoes and accessories (bags, wallets, etc). It's completed with authentication mechanism and stripe payments to allow users to safely purchased products from the site.  
+Welcome to the Shoes and More website!
+Shoes and More is an e-commerce website that sells shoes and accessories (bags, wallets, etc). It's completed with an authentication mechanism and stripe payments to allow users to safely purchased products from the site.  
 
 Please note that this website was created for the Code Institute’s Milestone Project 4 as part of their Diploma in Full Stack Software Development. The requirements are to make a full-stack website, using HTML, CSS, JavaScript, Django+Python, relational database, stripe payments, and other additional libraries as needed. 
 
@@ -57,7 +57,7 @@ Please note that this website was created for the Code Institute’s Milestone P
 ## **UX DEVELOPMENT PLANE**   
 ### **A. Strategy Plane**  
 #### **Project Goals**   
-The primary goal of this project is to create an e-commerce website that works perfectly, is visually appealing in design, and intuitive for a first time user. It allows user to perform not only the basic functionalities in an e-commerce website (such as sign up/ log in, ability to purchase items and perform payments), but also to ensure that users have a great experience and more interactivity within the site through additional functionalities such as put items into their wishlist, and write reviews, and reading articles.  
+The primary goal of this project is to create an e-commerce website that works perfectly, is visually appealing in design, and intuitive for a first-time user. It allows users to perform not only the basic functionalities in an e-commerce website (such as sign up/login, ability to purchase items, and perform payments), but also to ensure that users have a great experience and more interactivity within the site through additional functionalities such as put items into their wishlist, and write reviews, and reading articles.  
 
 #### **User Goals**  
 The user is looking for:
@@ -1053,7 +1053,8 @@ Create a custom_storages.py file in your project's root directory, and inside it
   * https://github.com/rebeccatraceyt/delphin_lifesavingclub  
   * https://github.com/lemocla/Which-way-is-up  
   * https://github.com/Abibubble/ms4-lead-shot-hazard   
-- The star rating system on Add Review and Edit Review page, adapted from [this article](https://codeconvey.com/feedback-form-in-html/), on how to transform radio button input elements into a star rating system from 1 to 5.  
+- The star rating system on Add Review and Edit Review page, adapted from [this article](https://codeconvey.com/feedback-form-in-html/), on how to transform radio button input elements into a star rating system from 1 to 5. 
+- Inspiration on how to build a favorites models/ app, from this [slack thread](https://app.slack.com/client/T0L30B202/C7HS3U3AP/thread/C7HS3U3AP-1638552936.023600), a conversation between Joe2308 and ckz8780.    
 
 
 ### **B. Images**  
