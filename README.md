@@ -529,6 +529,8 @@ Due to limited resources (time constraints, skill of the developer at the moment
 4. Applying the Load More Products button functionality.   
    For a perfect user experience, it would be better if not all products load altogether the first time, but rather just a number of them. Users will then decide if they want to see more products by clicking a Load More button. This ensures the products page loads faster the first time.  
    I tried to implement this using AJAX, by passing the data from front-end to back-end back and forth. I could apply it, the button worked, but it didn't work with the category and subcategory filters, sorting, and favorites functionality. Due to time constraints and it was still half done, I decided to remove it and will instead implement it in the next development phase.   
+5. Completing the automated testing.  
+   Testing a web application is a complex task, because a web application is made of several layers of logic – from HTTP-level request handling, to form validation and processing, to template rendering. Due to time constraints, I didn't manage to complete all the automated testing in Django. In the next development phase, the automated testing has to be written, to ensure that the testing is already covered "automatically" thus it will save time to test as our site grows.   
 
 <br/>   
 
