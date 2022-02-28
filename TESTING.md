@@ -22,50 +22,50 @@
    - [HTML](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#html)  
    - [CSS](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#css)  
 5. [JavaScript Testing](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#javascript-testing)  
-6. [Pep8 Online Testing](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#flake8-and-pep8-online-testing)  
+6. [Flake8 and Pep8 Testing](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#flake8-and-pep8-online-testing)  
 7. [Lighthouse Testing](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#lighthouse-testing)  
 
 <br/>
 
-The website was extensively tested during the development and after development by using:
-- ```console.log()``` and developer tools for front-end  
-- Printing variables to the terminal for back-end  
-- Manual testing and developing based on the user stories  
-- Automated testing on Django at the end of development phase. 
-- Few other testing using programs 
+The website was extensively tested during the development and after development by using: 
+- ```console.log()``` and developer tools for front-end.   
+- Printing variables to the terminal for back-end.   
+- Manual testing and development based on the user stories.   
+- Automated testing on Django at the end of the development phase.  
+- Few other testing using programs.   
 
-The testings are documented below.
+The testings are documented below.  
 
 
 ## **1. User Stories Testing**  
 ### A. As a shopper I want to be able to:
 
 1. *Quickly identify what products/services the site sells.*   
-   Company logo is visible right at the top-center of the homepage. The company name is straightforward describing what products we sell. On top of that, the hero image is clearly picturing shoes as the main product. As users scrolls down the home page, they will find various navigation using large images of the products.     
+   The company logo is visible right at the top center of the homepage. The company name is straightforward describing what products we sell. On top of that, the hero image is picturing shoes as the main product. As users scroll down the home page, they will find various navigation using large images of the products.     
    ![Landing Page](readme-testing-files/testing/user-stories/home-1.png "Landing Page")  
 
 2. *Quickly identify deals and special offers.*  
-   As users scrolls down the homepage, they will find the Final Sale section. When the 'Shop Now' button is clicked, they will be directed to the products page with all the sale items already filtered.   
+   As users scroll down the homepage, they will find the Final Sale section. When the 'Shop Now' button is clicked, they will be directed to the products page with all the sale items already filtered.   
    ![Sale Banner](readme-testing-files/testing/user-stories/sale.png "Sale Banner")   
 
-3. *Search for a product.*  
-   Users can search for a product right away when they open the website. The search functionality is located at the top-left of screen on desktop, and on right side on mobile. 
+3. *Search for a product.*   
+   Users can search for a product right away when they open the website. The search functionality is located at the top-left of the screen on desktops, and on the right side on mobile.  
    ![Search for Product](readme-testing-files/testing/user-stories/navbar-search.png "Search for Product")  
 
-4. *Identify a glimpse of most populars products.*  
-   Still on the homepage, users will also find 8 most popular (best-sellers) products on the website. They are displayed as a multi-items carousel, and users can navigate to the left and right by clicking the arrows.  
+4. *Identify a glimpse of the most popular products.*   
+   On the homepage, users will also find the 8 most popular (best-sellers) products on the website. They are displayed in a multi-item carousel, and users can navigate to the left and right by clicking the arrows.  
    ![Best Sellers Products](readme-testing-files/testing/user-stories/best-sellers.png "Best Sellers Products")  
 
 5. *View all products, and easily navigate between categories.*  
-   There are 3 main categories in this website - Women, Men, and Kids. When users click on a category, it will display all subcategories within it - Boots, Sneakers, Flats, etc. For desktop, there's a side navigation which will make a great user experience to navigate between the categories and subcategories. On mobile, the side nav is replaced by a dropdown option. Breadcrumb Navigation is available as well to allow users to navigate back to the more general category.  
+   There are 3 main categories on this website - Women, Men, and Kids. When users click on a category, it will display all subcategories within it - Boots, Sneakers, Flats, etc. For desktop, there's side navigation which will make a great user experience to navigate between the categories and subcategories. On mobile, the side nav is replaced by a dropdown option. Breadcrumb Navigation is available as well to allow users to navigate back to the more general category.  
    ![Navigation - desktop](readme-testing-files/testing/user-stories/navigation.png "Navigation - desktop")   
    ![Navigation - mobile](readme-testing-files/testing/user-stories/navigation-mobile.png "Navigation - mobile")  
 
 6. *Sort by price, by rating, and by popularity.*    
-   The sort functionality is positioned on the top-left on the products page.  
+   The sort functionality is positioned on the top left on the products page.  
    ![Sort functionality](readme-testing-files/testing/user-stories/sort.png "Sort functionality")   
 
-7. *View individual product's page and read the relevant information.*  
+7. *View the individual product's page and read the relevant information.*  
    Users can click on the product's image and it will direct them to the Individual Product page where they can find all the relevant information.  
    ![Product's information](readme-testing-files/testing/user-stories/product-info.png "Product's information")   
 
@@ -73,11 +73,11 @@ The testings are documented below.
    On the Individual Product page, users can scroll down and find the review below the product's information.  
    ![Product's reviews](readme-testing-files/testing/user-stories/reviews.png "Product's reviews")   
 
-9. *Easily select size and quantity of the product, and add it to shopping bag.*   
-   Users can easily select the size and quantity, and then click on Add To Bag button to buy it.   
+9. *Easily select the size and the quantity of the product, and add it to the shopping bag.*   
+   Users can easily select the size and quantity and then click on Add To Bag button to buy it.   
    ![Select Size and Quantity](readme-testing-files/testing/user-stories/select-size.png "Select Size and Quantity")  
 
-10. *View the shopping bag with products added in it.*   
+10. *View the shopping bag with products added to it.*   
    If users add a product to the shopping bag, a toast will show up at the top-right corner to inform the user about the shopping bag.  
    ![Shopping Bag Toast](readme-testing-files/readme/toast-success.png "Shopping Bag Toast")  
    Users can also view the Shopping Bag page by clicking the navigation in the Navigation Bar, or by clicking the 'Go To The Shopping Bag' button inside the toast.  
@@ -89,24 +89,24 @@ The testings are documented below.
 
 12. *Checkout and easily enter my payment information.*  
 13. *Feel my personal and payment information is safe and secure.*  
-   By clicking the 'Secure Checkout' button on the Shopping Bag page, users will be directed to the Checkout page. In the payment section, the card payment input is divided into the number, expired date, cvc, and zip code.   
+   By clicking the 'Secure Checkout' button on the Shopping Bag page, users will be directed to the Checkout page. In the payment section, the card payment input is divided into the number, expired date, CVC, and zip code.   
    ![Checkout form](readme-testing-files/testing/user-stories/checkout-information.png "Checkout form")  
 
-14. *View an order confirmation after purchasing.*  
-   After users fill out the checkout form and click on the 'Complete Order' button, they will be directed to a success page where users can see their order information. At the same time they will also get an email order confirmation on their inbox.  
+14. *View an order confirmation after purchasing.*   
+   After users fill out the checkout form and click on the 'Complete Order' button, they will be directed to a success page where users can see their order information. At the same time, they will also get an email order confirmation in their inbox.  
    ![Order confirmation](readme-testing-files/testing/user-stories/order-confirmation.png "Order confirmation")  
 
-15. *Receive an email confirmation after purchasing.*  
-   As mentioned above, users will also get an email confirmation to their inbox everytime they complete an order.   
+15. *Receive an email confirmation after purchase.*   
+   As mentioned above, users will also get an email confirmation in their inbox every time they complete an order.   
    ![Email confirmation](readme-testing-files/testing/user-stories/email.png "Email confirmation")  
 
-16. *Read relevant articles/ blogs about shoes or accessories.*   
-   Users can find the Articles page by clicking the link to the articles on footer, or on the homepage. Users can choose to view an article by clicking one of them.  
+16. *Read relevant articles/ blogs about shoes or accessories.*     
+   Users can find the Articles page by clicking the link to the articles on the footer, or on the homepage. Users can choose to view an article by clicking one of them.  
    ![All articles](readme-testing-files/testing/user-stories/articles.png "All articles")  
    ![Individual article](readme-testing-files/testing/user-stories/individual-article.png "Individual article")  
 
-17. *Easily navigate within the site, through Navigation Bar and Footer.*
-   Navigation Bar and Footer are available on all pages. Navigation bar is fixed on the top of screen, so it will stays on the screen as the users scroll down to provide easy access to navigate throughout the site.   
+17. *Easily navigate within the site, through Navigation Bar and Footer.*   
+   Navigation Bar and Footer are available on all pages. The navigation bar is fixed on the top of the screen, so it will stay on the screen as the users scroll down to provide easy access to navigate throughout the site.   
    Navbar and Footer on desktop:   
    ![Navbar on desktop](readme-testing-files/readme/navbar-desktop.png "Navbar on desktop")   
    ![Footer on desktop](readme-testing-files/readme/footer-desktop.png "Footer on desktop")   
@@ -115,11 +115,11 @@ The testings are documented below.
    ![Footer on mobile](readme-testing-files/testing/user-stories/footer-mobile.png "Footer on mobile")     
 
 18. *Easily register for an account.*   
-   By clicking the 'Sign In' link on the left side of the Navbar on desktop, or clicking the user icon on mobile, users can either register or login to the website. Users then will be directed to the Register / Sign Up page or Log In page.  
+   By clicking the 'Sign In' link on the left side of the Navbar on desktop, or clicking the user icon on mobile, users can either register or login to the website. Users then will be directed to the Register / Sign Up page or Login page.  
    ![Register](readme-testing-files/testing/user-stories/register.png "Register") ![Log In](readme-testing-files/testing/user-stories/login.png "Log In")   
 
-19. *Find FAQ section for my questions.*   
-   Users can find the link to go to the FAQ page in the footer.  
+19. *Find the FAQ section for my questions.*    
+   Users can find the link to go to the FAQ page in the footer.   
    ![FAQ](readme-testing-files/testing/user-stories/faq.png "FAQ")   
 
 20. *Contact the shop via a contact form.*   
@@ -136,7 +136,7 @@ The testings are documented below.
 1. *Access all functionalities that an unregistered shopper can do.*   
    All of the features and functionality above are certainly also available and accessible for registered / logged-in users.   
 
-2. *Easily login or logout.*  
+2. *Easily log in or log out.*  
    Logged-in users can log out by clicking the user icon on the left side of the Navbar.  
    ![Logout link](readme-testing-files/testing/user-stories/logout-link.png "Logout link")      
 
@@ -144,33 +144,33 @@ The testings are documented below.
    On the Log In page, there's an option to change your password below the buttons. When clicked, it will lead the users to the password reset page.   
    ![Password reset](readme-testing-files/testing/user-stories/password-reset.png "Password reset")      
 
-4. *Receive an email confirmation after registering.*  
-   After successfully register to the website, users then will be informed to check on their inbox.  
+4. *Receive an email confirmation after registering.*   
+   After successfully registering to the website, users then will be informed to check their inbox.  
    ![Email verification 1](readme-testing-files/testing/user-stories/email-verify-1.png "Email verification 1")      
    In the user's inbox, an email from Shoes And More is found. Users then will be asked to verify their email by clicking the link provided.  
    ![Email verification 2](readme-testing-files/testing/user-stories/email-verify-2.png "Email verification 2")      
    After the link is clicked, users then will be directed back to the website, and to confirm the email address.   
    ![Email verification 3](readme-testing-files/testing/user-stories/email-verify-3.png "Email verification 3")      
 
-5. *Have a personalized user profile where I can see my order history and change my information.*   
-   By navigating to the My Account in the Navbar (or user icon on mobile), and click on My Profile, users can see their profile page. This page is divided into 3 pills/tabs - My Information, My Purchases, and Ratings/Reviews. User can see/update their delivery information and see their order history by clicking My Information pill and My Purchases pill respectively.  
-   ![Update information](readme-testing-files/testing/user-stories/profile-information.png "Update information")  
-   ![Order history](readme-testing-files/testing/user-stories/profile-orderhistory.png "Order history")   
+5. *Have a personalized user profile where I can see my order history and change my information.*    
+   By navigating to the My Account in the Navbar (or user icon on mobile), and clicking on My Profile, users can see their profile page. This page is divided into 3 pills/tabs - My Information, My Purchases, and Ratings/Reviews. Users can see/update their delivery information and see their order history by clicking the My Information pill and My Purchases pill respectively.   
+   ![Update information](readme-testing-files/testing/user-stories/profile-information.png "Update information")   
+   ![Order history](readme-testing-files/testing/user-stories/profile-orderhistory.png "Order history")    
 
-6. *Review products that I have purchased before.*  
-   User can review the products that they have already purchased before by navigating to the Ratings/Reviews pill on the My Profile page. 
+6. *Review products that I have purchased before.*   
+   Users can review the products that they have already purchased before by navigating to the Ratings/Reviews pill on the My Profile page.  
    ![Products to be reviewed](readme-testing-files/testing/user-stories/profile-reviews.png "Products to be reviewed")   
-   By clicking the Give Review button, users will be directed to the Add Review page.  
+   By clicking the Give Review button, users will be directed to the Add Review page.   
    ![Add review](readme-testing-files/testing/user-stories/add-review.png "Add review")  
 
 7. *Edit and delete my reviews.*  
-   Once users submit a review, they can view the review by navigating to the Individual Product page in the Reviews section. If the user owns the review, there will be two buttons available under the review - Edit button and Delete button.  
+   Once users submit a review, they can view the review by navigating to the Individual Product page in the Reviews section. If the user owns the review, there will be two buttons available under the review - the Edit button and Delete button.  
    ![Review](readme-testing-files/testing/user-stories/review.png "Review")  
 
-   When the Edit button is clicked, the user will be directed to the Edit Review page, which has a similar layout with the Add Review page. The only difference is, on Edit Review, the input rating and review are already pre-populated with the existing review. User can submit the updated review by clicking the 'Submit Review' button.   
+   When the Edit button is clicked, the user will be directed to the Edit Review page, which has a similar layout to the Add Review page. The only difference is, on Edit Review, the input rating and review are already pre-populated with the existing review. Users can submit the updated review by clicking the 'Submit Review' button.   
    ![Edit review](readme-testing-files/testing/user-stories/edit-review.png "Edit review")   
 
-   When the Delete button is clicked, a modal will show up to confirm users if they really want to delete their review. To confirm, click the 'Yes, Delete' button.  
+   When the Delete button is clicked, a modal will show up to confirm users if they really want to delete their review. To confirm, click the 'Yes, Delete button.  
    ![Modal to delete review](readme-testing-files/testing/user-stories/modal-delete-review.png "Modal to delete review")  
 
 8. *Add products to the wishlist, so I can quickly find products I'd like to purchase.*  
@@ -179,24 +179,24 @@ The testings are documented below.
 
 9. *Remove products from the wishlist, so I can remove products I don't wish to purchase.*  
 10. *Easily put the wishlist products into the shopping bag.*   
-   By clicking the Favorites link on the Navbar (heart icon on mobile's Navbar), user can navigate to the Favorites page to view all products the user has added to favorites. Users can remove products from the Favorites by clicking the Trash-can icon on the top-right of each product. Users can also directly add the product to the shopping bag by choosing a size and then click on 'Add to Bag' button.  
+   By clicking the Favorites link on the Navbar (heart icon on mobile's Navbar, the user can navigate to the Favorites page to view all products the user has added to favorites. Users can remove products from the Favorites by clicking the Trash-can icon on the top-right of each product. Users can also directly add the product to the shopping bag by choosing a size and then clicking on the 'Add to Bag' button.   
    ![Favorites](readme-testing-files/testing/user-stories/favorites.png "Favorites")    
 
 
 ### C. As an admin and store management, I want to be able to:
 1. *Add a product.*   
-   Admin can add a product to the website by logging in as admin, navigate to My Account and choose Product Management. Admin then will be directed to the Add Products page. After filling out the form, they can click 'Add Product' button.   
+   Admin can add a product to the website by logging in as admin, navigating to My Account, and choosing Product Management. Admin then will be directed to the Add Products page. After filling out the form, they can click the 'Add Product' button.   
    ![Add product](readme-testing-files/testing/user-stories/add-product.png "Add product")   
 
 2. *Edit or update a product.*   
-   Admin can edit a product by logging in as admin, navigate to the Products page or the Individual Product page and click on Edit link.  
+   Admin can edit a product by logging in as admin, navigating to the Products page or the Individual Product page, and clicking on the Edit link.  
    ![Edit and Delete product](readme-testing-files/testing/user-stories/admin-edit-delete.png "Edit and Delete product")   
 
-   Admin then will be directed to the Edit Products page. After filling out the form, they can click 'Edit Product' button.  
+   Admin then will be directed to the Edit Products page. After filling out the form, they can click the 'Edit Product' button.  
    ![Edit product](readme-testing-files/testing/user-stories/edit-product.png "Edit product")   
 
 3. *Delete a product.*   
-   Admin can delete a product by logging in as admin, navigate to the Products page or the Individual Product page and click on Delete link. A modal will then show up to confirm the deletion. Admin can confirm it by clicking on the 'Yes, Delete' button.  
+   Admin can delete a product by logging in as admin, navigating to the Products page or the Individual Product page, and clicking on the Delete link. A modal will then show up to confirm the deletion. Admin can confirm it by clicking on the 'Yes, Delete button.  
    ![Edit and Delete product](readme-testing-files/readme/delete-product-modal.png "Edit and Delete product")   
 
 
@@ -205,7 +205,7 @@ The testings are documented below.
 <br/>  
 
 ## **2. Auto Prefixer CSS**   
-[Autoprefixer CSS](https://autoprefixer.github.io/) was used to add CSS vendor prefixes to the CSS rules after the developing process was done, to ensure that the they work across all browsers.  
+[Autoprefixer CSS](https://autoprefixer.github.io/) was used to add CSS vendor prefixes to the CSS rules after the developing process was done, to ensure that they work across all browsers.  
 
 <br/>  
 
@@ -240,8 +240,8 @@ The form was also tested to ensure that:
 - For a few forms such as Edit Review, Edit Product, Checkout, and User Profile Information form, the fields are automatically filled out/prepopulated with the existing data (if the data is available). 
 - The required attributes are working.  
 - There's a validation message that explains the correct format if the user filled in the wrong format (for username and password).  
-- Submit and Cancel/ Back button work as expected.  
-- Data get saved into the database.  
+- Submit and Cancel/ Back buttons work as expected.  
+- Datas are saved into the database.  
 - Toast message informs feedback after submitting the form.  
 
 **Result**: All of the links and buttons are working properly.   
@@ -253,7 +253,7 @@ The form was also tested to ensure that:
 <br/>
 
 ## **HTML & CSS Validator Testing**  
-I planned to do the HTML using the W3C Validator, but unfortunately on the day that I did this testing (Feb 27th 2022), the W3C was offline the whole day. Due to time constraint (the deadline for this project was Feb 28th 2022), I decided to use another HTML Validator.  
+I planned to do the HTML using the W3C Validator, but unfortunately on the day that I did this testing (Feb 27th, 2022), the W3C was offline the whole day. Due to time constraints (the deadline for this project was Feb 28th, 2022), I decided to use another HTML Validator.  
 
 ### HTML   
 According to [W3C Wiki](https://www.w3.org/wiki/Validating_your_HTML?TB_iframe=true), [Validator.nu (X)HTML5 Validator](https://html5.validator.nu/) is the recommended validator if using HTML5. I decided to use this as a replacement to the usual W3C Markup Validator, to validate the website on the HTML part. These are the errors and warnings I got:   
@@ -277,8 +277,8 @@ After fixing all the warnings and errors, all pages passed the Validator. Below 
 - [FAQ Page (faq.html)](readme-testing-files/testing/html-validator/faq.png)   
 
 ### CSS   
-Fortunately, [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator) was back online just on time. All css pages passed the validator, with no errors found. However, there were warnings concerning the vendor prefixes added by Autoprefixer CSS. I decided to ignore the warnings because the vendor prefixes are important to ensure that the styling works across different browsers.  
-Here are the result for each css file.  
+Fortunately, [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator) was back online just on time. All CSS pages passed the validator, with no errors found. However, there were warnings concerning the vendor prefixes added by Autoprefixer CSS. I decided to ignore the warnings because the vendor prefixes are important to ensure that the styling works across different browsers.  
+Here is the result for each CSS file.  
 - ```base.css```   
    ![base.css validation](readme-testing-files/testing/css-validator/base-css.png "base.css validation")  
 - ```checkout.css```   
@@ -295,8 +295,8 @@ Here are the result for each css file.
 <br>
 
 ## JavaScript Testing   
-I ran the javascript code through [JSHint](https://jshint.com/), and there were some warnings about missing semicolons - which now have been fixed, and one undefined variable: ```Stripe```. We know that ```Stripe``` is an external variable from the Stripe Payment that we use in the website, so it's not defined inside the JS file.  
-See below the screencapture of the testing result.  
+I ran the javascript code through [JSHint](https://jshint.com/), and there were some warnings about missing semicolons - which now have been fixed, and one undefined variable: ```Stripe```. We know that ```Stripe``` is an external variable from the Stripe Payment that we use on the website, so it's not defined inside the JS file.  
+See below the screen capture of the testing result.  
 - [stripe_elements.js](readme-testing-files/testing/js-hint/stripe-elements-js.png)    
 - [products.js](readme-testing-files/testing/js-hint/products-js.png)    
 - [reviews.js](readme-testing-files/testing/js-hint/review-js.png)    
@@ -304,13 +304,13 @@ See below the screencapture of the testing result.
 
 <br/>  
 
-## Flake8 and Pep8 Online Testing  
+## Flake8 and Pep8-Online Testing  
 Using Flake8 python linting on Gitpod, I have fixed almost all problems.  
 
 Still existing problems:
 - On apps.py in checkout app : 
    Problem: ```'checkout.signals' imported but unused```  
-   Explanation: It is to be imported, but the linting doesn't know that yet and so throws an error, so I decided to ignore this error.  
+   Explanation: It is to be imported, but the linting doesn't know that yet and so throws an error. I decided to ignore this error.  
 - On webhooks.py in checkout app:
    Problem: ```local variable 'e' is assigned to but never userd```   
    Explanation: The lint was catching too general exception Exception (broad-except). I decided to ignore this error.
@@ -360,8 +360,8 @@ FAQ Page | 99 | 88 | 100 | 100
 Add Product Page | 99 | 81 | 100 | 100    
 Edit Product Page | 99 | 82 | 100 | 100  
 
-Improvements taken based on suggestions from Lighthouse:   
-- Add aria-label to button that's using only icon without text.  
-- Add label to form element that didn't have labels yet.  
+I have taken these steps to improve the performance based on the suggestions from Lighthouse:   
+- Add an aria-label to buttons that are using only icons without text.  
+- Add labels to form elements that didn't have labels yet.  
 
 [Back to top &uarr;](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#shoes-and-more---testing)  
