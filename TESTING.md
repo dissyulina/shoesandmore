@@ -7,24 +7,23 @@
 [View the live website here](https://shoes-and-more.herokuapp.com/)  
 
 ## **Table of Contents**  
-1. User Stories Testing  
-   - Unregistered Users' Goals  
-   - Registered Users' Goals  
-   - Administrative Account Holder's Goals  
-2. Autoprefixer CSS  
-3. Manual Testing  
-   - Browsers Compatibility  
-   - Devices  
-   - Responsiveness  
-   - Links  
-   - Forms  
-   - Defensive Testing  
-4. W3C Validator Testing  
-   - HTML  
-   - CSS  
-5. JSHint Testing  
-6. Pep8 Online Testing  
-7. Lighthouse Testing  
+1. [User Stories Testing](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#1-user-stories-testing)  
+   - [Shopper Goals]()  
+   - [Registered User & Shopper Goals]  
+   - [Administrative Account Holder's Goals]  
+2. [Autoprefixer CSS](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#2-auto-prefixer-css)  
+3. [Manual Testing](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#3-manual-testing-by-the-developer)  
+   - [Browsers Compatibility](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#browsers-compatibility)  
+   - [Devices](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#devices)  
+   - [Responsiveness](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#responsiveness)  
+   - [Links](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#links)  
+   - [Forms](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#forms)  
+4. [HTML & CSS Validator Testing](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#html--css-validator-testing)  
+   - [HTML](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#html)  
+   - [CSS](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#css)  
+5. [JavaScript Testing](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#javascript-testing)  
+6. [Pep8 Online Testing](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#flake8-and-pep8-online-testing)  
+7. [Lighthouse Testing](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#lighthouse-testing)  
 
 <br/>
 
@@ -39,7 +38,7 @@ The testings are documented below.
 
 
 ## **1. User Stories Testing**  
-As a shopper I want to be able to:
+### A. As a shopper I want to be able to:
 
 1. *Quickly identify what products/services the site sells.*   
    Company logo is visible right at the top-center of the homepage. The company name is straightforward describing what products we sell. On top of that, the hero image is clearly picturing shoes as the main product. As users scrolls down the home page, they will find various navigation using large images of the products.     
@@ -129,7 +128,7 @@ As a shopper I want to be able to:
 
 <br/>
 
-As a registered user/ shopper, I want to be able to:
+### B. As a registered user/ shopper, I want to be able to:
 1. *Access all functionalities that an unregistered shopper can do.*   
    All of the features and functionality above are certainly also available and accessible for registered / logged-in users.   
 
@@ -180,7 +179,7 @@ As a registered user/ shopper, I want to be able to:
    ![Favorites](readme-testing-files/testing/user-stories/favorites.png "Favorites")    
 
 
-As an admin and store management, I want to be able to:
+### C. As an admin and store management, I want to be able to:
 1. *Add a product.*   
    Admin can add a product to the website by logging in as admin, navigate to My Account and choose Product Management. Admin then will be directed to the Add Products page. After filling out the form, they can click 'Add Product' button.   
    ![Add product](readme-testing-files/testing/user-stories/add-product.png "Add product")   
@@ -242,10 +241,7 @@ The form was also tested to ensure that:
 
 ![Forms manual testing](readme-testing-files/testing/forms-test.png "Forms manual testing")  
 
-
-### **Defensive Testing**  
-The defensive testing was done to make sure certain actions can only be performed by authorized users/admin. The test was done as below:
-
+<br/>
 
 ## **HTML & CSS Validator Testing**  
 I planned to do the HTML using the W3C Validator, but unfortunately on the day that I did this testing (Feb 27th 2022), the W3C was offline the whole day. Due to time constraint (the deadline for this project was Feb 28th 2022), I decided to use another HTML Validator.  
