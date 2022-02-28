@@ -115,6 +115,8 @@ As an admin and store management, I want to be able to:
    2. Edit or update a product.  
    3. Delete a product.  
 
+[Back to top &uarr;](https://github.com/dissyulina/shoesandmore#shoes-and-more)  
+
 <br/>  
 
 ### **B. Scope Plane**  
@@ -168,6 +170,8 @@ There's a clear page access separation between unregistered users and registered
 - Make a favorite list of products.  
 
 Those features mentioned are available for registered users.
+
+[Back to top &uarr;](https://github.com/dissyulina/shoesandmore#shoes-and-more)  
 
 <br/>  
 
@@ -230,6 +234,7 @@ While I relied heavily on these Wireframes in order to maintain the desired desi
 - The color #B2675E was changed to a slightly dark color #A5554C, because it didn't have enough contrast when paired with white text.
 - Minor things like buttons colors and image difference were purely design choices that was taken during with the website development. 
 
+[Back to top &uarr;](https://github.com/dissyulina/shoesandmore#shoes-and-more)  
 
 <br/>  
 
@@ -338,7 +343,10 @@ Database schema was designed using [drawsql](https://drawsql.app/). The database
   - Topic field: the topic of the message, a foreign key from Topic model.
   - Order_number: the order number if the user has it. Filled manually by the user.
   - Message: the message in the form.
-  - Date: the date it was sent.  
+  - Date: the date it was sent.   
+
+
+[Back to top &uarr;](https://github.com/dissyulina/shoesandmore#shoes-and-more)  
 
 <br/>  
 
@@ -505,6 +513,9 @@ While if the user clicks the Delete button, a confirmation modal will pop out to
 - After the admin clicks the Delete button, a confirmation modal will pop out to confirm if they really want to delete it. The modal comes with the product name and image for admin to be sure that it is the right product.  
 ![Confirmation modal before deleting a product](readme-testing-files/readme/delete-product-modal.png "Confirmation modal before deleting a product")   
 
+
+[Back to top &uarr;](https://github.com/dissyulina/shoesandmore#shoes-and-more)  
+
 <br/>  
 
 ### **Features to be implemented in the future**
@@ -523,7 +534,9 @@ Due to limited resources (time constraint, skill of the developer at the moment,
 
 ## **TESTING**  
 
-The testing documentation can be found here.  
+The testing documentation can be found [here](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#shoes-and-more---testing).  
+
+[Back to top &uarr;](https://github.com/dissyulina/shoesandmore#shoes-and-more)  
 
 <br/>
 
@@ -633,6 +646,7 @@ In this way I would have to maintain two variables - the intial product rating, 
    product.rating = ((product.rating * total_product_reviews) - deleted_rating) / (total_product_reviews - 1)
    ```   
 
+
 <br/>  
 
 ## **TECHNOLOGY USED**  
@@ -703,6 +717,9 @@ In this way I would have to maintain two variables - the intial product rating, 
    Tiny JPG and Tiny PNG were used to reduce the file size of the images.   
    * [Coolors](https://coolors.co)  
    Coolors was used to create a cohesive color scheme for the website.   
+
+
+[Back to top &uarr;](https://github.com/dissyulina/shoesandmore#shoes-and-more)  
 
 <br/>  
 
@@ -1023,6 +1040,9 @@ Create a custom_storages.py file in your project's root directory, and inside it
    git push
    ```  
 
+
+[Back to top &uarr;](https://github.com/dissyulina/shoesandmore#shoes-and-more)  
+
 <br/>
 
 
@@ -1082,3 +1102,5 @@ FAQs content was sourced from online shop:
 - Code Institute's Tutor Support, for the quick response and helfpful solutions.  
 - My husband Sandi, for his daily continuous support and for testing the website across our mobile devices.  
 - Slack community, as the first help to ask when I encountered a problem.  
+
+[Back to top &uarr;](https://github.com/dissyulina/shoesandmore#shoes-and-more)  

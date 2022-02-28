@@ -8,9 +8,9 @@
 
 ## **Table of Contents**  
 1. [User Stories Testing](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#1-user-stories-testing)  
-   - [Shopper Goals]()  
-   - [Registered User & Shopper Goals]  
-   - [Administrative Account Holder's Goals]  
+   - [Shopper Goals](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#a-as-a-shopper-i-want-to-be-able-to)  
+   - [Registered User & Shopper Goals](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#b-as-a-registered-user-shopper-i-want-to-be-able-to)  
+   - [Administrative Account Holder's Goals](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#c-as-an-admin-and-store-management-i-want-to-be-able-to)  
 2. [Autoprefixer CSS](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#2-auto-prefixer-css)  
 3. [Manual Testing](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#3-manual-testing-by-the-developer)  
    - [Browsers Compatibility](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#browsers-compatibility)  
@@ -126,6 +126,10 @@ The testings are documented below.
    Users can also find the link to go to contact page in the footer.   
    ![Contact form](readme-testing-files/testing/user-stories/contact-form.png "Contact form")   
 
+
+
+[Back to top &uarr;](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#shoes-and-more---testing)  
+
 <br/>
 
 ### B. As a registered user/ shopper, I want to be able to:
@@ -195,6 +199,9 @@ The testings are documented below.
    Admin can delete a product by logging in as admin, navigate to the Products page or the Individual Product page and click on Delete link. A modal will then show up to confirm the deletion. Admin can confirm it by clicking on the 'Yes, Delete' button.  
    ![Edit and Delete product](readme-testing-files/readme/delete-product-modal.png "Edit and Delete product")   
 
+
+[Back to top &uarr;](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#shoes-and-more---testing)  
+
 <br/>  
 
 ## **2. Auto Prefixer CSS**   
@@ -241,6 +248,8 @@ The form was also tested to ensure that:
 
 ![Forms manual testing](readme-testing-files/testing/forms-test.png "Forms manual testing")  
 
+[Back to top &uarr;](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#shoes-and-more---testing)  
+
 <br/>
 
 ## **HTML & CSS Validator Testing**  
@@ -281,6 +290,7 @@ Here are the result for each css file.
 - ```reviews.css```   
    ![reviews.css validation](readme-testing-files/testing/css-validator/reviews-css.png "reviews.css validation")  
 
+[Back to top &uarr;](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#shoes-and-more---testing)  
 
 <br>
 
@@ -353,3 +363,5 @@ Edit Product Page | 99 | 82 | 100 | 100
 Improvements taken based on suggestions from Lighthouse:   
 - Add aria-label to button that's using only icon without text.  
 - Add label to form element that didn't have labels yet.  
+
+[Back to top &uarr;](https://github.com/dissyulina/shoesandmore/blob/main/TESTING.md#shoes-and-more---testing)  
