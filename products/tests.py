@@ -1,1 +1,0 @@
-# no test for products
