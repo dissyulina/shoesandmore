@@ -216,8 +216,8 @@ The website was also viewed on the following devices:
 - Friends and family members were asked to review the site on their devices and to point out any bugs and/or user experience issues.  
 
 ### **Responsiveness**   
-To check the responsiveness of the website across all devices, the developer tools are used regularly during the developing process. Based on the  
-**Result**: 
+To check the responsiveness of the website across all devices, the developer tools are used regularly during the developing process. The website is still responsive for devices as small as 320px wide.  
+ 
 
 ### **Links**   
 All links and buttons were tested to ensure that:  
@@ -248,10 +248,10 @@ The defensive testing was done to make sure certain actions can only be performe
 
 
 ## **HTML & CSS Validator Testing**  
-I planned to do the HTML & CSS testing useing W3C Validator, but unfortunately on the day that I did this testing (Feb 27th 2022), the W3C was offline the whole day. Due to time constraint (the deadline for this project was Feb 28th 2022), I decided to use another HTML & CSS Validator.  
+I planned to do the HTML using the W3C Validator, but unfortunately on the day that I did this testing (Feb 27th 2022), the W3C was offline the whole day. Due to time constraint (the deadline for this project was Feb 28th 2022), I decided to use another HTML Validator.  
 
 ### HTML   
-[Validator.nu (X)HTML5 Validator](https://html5.validator.nu/) was used to validate the website on the HTML part. These are the errors and warnings I got:   
+According to [W3C Wiki](https://www.w3.org/wiki/Validating_your_HTML?TB_iframe=true), [Validator.nu (X)HTML5 Validator](https://html5.validator.nu/) is the recommended validator if using HTML5. I decided to use this as a replacement to the usual W3C Markup Validator, to validate the website on the HTML part. These are the errors and warnings I got:   
 ![HTML Validator testing](readme-testing-files/testing/html-validator.png "HTML Validator testing")  
 After fixing all the warnings and errors, all pages passed the Validator. Below are the screen capture of the result for every pages.  
 - [Homepage (index.html)](readme-testing-files/testing/html-validator/home.png)   
@@ -272,7 +272,21 @@ After fixing all the warnings and errors, all pages passed the Validator. Below 
 - [FAQ Page (faq.html)](readme-testing-files/testing/html-validator/faq.png)   
 
 ### CSS   
+Fortunately, [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator) was back online just on time. All css pages passed the validator, with no errors found. However, there were warnings concerning the vendor prefixes added by Autoprefixer CSS. I decided to ignore the warnings because the vendor prefixes are important to ensure that the styling works across different browsers.  
+Here are the result for each css file.  
+- ```base.css```   
+   ![base.css validation](readme-testing-files/testing/css-validator/base-css.png "base.css validation")  
+- ```checkout.css```   
+   ![checkout.css validation](readme-testing-files/testing/css-validator/checkout-css.png "checkout.css validation")  
+- ```contact.css```   
+   ![contact.css validation](readme-testing-files/testing/css-validator/contact-css.png "contact.css validation")   
+- ```profiles.css```   
+   ![profiles.css validation](readme-testing-files/testing/css-validator/profile-css.png "profiles.css validation")  
+- ```reviews.css```   
+   ![reviews.css validation](readme-testing-files/testing/css-validator/reviews-css.png "reviews.css validation")  
 
+
+<br>
 
 ## JavaScript Testing   
 I ran the javascript code through [JSHint](https://jshint.com/), and there were some warnings about missing semicolons - which now have been fixed, and one undefined variable: ```Stripe```. We know that ```Stripe``` is an external variable from the Stripe Payment that we use in the website, so it's not defined inside the JS file.  
@@ -317,3 +331,29 @@ Still existing problems:
 All other warnings, errors, and problems on Gitpod's flake 8 are resolved.   
 
 To add more validation to the code, I also used [Pep8 Online](http://pep8online.com/checkresult), and all codes passed the PEP8 requirements.  
+
+<br/>
+
+## **Lighthouse Testing**   
+Page | Performance | Accessibility | Best Practices | SEO  
+---|---|---|---|---
+Home Page | 95 | 87 | 92 | 100   
+Products Page | 86| 91 | 100 | 100   
+Individual Product Page | 98 | 84 | 100 | 100   
+Shopping Bag Page | 97 | 90 | 100 | 90   
+Checkout Page | 91 | 89 | 100 | 100   
+Checkout Success Page | 98 | 91 | 100 | 100   
+Profiles Page | 86 | 91 | 100 | 100   
+Add Review Page | 98 | 89 | 100 | 100   
+Edit Review Page | 98 | 89 | 100 | 100   
+Favorites Page | 95 | 91 | 100 | 100 
+Articles Page | 95 | 89 | 100 | 100    
+Individual Article Page | 98 | 91 | 100 | 100     
+Contact Page | 99 | 88 | 100 | 100   
+FAQ Page | 99 | 88 | 100 | 100    
+Add Product Page | 99 | 81 | 100 | 100    
+Edit Product Page | 99 | 82 | 100 | 100  
+
+Improvements taken based on suggestions from Lighthouse:   
+- Add aria-label to button that's using only icon without text.  
+- Add label to form element that didn't have labels yet.  
