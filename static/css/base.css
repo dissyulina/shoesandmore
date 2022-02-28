@@ -436,7 +436,8 @@ select option[value=""] {
     .nav-link .fa-heart,
     .form-select,
     .form-control, 
-    label {
+    label,
+    .btn {
         font-size: 0.875rem;
     }
     
