@@ -61,7 +61,9 @@
                     <form method="GET" action="{% url 'products' %}">
                         <div class="input-group search-query w-75">
                             <input class="form-control" type="text" name="q" placeholder="Search item">
-                            <button class="button-icon" type="submit"><i class="fas fa-search"></i></button>
+                            <button class="button-icon" type="submit" aria-label="search button">
+                                <i class="fas fa-search"></i>
+                            </button>
                         </div>
                     </form>
                 </div>

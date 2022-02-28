@@ -132,7 +132,7 @@
                                 <!-- Choose size -->
                                 {% if product.has_sizes %}
                                     <div class="col-12">
-                                        <p class="m-0"><strong>Size:</strong></p>
+                                        <label class="m-0" for="product_size"><strong>Size:</strong></label>
                                         <select class="form-control form-select rounded-0 w-50" 
                                             name="product_size" id='id_product_size' required>
                                             <option value="" disabled selected>Choose a size</option>
@@ -167,7 +167,7 @@
                                 <div class="col-12 d-flex flex-column flex-sm-row mt-4 mt-xl-5">
                                     <input type="submit" class="btn btn-brown text-uppercase order-sm-last" 
                                         value="Add to Bag">
-                                    <a href="{% url 'products' %}" 
+                                    <a href="{% url 'products' %}" role="button"
                                         class="btn btn-brown-inverted mt-2 mt-sm-0 me-sm-3">
                                         <span class="icon">
                                             <i class="fas fa-chevron-left"></i>
