@@ -1,7 +1,7 @@
 # **Shoes And More**
 ![Shoes and More website in variouse devices](readme-testing-files/readme/main-image.png "Shoes and More website in variouse devices")  
 
-[View the live website here](https://shoes-and-more.herokuapp.com/)
+[View the live website here](https://shoesandmore.onrender.com)
 
 </br>  
 
